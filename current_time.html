@@ -33,35 +33,32 @@
     </header>
     <div class="main-wrapper">
         <section>
-            現在の時間は
+            <p>現在の時間は</p>
             <div id="DateTimeDisp"></div>
 
             <p id="RealtimeClockArea">※ここに時計が表示されます</p>
-            <div>
                 <script>
                     function set2fig(num) {
                         // 桁数が1桁だったら先頭に0を加えて2桁に調整する
                         var ret;
                         if (num < 10) { ret = "0" + num; }
-                        else { ret + num; }
+                        else { ret = num; }
                         return ret;
                     }
                     function showClock() {
-                        var nowTime = new Date(); //  現在日時を得る
-                        var nowHour = set2fig(nowTime.getHours()); // 時を抜き出す
-                        var nowMin = set2fig(nowTime.getMinutes()); // 分を抜き出す
-                        var nowSec = set2fig(nowTime.getSeconds()); // 秒を抜き出す
-                        var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + "秒です。";
+                        var nowTime = new Date();
+                        var nowHour = set2fig(nowTime.getHours());
+                        var nowMin = set2fig(nowTime.getMinutes());
+                        var nowSec = set2fig(nowTime.getSeconds());
+                        var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + " 秒です。";
                         document.getElementById("RealtimeClockArea").innerHTML = msg;
                     }
                     setInterval('showClock()', 1000);
                 </script>
-            </div>
-
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-            </ul>
-
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                </ul>
+                　　　
         </section>
     </div><!-- /.main-wrapper -->
     <footer>JavaScriptかつまる学習帳</footer>
