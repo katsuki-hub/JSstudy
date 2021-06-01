@@ -22,6 +22,9 @@
                 <li><a href="index.html">ホーム</a></li>
             </ul>
             <h3>更新してランダムで1～5の数を当てよう！</h3>
+            <div>
+                <input id="Button1" type="button" value="リロード" onclick="Button_Click();" />
+            </div>
         </section>
     </div><!-- /.main-wrapper -->
     <footer>JavaScript Samples</footer>
@@ -39,6 +42,10 @@
             message = "0-5の数字をいれてな！";
         }
         window.alert(message);
+
+        function Button_Click() {
+            window.location.reload();
+        }
 
 
     </script>

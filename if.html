@@ -21,17 +21,17 @@
             <ul>
                 <li><a href="index.html">ホーム</a></li>
             </ul>
-            <p>ゲームの進行はコンソールで確認</p>
+            <h3>ゲームの進行を下記で確認</h3>
+            <script>
+                if (window.confirm("ゲームをスタート！準備はいい？")) {
+                    document.write("ゲームを開始します。");
+                } else {
+                    document.write("ゲームを終了します。");
+                }
+            </script>
         </section>
     </div><!-- /.main-wrapper -->
     <footer>JavaScript Samples</footer>
-    <script>
-        if (window.confirm("ゲームをスタート！準備はいい？")) {
-            console.log("ゲームを開始します。");
-        } else {
-            console.log("ゲームを終了します。");
-        }
-    </script>
 </body>
 
 </html>
