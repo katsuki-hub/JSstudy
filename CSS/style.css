@@ -1,27 +1,31 @@
 @charset "UTF-8";
 /* CSS Document */
-body{
+
+body {
 	margin: 0;
 	padding: 0;
 	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 	background-image: url(../images/body-bg.png);
 }
+
 html, body {
 	height: 100%;
 }
-header{
+
+header {
 	width: 100%;
 	background-color: #e9f3f1;
 	background-image: url(../images/header-bg.png);
 	background-position: 50% 50%;
 	background-color: #e9f3f1;
-	border-top:  10px solid;
+	border-top: 10px solid;
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 10;
 }
-.header-contents{
-	box-sizing:border-box;
+
+.header-contents {
+	box-sizing: border-box;
 	max-width: 960px;
 	margin: 0 auto;
 	min-height: 100px;
@@ -29,38 +33,64 @@ header{
 	background-repeat: no-repeat;
 	background-position: 5px 30%;
 }
-.header-contents h1,
-.header-contents h2{
+
+.header-contents h1, .header-contents h2 {
 	margin: 0;
 	color: #fff;
 	line-height: 1;
 }
-.header-contents h1{
+
+.header-contents h1 {
 	padding: 30px 0 10px 300px;
 	font-size: 24px;
 }
-.header-contents h2{
+
+.header-contents h2 {
 	padding: 0 0 0 85px;
 	font-size: 14px;
 	font-weight: normal;
 }
-.main-wrapper{
+
+.main-wrapper {
 	position: relative;
-	box-sizing:border-box;
+	box-sizing: border-box;
 	max-width: 960px;
 	margin: 0 auto;
-	padding:30px 30px;
+	padding: 30px 30px;
 	background-color: #fff;
 	border-left: #dadada 1px solid;
 	border-right: #dadada 1px solid;
 	min-height: 80%;
 	min-height: calc(100% - 200px);
 }
-footer{
-	box-sizing:border-box;
+
+ul {
+	padding: 0;
+	position: relative;
+}
+
+li {
+	line-height: 1.5;
+	padding: 0.5em 0.5em 0.5em 1.7em;
+	list-style-type: none!important;
+	background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%); /*グラデーション*/
+	background: linear-gradient(to bottom, whitesmoke 0%, #dadada 100%); /*グラデーション*/
+	text-shadow: 1px 1px 1px whitesmoke; /*文字を立体的に*/
+	color: black;
+}
+
+ul li::before {
+	content: "♪";
+	position: absolute;
+	left: 0.5em; /*左端からのアイコンまでの距離*/
+	color: red; /*アイコン色*/
+}
+
+footer {
+	box-sizing: border-box;
 	max-width: 960px;
 	margin: 0 auto 10px auto;
-	padding:15px 30px;
+	padding: 15px 30px;
 	background-color: #23628f;
 	border: #dadada 1px solid;
 	border-radius: 0 0 10px 10px;
@@ -68,30 +98,32 @@ footer{
 	font-size: 12px;
 	text-align: right;
 }
-a{
+
+a {
 	color: #5e78c1;
 	text-decoration: none;
 }
-a:hover{
+
+a:hover {
 	color: #b04188;
 	text-decoration: underline;
 }
 
-@media (max-width: 600px){
-	header{
+@media (max-width: 600px) {
+	header {
 		background-position: 32% 50%;
 		border-top: #20567d 5px solid;
 	}
-	.header-contents{
+	.header-contents {
 		min-height: 60px;
 		background-size: 40px 40px;
 		background-position: 10px 50%;
 	}
-	.header-contents h1{
+	.header-contents h1 {
 		padding: 15px 0 5px 55px;
 		font-size: 16px;
 	}
-	.header-contents h2{
+	.header-contents h2 {
 		padding: 0 0 0 55px;
 		font-size: 12px;
 	}
