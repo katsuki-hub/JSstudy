@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>JS-study</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div class="header-contents">
+            <h1>ファンクションを学習</h1>
+            <h2>税込み合計金額を表示するミニプログラム</h2>
+        </div><!-- /.header-contents -->
+    </header>
+    <div class="main-wrapper">
+        <section>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+            </ul>
+            <h3>8,000円の税込み価格</h3>
+            <P id="output"></P>
+            <p id="output2"></p>
+        </section>
+    </div><!-- /.main-wrapper -->
+    <footer>JavaScriptかつまる学習帳</footer>
+    <script>
+        var total = function (price) {
+            var tax = 0.10;
+            return price + price * tax;
+        }
+
+        document.getElementById("output").textContent = "お食事の値段は"　+　total(8000) + "円です";
+        document.getElementById("output2").textContent="お土産代の値段は"+total(450)+"円です。";
+    </script>
+
+</body>
+
+</html>
