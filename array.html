@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <title>JS-study</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style_array.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -19,18 +19,23 @@
     <div class="main-wrapper">
         <section>
             <h2>やることリスト</h2>
-            <ul>
+            <ul class="home">
                 <li><a href="index.html">ホーム</a></li>
-                <li>データ整理</li>
-                <li>JavaScriptの学習</li>
-                <li>与信審査と債権管理</li>
-                <li>データ解析によるコンバージョン獲得経路算出</li>
-                <li>広告キーワードプランナーによる解析</li>
             </ul>
-           
+            <ul class="li" id="list">
+            </ul>
         </section>
     </div><!-- /.main-wrapper -->
     <footer>JavaScriptかつまる学習帳</footer>
+    <script>
+        var todo = ["データ整理", "JavaScriptの学習", "与信審査と債権管理", "データ解析によるコンバージョン獲得経路算出", "広告キーワードプランナーによる解析"];
+        todo.push("自己分析をしておく");
+        for (var i = 0; i < todo.length; i++) {
+            var li = document.createElement("li");
+            li.textContent = todo[i];
+            document.getElementById("list").appendChild(li);
+        }
+    </script>
 </body>
 
 </html>

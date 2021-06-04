@@ -25,17 +25,17 @@
             <script>
                 var fizzbuzz = function (num) {
                     if (num % 3 === 0 && num % 5 === 0) {
-                        return "【FizzBuzz!】";
+                        return "FizzBuzz!";
                     } else if (num % 3 === 0) {
-                        return "【Fizz!】";
+                        return "Fizz!";
                     } else if (num % 5 === 0) {
-                        return "【Buzz!】";
+                        return "Buzz!";
                     } else {
-                        return num + ",";
+                        return num;
                     }
                 }
                 for (var i = 1; i <= 30; i++) {
-                    document.write(fizzbuzz(i));
+                    document.write(fizzbuzz(i) + "<br>");
                 }
             </script>
         </section>
