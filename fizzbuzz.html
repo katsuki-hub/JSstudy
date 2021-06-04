@@ -22,14 +22,25 @@
                 <li><a href="index.html">ホーム</a></li>
             </ul>
             <p>3で割り切れる数字の時は<b>「Fizz!」</b>5で割り切れる時は<b>「Bizz!」</b>、3でも5でも割り切れるときは<b>「FizzBuzz!」</b>と叫ぶゲームです。</p>
-            
+            <script>
+                var fizzbuzz = function (num) {
+                    if (num % 3 === 0 && num % 5 === 0) {
+                        return "【FizzBuzz!】";
+                    } else if (num % 3 === 0) {
+                        return "【Fizz!】";
+                    } else if (num % 5 === 0) {
+                        return "【Buzz!】";
+                    } else {
+                        return num + ",";
+                    }
+                }
+                for (var i = 1; i <= 30; i++) {
+                    document.write(fizzbuzz(i));
+                }
+            </script>
         </section>
     </div><!-- /.main-wrapper -->
     <footer>JavaScriptかつまる学習帳</footer>
-    <script>
-
-    </script>
-
 </body>
 
 </html>
