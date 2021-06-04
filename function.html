@@ -21,7 +21,8 @@
             <ul>
                 <li><a href="index.html">ホーム</a></li>
             </ul>
-            <h3>8,000円の税込み価格</h3>
+            <h3>税込み価格</h3>
+            <p>お食事代8,000円とお土産代450円の税込み価格は</p>
             <P id="output"></P>
             <p id="output2"></p>
         </section>
@@ -33,8 +34,8 @@
             return price + price * tax;
         }
 
-        document.getElementById("output").textContent = "お食事の値段は"　+　total(8000) + "円です";
-        document.getElementById("output2").textContent="お土産代の値段は"+total(450)+"円です。";
+        document.getElementById("output").textContent = "◆お食事の値段は"　+　total(8000) + "円です";
+        document.getElementById("output2").textContent="◆お土産代の値段は"+total(450)+"円です。";
     </script>
 
 </body>
