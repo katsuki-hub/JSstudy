@@ -21,9 +21,41 @@
             <ul>
                 <li><a href="index.html">ホーム</a></li>
             </ul>
+            <table border="1">
+               <th>商品</th>
+               <th>値段</th>
+               <th>在庫数</th>
+                <tr>
+                    <td id="title"></td>
+                    <td id="price"></td>
+                    <td id="stock"></td>
+                </tr>
+            </table>
         </section>
     </div><!-- /.main-wrapper -->
     <footer>JavaScriptかつまる学習帳</footer>
+    <script>
+        var jsbook = { title: "JAvaScript入門", price: 2500, stock: 3 };
+        document.getElementById("title").textContent = jsbook.title;
+        document.getElementById("price").textContent = jsbook.price + "円";
+        document.getElementById("stock").textContent = jsbook.stock;
+
+
+
+        /*
+        for (var p in jsbook) {
+            document.write(p + "=" + jsbook[p]);
+        }
+        */
+
+        /*
+        console.log(jsbook);
+        console.log(jsbook.title);
+        console.log(jsbook["price"]);
+        jsbook.stock = 10;
+        console.log(jsbook.stock);
+        */
+    </script>
 </body>
 
 </html>
