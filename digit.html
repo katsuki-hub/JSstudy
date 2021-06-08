@@ -12,8 +12,8 @@
 <body>
     <header>
         <div class="header-contents">
-            <h1>フォームの入力内容を取得する</h1>
-            <h2>入力内容を読み取って出力</h2>
+            <h1>「0」をつけて桁数を合わせる</h1>
+            <h2>曲目リストに番号をつける</h2>
         </div><!-- /.header-contents -->
     </header>
     <div class="main-wrapper">
@@ -21,21 +21,10 @@
             <ul>
                 <li><a href="index.html">ホーム</a></li>
             </ul>
-            <form action="#" id="form">
-                <input type="text" name="word">
-                <input type="submit" value="検索">
-            </form>
-            <p id="output"></p>
+            
         </section>
     </div><!-- /.main-wrapper -->
     <footer>JavaScriptかつまる学習帳</footer>
-    <script>
-        document.getElementById("form").onsubmit = function () {
-            var search = document.getElementById("form").word.value;
-            document.getElementById("output").textContent = "『" + search + "』の検索中...";
-            return false;
-        };
-    </script>
 </body>
 
 </html>
