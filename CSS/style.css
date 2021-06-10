@@ -70,20 +70,23 @@ ul {
 }
 
 li {
-	line-height: 1.5;
+	line-height: 1.2;
 	padding: 0.5em 0.5em 0.5em 1.7em;
 	list-style-type: none!important;
-	background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%); /*グラデーション*/
-	background: linear-gradient(to bottom, whitesmoke 0%, #dadada 100%); /*グラデーション*/
-	text-shadow: 1px 1px 1px whitesmoke; /*文字を立体的に*/
+	background: -webkit-linear-gradient(top, 0%, whitesmoke 100%);
+	/*グラデーション*/
+	background: linear-gradient(to bottom, whitesmoke 0%, #b6dbbe 100%);
+	/*グラデーション*/
+	text-shadow: 1px 1px 1px whitesmoke;
+	/*文字を立体的に*/
 	color: black;
 }
 
 ul li::before {
-	content: "♪";
+	content: "🎵";
 	position: absolute;
-	left: 0.5em; /*左端からのアイコンまでの距離*/
-	color: red; /*アイコン色*/
+	left: 0.2em;
+	/*左端からのアイコンまでの距離*/
 }
 
 footer {
