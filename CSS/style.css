@@ -89,6 +89,11 @@ ul li::before {
 	/*左端からのアイコンまでの距離*/
 }
 
+.timer {
+	font-size: 35px;
+	color: crimson;
+}
+
 footer {
 	box-sizing: border-box;
 	max-width: 960px;
