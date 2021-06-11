@@ -6,8 +6,34 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <title>JS-study</title>
-    <link href="css/style_array.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
+<style>
+    .ind {
+        list-style: none;
+        border-width: 4px;
+        border-color: blue;
+        border-style: ridge;
+        background-color: rgba(225, 252, 74, 0.5);
+    }
+
+    li {
+
+        background: #ffa89d70;
+        border-radius: 8px;
+        /*角の丸み*/
+        box-shadow: 0px 0px 5px rgb(66, 66, 66);
+        /*5px=影の広がり具合*/
+        padding: 5px;
+        position: relative;
+    }
+    ul li::before {
+	content: "❖";
+	position: fixed;
+	left: 5px;
+	/*左端からのアイコンまでの距離*/
+}
+</style>
 
 <body>
     <header>
@@ -20,7 +46,7 @@
         <section>
             <h2>やることリスト</h2>
             <ul class="home">
-                <li><a href="index.html">ホーム</a></li>
+                <li class="ind"><a href="index.html">ホーム</a></li>
             </ul>
             <ul class="li" id="list">
             </ul>
