@@ -2,66 +2,68 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <title>JS-study</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>JS-study</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>
-    .ind {
-        list-style: none;
-        border-width: 4px;
-        border-color: blue;
-        border-style: ridge;
-        background-color: rgba(225, 252, 74, 0.5);
-    }
+  .ind {
+    list-style: none;
+    border-width: 4px;
+    border-color: blue;
+    border-style: ridge;
+    background-color: rgba(225, 252, 74, 0.5);
+  }
 
-    li {
+  li {
 
-        background: #ffa89d70;
-        border-radius: 8px;
-        /*角の丸み*/
-        box-shadow: 0px 0px 5px rgb(66, 66, 66);
-        /*5px=影の広がり具合*/
-        padding: 5px;
-        position: relative;
-    }
-    ul li::before {
-	content: "❖";
-	position: fixed;
-	left: 5px;
-	/*左端からのアイコンまでの距離*/
-}
+    background: #ffa89d70;
+    border-radius: 8px;
+    /*角の丸み*/
+    box-shadow: 0px 0px 5px rgb(66, 66, 66);
+    /*5px=影の広がり具合*/
+    padding: 5px;
+    position: relative;
+  }
+
+  ul li::before {
+    content: "❖";
+    position: fixed;
+    left: 5px;
+    /*左端からのアイコンまでの距離*/
+  }
 </style>
 
 <body>
-    <header>
-        <div class="header-contents">
-            <h1>項目をリスト表示する</h1>
-            <h2>項目をHTMLに出力する</h2>
-        </div><!-- /.header-contents -->
-    </header>
-    <div class="main-wrapper">
-        <section>
-            <h2>やることリスト</h2>
-            <ul class="home">
-                <li class="ind"><a href="index.html">ホーム</a></li>
-            </ul>
-            <ul class="li" id="list">
-            </ul>
-        </section>
-    </div><!-- /.main-wrapper -->
-    <footer>JavaScriptかつまる学習帳</footer>
-    <script>
-        var todo = ["データ整理", "JavaScriptの学習", "与信審査と債権管理", "データ解析によるコンバージョン獲得経路算出", "広告キーワードプランナーによる解析"];
-        todo.push("自己分析をしておく");
-        for (var i = 0; i < todo.length; i++) {
-            var li = document.createElement("li");
-            li.textContent = todo[i];
-            document.getElementById("list").appendChild(li);
-        }
-    </script>
+  <header>
+    <div class="header-contents">
+      <h1>項目をリスト表示する</h1>
+      <h2>項目をHTMLに出力する</h2>
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <h2>やることリスト</h2>
+      <ul class="home">
+        <li class="ind"><a href="index.html">ホーム</a></li>
+      </ul>
+      <ul class="li" id="list">
+      </ul>
+    </section>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScriptかつまる学習帳</footer>
+  <script>
+    var todo = ["データ整理", "JavaScriptの学習", "与信審査と債権管理", "データ解析によるコンバージョン獲得経路算出", "広告キーワードプランナーによる解析"];
+    todo.push("自己分析をしておく");
+    for (var i = 0; i < todo.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = todo[i];
+      document.getElementById("list").appendChild(li);
+    }
+  </script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
 </html>
