@@ -29,25 +29,23 @@
 
 
       <!--ソースコードがCSSの場合は、さらにlang-cssを追加-->
-      <pre><code class="prettyprint">&lt;script&gt;
-  var number = Math.floor(Math.random() * 6);
-  var answer = parseInt(window.prompt(&quot;数当てゲーム。0～5の数字を入力してね&quot;));
-  var message;
-  if (answer === number) {
-    message = &quot;あたりでーーす！！&quot;;
-  } else if (answer &lt; number) {
-    message = &quot;残念！もっと大きい数字でした！&quot;;
-  } else if (answer &gt; number) {
-    message = &quot;残念！もっと小さい数字でした～～( ﾟДﾟ)&quot;;
-  } else {
-    message = &quot;0-5の数字をいれてな！&quot;;
-  }
-  window.alert(message);
+      <pre><code class="prettyprint">var number = Math.floor(Math.random() * 6);
+var answer = parseInt(window.prompt(&quot;数当てゲーム。0～5の数字を入力してね&quot;));
+var message;
+if (answer === number) {
+  message = &quot;あたりでーーす！！&quot;;
+} else if (answer &lt; number) {
+  message = &quot;残念！もっと大きい数字でした！&quot;;
+} else if (answer &gt; number) {
+  message = &quot;残念！もっと小さい数字でした～～( ﾟДﾟ)&quot;;
+} else {
+  message = &quot;0-5の数字をいれてな！&quot;;
+}
+window.alert(message);
         
-  function Button_Click() {
-    window.location.reload();
-  }
-&lt;/script&gt;</code></pre>
+function Button_Click() {
+  window.location.reload();
+}</code></pre>
 
 
     </section>

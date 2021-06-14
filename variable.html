@@ -25,6 +25,17 @@
 			<div>
 				<input id="Button1" type="button" value="リロード" onclick="Button_Click();" />
 			</div>
+			<pre><code class="prettyprint">var answer = window.prompt(&quot;ヘルプを見ますか？？？&quot;);
+if (answer === &quot;はい&quot;) {
+	window.alert(&quot;自分でGoogle検索して調べなさい！&quot;);
+} else if (answer === &quot;いいえ&quot;) {
+	window.alert(&quot;ゲーム起動中...&quot;);
+} else {
+	window.alert(&quot;&#039;はい&#039;か&#039;いいえ&#039;でお答えください。&quot;);
+}
+function Button_Click() {
+	window.location.reload();
+}</code></pre>
 		</section>
 	</div><!-- /.main-wrapper -->
 	<footer>JavaScript Samples</footer>
