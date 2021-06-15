@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>JS-study</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <div class="header-contents">
+      <h1>プルダウンメニューでリンク設定</h1>
+      <h2>選択されている項目を切り替える</h2>
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+      </ul>
+      <form id="form">
+        <select name="select">
+          <option value="location.html">日本語</option>
+          <option value="location-en.html">English</option>
+          <option value="location-zh.html">中文</option>
+        </select>
+      </form>
+      <h2>日本語のページ</h2>
+
+      <h3>HTMLのプルダウンソースコード</h3>
+      <pre><code class="prettyprint">&lt;form id=&quot;form&quot;&gt;
+  &lt;select name=&quot;select&quot;&gt;
+    &lt;option value=&quot;location.html&quot;&gt;日本語&lt;/option&gt;
+    &lt;option value=&quot;location-en.html&quot;&gt;English&lt;/option&gt;
+    &lt;option value=&quot;location-zh.html&quot;&gt;中文&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/form&gt;</code></pre>
+      <h3>JavaScriptのソースコードと解説</h3>
+      <pre><code class="prettyprint">document.getElementById(&quot;form&quot;).select.onchange = function() {
+  location.href = document.getElementById(&quot;form&quot;).select.value;
+}</code></pre>
+      <p>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #ecf8ff;">
+        document.getElementById("form").select.onchange = function() {
+      </div>
+
+      onchangeは、フォームに入力された内容が変わった際に発生し、function以降の処理が実行されます。<br>
+      <br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #ecf8ff;">
+        document.getElementById("form").select.value;
+      </div>
+
+      プルダウンメニューの場合&lt;option&gt;のvalue属性を調べるために、親要素である&lt;select&gt;のvalueプロパティを読み取る。<br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        location.href = 新しいURL
+      </div>
+      locationオブジェクトはURLを調べたり、閲覧履歴を管理する機能がある。<br>
+      <br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
+        <b>selected属性</b><br>
+        選択項目にあたるプルダウンやラジオボタン、チェックボックスはselected属性をつけておくと、読み込み後に初めから選択された状態となる。<br>
+        <br>
+        &lt;option value="index.html" selected&gt;日本語&lt;/option&gt;
+      </div>
+      ※今回はselected属性は値のないプール属性の為、下記ソースコード参照！！ちなみにプール属性とはselectedやcheckedなどのその属性があれば有効、なければ無効となるものを言う。
+
+
+      <pre><code class="prettyprint">var lang = document.querySelector(&quot;html&quot;).lang;
+
+var opt;
+  if (lang === &quot;ja&quot;) {
+  opt = document.querySelector(&#039;option[value=&quot;location.html&quot;]&#039;);
+} else if (lang === &quot;en&quot;) {
+  opt = document.querySelector(&#039;option[value=&quot;location-en.html&quot;]&#039;);
+} else if (lang === &quot;zh&quot;) {
+  opt = document.querySelector(&#039;option[value=&quot;location-zh.html&quot;]&#039;);
+}
+opt.selected = true;</code></pre>
+
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        document.querySelector(&#039;CSSセレクター&#039;)
+      </div>
+
+      </p>
+    </section>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScriptかつまる学習帳 </footer>
+  <script src="scripts/location.js"></script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+
+</html>

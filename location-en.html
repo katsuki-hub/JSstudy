@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>JS-study</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <div class="header-contents">
+      <h1>プルダウンメニューでリンク設定</h1>
+      <h2>選択されている項目を切り替える</h2>
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+      </ul>
+      <form id="form">
+        <select name="select">
+          <option value="location.html">日本語</option>
+          <option value="location-en.html">English</option>
+          <option value="location-zh.html">中文</option>
+        </select>
+      </form>
+      <h2>English Page</h2>
+      <p>I will explain on the japan page</p>
+    </section>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScriptかつまる学習帳 </footer>
+  <script src="scripts/location.js"></script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+
+</html>
