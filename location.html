@@ -42,18 +42,13 @@
       <pre><code class="prettyprint">document.getElementById(&quot;form&quot;).select.onchange = function() {
   location.href = document.getElementById(&quot;form&quot;).select.value;
 }</code></pre>
-      <p>
-      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #ecf8ff;">
-        document.getElementById(&quot;form&quot;).select.onchange = function() {
-      </div>
 
       onchangeは、フォームに入力された内容が変わった際に発生し、function以降の処理が実行されます。<br>
       <br>
-      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #ecf8ff;">
-        document.getElementById(&quot;form&quot;).select.value;
-      </div>
 
       プルダウンメニューの場合&lt;option&gt;のvalue属性を調べるために、親要素である&lt;select&gt;のvalueプロパティを読み取る。<br>
+      <br>
+
       <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
         location.href = 新しいURL
       </div>
@@ -63,7 +58,7 @@
         <b>selected属性</b><br>
         選択項目にあたるプルダウンやラジオボタン、チェックボックスはselected属性をつけておくと、読み込み後に初めから選択された状態となる。<br>
         <br>
-        &lt;option value="index.html" selected&gt;日本語&lt;/option&gt;
+        &lt;option value="index.html" <b>selected</b>&gt;日本語&lt;/option&gt;
       </div>
       ※今回はselected属性は値のないプール属性の為、下記ソースコード参照！！ちなみにプール属性とはselectedやcheckedなどのその属性があれば有効、なければ無効となるものを言う。
 
@@ -84,7 +79,7 @@ opt.selected = true;</code></pre>
         document.querySelector(&#039;CSSセレクター&#039;)
       </div>
 
-      </p>
+
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳 </footer>
