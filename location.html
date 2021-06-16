@@ -18,9 +18,7 @@
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
+      <button onclick="location.href='index.html'">ホーム</button>
       <form id="form">
         <select name="select">
           <option value="location.html">日本語</option>
@@ -60,10 +58,11 @@
         <br>
         &lt;option value="index.html" <b>selected</b>&gt;日本語&lt;/option&gt;
       </div>
-      ※今回はselected属性は値のないプール属性の為、下記ソースコード参照！！ちなみにプール属性とはselectedやcheckedなどのその属性があれば有効、なければ無効となるものを言う。
+      ※selected属性は値のないプール属性の為、下記ソースコードにより、初めからプルダウンメニュー項目が選択された状態にします！！<br>
+      ちなみにプール属性とはselectedやcheckedなどのその属性があれば有効、なければ無効となるものを言う。
 
 
-      <pre><code class="prettyprint">var lang = document.querySelector(&quot;html&quot;).lang;
+<pre><code class="prettyprint">var lang = document.querySelector(&quot;html&quot;).lang;
 
 var opt;
   if (lang === &quot;ja&quot;) {
@@ -75,9 +74,20 @@ var opt;
 }
 opt.selected = true;</code></pre>
 
+      <h4>document.querySelectorメソッド</h4>
+
       <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
         document.querySelector(&#039;CSSセレクター&#039;)
       </div>
+      JavaScriptで要素を取得するのに、CSSセレクターが使える。<br>
+      ソースコードではoptionタグのうち、value属性が”html”のパラメーターにマッチしています。<br>
+      <br>
+      ※CSSセレクターを使うことで、複数の要素にマッチする可能性がありますが、querySelectorメソッドは「最初にマッチした要素」1つだけを取得する。<br>
+      <br>
+      location.htmlが開いているときは、変数langに"ja"が保存されている。最初のif文でtrueになり、変数optに<b>&lt;option
+        value=&quot;location.html&quot;&gt;日本語&lt;/option&gt;</b>が代入される。<br>
+      <br>
+      そして、最後に変数optに代入されている要素にselected属性を追加する。
 
 
     </section>
