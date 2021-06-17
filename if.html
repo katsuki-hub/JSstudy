@@ -2,36 +2,67 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <title>ダイアログ</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>if文～条件分岐で動作を変える～</title>
+  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。一般的によく使われるif文のコードの書き方を簡単にご説明します”>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <header>
-        <div class="header-contents">
-            <h1>確認ダイアログボックスを表示する</h1>
-            <h2>ダイアログボックスを作ってみよう！！！！</h2>
-        </div><!-- /.header-contents -->
-    </header>
-    <div class="main-wrapper">
-        <section>
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-            </ul>
-            <h3>ゲームの進行を下記で確認</h3>
-            <script>
-                if (window.confirm("ゲームをスタート！準備はいい？")) {
-                    document.write("ゲームを開始します。");
-                } else {
-                    document.write("ゲームを終了します。");
-                }
-            </script>
-        </section>
-    </div><!-- /.main-wrapper -->
-    <footer>JavaScript Samples</footer>
+  <header>
+    <div class="header-contents">
+      <h1>確認ダイアログボックスを表示する</h1>
+      <h2>ダイアログボックスを作ってみよう！！！！</h2>
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <button onclick="location.href='index.html'">ホーム</button>
+      <h2>占いの結果を確認</h2>
+
+      <script>
+        if (window.confirm("今日の運勢を占います、よろしいですか？")) {
+          document.write("夢や、人生の目標を思い出せる日<br>普段の自分の才能や個性を信じて日々生きていってください");
+        } else {
+          document.write("運勢なんて必要ありませんね！<br>道は己の力で切りひらいてください");
+        }
+      </script>
+
+      <h3>ソースコード解説</h3>
+
+      <pre><code class="prettyprint">if (window.confirm(&quot;今日の運勢を占います、よろしいですか？&quot;)) {
+  document.write(&quot;運勢結果&quot;);
+} else {
+  document.write(&quot;運勢なんて必要ありませんね&quot;);
+}</code></pre>
+
+      <h4>confirmメソッド</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        window.confirm(メッセージ)
+      </div>
+      windowオブジェクトのconfirmメソッドで確認ダイアログボックスを表示します。<br>
+      confirmメソッドは表示するだけで<b>リターン</b>を返してきます。
+
+      <h4>if文</h4>
+
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
+        if(条件式) {<br>
+        条件式がtrueになるときに実行する処理<br>
+        } else {<br>
+        条件式がfalseになるときに実行する処理<br>
+        }
+      </div>
+      ※条件式には色々なバリエーションがある。<br>
+      ※falseの時に何も実行しない時は、else以降は省略することも出来る
+
+
+
+    </section>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScript Samples</footer>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
 </html>

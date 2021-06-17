@@ -2,45 +2,46 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <title>JS-study</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>JS-study</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <header>
-        <div class="header-contents">
-            <h1>算術演算子を学習</h1>
-            <h2>FizzBuzzゲーム</h2>
-        </div><!-- /.header-contents -->
-    </header>
-    <div class="main-wrapper">
-        <section>
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-            </ul>
-            <p>3で割り切れる数字の時は<b>「Fizz!」</b>5で割り切れる時は<b>「Bizz!」</b>、3でも5でも割り切れるときは<b>「FizzBuzz!」</b>と叫ぶゲームです。</p>
-            <script>
-                var fizzbuzz = function (num) {
-                    if (num % 3 === 0 && num % 5 === 0) {
-                        return "FizzBuzz!";
-                    } else if (num % 3 === 0) {
-                        return "Fizz!";
-                    } else if (num % 5 === 0) {
-                        return "Buzz!";
-                    } else {
-                        return num;
-                    }
-                }
-                for (var i = 1; i <= 30; i++) {
-                    document.write(fizzbuzz(i) + "<br>");
-                }
-            </script>
-        </section>
-    </div><!-- /.main-wrapper -->
-    <footer>JavaScriptかつまる学習帳</footer>
+  <header>
+    <div class="header-contents">
+      <h1>算術演算子を学習</h1>
+      <h2>FizzBuzzゲーム</h2>
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+      </ul>
+      <p>3で割り切れる数字の時は<b>「Fizz!」</b>5で割り切れる時は<b>「Bizz!」</b>、3でも5でも割り切れるときは<b>「FizzBuzz!」</b>と叫ぶゲームです。</p>
+      <script>
+        var fizzbuzz = function (num) {
+          if (num % 3 === 0 && num % 5 === 0) {
+            return "FizzBuzz!";
+          } else if (num % 3 === 0) {
+            return "Fizz!";
+          } else if (num % 5 === 0) {
+            return "Buzz!";
+          } else {
+            return num;
+          }
+        }
+        for (var i = 1; i <= 30; i++) {
+          document.write(fizzbuzz(i) + "<br>");
+        }
+      </script>
+    </section>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScriptかつまる学習帳</footer>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
 </html>

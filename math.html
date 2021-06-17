@@ -12,8 +12,8 @@
 <body>
   <header>
     <div class="header-contents">
-      <h1>while構文のお勉強！！</h1>
-      <h2>勇者がモンスターと対決！</h2>
+      <h1>小数点第〇位で切り捨てる</h1>
+      <h2>四則演算以外の計算</h2>
     </div><!-- /.header-contents -->
   </header>
   <div class="main-wrapper">
@@ -21,25 +21,30 @@
       <ul>
         <li><a href="index.html">ホーム</a></li>
       </ul>
-      <h3>モンスターの体力は100だ！頑張って倒そう！</h3>
-      <script>
-        var enemy = 100;
-        var attack;
-        var count = 0;
-
-        window.alert("戦闘スタート!!");
-        while (enemy > 0) {
-          attack = Math.floor(Math.random() * 30) + 1
-          document.write("モンスターに" + attack + "のダメージ！" + "<br>");
-          enemy -= attack;
-          count++;
-        }
-        document.write(count + "回でモンスターを倒した！");
-      </script>
-
+      <p>円周率は
+        <span>
+          <script>document.write(Math.PI);</script>
+        </span>
+        です。
+      </p>
+      <p>普通に切り捨てると
+        <span>
+          <script>document.write(Math.floor(Math.PI));</script>
+        </span>
+        です。
+      </p>
+      <p>小数点第2位で切り捨てると<span id="output"></span>です。</p>
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳</footer>
+  <script>
+    var point = function (num, digit) {
+      var time = Math.pow(10, digit);
+      return Math.floor(num * time) / time;
+    }
+
+    document.getElementById("output").textContent = point(Math.PI, 2);
+  </script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 

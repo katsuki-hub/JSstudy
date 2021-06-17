@@ -2,67 +2,69 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <title>現在時刻</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script>
-        var now = new Date();
-        function LoadProc() {
-            var target = document.getElementById("DateTimeDisp");
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>現在時刻</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script>
+    var now = new Date();
+    function LoadProc() {
+      var target = document.getElementById("DateTimeDisp");
 
-            var Year = now.getFullYear();
-            var Month = now.getMonth() + 1;
-            var Date = now.getDate();
-            var Hour = now.getHours();
-            var Min = now.getMinutes();
-            var Sec = now.getSeconds();
+      var Year = now.getFullYear();
+      var Month = now.getMonth() + 1;
+      var Date = now.getDate();
+      var Hour = now.getHours();
+      var Min = now.getMinutes();
+      var Sec = now.getSeconds();
 
-            target.innerHTML = Year + "年" + Month + "月" + Date + "日";
-        }
-    </script>
+      target.innerHTML = Year + "年" + Month + "月" + Date + "日";
+    }
+  </script>
 </head>
 
 <body onload="LoadProc();">
-    <header>
-        <div class="header-contents">
-            <h1>現在時刻を表示しよう</h1>
-            <h2>JSで時間表示させるよ</h2>
-        </div><!-- /.header-contents -->
-    </header>
-    <div class="main-wrapper">
-        <section>
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-            </ul>
-            <p>現在の時間は</p>
-            <div id="DateTimeDisp"></div>
+  <header>
+    <div class="header-contents">
+      <h1>現在時刻を表示しよう</h1>
+      <h2>JSで時間表示させるよ</h2>
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+      </ul>
+      <p>現在の時間は</p>
+      <div id="DateTimeDisp"></div>
 
-            <p id="RealtimeClockArea">※ここに時計が表示されます</p>
-            <script>
-                function set2fig(num) {
-                    // 桁数が1桁だったら先頭に0を加えて2桁に調整する
-                    var ret;
-                    if (num < 10) { ret = "0" + num; }
-                    else { ret = num; }
-                    return ret;
-                }
-                function showClock() {
-                    var nowTime = new Date();
-                    var nowHour = set2fig(nowTime.getHours());
-                    var nowMin = set2fig(nowTime.getMinutes());
-                    var nowSec = set2fig(nowTime.getSeconds());
-                    var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + " 秒です。";
-                    document.getElementById("RealtimeClockArea").innerHTML = msg;
-                }
-                setInterval('showClock()', 1000);
-            </script>
+      <p id="RealtimeClockArea">※ここに時計が表示されます</p>
+      <script>
+        function set2fig(num) {
+          // 桁数が1桁だったら先頭に0を加えて2桁に調整する
+          var ret;
+          if (num < 10) { ret = "0" + num; }
+          else { ret = num; }
+          return ret;
+        }
+        function showClock() {
+          var nowTime = new Date();
+          var nowHour = set2fig(nowTime.getHours());
+          var nowMin = set2fig(nowTime.getMinutes());
+          var nowSec = set2fig(nowTime.getSeconds());
+          var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + " 秒です。";
+          document.getElementById("RealtimeClockArea").innerHTML = msg;
+        }
+        setInterval('showClock()', 1000);
+      </script>
 
-            　　　
-        </section>
-    </div><!-- /.main-wrapper -->
-    <footer>JavaScriptかつまる学習帳</footer>
+
+      　　　
+    </section>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScriptかつまる学習帳</footer>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
 </html>

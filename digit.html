@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>JS-study</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <div class="header-contents">
+      <h1>「0」をつけて桁数を合わせる</h1>
+      <h2>曲目リストに番号をつける</h2>
+
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+      </ul>
+      <h2>UVERworld自身を超える10枚目のアルバム</h2>
+      <h3>UNSER</h3>
+      <p>2020年に結成20周年、デビュー15周年を迎えるUVERworldの記念すべき10枚目のアルバム!
+        12月には東京ドーム2デイズ公演を控え、そのうち1日は男性限定ライブ、通称"男祭り"となり、日本記録を自身で更新する。</p>
+      <div id="list">
+        <!--配列songsのデータ数分繰り返し<p>を追加する-->
+      </div>
+    </section>
+
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScriptかつまる学習帳</footer>
+  <script>
+    var addzero = function (num, digit) {
+      var numString = String(num);
+      while (numString.length < digit) {
+        numString = "0" + numString;
+      }
+      return numString;
+    }
+
+    var songs = [
+      "Making it Drive",
+      "AFTER LIFE",
+      "Touch off",
+      "境界",
+      "stay on",
+      "First Sight",
+      "ODD FUTURE",
+      "無意味になる夜",
+      "EDENへ",
+      "ConneQt",
+      "OXYMORON",
+      "One Last Time",
+      "ROB THE FRONTIER",
+      "GOOD and EVIL",
+      "UNSER"
+    ];
+    for (var i = 0; i < songs.length; i++) {
+      var UNSER = document.createElement("p");
+      UNSER.textContent = addzero(i + 1, 2) + ". " + songs[i];
+      document.getElementById("list").appendChild(UNSER);
+    }
+  </script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+
+</html>
