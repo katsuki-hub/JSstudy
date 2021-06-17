@@ -175,6 +175,12 @@ ul li::before {
 	color: crimson;
 }
 
+.red {
+	font-size: 18px;
+	color: red;
+	font-weight: bold;
+}
+
 footer {
 	box-sizing: border-box;
 	max-width: 960px;

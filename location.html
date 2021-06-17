@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>プルダウンメニューでページ移動～プール属性の設定とid属性のないHTML要素取得方法～</title>
+  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。HTMLでプルダウンを作成し、選択後にページ移動させます。プール属性の設定とid属性のないHTML要素取得方法も解説”>
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -19,6 +20,8 @@
   <div class="main-wrapper">
     <section>
       <button onclick="location.href='index.html'">ホーム</button>
+      <h2>日本語のページ</h2>
+
       <form id="form">
         <select name="select">
           <option value="location.html">日本語</option>
@@ -26,8 +29,7 @@
           <option value="location-zh.html">中文</option>
         </select>
       </form>
-      <h2>日本語のページ</h2>
-
+      
       <h3>HTMLのプルダウンソースコード</h3>
       <pre><code class="prettyprint">&lt;form id=&quot;form&quot;&gt;
   &lt;select name=&quot;select&quot;&gt;
@@ -62,7 +64,7 @@
       ちなみにプール属性とはselectedやcheckedなどのその属性があれば有効、なければ無効となるものを言う。
 
 
-<pre><code class="prettyprint">var lang = document.querySelector(&quot;html&quot;).lang;
+      <pre><code class="prettyprint">var lang = document.querySelector(&quot;html&quot;).lang;
 
 var opt;
   if (lang === &quot;ja&quot;) {
@@ -84,7 +86,7 @@ opt.selected = true;</code></pre>
       <br>
       ※CSSセレクターを使うことで、複数の要素にマッチする可能性がありますが、querySelectorメソッドは「最初にマッチした要素」1つだけを取得する。<br>
       <br>
-      location.htmlが開いているときは、変数langに"ja"が保存されている。最初のif文でtrueになり、変数optに<b>&lt;option
+      location.html「指定した日本語のページ」が開いているときは、変数langに"ja"が保存されている。最初のif文でtrueになり、変数optに<b>&lt;option
         value=&quot;location.html&quot;&gt;日本語&lt;/option&gt;</b>が代入される。<br>
       <br>
       そして、最後に変数optに代入されている要素にselected属性を追加する。
