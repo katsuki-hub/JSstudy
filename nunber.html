@@ -29,7 +29,7 @@
 
       <!--ソースコードがCSSの場合は、さらにlang-cssを追加-->
       <pre><code class="prettyprint">var number = Math.floor(Math.random() * 6)+1;
-var answer = parseInt(window.prompt(&quot;数当てゲーム。0～5の数字を入力してね&quot;));
+var answer = parseInt(window.prompt(&quot;数当てゲーム。1～6の数字を入力してね&quot;));
 var message;
 if (answer === number) {
   message = &quot;あたりでーーす！！&quot;;
@@ -38,7 +38,7 @@ if (answer === number) {
 } else if (answer &gt; number) {
   message = &quot;残念！もっと小さい数字でした～～( ﾟДﾟ)&quot;;
 } else {
-  message = &quot;0-5の数字をいれてな！&quot;;
+  message = &quot;1-6の数字をいれてな！&quot;;
 }
 window.alert(message);
         
@@ -90,7 +90,7 @@ function Button_Click() {
   <footer>JavaScript Samples</footer>
   <script>
     var number = Math.floor(Math.random() * 6)+1;
-    var answer = parseInt(window.prompt("数当てゲーム。0～5の数字を入力してね"));
+    var answer = parseInt(window.prompt("数当てゲーム。1～6の数字を入力してね"));
     var message;
     if (answer === number) {
       message = "あたりでーーす！！";
@@ -99,7 +99,7 @@ function Button_Click() {
     } else if (answer > number) {
       message = "残念！もっと小さい数字でした～～( ﾟДﾟ)";
     } else {
-      message = "0-5の数字をいれてな！";
+      message = "1-6の数字をいれてな！";
     }
     window.alert(message);
 
