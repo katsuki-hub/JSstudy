@@ -15,8 +15,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>論理演算子～タイムメッセージ～</title>
+  <title>JavaScript超入門"論理演算子～ポップアップメッセージ～"</title>
   <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。2つ以上の条件式からなる1つの条件を設定してみよう”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -34,20 +35,25 @@
   <div class="main-wrapper">
     <section>
       <button onclick="location.href='index.html'">ホーム</button>
-      <h2>時間帯でメッセージ内容が変わるよ</h2>
+      <h2>JavaScript論理演算子<br>～時間帯でメッセージ内容が変わるよ～</h2>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        ページを開いた時刻によってアラートダイアログボックスのメッセージ内容が変わるよ
+      </div>
       2つ以上の条件式からなる1つの条件を設定してみよう<br>
       <br>
       今回は16時以上19時以内なら<br>
-      『もうすぐ退社の時間だよ！！』<br>
+      <b>『もうすぐ退社の時間だよ！！』</b><br>
       <br>
       12時台か15時台なら<br>
-      『そろそろ休憩しよう！！』<br>
+      <b>『そろそろ休憩しよう！！』</b><br>
       <br>
       それ以外なら<br>
-      『お仕事頑張ってください！ファイト！！』<br>
+      <b>『お仕事頑張ってください！ファイト！！』</b><br>
       となります。
 
       <h3>ソースコードと概要</h3>
+
+      <!-- ソースコード -->
       <pre><code class="prettyprint">var hour = new Date().getHours();
 
 if (hour &gt;= 16 &amp;&amp; hour &lt;= 19) {
@@ -57,6 +63,23 @@ if (hour &gt;= 16 &amp;&amp; hour &lt;= 19) {
 } else {
   window.alert(&quot;お仕事頑張ってください！ファイト！！&quot;)
 }</code></pre>
+      <!-- /ソースコード -->
+
+      <h4>複数の条件式【論理演算子】</h4>
+      <h5>&&演算子</h5>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        if (hour &gt;= 16 &amp;&amp; hour &lt;= 19)
+      </div>
+      変数hourの値が16以上かつ19以下<br>
+      どちらの結果もtrueになるときに全体の結果がtrueになります。
+      <h5>||演算子</h5>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        else if (hour === 12 || hour === 15)
+      </div>
+      変数hourの値が12もしくは15のとき<br>
+      どちらか片方がtrueになるときに全体の結果がtrueになります。
+      <h5>!演算子</h5>
+      条件式の結果がfalseになるときに全体の結果がtrueになります。
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScript Samples</footer>
