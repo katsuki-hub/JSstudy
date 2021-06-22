@@ -15,7 +15,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>JavaScript超入門"リスト番号に0足して桁数を合わせよう"</title>
+  <meta name=”description” content=”JavaScript入門編。曲名などのリスト番号の頭に0を足して桁数を合わせていきます”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード"/>
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -33,9 +35,7 @@
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
+      <button onclick="location.href='index.html'">ホーム</button>
       <h2>UVERworld自身を超える10枚目のアルバム</h2>
       <h3>UNSER</h3>
       <p>2020年に結成20周年、デビュー15周年を迎えるUVERworldの記念すべき10枚目のアルバム!
@@ -43,6 +43,53 @@
       <div id="list">
         <!--配列songsのデータ数分繰り返し<p>を追加する-->
       </div>
+      <h3>HTMLソースコード</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">&lt;div id=&quot;list&quot;&gt;&lt;/div&gt;</code></pre>
+      <!-- /ソースコード -->
+      <h3>JavaScriptのソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">var addzero = function (num, digit) {
+  var numString = String(num);
+  while (numString.length &lt; digit) {
+    numString = &quot;0&quot; + numString;
+  }
+  return numString;
+}
+  
+var songs = [&quot;曲名&quot;,……,……,……];
+for (var i = 0; i &lt; songs.length; i++) {
+  var UNSER = document.createElement(&quot;p&quot;);
+  UNSER.textContent = addzero(i + 1, 2) + &quot;. &quot; + songs[i];
+  document.getElementById(&quot;list&quot;).appendChild(UNSER);
+}</code></pre>
+      <!-- /ソースコード -->
+
+      <h4>ファンクションの仕組みと処理</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        var addzero = function (num, digit)
+      </div>
+      ファンクションは2つのパラメーターを受け取っています。<br>
+      numが成形する数で、digitは桁数です。<br>
+      『01』と表示するには文字列連結が必要なので、数値を文字列に変換処理しなければいけない。<br><br><br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        var numString = String(num);
+      </div>
+      Stringは()内のデータを文字列へ変換します。
+      <br><br><br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd">
+        while (numString.length < digit) {<br>
+          numString = "0" + numString;<br>
+          }
+      </div>
+      digitで指定された桁数に達するまで、『0』を連結させます。<br>
+      文字列データのlengthプロパティは文字列の文字数を表します。
+      <h4>曲名リストの番号</h4>
+      配列を作成して、曲名を入れていく！<br><br>
+      ↓↓詳しくは↓↓<br>
+      <a href="https://katsu-study.work/array.html">配列～項目リストの表示</a><br><br>
+      ※インデックス番号は0からなので、成形する数は∔1で合わせます。<br>
+      ※配列の[]内は項目が多いと、カンマの後ろで改行できる。
     </section>
 
   </div><!-- /.main-wrapper -->

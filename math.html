@@ -15,7 +15,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>JavaScript超入門"Mathオブジェクト～小数点の切り捨て～"</title>
+  <meta name=”description” content=”JavaScript入門編。四則演算以外の計算Mathオブジェクトを使おう”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -32,9 +34,8 @@
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
+      <button onclick="location.href='index.html'">ホーム</button>
+      <h2>円周率から小数点切捨て処理</h2>
       <p>円周率は
         <span>
           <script>document.write(Math.PI);</script>
@@ -48,6 +49,41 @@
         です。
       </p>
       <p>小数点第2位で切り捨てると<span id="output"></span>です。</p>
+
+      <h3>HTMLソースコード</h3>
+      <!-- /ソースコード -->
+      <pre><code class="prettyprint">&lt;p&gt;普通に切り捨てると
+  &lt;span&gt;
+    &lt;script&gt;document.write(Math.floor(Math.PI));&lt;/script&gt;
+  &lt;/span&gt;
+    です。
+&lt;/p&gt;
+&lt;p&gt;小数点第2位で切り捨てると&lt;span id=&quot;output&quot;&gt;&lt;/span&gt;です。&lt;/p&gt;</code></pre>
+      <!-- ソースコード -->
+
+      <h3>JavaScriptのソースコード</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">var point = function (num, digit) {
+  var time = Math.pow(10, digit);
+  return Math.floor(num * time) / time;
+}
+  
+document.getElementById(&quot;output&quot;).textContent = point(Math.PI, 2);</code></pre>
+      <!-- /ソースコード -->
+
+      <h4>Mathオブジェクトとファンクション</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        var point = function (num, digit)
+      </div>
+      2つのパラメーター(切り捨てたい元の数字,小数点の位の指定数字)を受け取ります。<br><br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        var time = Math.pow(10, digit);
+      </div>
+      Math.pow(a, b)はaをb乗する処理なので、10をdigit回掛けて変数timeに代入します。<br><br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        return Math.floor(num * time) / time;
+      </div>
+      変数timeには100が代入されているので、num×100してMath.floorメソッドで小数点以下を切捨ててから変数time⇒(100)で割っています。
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳</footer>

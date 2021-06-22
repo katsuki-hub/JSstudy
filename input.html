@@ -41,10 +41,56 @@
         <input type="submit" value="検索">
       </form>
       <p id="output"></p>
+      <br><br>
 
-      <h3>HTMLソースコード</h3>
+      <h3>HTMLソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">&lt;form action=&quot;#&quot; id=&quot;form&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;word&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;検索&quot;&gt;
+&lt;/form&gt;
+&lt;p id=&quot;output&quot;&gt;&lt;/p&gt;</code></pre>
+      <!-- /ソースコード -->
+      <h4>フォームのコードです！</h4>
+      <b>input type="submit" value="検索"</b>は送信ボタン<br>
+      <b>action="#" id="form"</b>は指定された入力内容の送信場所<br><br>
+      action属性には通常送信するURLを指定！今回は送信しないので『#』にしてます。ちなみに#はページの最上部を指す。
 
       <h3>JavaScriptのソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">document.getElementById(&quot;form&quot;).onsubmit = function () {
+  var search = document.getElementById(&quot;form&quot;).word.value;
+  document.getElementById(&quot;output&quot;).textContent = &quot;『&quot; + search + &quot;』の検索中...&quot;;
+  return false;
+};</code></pre>
+      <!-- /ソースコード -->
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        document.getElementById("form")
+      </div>
+      &lt;form id=&quot;form&quot;&gt;～&lt;/form&gt;の要素を取得する。
+
+      <h4>要素イベント作成</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        取得した要素.onsubmit = function () {<br>
+        　処理内容<br>
+        };
+      </div>
+
+      &lt;form&gt;要素のonsubmitイベントにファンクションを代入していきます。<br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333;">
+        ※onsubmitイベントは親要素の&lt;form&gt;に発生する！
+        イベントファンクションには()内にパラメーターもなく、{}内にreturn命令もない。パラメーターもリターンもないファンクション
+      </div>
+
+      <h4>フォームの入力内容を読み取る</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        取得した("form")要素.読み取りたい部分のname属性.value
+      </div>
+      あとはHTMLに出力するだけです。
+
+      <h4>return false</h4>
+      フォームの基本動作をキャンセルするプログラムです。<br>
+      今回はデータが送信されて、URLの語尾が変わり、ページ移動しようとしてしまう為、再読み込み状態となってしまいます。それにより、テキスト表示が一瞬だけになるので、フォーム基本動作をキャンセルさせています。
 
     </section>
   </div><!-- /.main-wrapper -->
