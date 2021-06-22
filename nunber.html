@@ -2,15 +2,30 @@
 <html>
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>データ型比較演算子～数字の大小を比較条件～</title>
+  <title>JavaScript超入門"データ型比較演算子～数字の大小を比較条件～"</title>
   <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。ランダムに設定した数字を当てます。様々な比較演算子を使い,入力した数字より大きいか小さいか判断します。”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード"/>
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
       <h1>ランダムに設定した数字を当てよう</h1>
@@ -47,12 +62,12 @@ function Button_Click() {
 }</code></pre>
 
       <h4>Math.floorメソッド</h4>
-      
+
       <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
         Math.floor(数式などの端数切捨て)
       </div>
       小数点以下の端数を切り捨てるメソッドです。
-      
+
       <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
         Math.random()
       </div>
@@ -73,7 +88,7 @@ function Button_Click() {
         Math.floor(Math.random()* 10)+1;<br>
         1~10までの数をランダムに表示させる
       </div>
-      
+
 
       <h4>parseIntメソッド</h4>
       <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
@@ -89,7 +104,7 @@ function Button_Click() {
   </div><!-- /.main-wrapper -->
   <footer>JavaScript Samples</footer>
   <script>
-    var number = Math.floor(Math.random() * 6)+1;
+    var number = Math.floor(Math.random() * 6) + 1;
     var answer = parseInt(window.prompt("数当てゲーム。1～6の数字を入力してね"));
     var message;
     if (answer === number) {

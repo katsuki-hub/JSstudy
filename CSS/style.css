@@ -172,7 +172,7 @@ ul li::before {
 
 .timer {
 	font-size: 25px;
-	color: crimson;
+	color: crimson;	
 }
 
 .red {
@@ -291,6 +291,18 @@ pre {
 	letter-spacing: 0.2;
 }
 
+.realday {
+	font-size: 34px;
+	color: royalblue;
+	font-weight: bold;
+}
+
+.realtime {
+	font-size: 24px;
+	color: red;
+	font-weight: bold;
+}
+
 @media (max-width: 600px) {
 	header {
 		background-position: 32% 50%;
@@ -312,4 +324,9 @@ pre {
 	pre {
 		font-size: 12px;
 	}
+}
+
+.main-wrapper {
+	font-size: 16px;
+	line-height: 1.5em;
 }

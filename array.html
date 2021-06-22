@@ -2,23 +2,26 @@
 <html>
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>JavaScript超入門"配列を使って項目リストを表示する"</title>
+  <meta name=”description” content=”JavaScript入門編。配列を使って複数のデータを1つにまとめて、グループ化させます。”>
+  <meta name="keywords" content="JavaScript初級コード,配列プログラミング,技術ブログ,JavaScript入門,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>
-  .ind {
-    list-style: none;
-    border-width: 4px;
-    border-color: blue;
-    border-style: ridge;
-    background-color: rgba(225, 252, 74, 0.5);
-  }
-
   li {
-
     background: #ffa89d70;
     border-radius: 8px;
     /*角の丸み*/
@@ -29,7 +32,7 @@
   }
 
   ul li::before {
-    content: "❖";
+    content: "";
     position: fixed;
     left: 5px;
     /*左端からのアイコンまでの距離*/
@@ -37,6 +40,10 @@
 </style>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
       <h1>項目をリスト表示する</h1>
@@ -45,12 +52,87 @@
   </header>
   <div class="main-wrapper">
     <section>
+      <button onclick="location.href='index.html'">ホーム</button>
       <h2>やることリスト</h2>
-      <ul class="home">
-        <li class="ind"><a href="index.html">ホーム</a></li>
-      </ul>
-      <ul class="li" id="list">
-      </ul>
+      <ul class="li" id="list"></ul>
+      <br>
+      <h3>HTMLソースコード</h3>
+
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">&lt;ul class=&quot;li&quot; id=&quot;list&quot;&gt;&lt;/ul&gt;</code></pre>
+      <!-- /ソースコード -->
+
+      <h3>JavaScriptのソースコードと概要</h3>
+
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">var todo = [&quot;データ整理&quot;, &quot;JavaScriptの学習&quot;, &quot;与信審査と債権管理&quot;, &quot;データ解析によるコンバージョン獲得経路算出&quot;, &quot;広告キーワードプランナーによる解析&quot;];
+todo.push(&quot;自己分析をしておく&quot;);
+for (var i = 0; i &lt; todo.length; i++) {
+  var li = document.createElement(&quot;li&quot;);
+  li.textContent = todo[i];
+  document.getElementById(&quot;list&quot;).appendChild(li);
+}</code></pre>
+      <!-- /ソースコード -->
+      <h4>配列の作成</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        var 変数名 = [];
+      </div>
+      配列を使えば、リストがいくら増えても使う変数は1つで済みます。データの管理がし易くなる。
+      <h4>配列からデータを読み取る</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        配列変数名 [インデックス番号]
+      </div>
+      配列データには順番に0，1，2と番号が付く！これを<b>インデックス番号</b>という。最初の番号は「0」からなので注意！！
+      <h4>全ての項目を読み取る</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        配列変数名.length
+      </div>
+      lengthプロパティは、その配列に登録されているデータの個数を表します。
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        for (var i = 0; i < todo.length; i++) {<br>
+          処理内容<br>
+          }
+      </div>
+      定数iを定義して0を代入し、iに1つずつ足して繰り返してiをインデックス番号としてデータを読み取る！<br>
+      条件式は(変数i)が(変数名.length)より小さければ繰り返すという条件にする。<br><br>
+      今回の繰り返し分は配列を行う際に高い頻度で使われています。
+
+      <h4>配列オブジェクトを操作するメソッド</h4>
+      <table border="1">
+        <tr style="background-color: beige;">
+          <th>メソッド名</th>
+          <th>意味</th>
+        </tr>
+        <tr>
+          <td>配列変数名.push("追加したい項目")</td>
+          <td>配列の最後にデータを追加</td>
+        </tr>
+        <tr>
+          <td>配列変数名.pop()</td>
+          <td>配列の最後のデータを削除</td>
+        </tr>
+        <tr>
+          <td>配列変数名.shift()</td>
+          <td>配列の最初のデータを削除</td>
+        </tr>
+        <tr>
+          <td>配列変数名.unshift("追加したい項目")</td>
+          <td>配列の最初にデータ追加</td>
+        </tr>
+      </table>
+
+      <h4>項目をHTMLに書き出す</h4>
+      上記のHTMLソースコードを挿入しておく
+      <h5>タグを生成</h5>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        document.createElement("タグ名");
+      </div>
+      タグ名を"li"にすると&lt;li&gt;&lt;/li&gt;を生成し、変数liに代入しています。そして、配列todoのインデックスi番目のデータを指定しています。
+      <h4>appendChildメソッド</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        取得した要素.appendChild(挿入したい子要素)
+      </div>
+      取得した要素に()のパラメーターで指定した要素を子要素として挿入する。他に子要素がある場合は、その下に挿入します。
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳</footer>

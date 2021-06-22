@@ -1,30 +1,32 @@
 <!doctype html>
-<html>
+<html lang="ja">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>現在時刻</title>
+  <title>JavaScript超入門"現在時刻を表示させよう"</title>
+  <meta name=”description” content=”JavaScript入門編。現在時刻を1秒単位で表示させます”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <script>
-    var now = new Date();
-    function LoadProc() {
-      var target = document.getElementById("DateTimeDisp");
 
-      var Year = now.getFullYear();
-      var Month = now.getMonth() + 1;
-      var Date = now.getDate();
-      var Hour = now.getHours();
-      var Min = now.getMinutes();
-      var Sec = now.getSeconds();
-
-      target.innerHTML = Year + "年" + Month + "月" + Date + "日";
-    }
-  </script>
 </head>
 
 <body onload="LoadProc();">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
       <h1>現在時刻を表示しよう</h1>
@@ -33,37 +35,92 @@
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
-      <p>現在の時間は</p>
-      <div id="DateTimeDisp"></div>
+      <button onclick="location.href='index.html'">ホーム</button>
+      <h2>現在の時間は</h2>
+      <div class="realday" id="DateTimeDisp"></div>
+      <p class="realtime" id="ClockArea">※ここに時計が表示されます</p>
+      <br><br>
 
-      <p id="RealtimeClockArea">※ここに時計が表示されます</p>
-      <script>
-        function set2fig(num) {
-          // 桁数が1桁だったら先頭に0を加えて2桁に調整する
-          var ret;
-          if (num < 10) { ret = "0" + num; }
-          else { ret = num; }
-          return ret;
-        }
-        function showClock() {
-          var nowTime = new Date();
-          var nowHour = set2fig(nowTime.getHours());
-          var nowMin = set2fig(nowTime.getMinutes());
-          var nowSec = set2fig(nowTime.getSeconds());
-          var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + " 秒です。";
-          document.getElementById("RealtimeClockArea").innerHTML = msg;
-        }
-        setInterval('showClock()', 1000);
-      </script>
+      <h3>HTMLソースコード</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">&lt;div class=&quot;realday&quot; id=&quot;DateTimeDisp&quot;&gt;&lt;/div&gt;
+&lt;p class=&quot;realtime&quot; id=&quot;ClockArea&quot;&gt;※ここに時計が表示されます&lt;/p&gt;</code></pre>
+      <!-- /ソースコード -->
+
+      <h3>JavaScript日付ソースコード</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">var now = new Date();
+function LoadProc() {
+  var target = document.getElementById(&quot;DateTimeDisp&quot;);
+    
+  var Year = now.getFullYear();
+  var Month = now.getMonth() + 1;
+  var Date = now.getDate();
+    
+  target.innerHTML = Year + &quot;年&quot; + Month + &quot;月&quot; + Date + &quot;日&quot;;
+}</code></pre>
+      <!-- /ソースコード -->
+
+      <h3>JavaScript現在時刻ソースコード</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">// 桁数が1桁だったら先頭に0を加えて2桁に調整する
+function set(num) {
+  var ret;
+  if (num &lt; 10) {
+    ret = &quot;0&quot; + num;
+  } else { 
+    ret = num;
+ }
+ return ret;
+}
 
 
-      　　　
+function showClock() {
+  var nowTime = new Date();
+  var nowHour = set(nowTime.getHours());
+  var nowMin = set(nowTime.getMinutes());
+  var nowSec = set(nowTime.getSeconds());
+  var msg = &quot;時刻は&quot; + nowHour + &quot;時&quot; + nowMin + &quot;分&quot; + nowSec + &quot; 秒です。&quot;;
+  document.getElementById(&quot;ClockArea&quot;).innerHTML = msg;
+}
+setInterval(&#039;showClock()&#039;, 1000);</code></pre>
+
+      <!-- /ソースコード -->
+
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳</footer>
+  <script>
+    var now = new Date();
+    function LoadProc() {
+      var target = document.getElementById("DateTimeDisp");
+
+      var Year = now.getFullYear();
+      var Month = now.getMonth() + 1;
+      var Date = now.getDate();
+
+      target.innerHTML = Year + "年" + Month + "月" + Date + "日";
+    }
+    // 桁数が1桁だったら先頭に0を加えて2桁に調整する
+    function set(num) {
+      var ret;
+      if (num < 10) {
+        ret = "0" + num;
+      } else {
+        ret = num;
+      }
+      return ret;
+    }
+    function showClock() {
+      var nowTime = new Date();
+      var nowHour = set(nowTime.getHours());
+      var nowMin = set(nowTime.getMinutes());
+      var nowSec = set(nowTime.getSeconds());
+      var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + " 秒です。";
+      document.getElementById("ClockArea").innerHTML = msg;
+    }
+    setInterval('showClock()', 1000);
+  </script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 

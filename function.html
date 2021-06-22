@@ -2,14 +2,30 @@
 <html>
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>JavaScript超入門”ファンクションの作成と利用”</title>
+  <meta name=”description” content=”JavaScript入門編。functionを作成して、呼び出す処理を行います。”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
       <h1>ファンクションを学習</h1>
@@ -18,13 +34,47 @@
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
-      <h3>税込み価格</h3>
-      <p>お食事代8,000円とお土産代450円の税込み価格は</p>
+      <button onclick="location.href='index.html'">ホーム</button>
+      <h2>税込み価格</h2>
+      <p>お食事代8,000円とお土産代450円の税込み価格は？</p>
       <P id="output"></P>
       <p id="output2"></p>
+
+      <!-- ソースコード -->
+      <h3>HTMLのソースコード</h3>
+      <pre><code class="prettyprint">&lt;p&gt;お食事代8,000円とお土産代450円の税込み価格は？&lt;/p&gt;
+&lt;P id=&quot;output&quot;&gt;&lt;/P&gt;
+&lt;p id=&quot;output2&quot;&gt;&lt;/p&gt;</code></pre>
+      <!-- /ソースコード -->
+
+      <h3>JavaScriptのソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">var total = function (price) {
+  var tax = 0.10;
+  return price + price * tax;
+}
+  
+document.getElementById(&quot;output&quot;).textContent = &quot;◆お食事の値段は&quot; + total(8000) + &quot;円です&quot;;
+document.getElementById(&quot;output2&quot;).textContent = &quot;◆お土産代の値段は&quot; + total(450) + &quot;円です。&quot;;</code></pre>
+      <!-- /ソースコード -->
+
+      <h4>ファンクションとは？</h4>
+      よく行われる処理を1つにまとめたサブプログラムになります。<br>
+      使いたいときに呼び出して利用できるので、よく使われます。<br>
+      ※ファンクションは呼び出さないと処理されることはありません。<br><br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
+        ファンクション()内のパラメーターを受け取り、加工をしたのち、その結果を呼び戻して元に返します。
+      </div>
+      今回は total(8000)というファンクションを受け取って、8000+消費税の計算し、8640を呼び出して元に戻したということです。
+      <h4>ファンクションの作成</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        var ファンクション名 = function(要求するパラメーター) {<br>
+        処理の内容<br>
+        }
+      </div>
+      要求するパラメーター名はfunction()に続く{～}の中だけで有効な変数として機能します。
+
+
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳</footer>

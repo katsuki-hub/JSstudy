@@ -2,26 +2,40 @@
 <html>
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>JavaScript超入門"繰り返し処理のwhile文を使ってみよう"</title>
+  <meta name=”description” content=”JavaScript入門編。繰り返し処理を行って処理する、while文を覚えよう”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
       <h1>while構文のお勉強！！</h1>
-      <h2>勇者がモンスターと対決！</h2>
+      <h2>繰り返し処理でモンスターの体力を減らす</h2>
     </div><!-- /.header-contents -->
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
-      <h3>モンスターの体力は100だ！頑張って倒そう！</h3>
+      <button onclick="location.href='index.html'">ホーム</button>
+      <h2>モンスターの体力はHP:100だ！<br>何ターンで倒せるかな？</h2>
       <script>
         var enemy = 100;
         var attack;
@@ -36,6 +50,40 @@
         }
         document.write(count + "回でモンスターを倒した！");
       </script>
+
+      <h3>ソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">var enemy = 100;
+var attack;
+var count = 0;
+
+window.alert(&quot;戦闘スタート!!&quot;);
+while (enemy &gt; 0) {
+  attack = Math.floor(Math.random() * 30) + 1
+  document.write(&quot;モンスターに&quot; + attack + &quot;のダメージ！&quot; + &quot;&lt;br&gt;&quot;);
+  enemy -= attack;
+  count++;
+}
+document.write(count + &quot;回でモンスターを倒した！&quot;);</code></pre>
+      <!-- /ソースコード -->
+
+      モンスターの体力を保存しておく定義<b>var enemy = 100;</b>に対して、、攻撃力30以下のダメージをモンスターの体力が0以下になるまでの繰り返す処理を書きます。
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+      while(条件式) {<br>
+        繰り返し処理を行う処理文<br>
+      }
+      </div>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        while (enemy > 0)
+      </div>
+      変数enemyが0より大きいとtrueなので、体力がなくなるまで実行され続けます。
+      <h4>for文とwhile文</h4>
+      どちらも繰り返し処理を行うということに関しては同じになりますが、違いとしては繰り返しの回数が決まっているのかどうか？になります。<br><br>
+      for文　⇒　繰り返し回数を確定させてます。<br>
+      何回繰り返すか条件式を決めている。<br><br>
+
+      while文　⇒　繰り返し回数未確定です。<br>
+      条件式がfalseになるまで実行
 
     </section>
   </div><!-- /.main-wrapper -->

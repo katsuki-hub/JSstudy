@@ -2,14 +2,30 @@
 <html>
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>JavaScript超入門"インプットとデータの加工"</title>
+  <meta name=”description” content=”JavaScript入門編。インプット処理でデータを取得して加工し、HTMLへ表示させます。”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
       <h1>フォームの入力内容を取得する</h1>
@@ -18,14 +34,64 @@
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
+      <button onclick="location.href='index.html'">ホーム</button>
+      <h2>フォームを入力して検索してください！</h2>
       <form action="#" id="form">
         <input type="text" name="word">
         <input type="submit" value="検索">
       </form>
       <p id="output"></p>
+      <br><br>
+
+      <h3>HTMLソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">&lt;form action=&quot;#&quot; id=&quot;form&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;word&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;検索&quot;&gt;
+&lt;/form&gt;
+&lt;p id=&quot;output&quot;&gt;&lt;/p&gt;</code></pre>
+      <!-- /ソースコード -->
+      <h4>フォームのコードです！</h4>
+      <b>input type="submit" value="検索"</b>は送信ボタン<br>
+      <b>action="#" id="form"</b>は指定された入力内容の送信場所<br><br>
+      action属性には通常送信するURLを指定！今回は送信しないので『#』にしてます。ちなみに#はページの最上部を指す。
+
+      <h3>JavaScriptのソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">document.getElementById(&quot;form&quot;).onsubmit = function () {
+  var search = document.getElementById(&quot;form&quot;).word.value;
+  document.getElementById(&quot;output&quot;).textContent = &quot;『&quot; + search + &quot;』の検索中...&quot;;
+  return false;
+};</code></pre>
+      <!-- /ソースコード -->
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+        document.getElementById("form")
+      </div>
+      &lt;form id=&quot;form&quot;&gt;～&lt;/form&gt;の要素を取得する。
+
+      <h4>要素イベント作成</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        取得した要素.onsubmit = function () {<br>
+        　処理内容<br>
+        };
+      </div>
+
+      &lt;form&gt;要素のonsubmitイベントにファンクションを代入していきます。<br>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333;">
+        ※onsubmitイベントは親要素の&lt;form&gt;に発生する！
+        イベントファンクションには()内にパラメーターもなく、{}内にreturn命令もない。パラメーターもリターンもないファンクション
+      </div>
+
+      <h4>フォームの入力内容を読み取る</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        取得した("form")要素.読み取りたい部分のname属性.value
+      </div>
+      あとはHTMLに出力するだけです。
+
+      <h4>return false</h4>
+      フォームの基本動作をキャンセルするプログラムです。<br>
+      今回はデータが送信されて、URLの語尾が変わり、ページ移動しようとしてしまう為、再読み込み状態となってしまいます。それにより、テキスト表示が一瞬だけになるので、フォーム基本動作をキャンセルさせています。
+
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳</footer>

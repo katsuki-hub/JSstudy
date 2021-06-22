@@ -2,14 +2,30 @@
 <html>
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JS-study</title>
+  <title>JavaScript超入門"オブジェクトを1つの変数で管理"</title>
+  <meta name=”description” content=”JavaScript入門編。繰り返し処理を行って処理する、while文を覚えよう”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード"/>
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
       <h1>アイテムの価格と在庫を表示する</h1>
@@ -18,24 +34,77 @@
   </header>
   <div class="main-wrapper">
     <section>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-      </ul>
+      <button onclick="location.href='index.html'">ホーム</button>
+      <h2>在庫表示</h2>
       <table border="1">
-        <th>商品</th>
-        <th>値段</th>
-        <th>在庫数</th>
+        <tr bgcolor="pink">
+          <th>商品</th>
+          <th>値段</th>
+          <th>在庫数</th>
+        </tr>
         <tr>
           <td id="title"></td>
           <td id="price"></td>
           <td id="stock"></td>
         </tr>
       </table>
+      <br>
+      <h3>HTMLソースコード</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">&lt;td id=&quot;title&quot;&gt;&lt;/td&gt;
+&lt;td id=&quot;price&quot;&gt;&lt;/td&gt;
+&lt;td id=&quot;stock&quot;&gt;&lt;/td&gt;</code></pre>
+      <!-- /ソースコード -->
+      <h3>JavaScriptのソースコードと概要</h3>
+      <!-- ソースコード -->
+      <pre><code class="prettyprint">var jsbook = { title: &quot;JavaScript学習帳&quot;, price: 1700, stock: 8 };
+document.getElementById(&quot;title&quot;).textContent = jsbook.title;
+document.getElementById(&quot;price&quot;).textContent = jsbook.price + &quot;円&quot;;
+document.getElementById(&quot;stock&quot;).textContent = jsbook.stock;</code></pre>
+      <!-- /ソースコード -->
+      <h4>オブジェクトの作成"1個以上のプロパティ"</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+      var 変数名 = {プロパティ名:データ,……,……};
+      </div>
+      データをひとまとめにし、1つの変数として扱えるデータというのは配列と同じです。ただし、オブジェクトにはインデックス番号はありません。
+      <h4>オブジェクトからプロパティデータ読み取り</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+      オブジェクト名.プロパティ名<br>
+      　　または<br>
+      オブジェクト名["プロパティ名"]
+      </div>
+      <h4>オブジェクトからプロパティデータ書き換え</h4>
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: #dff6fc;">
+        オブジェクト名.プロパティ名 = 新しいデータ;<br>
+        　　または<br>
+        オブジェクト名["プロパティ名"] = 新しいデータ;
+      </div>
+      <h4>for…in文</h4>
+      今回のソースコードには使用してませんが、オブジェクト専用の繰り返し文です。
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
+      for(var プロパティを保存しておく変数 in オブジェクト名) {<br>
+        処理内容<br>
+      }
+      </div>
+      これは、オブジェクトのプロパティを全て読み取ることだけを目的とした、専用の繰り返し文です。<br>
+      プロパティを保存しておく変数は一般的に『ｐ』にします。<br>
+      
+      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
+      プロパティに保存されているデータを読み取りたいときは<br>
+      <b>オブジェクト名[p]</b>とします。<br>
+      <u>※オブジェクト名.ｐは使えない</u><br>
+      for…in文の中では[]を使う方法のみです。
+    </div>
+    <h4>配列との違い</h4>
+    for…in文を使うとオブジェクトのプロパティを全て読み取れますが、場合によっては登録した順に出てこない事がある。<br>
+    配列はインデックス番号がついているので、順序が崩れることはない！
+    
+
     </section>
   </div><!-- /.main-wrapper -->
   <footer>JavaScriptかつまる学習帳</footer>
   <script>
-    var jsbook = { title: "JAvaScript入門", price: 2500, stock: 3 };
+    var jsbook = { title: "JavaScript学習帳", price: 1700, stock: 8 };
     document.getElementById("title").textContent = jsbook.title;
     document.getElementById("price").textContent = jsbook.price + "円";
     document.getElementById("stock").textContent = jsbook.stock;
@@ -58,4 +127,5 @@
   </script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
+
 </html>

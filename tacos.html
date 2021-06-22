@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>JavaScript初級"タイマー機能でカウントダウンを表示させる"</title>
+  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。未来の時刻を使ってカウントダウンタイマーを表示しよう”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>
+    <div class="header-contents">
+      <h1>カウントダウンタイマー</h1>
+      <h2>残り時間の計算</h2>
+    </div><!-- /.header-contents -->
+  </header>
+  <div class="main-wrapper">
+    <section>
+      <h2>タコスの誕生日まで</h2>
+      <p class="timer">あと<span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒
+      </p>
+      <img src="image.png" alt="タコスの写真" title="誕生日">
+    </section>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScriptかつまる学習帳 </footer>
+  <script>
+    var countdown = function (due) {
+      var now = new Date();
+
+      var rest = due.getTime() - now.getTime();
+      var sec = Math.floor(rest / 1000 % 60);
+      var min = Math.floor(rest / 1000 / 60) % 60;
+      var hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+      var days = Math.floor(rest / 1000 / 60 / 60 / 24);
+      var count = [days, hours, min, sec];
+
+      return count;
+    }
+
+    var goal = new Date(2021, 6, 20);
+    /*goal.setHours(23);
+    goal.setMinutes(59);
+    goal.setSeconds(59);
+
+    console.log(countdown(goal));*/
+
+    var recalc = function () {
+      var counter = countdown(goal);
+      /*var time = counter[1] + "時間" + counter[2] + "分" + counter[3] + "秒";
+      document.getElementById("timer").textContent = time;*/
+      document.getElementById("day").textContent = counter[0];
+      document.getElementById("hour").textContent = counter[1];
+      document.getElementById("min").textContent = counter[2];
+      document.getElementById("sec").textContent = counter[3];
+      refresh();
+    }
+
+    var refresh = function () {
+      setTimeout(recalc, 1000);
+    }
+    recalc();
+  </script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+
+</html>
