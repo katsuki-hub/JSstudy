@@ -75,20 +75,15 @@ section h1 {
 
 section h2 {
 	font-size: 1.5em;
-	/* フォントサイズ */
 	font-weight: bold;
-	/* フォント太さ */
 	text-align: center;
 	padding: 3px;
 	margin-bottom: 2em;
 	position: relative;
 	background-color: #d9fce7;
-	/* 背景色 */
 	box-shadow: 0px 0px 0px 5px #a7cf86;
 	border: dashed 2px blue;
-	/* 破線 */
 	color: #000000;
-	/* フォント色 */
 }
 
 section h2:after {
@@ -172,7 +167,7 @@ ul li::before {
 
 .timer {
 	font-size: 25px;
-	color: crimson;	
+	color: crimson;
 }
 
 .red {
@@ -210,68 +205,46 @@ pre .str, code .str {
 	color: #e6db5a;
 }
 
-/* string */
-
 pre .kwd, code .kwd {
 	color: #66d9ef;
 }
-
-/* keyword */
 
 pre .com, code .com {
 	color: #75715e;
 	font-style: italic;
 }
 
-/* comment */
-
 pre .typ, code .typ {
 	color: #66d9ef;
 }
-
-/* type */
 
 pre .lit, code .lit {
 	color: #ae81ff;
 }
 
-/* literal */
-
 pre .pun, code .pun {
 	color: #fff;
 }
-
-/* punctuation */
 
 pre .pln, code .pln {
 	color: #fff;
 }
 
-/* plaintext */
-
 pre .tag, code .tag {
 	color: #f92672;
 }
-
-/* html/xml tag */
 
 pre .atn, code .atn {
 	color: #a6e22a;
 }
 
-/* html/xml attribute name */
-
 pre .atv, code .atv {
 	color: #e6db74;
 }
 
-/* html/xml attribute value */
-
 pre .dec, code .dec {
 	color: #ae81ff;
 }
-
-/* decimal */
 
 pre.prettyprinted {
 	box-shadow: inset 0 0 1px 2px #3c3d39, 0 0 15px rgba(0, 0, 0, 0.5);
@@ -291,6 +264,8 @@ pre {
 	letter-spacing: 0.2;
 }
 
+/*prettyprint*/
+
 .realday {
 	font-size: 34px;
 	color: rgb(0, 21, 85);
@@ -304,10 +279,8 @@ pre {
 }
 
 .video {
-	min-height: 90%;
-  min-height: 90vh;
-  min-width: 90%;
-  min-width: 90vw;
+	width: 100%;
+	text-align: center;
 }
 
 @media (max-width: 600px) {
