@@ -293,13 +293,13 @@ pre {
 
 .realday {
 	font-size: 34px;
-	color: royalblue;
+	color: rgb(0, 21, 85);
 	font-weight: bold;
 }
 
 .realtime {
-	font-size: 20px;
-	color: red;
+	font-size: 22px;
+	color: rgb(0, 141, 75);
 	font-weight: bold;
 }
 
