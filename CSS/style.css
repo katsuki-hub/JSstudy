@@ -303,6 +303,13 @@ pre {
 	font-weight: bold;
 }
 
+.video {
+	min-height: 90%;
+  min-height: 90vh;
+  min-width: 90%;
+  min-width: 90vw;
+}
+
 @media (max-width: 600px) {
 	header {
 		background-position: 32% 50%;
