@@ -35,12 +35,42 @@
     <section>
       暇つぶしで作ってみました(*^^)v<br>
       新しい動画は後日、編集します！
-
+      <p style="font-size: 28px; color: rgb(0, 77, 100); padding: 0;">次回のボルダリングまで</p>
+      <p class="timer"><span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒
+      </p>
       <video class="video" src="images/bb.mp4" controls autoplay muted loop playsinline></video>
 
     </section>
   </div><!-- /.main-wrapper -->
   <footer>ボルダリング部</footer>
+  <script>
+    var countdown = function (due) {
+      var now = new Date();
+      var rest = due.getTime() - now.getTime();
+      var sec = Math.floor(rest / 1000 % 60);
+      var min = Math.floor(rest / 1000 / 60) % 60;
+      var hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+      var days = Math.floor(rest / 1000 / 60 / 60 / 24);
+      var count = [days, hours, min, sec];
+      return count;
+    }
+
+    var goal = new Date(2021, 5, 26,19);
+
+    var recalc = function () {
+      var counter = countdown(goal);
+      document.getElementById("day").textContent = counter[0];
+      document.getElementById("hour").textContent = counter[1];
+      document.getElementById("min").textContent = counter[2];
+      document.getElementById("sec").textContent = counter[3];
+      refresh();
+    }
+
+    var refresh = function () {
+      setTimeout(recalc, 1000);
+    }
+    recalc();
+  </script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
