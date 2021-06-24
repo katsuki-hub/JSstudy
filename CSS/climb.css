@@ -15,8 +15,8 @@ html, body {
 header {
 	width: 100%;
 	background-color: #e9f3f1;
-	background-image: url(../images/header-bg.png);
-	background-position: 50% 50%;
+	background-image: url(../images/header.png);
+	background-size: cover;
 	background-color: #e9f3f1;
 	border-top: 10px solid;
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
@@ -216,10 +216,10 @@ footer {
 	max-width: 960px;
 	margin: 0 auto 10px auto;
 	padding: 15px 30px;
-	background-color: #01878b;
+	background-color: #f0f7d9;
 	border: #dadada 1px solid;
 	border-radius: 0 0 10px 10px;
-	color: #fff;
+	color: rgb(0, 0, 0);
 	font-size: 12px;
 	text-align: right;
 }
