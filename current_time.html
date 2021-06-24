@@ -15,7 +15,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JavaScript超入門"現在時刻を表示させよう"</title>
+  <title>簡単JavaScript"現在時刻を表示させよう"</title>
   <meta name=”description” content=”JavaScript入門編。現在時刻を1秒単位で表示させます”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -37,26 +37,25 @@
     <section>
       <button onclick="location.href='index.html'">ホーム</button>
       <h2>現在の時間は</h2>
-      <div class="realday" id="DateTimeDisp"></div>
-      <p class="realtime" id="ClockArea">※ここに時計が表示されます</p>
+      <div class="realday" id="Today"></div>
+      <p class="realtime" id="Clock">※ここに時計が表示されます</p>
       <br><br>
 
       <h3>HTMLソースコード</h3>
       <!-- ソースコード -->
-      <pre><code class="prettyprint">&lt;div class=&quot;realday&quot; id=&quot;DateTimeDisp&quot;&gt;&lt;/div&gt;
-&lt;p class=&quot;realtime&quot; id=&quot;ClockArea&quot;&gt;※ここに時計が表示されます&lt;/p&gt;</code></pre>
+      <pre><code class="prettyprint">&lt;div class=&quot;realday&quot; id=&quot;Today&quot;&gt;&lt;/div&gt;
+&lt;p class=&quot;realtime&quot; id=&quot;Clock&quot;&gt;※ここに時計が表示されます&lt;/p&gt;</code></pre>
       <!-- /ソースコード -->
 
       <h3>JavaScript日付ソースコード</h3>
       <!-- ソースコード -->
       <pre><code class="prettyprint">var now = new Date();
 function LoadProc() {
-  var target = document.getElementById(&quot;DateTimeDisp&quot;);
-    
   var Year = now.getFullYear();
   var Month = now.getMonth() + 1;
   var Date = now.getDate();
     
+  var target = document.getElementById(&quot;Today&quot;);
   target.innerHTML = Year + &quot;年&quot; + Month + &quot;月&quot; + Date + &quot;日&quot;;
 }</code></pre>
       <!-- /ソースコード -->
@@ -70,8 +69,8 @@ function set(num) {
     ret = &quot;0&quot; + num;
   } else { 
     ret = num;
- }
- return ret;
+  }
+  return ret;
 }
 
 
@@ -80,8 +79,8 @@ function showClock() {
   var nowHour = set(nowTime.getHours());
   var nowMin = set(nowTime.getMinutes());
   var nowSec = set(nowTime.getSeconds());
-  var msg = &quot;時刻は&quot; + nowHour + &quot;時&quot; + nowMin + &quot;分&quot; + nowSec + &quot; 秒です。&quot;;
-  document.getElementById(&quot;ClockArea&quot;).innerHTML = msg;
+  var msg = &quot;時刻は&quot; + nowHour + &quot;時&quot; + nowMin + &quot;分&quot; + nowSec + &quot; 秒です&quot;;
+  document.getElementById(&quot;Clock&quot;).innerHTML = msg;
 }
 setInterval(&#039;showClock()&#039;, 1000);</code></pre>
 
@@ -93,14 +92,14 @@ setInterval(&#039;showClock()&#039;, 1000);</code></pre>
   <script>
     var now = new Date();
     function LoadProc() {
-      var target = document.getElementById("DateTimeDisp");
-
       var Year = now.getFullYear();
       var Month = now.getMonth() + 1;
       var Date = now.getDate();
 
+      var target = document.getElementById("Today");
       target.innerHTML = Year + "年" + Month + "月" + Date + "日";
     }
+
     // 桁数が1桁だったら先頭に0を加えて2桁に調整する
     function set(num) {
       var ret;
@@ -116,8 +115,8 @@ setInterval(&#039;showClock()&#039;, 1000);</code></pre>
       var nowHour = set(nowTime.getHours());
       var nowMin = set(nowTime.getMinutes());
       var nowSec = set(nowTime.getSeconds());
-      var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + " 秒です。";
-      document.getElementById("ClockArea").innerHTML = msg;
+      var msg = "時刻は" + nowHour + "時" + nowMin + "分" + nowSec + " 秒です";
+      document.getElementById("Clock").innerHTML = msg;
     }
     setInterval('showClock()', 1000);
   </script>

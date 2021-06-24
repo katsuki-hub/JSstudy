@@ -15,10 +15,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JavaScript初級"タイマー機能でカウントダウンを表示させる"</title>
-  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。未来の時刻を使ってカウントダウンタイマーを表示しよう”>
-  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <title>ボルダリング部"Movie"</title>
+  <meta name=”description” content=”ボルダリング部の活動映像集ページです！”>
+  <link href="CSS/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -28,44 +27,38 @@
   <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
-      <h1>カウントダウンタイマー</h1>
-      <h2>残り時間の計算</h2>
+      <h1>動画視聴　１度しか見れません！</h1>
+      <h2>クッキー削除したら再度見れるよ</h2>
     </div><!-- /.header-contents -->
   </header>
   <div class="main-wrapper">
     <section>
-      <h2>タコスの誕生日まで</h2>
-      <p class="timer">あと<span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒
+      暇つぶしで作ってみました(*^^)v<br>
+      新しい動画は後日、編集します！
+      <p style="font-size: 25px; color: rgb(0, 77, 100);">次回のボルダリングまで</p>
+      <p class="timer"><span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒
       </p>
-      <img class="video" src="images/tacos.png" alt="タコスの写真" title="誕生日">
+      <video class="video" src="images/bb.mp4" controls autoplay muted loop playsinline></video>
+
     </section>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScriptかつまる学習帳 </footer>
+  <footer>ボルダリング部</footer>
   <script>
     var countdown = function (due) {
       var now = new Date();
-
       var rest = due.getTime() - now.getTime();
       var sec = Math.floor(rest / 1000 % 60);
       var min = Math.floor(rest / 1000 / 60) % 60;
       var hours = Math.floor(rest / 1000 / 60 / 60) % 24;
       var days = Math.floor(rest / 1000 / 60 / 60 / 24);
       var count = [days, hours, min, sec];
-
       return count;
     }
 
-    var goal = new Date(2021, 6, 20);
-    /*goal.setHours(23);
-    goal.setMinutes(59);
-    goal.setSeconds(59);
-
-    console.log(countdown(goal));*/
+    var goal = new Date(2021, 5, 26,10);
 
     var recalc = function () {
       var counter = countdown(goal);
-      /*var time = counter[1] + "時間" + counter[2] + "分" + counter[3] + "秒";
-      document.getElementById("timer").textContent = time;*/
       document.getElementById("day").textContent = counter[0];
       document.getElementById("hour").textContent = counter[1];
       document.getElementById("min").textContent = counter[2];

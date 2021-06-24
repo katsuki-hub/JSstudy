@@ -66,6 +66,41 @@ header {
 	min-height: calc(100% - 200px);
 }
 
+.heading {
+	position: relative;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	font-size: 24px;
+	text-align: center;
+}
+
+.heading span {
+	position: relative;
+	z-index: 2;
+}
+
+.heading::before {
+	content: attr(data-en);
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: rgba(223, 45, 178, 0.2);
+	font-size: 70px;
+	font-style: italic;
+}
+
+.heading::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%) rotate(30deg);
+	width: 2px;
+	height: 30px;
+	background-color: rgb(226, 23, 84);
+}
+
 section h1 {
 	font-size: 32px;
 	color: #000000;
@@ -75,20 +110,15 @@ section h1 {
 
 section h2 {
 	font-size: 1.5em;
-	/* フォントサイズ */
 	font-weight: bold;
-	/* フォント太さ */
 	text-align: center;
-	padding: 3px;
+	padding: 5px;
 	margin-bottom: 2em;
 	position: relative;
 	background-color: #d9fce7;
-	/* 背景色 */
 	box-shadow: 0px 0px 0px 5px #a7cf86;
 	border: dashed 2px blue;
-	/* 破線 */
 	color: #000000;
-	/* フォント色 */
 }
 
 section h2:after {
@@ -172,7 +202,7 @@ ul li::before {
 
 .timer {
 	font-size: 25px;
-	color: crimson;	
+	color: crimson;
 }
 
 .red {
@@ -210,68 +240,46 @@ pre .str, code .str {
 	color: #e6db5a;
 }
 
-/* string */
-
 pre .kwd, code .kwd {
 	color: #66d9ef;
 }
-
-/* keyword */
 
 pre .com, code .com {
 	color: #75715e;
 	font-style: italic;
 }
 
-/* comment */
-
 pre .typ, code .typ {
 	color: #66d9ef;
 }
-
-/* type */
 
 pre .lit, code .lit {
 	color: #ae81ff;
 }
 
-/* literal */
-
 pre .pun, code .pun {
 	color: #fff;
 }
-
-/* punctuation */
 
 pre .pln, code .pln {
 	color: #fff;
 }
 
-/* plaintext */
-
 pre .tag, code .tag {
 	color: #f92672;
 }
-
-/* html/xml tag */
 
 pre .atn, code .atn {
 	color: #a6e22a;
 }
 
-/* html/xml attribute name */
-
 pre .atv, code .atv {
 	color: #e6db74;
 }
 
-/* html/xml attribute value */
-
 pre .dec, code .dec {
 	color: #ae81ff;
 }
-
-/* decimal */
 
 pre.prettyprinted {
 	box-shadow: inset 0 0 1px 2px #3c3d39, 0 0 15px rgba(0, 0, 0, 0.5);
@@ -291,16 +299,23 @@ pre {
 	letter-spacing: 0.2;
 }
 
+/*prettyprint*/
+
 .realday {
 	font-size: 34px;
-	color: royalblue;
+	color: rgb(0, 21, 85);
 	font-weight: bold;
 }
 
 .realtime {
-	font-size: 24px;
-	color: red;
+	font-size: 22px;
+	color: rgb(0, 141, 75);
 	font-weight: bold;
+}
+
+.video {
+	width: 100%;
+	text-align: center;
 }
 
 @media (max-width: 600px) {
