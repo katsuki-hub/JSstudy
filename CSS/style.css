@@ -318,12 +318,6 @@ pre {
 	text-align: center;
 }
 
-.visual {
-	width: 100%;
-	margin: 0;
-	text-align: center;
-}
-
 @media (max-width: 600px) {
 	header {
 		background-position: 32% 50%;
