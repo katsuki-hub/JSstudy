@@ -53,6 +53,56 @@ header {
 	text-shadow: 2px 2px 2px rgb(214, 22, 22);
 }
 
+#global-navi {
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+	margin: 16px auto;
+	text-align: center;
+}
+
+#global-navi ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#global-navi ul li {
+	width: 200px;
+	float: left;
+	margin-right: 1px;
+	text-align: center;
+}
+
+#global-navi ul li a {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
+
+#bread {
+	font-size: smaller;
+}
+
+#bread ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#bread ol li {
+	display: inline;
+}
+
+#bread ol li::after {
+	content: ">";
+	padding-left: 7px;
+}
+
+#bread ol li:last-child::after {
+	content: none;
+}
+
 .main-wrapper {
 	position: relative;
 	box-sizing: border-box;
@@ -175,15 +225,15 @@ h4::after {
 	transform: rotate(35deg)
 }
 
-ul {
+#box ul {
 	padding: 0;
 	position: relative;
 }
 
-li {
+#box li {
 	line-height: 1.2;
 	padding: 0.5em 0.5em 0.5em 1.7em;
-	list-style-type: none!important;
+	list-style-type: square;
 	background: -webkit-linear-gradient(top, 0%, whitesmoke 100%);
 	/*グラデーション*/
 	background: linear-gradient(to bottom, whitesmoke 0%, #b6dbbe 100%);
@@ -191,13 +241,6 @@ li {
 	text-shadow: 1px 1px 1px whitesmoke;
 	/*文字を立体的に*/
 	color: black;
-}
-
-ul li::before {
-	content: "🎵";
-	position: absolute;
-	left: 0.2em;
-	/*左端からのアイコンまでの距離*/
 }
 
 .timer {

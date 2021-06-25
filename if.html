@@ -17,7 +17,7 @@
   <meta http-equiv="x-ua-compatible" content="IE=edge">
   <title>JavaScript初級編”if文～条件分岐で動作を変える～”</title>
   <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。一般的によく使われるif文のコードの書き方を簡単にご説明します”>
-  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード"/>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -31,50 +31,66 @@
       <h1>if文～条件分岐で動作を変える～</h1>
       <h2>確認ダイアログボックスを表示する</h2>
     </div><!-- /.header-contents -->
+    <nav id="global-navi">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
+      </ul>
+    </nav>
   </header>
   <div class="main-wrapper">
-    <section>
-      <button onclick="location.href='index.html'">ホーム</button>
-      <h2>占いの結果を確認</h2>
+    <div id="main">
+      <div id="bread">
+        <ol>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="if.html">if文</a></li>
+        </ol>
+      </div>
+      <article>
+        <section>
+          <button onclick="location.href='index.html'">ホーム</button>
+          <h2>占いの結果を確認</h2>
 
-      <script>
-        if (window.confirm("今日の運勢を占います、よろしいですか？")) {
-          document.write("夢や、人生の目標を思い出せる日<br>普段の自分の才能や個性を信じて日々生きていってください");
-        } else {
-          document.write("運勢なんて必要ありませんね！<br>道は己の力で切りひらいてください");
-        }
-      </script>
+          <script>
+            if (window.confirm("今日の運勢を占います、よろしいですか？")) {
+              document.write("夢や、人生の目標を思い出せる日<br>普段の自分の才能や個性を信じて日々生きていってください");
+            } else {
+              document.write("運勢なんて必要ありませんね！<br>道は己の力で切りひらいてください");
+            }
+          </script>
 
-      <h3>ソースコード解説</h3>
+          <h3>ソースコード解説</h3>
 
-      <pre><code class="prettyprint">if (window.confirm(&quot;今日の運勢を占います、よろしいですか？&quot;)) {
+          <pre><code class="prettyprint">if (window.confirm(&quot;今日の運勢を占います、よろしいですか？&quot;)) {
   document.write(&quot;運勢結果&quot;);
 } else {
   document.write(&quot;運勢なんて必要ありませんね&quot;);
 }</code></pre>
 
-      <h4>confirmメソッド</h4>
-      <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
-        window.confirm(メッセージ)
-      </div>
-      windowオブジェクトのconfirmメソッドで確認ダイアログボックスを表示します。<br>
-      confirmメソッドは表示するだけで<b>リターン</b>を返してきます。
+          <h4>confirmメソッド</h4>
+          <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+            window.confirm(メッセージ)
+          </div>
+          windowオブジェクトのconfirmメソッドで確認ダイアログボックスを表示します。<br>
+          confirmメソッドは表示するだけで<b>リターン</b>を返してきます。
 
-      <h4>if文</h4>
+          <h4>if文</h4>
 
-      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
-        if(条件式) {<br>
-        条件式がtrueになるときに実行する処理<br>
-        } else {<br>
-        条件式がfalseになるときに実行する処理<br>
-        }
-      </div>
-      ※条件式には色々なバリエーションがある。<br>
-      ※falseの時に何も実行しない時は、else以降は省略することも出来る
+          <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
+            if(条件式) {<br>
+            条件式がtrueになるときに実行する処理<br>
+            } else {<br>
+            条件式がfalseになるときに実行する処理<br>
+            }
+          </div>
+          ※条件式には色々なバリエーションがある。<br>
+          ※falseの時に何も実行しない時は、else以降は省略することも出来る
 
 
 
-    </section>
+        </section>
+      </article>
+    </div>
   </div><!-- /.main-wrapper -->
   <footer>JavaScript Samples</footer>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
