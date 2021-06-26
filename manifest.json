@@ -1,0 +1,20 @@
+{
+    "name": "JSプログラミング講座",
+    "short_name": "JSプログラミング講座",
+    "icons": [
+        {
+            "src": "/android-touch-icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/jsrogo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html?utm_source=homescreen",
+    "display": "standalone",
+    "background_color": "#ffffe0",
+    "theme_color": "#ffffe0"
+}
