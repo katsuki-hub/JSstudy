@@ -5,7 +5,6 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-	background-image: url(../images/body-bg.png);
 }
 
 html, body {
@@ -82,26 +81,39 @@ header {
 }
 
 #bread {
-	font-size: smaller;
-}
-
-#bread ol {
-	list-style: none;
 	margin: 0;
 	padding: 0;
+	list-style: none;
 }
 
 #bread ol li {
-	display: inline;
+	display: inline-block;
+	list-style: none;
+	font-weight: bold;
 }
 
 #bread ol li::after {
 	content: ">";
-	padding-left: 7px;
+	padding: 0 0.2em;
+  color: #72a1f7;
 }
 
 #bread ol li:last-child::after {
 	content: none;
+}
+
+#bread li a {
+  display: inline-block;
+  padding: 0.2em .8em;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #72a1f7;
+  background: #c6e2ff;
+  font-size: 0.9em;
+}
+
+#bread　li a:hover {
+  background: #c9dbfb;
 }
 
 .main-wrapper {
@@ -123,11 +135,6 @@ header {
 	padding-bottom: 50px;
 	font-size: 24px;
 	text-align: center;
-}
-
-.heading span {
-	position: relative;
-	z-index: 2;
 }
 
 .heading::before {
@@ -163,7 +170,8 @@ section h2 {
 	font-size: 1.5em;
 	font-weight: bold;
 	text-align: center;
-	padding: 5px;
+	padding: 3px;
+	margin-top: 3px;
 	margin-bottom: 2em;
 	position: relative;
 	background-color: #d9fce7;
@@ -222,7 +230,6 @@ h4::before {
 }
 
 h4::after {
-	
 	margin-left: 30px;
 	transform: rotate(35deg)
 }
@@ -230,7 +237,7 @@ h4::after {
 #box li {
 	line-height: 1.4;
 	padding: 0.5em 0.5em 0.5em 1.7em;
-	background: linear-gradient(to bottom, whitesmoke 0%, #99f3ad 100%);
+	background: linear-gradient(to bottom, whitesmoke 0%, #f3f2b2 100%);
 	text-shadow: 1px 1px 1px whitesmoke;
 	list-style: none;
 }
