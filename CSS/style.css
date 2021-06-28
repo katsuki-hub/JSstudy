@@ -137,7 +137,7 @@ header {
 	left: 50%;
 	transform: translateX(-50%);
 	color: rgba(223, 45, 178, 0.2);
-	font-size: 70px;
+	font-size: 60px;
 	font-style: italic;
 }
 
@@ -222,26 +222,23 @@ h4::before {
 }
 
 h4::after {
+	
 	margin-left: 30px;
 	transform: rotate(35deg)
 }
 
-#box ul {
-	padding: 0;
-	position: relative;
+#box li {
+	line-height: 1.4;
+	padding: 0.5em 0.5em 0.5em 1.7em;
+	background: linear-gradient(to bottom, whitesmoke 0%, #99f3ad 100%);
+	text-shadow: 1px 1px 1px whitesmoke;
+	list-style: none;
 }
 
-#box li {
-	line-height: 1.2;
-	padding: 0.5em 0.5em 0.5em 1.7em;
-	list-style-type: square;
-	background: -webkit-linear-gradient(top, 0%, whitesmoke 100%);
-	/*グラデーション*/
-	background: linear-gradient(to bottom, whitesmoke 0%, #b6dbbe 100%);
-	/*グラデーション*/
-	text-shadow: 1px 1px 1px whitesmoke;
-	/*文字を立体的に*/
-	color: black;
+#box li::before {
+	content: "🎵";
+	position: relative;
+	right: 20px;
 }
 
 .timer {
