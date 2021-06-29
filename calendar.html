@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>JavaScript初級編”カレンダーを作成”</title>
+  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。カレンダーをJavaScriptで組んでいきます”>
+  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/calendar.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>
+    <div class="header-contents">
+      <h1>カレンダーを表示させよう！</h1>
+      <h2>簡単なスケジュール表</h2>
+    </div><!-- /.header-contents -->
+    <nav id="global-navi">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- パンくずリスト -->
+  <div id="bread">
+    <ol>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="calendar.html">カレンダー</a></li>
+    </ol>
+  </div>
+  <div class="main-wrapper">
+    <article>
+      <section>
+        <h2>カレンダーを表示</h2>
+        <!-- xxxx年xx月を表示 -->
+        <div class="wrapper">
+          <h1 id="header"></h1>
+
+          <!-- ボタンクリックで月移動 -->
+          <div id="next-prev-button">
+            <button id="prev" onclick="prev()">‹</button>
+            <button id="next" onclick="next()">›</button>
+          </div>
+
+          <!-- カレンダー -->
+          <div id="calendar"></div>
+        </div>
+
+
+        <h3>HTMLのソースコード</h3>
+
+        <h3>JavaScriptのソースコード解説</h3>
+
+
+
+
+
+
+
+
+      </section>
+    </article>
+  </div>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScript Samples</footer>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script src="scripts/calendar.js"></script>
+</body>
+
+</html>
