@@ -16,7 +16,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
   <title>プログラミング学習帳～簡単解説！JavaScript初級コード～</title>
-  <meta name="description" content="JavaScript超入門編の学習技術ブログです。初級編～中級編までアップします。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
+  <meta name="description"
+    content="JavaScript超入門編の学習技術ブログです。初級編～中級編までアップします。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード">
   <link href="css/style.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -35,12 +36,12 @@
   <link rel="manifest" href="manifest.json">
   <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js')
-          .then((reg) => {
-            console.log('Service worker registered.', reg);
-          });
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
     }
-    </script>
+  </script>
 </head>
 
 <body>
@@ -53,7 +54,16 @@
       <h1>JavaScript学習ファイルまとめ</h1>
       <h2>カテゴリーごとに作成</h2>
     </div><!-- /.header-contents -->
+
+    <!-- グローバルナビ -->
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
+      </ul>
+    </nav>
   </header>
+
   <div class="main-wrapper">
     <h2 class="heading" data-en="JavaScript">プログラミング入門☆学習技術ブログ</h2>
     <section>
@@ -81,7 +91,7 @@
           <li><a href="location.html">プルダウンメニューでページ移動～プール属性の設定とid属性のないHTML要素取得方法～</a></li>
           <li><a href="cookie.html">クッキーを使ってフォームの送信を1度だけにする</a></li>
           <li><a href="calendar.html">簡単なカレンダーを実装する</a></li>
-          </ul>
+        </ul>
       </div>
 
     </section>

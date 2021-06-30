@@ -26,18 +26,22 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  
   <header>
     <div class="header-contents">
       <h1>if文～条件分岐で動作を変える～</h1>
       <h2>確認ダイアログボックスを表示する</h2>
     </div><!-- /.header-contents -->
-    <nav id="global-navi">
+
+    <!-- グローバルナビ -->
+    <nav>
       <ul>
         <li><a href="index.html">HOME</a></li>
         <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
       </ul>
     </nav>
   </header>
+
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
@@ -46,49 +50,49 @@
     </ol>
   </div>
   <div class="main-wrapper">
-      <article>
-        <section>
-          <h2>占いの結果を確認</h2>
+    <article>
+      <section>
+        <h2>占いの結果を確認</h2>
 
-          <script>
-            if (window.confirm("今日の運勢を占います、よろしいですか？")) {
-              document.write("夢や、人生の目標を思い出せる日<br>普段の自分の才能や個性を信じて日々生きていってください");
-            } else {
-              document.write("運勢なんて必要ありませんね！<br>道は己の力で切りひらいてください");
-            }
-          </script>
+        <script>
+          if (window.confirm("今日の運勢を占います、よろしいですか？")) {
+            document.write("夢や、人生の目標を思い出せる日<br>普段の自分の才能や個性を信じて日々生きていってください");
+          } else {
+            document.write("運勢なんて必要ありませんね！<br>道は己の力で切りひらいてください");
+          }
+        </script>
 
-          <h3>ソースコード解説</h3>
+        <h3>ソースコード解説</h3>
 
-          <pre><code class="prettyprint">if (window.confirm(&quot;今日の運勢を占います、よろしいですか？&quot;)) {
+        <pre><code class="prettyprint">if (window.confirm(&quot;今日の運勢を占います、よろしいですか？&quot;)) {
   document.write(&quot;運勢結果&quot;);
 } else {
   document.write(&quot;運勢なんて必要ありませんね&quot;);
 }</code></pre>
 
-          <h4>confirmメソッド</h4>
-          <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
-            window.confirm(メッセージ)
-          </div>
-          windowオブジェクトのconfirmメソッドで確認ダイアログボックスを表示します。<br>
-          confirmメソッドは表示するだけで<b>リターン</b>を返してきます。
+        <h4>confirmメソッド</h4>
+        <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #333333; background-color: #fdfdbd;">
+          window.confirm(メッセージ)
+        </div>
+        windowオブジェクトのconfirmメソッドで確認ダイアログボックスを表示します。<br>
+        confirmメソッドは表示するだけで<b>リターン</b>を返してきます。
 
-          <h4>if文</h4>
+        <h4>if文</h4>
 
-          <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
-            if(条件式) {<br>
-            条件式がtrueになるときに実行する処理<br>
-            } else {<br>
-            条件式がfalseになるときに実行する処理<br>
-            }
-          </div>
-          ※条件式には色々なバリエーションがある。<br>
-          ※falseの時に何も実行しない時は、else以降は省略することも出来る
+        <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333;">
+          if(条件式) {<br>
+          条件式がtrueになるときに実行する処理<br>
+          } else {<br>
+          条件式がfalseになるときに実行する処理<br>
+          }
+        </div>
+        ※条件式には色々なバリエーションがある。<br>
+        ※falseの時に何も実行しない時は、else以降は省略することも出来る
 
 
 
-        </section>
-      </article>
+      </section>
+    </article>
   </div><!-- /.main-wrapper -->
   <footer>JavaScript Samples</footer>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

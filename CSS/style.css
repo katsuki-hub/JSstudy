@@ -53,31 +53,34 @@ header {
 	text-shadow: 2px 2px 2px rgb(214, 22, 22);
 }
 
-#global-navi {
-	width: 100%;
-	clear: both;
-	overflow: hidden;
-	margin: 16px auto;
-	text-align: center;
-}
-
-#global-navi ul {
-	list-style: none;
-	margin: 0;
+nav ul {
+	display: table;
+	margin: 0 auto;
 	padding: 0;
+	width: 100%;
+	font-size: 20px;
+	text-align: right;
+	background-color: rgba(0, 0, 0, 0.493);
 }
 
-#global-navi ul li {
-	width: 200px;
-	float: left;
-	margin-right: 1px;
-	text-align: center;
+nav ul li {
+	display: table-cell;
+	position: relative;
 }
 
-#global-navi ul li a {
+nav ul li a {
 	display: block;
+	width: 80%;
 	text-decoration: none;
 	color: #fff;
+}
+
+nav ul li a:hover {
+	color: #3498db;
+}
+
+nav ul li a.current {
+	color: rgb(193, 255, 189);
 }
 
 #bread {
@@ -95,7 +98,7 @@ header {
 #bread ol li::after {
 	content: ">";
 	padding: 0 0.2em;
-  color: #72a1f7;
+	color: #72a1f7;
 }
 
 #bread ol li:last-child::after {
@@ -103,17 +106,17 @@ header {
 }
 
 #bread li a {
-  display: inline-block;
-  padding: 0.2em .8em;
-  border-radius: 15px;
-  text-decoration: none;
-  color: #72a1f7;
-  background: #c6e2ff;
-  font-size: 0.9em;
+	display: inline-block;
+	padding: 0.2em .8em;
+	border-radius: 15px;
+	text-decoration: none;
+	color: #72a1f7;
+	background: #c6e2ff;
+	font-size: 0.9em;
 }
 
-#bread　li a:hover {
-  background: #c9dbfb;
+#bread li a:hover {
+	background: #c9dbfb;
 }
 
 .main-wrapper {
@@ -232,6 +235,10 @@ h4::before {
 h4::after {
 	margin-left: 30px;
 	transform: rotate(35deg)
+}
+
+#box ul {
+	padding: 15px 10px 15px 10px;
 }
 
 #box li {
@@ -377,24 +384,23 @@ pre {
 		border-top: #48887d 5px solid;
 	}
 	.header-contents {
-		min-height: 60px;
+		min-height: 75px;
 		background-size: 40px 40px;
 		background-position: 10px 50%;
 	}
 	.header-contents h1 {
-		padding: 15px 0 5px 55px;
-		font-size: 16px;
+		padding: 15px 0 5px 80px;
+		font-size: 20px;
 	}
 	.header-contents h2 {
-		padding: 0 0 0 55px;
-		font-size: 12px;
+		padding: 0 0 0 80px;
+		font-size: 16px;
 	}
 	pre {
 		font-size: 12px;
 	}
-}
-
-.main-wrapper {
-	font-size: 16px;
-	line-height: 1.5em;
+	.main-wrapper {
+		font-size: 16px;
+		line-height: 1.5em;
+	}
 }
