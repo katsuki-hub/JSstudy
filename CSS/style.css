@@ -2,6 +2,7 @@
 /* CSS Document */
 
 body {
+	background-color: rgb(233, 255, 223);
 	margin: 0;
 	padding: 0;
 	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -58,9 +59,9 @@ nav ul {
 	margin: 0 auto;
 	padding: 0;
 	width: 100%;
-	font-size: 20px;
+	font-size: 15px;
 	text-align: right;
-	background-color: rgba(0, 0, 0, 0.493);
+	background-color: rgba(4, 70, 13, 0.493);
 }
 
 nav ul li {
@@ -125,7 +126,7 @@ nav ul li a.current {
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 30px 30px;
-	background-color: #fff;
+	background-color:#fff;
 	border-left: #dadada 1px solid;
 	border-right: #dadada 1px solid;
 	min-height: 80%;
