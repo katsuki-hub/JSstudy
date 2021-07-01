@@ -238,21 +238,66 @@ h4::after {
 }
 
 #box ul {
-	padding: 15px 10px 15px 10px;
+	counter-reset: list;
+	list-style-type: none;
+	position: relative;
+	font: 14px/1.6 'Mv Boli', 'arial narrow', sans-serif;
+	padding: 0.8em;
+	background: #F2EFE7;
+	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
+	width: 92%;
+}
+
+#box::after {
+	content: "JavaScript学習ファイル";
+	/* 右下の文字 */
+	position: absolute;
+	bottom: 8px;
+	right: 3em;
+	font-size: 14px;
+	color: #bbb;
 }
 
 #box li {
-	line-height: 1.4;
-	padding: 0.5em 0.5em 0.5em 1.7em;
-	background: linear-gradient(to bottom, whitesmoke 0%, #f3f2b2 100%);
-	text-shadow: 1px 1px 1px whitesmoke;
-	list-style: none;
+	position: relative;
+	padding: 6px 5px 10px 50px;
+	margin: 7px 0 10px 0px;
+	font-weight: bold;
+	font-size: 14px;
+	border-bottom: dashed 1px #ccc;
+	color: #333;
+}
+
+#box li:first-child {
+	margin-top: 0;
+}
+
+#box li:last-child {
+	margin-bottom: 20px;
 }
 
 #box li::before {
-	content: "🎵";
-	position: relative;
-	right: 20px;
+	counter-increment: list;
+	content: counter(list) ",";
+	position: absolute;
+	left: 15px;
+	font-size: 16px;
+	top: 50%;
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#box li:hover::before {
+	background-color: #ffd797;
+	border-color: rgba(0, 0, 0, .08);
+	border-width: .2em;
+	color: #444;
+	transform: scale(1.5);
 }
 
 .timer {
