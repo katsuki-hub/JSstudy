@@ -21,21 +21,18 @@
   <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>
-  li {
+  .li li {
     background: #ffa89d70;
     border-radius: 8px;
-    /*角の丸み*/
     box-shadow: 0px 0px 5px rgb(66, 66, 66);
-    /*5px=影の広がり具合*/
     padding: 5px;
     position: relative;
   }
 
-  ul li::before {
+  .li ul li::before {
     content: "";
     position: fixed;
     left: 5px;
-    /*左端からのアイコンまでの距離*/
   }
 </style>
 
@@ -58,6 +55,13 @@
       </ul>
     </nav>
   </header>
+  <!-- パンくずリスト -->
+  <div id="bread">
+    <ol>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="array.html">配列</a></li>
+    </ol>
+  </div>
   <div class="main-wrapper">
     <section>
       <h2>やることリスト</h2>
