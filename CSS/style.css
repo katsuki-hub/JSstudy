@@ -240,6 +240,8 @@ h4::after {
 }
 
 #box ul {
+	left: 1em;
+	width: 88%;
 	counter-reset: list;
 	list-style-type: none;
 	position: relative;
@@ -249,7 +251,6 @@ h4::after {
 	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
-	width: 92%;
 }
 
 #box::after {
