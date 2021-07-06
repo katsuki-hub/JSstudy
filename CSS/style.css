@@ -22,15 +22,10 @@ html, body {
 }
 
 header {
-	width: 100%;
-	background-color: #e9f3f1;
+	max-width: 960px;
+	margin: 0 auto 0 auto;
 	background-image: url(../images/header-bg.png);
-	background-position: 50% 50%;
-	background-color: #e9f3f1;
-	border-top: 10px solid;
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
-	position: relative;
-	z-index: 10;
 	border-top: #48887d 5px solid;
 }
 
@@ -71,7 +66,7 @@ nav ul {
 	font-size: 16px;
 	font-weight: bold;
 	text-align: right;
-	background-color: rgba(4, 70, 13, 0.493);
+	background-color: rgba(255, 251, 0, 0.493);
 }
 
 nav ul li {
@@ -87,7 +82,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	color: #3498db;
+	color: #ecabb9;
 }
 
 nav ul li a.current {
@@ -239,6 +234,8 @@ h4::after {
 }
 
 #box ul {
+	width: 85%;
+	margin: 0 auto 0 auto;
 	counter-reset: list;
 	list-style-type: none;
 	position: relative;
@@ -298,6 +295,7 @@ h4::after {
 	border-width: .2em;
 	color: #444;
 	transform: scale(1.5);
+	top: 5px;
 }
 
 .timer {
