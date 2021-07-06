@@ -421,6 +421,20 @@ pre {
 	text-align: center;
 }
 
+.frame1 {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 3px double #333333;
+	background-color: #dff6fc;
+}
+
+.frame2 {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px dashed #333333;
+	background-color: #fdfdbd;
+}
+
 @media (max-width: 600px) {
 	header {
 		background-position: 32% 50%;
