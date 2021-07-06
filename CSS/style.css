@@ -143,32 +143,23 @@ nav ul li a.current {
 
 .heading {
 	position: relative;
-	padding-top: 50px;
+	padding-top: 10px;
 	padding-bottom: 50px;
-	font-size: 24px;
+	font-size: 28px;
 	text-align: center;
+	margin-bottom: 70px;
 }
 
 .heading::before {
 	content: attr(data-en);
 	position: absolute;
-	top: 50px;
+	top: 10px;
 	left: 50%;
 	transform: translateX(-50%);
 	color: rgba(223, 45, 179, 0.5);
-	font-size: 60px;
+	font-size: 80px;
 	font-style: italic;
-}
-
-.heading::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%) rotate(30deg);
-	width: 2px;
-	height: 30px;
-	background-color: rgb(226, 23, 84);
+	
 }
 
 section h1 {
@@ -456,14 +447,32 @@ pre {
 		font-size: 16px;
 		line-height: 1.5em;
 	}
+	.heading {
+		position: relative;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		font-size: 24px;
+		text-align: center;
+		margin-bottom: 30px;
+	}
 	.heading::before {
 		content: attr(data-en);
 		position: absolute;
 		top: 20px;
-		left: 50%;
+		left: 48%;
 		transform: translateX(-50%);
 		color: rgba(223, 45, 45, 0.5);
 		font-size: 60px;
 		font-style: italic;
+	}
+	.heading::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%) rotate(30deg);
+		width: 2px;
+		height: 30px;
+		background-color: rgb(226, 23, 84);
 	}
 }
