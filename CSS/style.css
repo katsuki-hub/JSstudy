@@ -1,8 +1,15 @@
 @charset "UTF-8";
 /* CSS Document */
 
+.inbody {
+	background-image: url(../images/pro.jpg);
+	margin: 0;
+	padding: 0;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
 body {
-	background-color: rgb(233, 255, 223);
+	background-color: rgb(226, 250, 240);
 	margin: 0;
 	padding: 0;
 	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -127,7 +134,7 @@ nav ul li a.current {
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 30px 30px;
-	background-color:#fff;
+	background-color: rgba(255, 255, 255, 0.9);
 	border-left: #dadada 1px solid;
 	border-right: #dadada 1px solid;
 	min-height: 80%;
@@ -145,10 +152,10 @@ nav ul li a.current {
 .heading::before {
 	content: attr(data-en);
 	position: absolute;
-	top: 20px;
+	top: 50px;
 	left: 50%;
 	transform: translateX(-50%);
-	color: rgba(223, 45, 178, 0.2);
+	color: rgba(223, 45, 179, 0.5);
 	font-size: 60px;
 	font-style: italic;
 }
@@ -448,5 +455,15 @@ pre {
 	.main-wrapper {
 		font-size: 16px;
 		line-height: 1.5em;
+	}
+	.heading::before {
+		content: attr(data-en);
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		color: rgba(223, 45, 45, 0.5);
+		font-size: 60px;
+		font-style: italic;
 	}
 }
