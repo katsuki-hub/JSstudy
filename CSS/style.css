@@ -90,7 +90,8 @@ nav ul li a.current {
 }
 
 #bread {
-	margin: 0;
+	max-width: 960px;
+	margin: 0 auto;
 	padding: 0;
 	list-style: none;
 }
