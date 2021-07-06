@@ -3,6 +3,8 @@
 
 .inbody {
 	background-image: url(../images/pro.jpg);
+	background-attachment: fixed;
+	background-size: cover;
 	margin: 0;
 	padding: 0;
 	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -159,7 +161,6 @@ nav ul li a.current {
 	color: rgba(223, 45, 179, 0.5);
 	font-size: 80px;
 	font-style: italic;
-	
 }
 
 section h1 {
