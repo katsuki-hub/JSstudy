@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.slide {
+  margin: 0 auto;
+  border: 1px solid black;
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  max-width: 100%;
+}
+
+.toolbar {
+  overflow: hidden;
+  text-align: center;
+}
+
+.nav {
+  display: inline-block;
+}
+
+#prev {
+  float: left;
+  width: 200px;
+  color: #fff;
+  font-weight: bold;
+}
+
+#next {
+  float: right;
+  width: 200px;
+  color: #fff;
+  font-weight: bold;
+}
+
+#prev:hover {
+  background-color: #f8f0e3;
+  color: #1201fd;
+  text-decoration: underline;
+}
+
+#next:hover {
+  background-color: #f8f0e3;
+  color: #1201fd;
+  text-decoration: underline;
+}
