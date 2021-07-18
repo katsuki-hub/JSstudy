@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+section img {
+  max-width: 100%;
+}
+
+.img {
+  margin: 0 auto 0 auto;
+  width: 90%;
+}
+
+.img ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.img li {
+  float: left;
+  margin-right: 1%;
+  width: 32.33%;
+}

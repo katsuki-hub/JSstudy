@@ -1,11 +1,20 @@
 @charset "UTF-8";
 /* CSS Document */
 
-body {
+.inbody {
+	background-image: url(../images/pro.jpg);
+	background-attachment: fixed;
+	background-size: cover;
 	margin: 0;
 	padding: 0;
 	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-	background-image: url(../images/body-bg.png);
+}
+
+body {
+	background-color: rgb(226, 250, 240);
+	margin: 0;
+	padding: 0;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
 html, body {
@@ -13,15 +22,11 @@ html, body {
 }
 
 header {
-	width: 100%;
-	background-color: #e9f3f1;
+	max-width: 960px;
+	margin: 0 auto 0 auto;
 	background-image: url(../images/header-bg.png);
-	background-position: 50% 50%;
-	background-color: #e9f3f1;
-	border-top: 10px solid;
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
-	position: relative;
-	z-index: 10;
+	border-top: #48887d 5px solid;
 }
 
 .header-contents {
@@ -53,13 +58,81 @@ header {
 	text-shadow: 2px 2px 2px rgb(214, 22, 22);
 }
 
+nav ul {
+	display: table;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: right;
+	background-color: rgba(255, 251, 0, 0.493);
+}
+
+nav ul li {
+	display: table-cell;
+	position: relative;
+}
+
+nav ul li a {
+	display: block;
+	width: 80%;
+	text-decoration: none;
+	color: #fff;
+}
+
+nav ul li a:hover {
+	color: #ecabb9;
+}
+
+nav ul li a.current {
+	color: rgb(193, 255, 189);
+}
+
+#bread {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+#bread ol li {
+	display: inline-block;
+	list-style: none;
+	font-weight: bold;
+}
+
+#bread ol li::after {
+	content: ">";
+	padding: 0 0.2em;
+	color: #72a1f7;
+}
+
+#bread ol li:last-child::after {
+	content: none;
+}
+
+#bread li a {
+	display: inline-block;
+	padding: 0.2em .8em;
+	border-radius: 15px;
+	text-decoration: none;
+	color: #72a1f7;
+	background: #c6e2ff;
+	font-size: 0.9em;
+}
+
+#bread li a:hover {
+	background: #c9dbfb;
+}
+
 .main-wrapper {
 	position: relative;
 	box-sizing: border-box;
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 30px 30px;
-	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.9);
 	border-left: #dadada 1px solid;
 	border-right: #dadada 1px solid;
 	min-height: 80%;
@@ -68,37 +141,22 @@ header {
 
 .heading {
 	position: relative;
-	padding-top: 50px;
+	padding-top: 10px;
 	padding-bottom: 50px;
-	font-size: 24px;
+	font-size: 28px;
 	text-align: center;
-}
-
-.heading span {
-	position: relative;
-	z-index: 2;
+	margin-bottom: 70px;
 }
 
 .heading::before {
 	content: attr(data-en);
 	position: absolute;
-	top: 20px;
+	top: 10px;
 	left: 50%;
 	transform: translateX(-50%);
-	color: rgba(223, 45, 178, 0.2);
-	font-size: 70px;
+	color: rgba(223, 45, 179, 0.5);
+	font-size: 80px;
 	font-style: italic;
-}
-
-.heading::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translate(-50%) rotate(30deg);
-	width: 2px;
-	height: 30px;
-	background-color: rgb(226, 23, 84);
 }
 
 section h1 {
@@ -113,6 +171,7 @@ section h2 {
 	font-weight: bold;
 	text-align: center;
 	padding: 5px;
+	margin-top: 14px;
 	margin-bottom: 2em;
 	position: relative;
 	background-color: #d9fce7;
@@ -175,29 +234,69 @@ h4::after {
 	transform: rotate(35deg)
 }
 
-ul {
-	padding: 0;
+#box ul {
+	width: 85%;
+	margin: 0 auto 0 auto;
+	counter-reset: list;
+	list-style-type: none;
 	position: relative;
+	font: 14px/1.6 'Mv Boli', 'arial narrow', sans-serif;
+	padding: 0.8em;
+	background: #F2EFE7;
+	-webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-li {
-	line-height: 1.2;
-	padding: 0.5em 0.5em 0.5em 1.7em;
-	list-style-type: none!important;
-	background: -webkit-linear-gradient(top, 0%, whitesmoke 100%);
-	/*グラデーション*/
-	background: linear-gradient(to bottom, whitesmoke 0%, #b6dbbe 100%);
-	/*グラデーション*/
-	text-shadow: 1px 1px 1px whitesmoke;
-	/*文字を立体的に*/
-	color: black;
-}
-
-ul li::before {
-	content: "🎵";
+#box::after {
+	content: "JavaScript学習ノート";
+	/* 右下の文字 */
 	position: absolute;
-	left: 0.2em;
-	/*左端からのアイコンまでの距離*/
+	bottom: 8px;
+	right: 3em;
+	font-size: 14px;
+	color: rgb(133, 133, 133);
+}
+
+#box li {
+	position: relative;
+	padding: 6px 5px 10px 50px;
+	margin: 7px 0 10px 0px;
+	font-weight: bold;
+	font-size: 14px;
+	border-bottom: dashed 1px #ccc;
+	color: #333;
+}
+
+#box li:first-child {
+	margin-top: 0;
+}
+
+#box li:last-child {
+	margin-bottom: 20px;
+}
+
+#box li::before {
+	counter-increment: list;
+	content: counter(list) ",";
+	position: absolute;
+	left: 15px;
+	font-size: 16px;
+	top: 50%;
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#box li:hover::before {
+	background-color: #ffd797;
+	border-color: rgba(0, 0, 0, .08);
+	border-width: .2em;
+	color: #444;
+	transform: scale(1.5);
+	top: 5px;
 }
 
 .timer {
@@ -318,30 +417,76 @@ pre {
 	text-align: center;
 }
 
+.topimg {
+	width: 100%;
+	text-align: center;
+}
+
+.frame1 {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 3px double #333333;
+	background-color: #dff6fc;
+}
+
+.frame2 {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px dashed #333333;
+	background-color: #fdfdbd;
+}
+
 @media (max-width: 600px) {
 	header {
 		background-position: 32% 50%;
-		border-top: #20567d 5px solid;
+		border-top: #48887d 5px solid;
 	}
 	.header-contents {
-		min-height: 60px;
+		min-height: 75px;
 		background-size: 40px 40px;
 		background-position: 10px 50%;
 	}
 	.header-contents h1 {
-		padding: 15px 0 5px 55px;
-		font-size: 16px;
+		padding: 15px 0 5px 60px;
+		font-size: 17px;
 	}
 	.header-contents h2 {
-		padding: 0 0 0 55px;
-		font-size: 12px;
+		padding: 0 0 0 60px;
+		font-size: 14px;
 	}
 	pre {
 		font-size: 12px;
 	}
-}
-
-.main-wrapper {
-	font-size: 16px;
-	line-height: 1.5em;
+	.main-wrapper {
+		font-size: 16px;
+		line-height: 1.5em;
+	}
+	.heading {
+		position: relative;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		font-size: 24px;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.heading::before {
+		content: attr(data-en);
+		position: absolute;
+		top: 20px;
+		left: 48%;
+		transform: translateX(-50%);
+		color: rgba(223, 45, 45, 0.5);
+		font-size: 60px;
+		font-style: italic;
+	}
+	.heading::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%) rotate(30deg);
+		width: 2px;
+		height: 30px;
+		background-color: rgb(226, 23, 84);
+	}
 }

@@ -32,10 +32,24 @@
       <h1>現在時刻を表示しよう</h1>
       <h2>JSで時間表示させるよ</h2>
     </div><!-- /.header-contents -->
+
+    <!-- グローバルナビ -->
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
+      </ul>
+    </nav>
   </header>
+  <!-- パンくずリスト -->
+  <div id="bread">
+    <ol>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="current_time.html">現在時刻</a></li>
+    </ol>
+  </div>
   <div class="main-wrapper">
     <section>
-      <button onclick="location.href='index.html'">ホーム</button>
       <h2>現在の時間は</h2>
       <div class="realday" id="Today"></div>
       <p class="realtime" id="Clock">※ここに時計が表示されます</p>
