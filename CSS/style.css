@@ -249,7 +249,7 @@ h4::after {
 }
 
 #box::after {
-	content: "JavaScript学習ノート";
+	content: "学習ノート";
 	/* 右下の文字 */
 	position: absolute;
 	bottom: 8px;
