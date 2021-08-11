@@ -132,17 +132,62 @@
           </li>
         </ul>
 
+        <h3>HTMLのソースコード</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint"> &lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;gim&quot; id=&quot;speed&quot;&gt;
+    &lt;h2&gt;スピードクライミング体験会&lt;/h2&gt;
+    &lt;p class=&quot;check&quot;&gt;予約状況を確認&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;gim&quot; id=&quot;bouldering&quot;&gt;
+    &lt;h2&gt;ボルダリング体験会&lt;/h2&gt;
+    &lt;p class=&quot;check&quot;&gt;予約状況を確認&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;gim&quot; id=&quot;lead&quot;&gt;
+    &lt;h2&gt;リードクライミング体験会&lt;/h2&gt;
+    &lt;p class=&quot;check&quot;&gt;予約状況を確認&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        <!-- /ソースコード -->
+
         <h3>CSSのソースコード</h3>
         <!-- ソースコード -->
-
+        <pre><code class="prettyprint">.red {
+  background-color: #e66289;
+}
+.green {
+  background-color: #9ac76b;
+}</code></pre>
         <!-- /ソースコード -->
 
         <h3>JavaScriptのソースコードと概要</h3>
         <!-- ソースコード -->
-
+        <pre><code class="prettyprint">&lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;
+  integrity=&quot;sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $(document).ready(function () {
+    $.ajax({ url: &quot;data.json&quot;, dataType: &quot;json&quot; })
+      .done(function (data) {
+        $(data).each(function () {
+          if (this.crowded === &quot;yes&quot;) {
+            var idName = &quot;#&quot; + this.id;
+            $(idName).find(&quot;.check&quot;).addClass(&quot;crowded&quot;);
+          }
+        });
+      })
+      .fail(function () {
+        window.alert(&quot;読み込みエラー&quot;);
+      });
+    $(&quot;.check&quot;).on(&quot;click&quot;, function () {
+      if ($(this).hasClass(&quot;crowded&quot;)) {
+        $(this).text(&quot;残りわずか&quot;).addClass(&quot;red&quot;);
+      } else {
+        $(this).text(&quot;予約空いています&quot;).addClass(&quot;green&quot;);
+      }
+    });
+  });
+&lt;/script&gt;</code></pre>
         <!-- /ソースコード -->
-
-        <h4></h4>
 
 
       </section>
