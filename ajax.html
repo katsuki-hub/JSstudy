@@ -33,6 +33,47 @@
   <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
+  <style>
+    .list {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .list h2 {
+      margin: 0 0 2em 0;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .gim {
+      float: left;
+      margin: 10px 10px 10px 10px;
+      border: 1px solid #2bc23f;
+      padding: 4px;
+      width: 25%;
+
+    }
+
+    .check {
+      margin: 0;
+      padding: 8px;
+      font-size: 12px;
+      color: wheat;
+      background-color: rgb(135, 50, 205);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .red {
+      background-color: #e66289;
+    }
+
+    .green {
+      background-color: #9ac76b;
+    }
+  </style>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -51,9 +92,8 @@
 
   <header>
     <div class="header-contents">
-      <h1>空席状況のチェック</h1>
+      <h1>予約状況のチェック</h1>
       <h2>ajaxとJson</h2>
-      <div id="box_btn">MENU</div>
     </div><!-- /.header-contents -->
 
     <!-- グローバルナビ -->
@@ -75,21 +115,36 @@
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>空き席状況がチェックできるよ！</h2>
-        JavaScriptの非同期通信であるAjaxで外部ファイルを読み込み、HTMLを表示させます。読み込むデータはJsonという形式で書かれます。
+        <h2>予約状況がチェックできるよ！</h2>
+        JavaScriptの非同期通信であるAjaxで外部ファイルを読み込み、HTMLを表示させます。読み込むデータはJsonという形式で書かれます。<br><br>
+
+        <ul class="list">
+          <li class="gim" id="speed">
+            <h2>スピードクライミング体験会</h2>
+            <p class="check">予約状況を確認</p>
+          </li>
+          <li class="gim" id="bouldering">
+            <h2>ボルダリング体験会</h2>
+            <p class="check">予約状況を確認</p>
+          </li>
+          <li class="gim" id="lead">
+            <h2>リードクライミング体験会</h2>
+            <p class="check">予約状況を確認</p>
+          </li>
+        </ul>
 
         <h3>CSSのソースコード</h3>
         <!-- ソースコード -->
-       
+
         <!-- /ソースコード -->
 
         <h3>JavaScriptのソースコードと概要</h3>
         <!-- ソースコード -->
-       
+
         <!-- /ソースコード -->
 
         <h4></h4>
-        
+
 
       </section>
     </article>
@@ -97,6 +152,29 @@
   <footer>JavaScript Samples</footer>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"
     integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $.ajax({ url: "data.json", dataType: "json" })
+        .done(function (data) {
+          $(data).each(function () {
+            if (this.crowded === "yes") {
+              var idName = "#" + this.id;
+              $(idName).find(".check").addClass("crowded");
+            }
+          });
+        })
+        .fail(function () {
+          window.alert("読み込みエラー");
+        });
+      $(".check").on("click", function () {
+        if ($(this).hasClass("crowded")) {
+          $(this).text("残りわずか").addClass("red");
+        } else {
+          $(this).text("予約空いています").addClass("green");
+        }
+      });
+    });
+  </script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
 
