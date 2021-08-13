@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>jQuery編”AjaxとJson”</title>
+  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。Ajaxを使って外部データの読み込み”>
+  <meta name="keywords" content="jQuery,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
+  <meta property="og:title" content="プログラミング学習帳～簡単解説！JavaScript初級コード～">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="JavaScript超入門編の学習技術ブログです。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
+  <meta property="og:url" content="https://katsu-study.work/">
+  <meta property="og:site_name" content="JavaScript学習帳">
+  <meta property="og:image" content="https://katsu-study.work/images/js.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    .list {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .list h2 {
+      margin: 0 0 2em 0;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .gim {
+      float: left;
+      margin: 10px 10px 10px 10px;
+      border: 1px solid #2bc23f;
+      padding: 4px;
+      width: 23%;
+    }
+
+    .check {
+      margin: 0;
+      padding: 8px;
+      font-size: 12px;
+      color: wheat;
+      background-color: rgb(135, 50, 205);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .red {
+      background-color: #e66289;
+    }
+
+    .green {
+      background-color: #9ac76b;
+    }
+  </style>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="header-contents">
+      <h1>予約状況のチェック</h1>
+      <h2>ajaxとJson</h2>
+    </div><!-- /.header-contents -->
+
+    <!-- グローバルナビ -->
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- パンくずリスト -->
+  <div id="bread">
+    <ol>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="ajax.html">ajaxとJson</a></li>
+    </ol>
+  </div>
+  <div class="main-wrapper">
+    <article>
+      <section>
+        <h2>予約状況がチェックできるよ！</h2>
+        JavaScriptの非同期通信であるAjaxで外部ファイルを読み込み、HTMLを表示させます。読み込むデータはJsonという形式で書かれます。<br><br>
+
+        <ul class="list">
+          <li class="gim" id="speed">
+            <h2>スピードクライミング体験会</h2>
+            <p class="check">予約状況を確認</p>
+          </li>
+          <li class="gim" id="bouldering">
+            <h2>ボルダリング体験会</h2>
+            <p class="check">予約状況を確認</p>
+          </li>
+          <li class="gim" id="lead">
+            <h2>リードクライミング体験会</h2>
+            <p class="check">予約状況を確認</p>
+          </li>
+        </ul>
+
+        <h3>HTMLのソースコード</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint"> &lt;ul class=&quot;list&quot;&gt;
+  &lt;li class=&quot;gim&quot; id=&quot;speed&quot;&gt;
+    &lt;h2&gt;スピードクライミング体験会&lt;/h2&gt;
+    &lt;p class=&quot;check&quot;&gt;予約状況を確認&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;gim&quot; id=&quot;bouldering&quot;&gt;
+    &lt;h2&gt;ボルダリング体験会&lt;/h2&gt;
+    &lt;p class=&quot;check&quot;&gt;予約状況を確認&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;gim&quot; id=&quot;lead&quot;&gt;
+    &lt;h2&gt;リードクライミング体験会&lt;/h2&gt;
+    &lt;p class=&quot;check&quot;&gt;予約状況を確認&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        <!-- /ソースコード -->
+
+        <h3>CSSのソースコード</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">.red {
+  background-color: #e66289;
+}
+.green {
+  background-color: #9ac76b;
+}</code></pre>
+        <!-- /ソースコード -->
+
+        <h3>JavaScriptのソースコードと概要</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;
+  integrity=&quot;sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $(document).ready(function () {
+    $.ajax({ url: &quot;data.json&quot;, dataType: &quot;json&quot; })
+      .done(function (data) {
+        $(data).each(function () {
+          if (this.crowded === &quot;yes&quot;) {
+            var idName = &quot;#&quot; + this.id;
+            $(idName).find(&quot;.check&quot;).addClass(&quot;crowded&quot;);
+          }
+        });
+      })
+      .fail(function () {
+        window.alert(&quot;読み込みエラー&quot;);
+      });
+    $(&quot;.check&quot;).on(&quot;click&quot;, function () {
+      if ($(this).hasClass(&quot;crowded&quot;)) {
+        $(this).text(&quot;残りわずか&quot;).addClass(&quot;red&quot;);
+      } else {
+        $(this).text(&quot;予約空いています&quot;).addClass(&quot;green&quot;);
+      }
+    });
+  });
+&lt;/script&gt;</code></pre>
+        <!-- /ソースコード -->
+
+
+      </section>
+    </article>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScript Samples</footer>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $.ajax({ url: "data.json", dataType: "json" })
+        .done(function (data) {
+          $(data).each(function () {
+            if (this.crowded === "yes") {
+              var idName = "#" + this.id;
+              $(idName).find(".check").addClass("crowded");
+            }
+          });
+        })
+        .fail(function () {
+          window.alert("読み込みエラー");
+        });
+      $(".check").on("click", function () {
+        if ($(this).hasClass("crowded")) {
+          $(this).text("残りわずか").addClass("red");
+        } else {
+          $(this).text("予約空いています").addClass("green");
+        }
+      });
+    });
+  </script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+
+</html>
