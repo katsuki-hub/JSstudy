@@ -196,27 +196,28 @@
   <footer>JavaScript Samples</footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  $(document).ready(function () {
-  $.ajax({ url: "data.json", dataType: "json" })
-  .done(function (data) {
-  $(data).each(function () {
-  if (this.crowded === "yes") {
-  var idName = "#" + this.id;
-  $(idName).find(".check").addClass("crowded");
-  }
-  });
-  })
-  .fail(function () {
-  window.alert("読み込みエラー");
-  });
-  $(".check").on("click", function () {
-  if ($(this).hasClass("crowded")) {
-  $(this).text("残りわずか").addClass("red");
-  } else {
-  $(this).text("予約空いています").addClass("green");
-  }
-  });
-  });
+  <script>
+    $(document).ready(function () {
+      $.ajax({ url: "data.json", dataType: "json" })
+        .done(function (data) {
+          $(data).each(function () {
+            if (this.crowded === "yes") {
+              var idName = "#" + this.id;
+              $(idName).find(".check").addClass("crowded");
+            }
+          });
+        })
+        .fail(function () {
+          window.alert("読み込みエラー");
+        });
+      $(".check").on("click", function () {
+        if ($(this).hasClass("crowded")) {
+          $(this).text("残りわずか").addClass("red");
+        } else {
+          $(this).text("予約空いています").addClass("green");
+        }
+      });
+    });
   </script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
