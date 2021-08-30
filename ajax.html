@@ -189,6 +189,50 @@
 &lt;/script&gt;</code></pre>
         <!-- /ソースコード -->
 
+        <h4>Ajaxによるファイルの読み込み</h4>
+        ページのリンクをクリックすると、ページをWebサーバーからダウンロードしますが、Ajaxはページを切り替えることなくWebサーバーとデータの送受信をするJavaScriptの機能です。<br>これにより、画面の一部だけを書き換えることが出来るようになります。<br><br>
+
+        <h4>Ajaxの基本形</h4>
+        <div class="frame1">
+          $.ajax({ url: &quot;data.json&quot;, dataType: &quot;json&quot; })<br>
+          .done(function (data) {<br>
+          　　データがダウンロードできた時の処理<br>
+          })<br>
+          .fail(function () {<br>
+          　　データがダウンロードできなかった時の処理<br>
+          });
+        </div>
+        AjaxはjQeryを使った方が簡単に記述できます。<br>
+        今回設定しているのは「url」と「datatype」の2種類<br>
+        ダウンロードしたいデータの形式や通信するWebサーバーによってこの設定内容は変わります。<br><br>
+
+        <h4>JSON</h4>
+        <div class="frame2">
+          [<br>
+          {&quot;id&quot;:&quot;speed&quot;,&quot;crowded&quot;:&quot;yes&quot;},
+          {&quot;id&quot;:&quot;bouldering&quot;,&quot;crowded&quot;:&quot;no&quot;},
+          {&quot;id&quot;:&quot;lead&quot;,&quot;crowded&quot;:&quot;no&quot;}<br>
+          ]
+        </div>
+        JSONはJavaScriptの配列のオブジェクトの文法を取り入れたデータ形式です。<br><br>
+        ※書式上の注意点<br>
+        <ul>
+          <li>値だけでなくプロパティ名もダブルクォートで書く必要がある</li>
+          <li>シングルクォートではなく、ダブルクォートで囲む必要がある</li>
+        </ul>
+        <br>
+        <h4>クリックされた後の処理</h4>
+        <div class="frame1 ">
+          if ($(this).hasClass(&quot;crowded&quot;)) {<br>
+          $(this).text(&quot;残りわずか&quot;).addClass(&quot;red&quot;);<br>
+          } else {<br>
+          $(this).text(&quot;予約空いています&quot;).addClass(&quot;green&quot;);<br>
+          }
+        </div>
+        redクラスまたはgreenクラスが追加される事により、この&lt;p&gt;にCSSが適用されます。
+
+        <h4>Ajaxの応用</h4>
+        <p>実際のWebサイトでは、このデータをサーバーサイドで生成することで、最新の情報を受け取れるようにします。<br>注意点として、データの送受信は原則として、同一のオリジン内に限られます。</p>
 
       </section>
     </article>
