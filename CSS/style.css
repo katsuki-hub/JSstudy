@@ -437,6 +437,11 @@ pre {
 	background-color: #fdfdbd;
 }
 
+.method tr td {
+	font-size: 12px;
+	line-height: 1.8;
+}
+
 @media (max-width: 600px) {
 	header {
 		background-position: 32% 50%;
@@ -489,5 +494,8 @@ pre {
 		width: 2px;
 		height: 30px;
 		background-color: rgb(226, 23, 84);
+	}
+	.method tr td {
+		font-size: 11px;
 	}
 }
