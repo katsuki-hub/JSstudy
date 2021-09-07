@@ -60,7 +60,7 @@
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="slide.html">スライドショー</a></li>
     </ol>
   </div>
@@ -70,7 +70,7 @@
         <h2>見たい画像を選択してみて</h2>
         <div class="slide">
           <div class="image_box">
-            <img id="main_image" src="images/j1.jpg">
+            <img id="main_image" src="../images/j1.jpg">
           </div>
           <div class="toolbar">
             <div class="nav">
@@ -234,7 +234,7 @@ document.getElementById(&quot;next&quot;).onclick = function () {
   </div><!-- /.main-wrapper -->
   <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
-    var images = ["images/j1.jpg", "images/j2.jpg", "images/j3.jpg"];
+    var images = ["../images/j1.jpg", "../images/j2.jpg", "../images/j3.jpg"];
     var current = 0;
     var pageNum = function () {
       document.getElementById("page").textContent = (current + 1) + "/" + images.length;
