@@ -57,97 +57,24 @@ header {
 	text-shadow: 2px 2px 2px rgb(214, 22, 22);
 }
 
-#boxmenu {
-	top: -200%;
-	position: fixed;
-	background-color: rgba(0, 0, 0, 0.8);
-	transition: all 0.6s;
-	width: 100%;
-	max-width: 960px;
-	margin-top: 80px;
-	padding: 0;
-	z-index: 99;
-}
-
-#boxmenu.panelactive {
-	top: 0;
-}
-
-#boxmenu nav {
-	display: inline;
-	width: 100%;
-}
-
 #boxmenu ul {
-	display: inline;
-	margin-top: 20px;
 	list-style-type: none;
+	display: flex;
 }
 
 #boxmenu li {
-	font-size: 20px;
-	padding: 5px 15px;
-	text-align: center;
-}
-
-#boxmenu li a {
-	display: block;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	font-weight: bold;
-	margin: 6px 0;
-	color: rgb(200, 209, 159);
-	text-decoration: none;
-}
-
-#boxmenu li a:hover {
-	color: darksalmon;
-}
-
-.menu_1 li {
-	border-bottom: 1px solid #ffffff;
-	width: 50%;
+	flex-wrap: wrap;
+	padding: 0 30px;
 	margin: auto;
 }
 
-.copyright {
-	display: block;
-	text-align: center;
-	font-size: 18px;
+#boxmenu li a {
 	color: #fff;
-	padding: 15px;
-	margin-top: 60px;
+	text-shadow: 2px 2px 2px #1ebf1e;
 }
 
-/*三本線のメニューボタン*/
-.menu-btn span:before {
-	bottom: 8px;
-}
-.menu-btn span:after {
-	top: 8px;
-}
-.menu-btn span, .menu-btn span:before, .menu-btn span:after {
-	content: '';
-	display: block;
-	height: 3px;
-	width: 25px;
-	border-radius: 3px;
-	background-color: #fff;
-	position: absolute;
-}
-/*三本線のメニューボタン*/
-
-.menu-btn {
-	position: absolute;
-	top: 40px;
-	right: 20px;
-	display: flex;
-	height: 30px;
-	width: 30px;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	z-index: 999;
+.copyright {
+	display: none;
 }
 
 #bread {
@@ -192,7 +119,7 @@ header {
 	box-sizing: border-box;
 	max-width: 960px;
 	margin: 0 auto;
-	padding: 30px 30px;
+	padding: 30px;
 	background-color: rgba(255, 255, 255, 0.9);
 	border-left: #dadada 1px solid;
 	border-right: #dadada 1px solid;
@@ -482,6 +409,92 @@ a:hover {
 	}
 	.method tr td {
 		font-size: 11px;
+	}
+}
+
+@media (max-width: 960px) {
+	#boxmenu {
+		top: -200%;
+		position: fixed;
+		background-color: rgba(0, 0, 0, 0.8);
+		transition: all 0.6s;
+		width: 100%;
+		max-width: 960px;
+		margin-top: 80px;
+		padding: 0;
+		z-index: 99;
+	}
+	#boxmenu.panelactive {
+		top: 0;
+	}
+	#boxmenu nav {
+		display: inline;
+		width: 100%;
+	}
+	#boxmenu ul {
+		display: inline;
+		margin-top: 20px;
+		list-style-type: none;
+	}
+	#boxmenu li {
+		font-size: 20px;
+		padding: 5px 15px;
+		text-align: center;
+	}
+	#boxmenu li a {
+		display: block;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-weight: bold;
+		margin: 6px 0;
+		color: rgb(200, 209, 159);
+		text-decoration: none;
+	}
+	#boxmenu li a:hover {
+		color: darksalmon;
+	}
+	.menu_1 li {
+		border-bottom: 1px solid #ffffff;
+		width: 50%;
+		margin: auto;
+	}
+	.copyright {
+		display: block;
+		text-align: center;
+		font-size: 18px;
+		color: #fff;
+		padding: 15px;
+		margin-top: 60px;
+	}
+	/*三本線のメニューボタン*/
+	.menu-btn span:before {
+		bottom: 8px;
+	}
+	.menu-btn span:after {
+		top: 8px;
+	}
+	.menu-btn span, .menu-btn span:before, .menu-btn span:after {
+		content: '';
+		display: block;
+		height: 4px;
+		width: 25px;
+		border-radius: 4px;
+		background-color: rgb(224, 178, 93);
+		text-shadow: rgb(145, 40, 40);
+		position: absolute;
+	}
+	/*三本線のメニューボタン*/
+	.menu-btn {
+		position: fixed;
+		top: 30px;
+		right: 20px;
+		display: flex;
+		height: 30px;
+		width: 30px;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		z-index: 999;
 	}
 }
 

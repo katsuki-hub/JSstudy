@@ -20,19 +20,20 @@
   <meta name="keywords" content="jQuery,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
   <style>
-    #boxmenu {
+    #boxmenu2 {
       display: none;
       margin: 0 auto 0 auto;
       max-width: 960px;
+      background-color: rgb(255, 242, 206);
     }
 
-    #boxmenu ul {
+    #boxmenu2 ul {
       margin: 0;
       padding: 0;
       list-style-type: none;
     }
 
-    #boxmenu li {
+    #boxmenu2 li {
       padding: 8px 0 8px 15px;
       border-bottom: 1px solid #ffffff;
     }
@@ -41,7 +42,7 @@
       position: relative;
     }
 
-    #box_btn {
+    #box_btn2 {
       position: absolute;
       top: 40px;
       right: 5px;
@@ -81,24 +82,24 @@
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <div id="boxmenu">
+  <div id="boxmenu2">
     <ul>
-      <li><a href="if.html">if文～条件分岐で動作を変える～</a></li>
-      <li><a href="var.html">変数～比較演算子を使ったダイアログボックス表示～</a></li>
-      <li><a href="nunber.html">データ型比較演算子～数字の大小を比較条件～</a></li>
-      <li><a href="time_msg.html">論理演算子～タイムメッセージ～</a></li>
-      <li><a href="while.html">繰り返し処理～whileでモンスター退治～</a></li>
-      <li><a href="function.html">functionの作成と利用方法</a></li>
-      <li><a href="array.html">配列～項目リストの表示</a></li>
-      <li><a href="object.html">オブジェクト～複数データを1つの変数で管理～</a></li>
-      <li><a href="input.html">インプットとデータの加工</a></li>
+      <li><a href="../javascript/if.html">if文～条件分岐で動作を変える～</a></li>
+      <li><a href="../javascript/var.html">変数～比較演算子を使ったダイアログボックス表示～</a></li>
+      <li><a href="../javascript/nunber.html">データ型比較演算子～数字の大小を比較条件～</a></li>
+      <li><a href="../javascript/time_msg.html">論理演算子～タイムメッセージ～</a></li>
+      <li><a href="../javascript/while.html">繰り返し処理～whileでモンスター退治～</a></li>
+      <li><a href="../javascript/function.html">functionの作成と利用方法</a></li>
+      <li><a href="../javascript/array.html">配列～項目リストの表示</a></li>
+      <li><a href="../javascript/object.html">オブジェクト～複数データを1つの変数で管理～</a></li>
+      <li><a href="../javascript/input.html">インプットとデータの加工</a></li>
     </ul>
   </div>
   <header>
     <div class="header-contents">
       <h1>jQuery編”ボックスを開く・たたむ</h1>
       <h2>アニメーション機能のjQuery</h2>
-      <div id="box_btn">MENU</div>
+      <div id="box_btn2">MENU</div>
     </div><!-- /.header-contents -->
   </header>
 
@@ -189,8 +190,8 @@
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script>
     $(document).ready(function () {
-      $("#box_btn").on("click", function () {
-        $("#boxmenu").slideToggle();
+      $("#box_btn2").on("click", function () {
+        $("#boxmenu2").slideToggle();
       });
     });
   </script>
