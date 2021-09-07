@@ -26,14 +26,13 @@ header {
 	margin: 0 auto 0 auto;
 	background-image: url(../images/header-bg.png);
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
-	border-top: #48887d 5px solid;
 }
 
 .header-contents {
 	box-sizing: border-box;
 	max-width: 960px;
 	margin: 0 auto;
-	min-height: 100px;
+	min-height: 80px;
 	background-image: url(../images/header-logo.png);
 	background-repeat: no-repeat;
 	background-position: 5px 30%;
@@ -58,36 +57,97 @@ header {
 	text-shadow: 2px 2px 2px rgb(214, 22, 22);
 }
 
-nav ul {
-	display: flex;
-	margin: 0 auto;
+#boxmenu {
+	top: -200%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.8);
+	transition: all 0.6s;
+	width: 100%;
+	max-width: 960px;
+	margin-top: 80px;
 	padding: 0;
+	z-index: 99;
+}
+
+#boxmenu.panelactive {
+	top: 0;
+}
+
+#boxmenu nav {
+	display: inline;
 	width: 100%;
-	font-size: 16px;
+}
+
+#boxmenu ul {
+	display: inline;
+	margin-top: 20px;
+	list-style-type: none;
+}
+
+#boxmenu li {
+	font-size: 20px;
+	padding: 5px 15px;
 	text-align: center;
-	background-color: rgba(255, 251, 0, 0.493);
 }
 
-nav ul li {
-	position: relative;
-	flex: 1 1;
-	font-weight: bold;
-	display: table-cell;
-}
-
-nav ul li a {
+#boxmenu li a {
 	display: block;
-	width: 100%;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+	margin: 6px 0;
+	color: rgb(200, 209, 159);
 	text-decoration: none;
+}
+
+#boxmenu li a:hover {
+	color: darksalmon;
+}
+
+.menu_1 li {
+	border-bottom: 1px solid #ffffff;
+	width: 50%;
+	margin: auto;
+}
+
+.copyright {
+	display: block;
+	text-align: center;
+	font-size: 18px;
 	color: #fff;
+	padding: 15px;
+	margin-top: 60px;
 }
 
-nav ul li a:hover {
-	color: #ecabb9;
+/*三本線のメニューボタン*/
+.menu-btn span:before {
+	bottom: 8px;
 }
+.menu-btn span:after {
+	top: 8px;
+}
+.menu-btn span, .menu-btn span:before, .menu-btn span:after {
+	content: '';
+	display: block;
+	height: 3px;
+	width: 25px;
+	border-radius: 3px;
+	background-color: #fff;
+	position: absolute;
+}
+/*三本線のメニューボタン*/
 
-nav ul li a.current {
-	color: rgb(193, 255, 189);
+.menu-btn {
+	position: absolute;
+	top: 40px;
+	right: 20px;
+	display: flex;
+	height: 30px;
+	width: 30px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 999;
 }
 
 #bread {
@@ -168,28 +228,12 @@ section h1 {
 }
 
 section h2 {
-	font-size: 1.5em;
-	font-weight: bold;
-	text-align: center;
-	padding: 5px;
-	margin-top: 14px;
-	margin-bottom: 2em;
-	position: relative;
-	background-color: #d9fce7;
-	box-shadow: 0px 0px 0px 5px #a7cf86;
-	border: dashed 2px blue;
+	font-size: 26px;
 	color: #000000;
-}
-
-section h2:after {
-	position: absolute;
-	content: '';
-	top: -7px;
-	left: -7px;
-	border-width: 0 0 20px 20px;
-	border-style: dashed;
-	border-color: #fff #fff #558866;
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	font-family: meiryo;
+	text-shadow: 2px 2px 2px #1ebf1e;
+	text-align: center;
+	margin: 80px 0 40px 0;
 }
 
 h3 {
@@ -459,6 +503,9 @@ pre {
 	.header-contents h2 {
 		padding: 0 0 0 60px;
 		font-size: 14px;
+	}
+	section h2 {
+		font-size: 20px;
 	}
 	pre {
 		font-size: 12px;
