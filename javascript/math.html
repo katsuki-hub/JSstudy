@@ -18,7 +18,7 @@
   <title>JavaScript超入門"Mathオブジェクト～小数点の切り捨て～"</title>
   <meta name=”description” content=”JavaScript入門編。四則演算以外の計算Mathオブジェクトを使おう”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -31,19 +31,11 @@
       <h1>小数点第〇位で切り捨てる</h1>
       <h2>四則演算以外の計算</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="math.html">四則演算以外の計算</a></li>
     </ol>
   </div>
@@ -100,7 +92,7 @@ document.getElementById(&quot;output&quot;).textContent = point(Math.PI, 2);</co
       変数timeには100が代入されているので、num×100してMath.floorメソッドで小数点以下を切捨ててから変数time⇒(100)で割っています。
     </section>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScriptかつまる学習帳</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
     var point = function (num, digit) {
       var time = Math.pow(10, digit);

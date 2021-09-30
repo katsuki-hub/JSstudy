@@ -18,7 +18,7 @@
   <title>JavaScript超入門"オブジェクトを1つの変数で管理"</title>
   <meta name=”description” content=”JavaScript入門編。繰り返し処理を行って処理する、while文を覚えよう”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード"/>
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -31,19 +31,11 @@
       <h1>アイテムの価格と在庫を表示する</h1>
       <h2>HTMLに出力する</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="object.html">オブジェクト</a></li>
     </ol>
   </div>
@@ -116,7 +108,7 @@ document.getElementById(&quot;stock&quot;).textContent = jsbook.stock;</code></p
 
     </section>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScriptかつまる学習帳</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
     var jsbook = { title: "JavaScript学習帳", price: 1700, stock: 8 };
     document.getElementById("title").textContent = jsbook.title;

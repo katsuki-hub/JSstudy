@@ -18,7 +18,7 @@
   <title>JavaScript超入門"インプットとデータの加工"</title>
   <meta name=”description” content=”JavaScript入門編。インプット処理でデータを取得して加工し、HTMLへ表示させます。”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -31,19 +31,11 @@
       <h1>フォームの入力内容を取得する</h1>
       <h2>入力内容を読み取って出力</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="input.html">インプット&出力</a></li>
     </ol>
   </div>
@@ -108,7 +100,7 @@
 
     </section>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScriptかつまる学習帳</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
     document.getElementById("form").onsubmit = function () {
       var search = document.getElementById("form").word.value;

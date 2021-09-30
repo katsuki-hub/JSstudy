@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" prefix="og: http://ogp.me/ns#">
+<html lang="ja" prefix="og:http://ogp.me/ns#">
 
 <head>
   <!-- Google Tag Manager -->
@@ -19,7 +19,7 @@
   <meta name="description"
     content="JavaScript超入門編の学習技術ブログです。初級編～中級編までアップします。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css?Ver=20210922" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
@@ -55,68 +55,88 @@
       <h2>カテゴリーごとに作成</h2>
     </div><!-- /.header-contents -->
 
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
+    <div class="btn" id="open_btn">
+      <label class="menu-btn"><span></span></label>
+    </div>
+
+    <div id="boxmenu">
+      <nav>
+        <ul class="menu_1 btn">
+          <li><a href="https://katsu-study.work/">HOME</a></li>
+          <li><a href="#javascript">JavaScript</a></li>
+          <li><a href="#jquery">jQuery</a></li>
+        </ul>
+
+        <div class="copyright">
+          <small>&copy; 2021 JavaScriptかつまる学習帳</small>
+        </div>
+      </nav>
+    </div><!-- /boxmenu -->
   </header>
 
-  <div class="main-wrapper">
+  <div class="home-wrapper">
     <h2 class="heading" data-en="JavaScript">プログラミング入門☆学習技術ブログ</h2>
-    <section>
-      <p>JavaScriptで動かす簡単なプログラミングを初級編～中級編までアップします。<br><br>どんなソースコードで作成されているのか？<br>ソースコードと概要を分かりやすく説明しています。</p><br>
-      <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; font-size: 14px;">
-        JavaScriptの動作確認用に作成した学習帳ページ
-      </div>
-      <h1>JavaScriptとは？</h1>
-      <div
-        style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
-        JavaScriptはWEBページにて複雑な機能をさせることが可能なプログラミング言語です。<br><br>HTMLとCSSで作られたWEBサイトでは、静的な表現しかできませんが、JavaScriptによって動的にコンテンツを表現させることが出来ます。<br>ユーザーのアクションに応じたコンテンツの表示だったり、地図やグラフィックアニメーションなども表示可能です。
-      </div>
-
+    <p>JavaScriptで動かす簡単なプログラミングを初級編～中級編までアップします。<br><br>どんなソースコードで作成されているのか？<br>ソースコードと概要を分かりやすく説明しています。</p><br>
+    <div style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; font-size: 14px;">
+      JavaScriptの動作確認用に作成した学習帳ページ
+    </div>
+    <div class="blank"></div>
+    <h2>JavaScriptとは？</h2>
+    <div
+      style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+      JavaScriptはWEBページにて複雑な機能をさせることが可能なプログラミング言語です。<br><br>HTMLとCSSで作られたWEBサイトでは、静的な表現しかできませんが、JavaScriptによって動的にコンテンツを表現させることが出来ます。<br>ユーザーのアクションに応じたコンテンツの表示だったり、地図やグラフィックアニメーションなども表示可能です。
+    </div>
+    <div class="blank"></div>
+    <section id="javascript">
+      <h2 class="heading" data-en="JavaScript">JavaScript学習帳</h2>
       <div id="box">
         <ul>
-          <li><a href="if.html">if文～条件分岐で動作を変える～</a></li>
-          <li><a href="var.html">変数～比較演算子を使ったダイアログボックス表示～</a></li>
-          <li><a href="nunber.html">データ型比較演算子～数字の大小を比較条件～</a></li>
-          <li><a href="time_msg.html">論理演算子～タイムメッセージ～</a></li>
-          <li><a href="while.html">繰り返し処理～whileでモンスター退治～</a></li>
-          <li><a href="function.html">functionの作成と利用方法</a></li>
-          <li><a href="array.html">配列～項目リストの表示</a></li>
-          <li><a href="object.html">オブジェクト～複数データを1つの変数で管理～</a></li>
-          <li><a href="input.html">インプットとデータの加工</a></li>
-          <li><a href="hour.html">最終アクセス日時～年月日と日時を表示～</a></li>
-          <li><a href="digit.html">桁数合わせ～数値を文字列連結へ～</a></li>
-          <li><a href="math.html">Mathオブジェクト～小数点の切り捨て～</a></li>
-          <li><a href="current_time.html">現在時刻～リアルタイム表示～</a></li>
-          <li><a href="countdown.html">残り時間の計算～カウントダウンタイマー～</a></li>
-          <li><a href="location.html">プルダウンメニューでページ移動～プール属性の設定とid属性のないHTML要素取得方法～</a></li>
-          <li><a href="cookie.html">クッキーを使ってフォームの送信を1度だけにする</a></li>
-          <li><a href="calendar.html">簡単なカレンダーを実装する</a></li>
-          <li><a href="image.html">サムネイル表示画像切り替え</a></li>
-          <li><a href="slide.html">ボタンで画像スライド</a></li>
+          <li><a href="javascript/if.html">if文～条件分岐で動作を変える～</a></li>
+          <li><a href="javascript/var.html">変数～比較演算子を使ったダイアログボックス表示～</a></li>
+          <li><a href="javascript/nunber.html">データ型比較演算子～数字の大小を比較条件～</a></li>
+          <li><a href="javascript/time_msg.html">論理演算子～タイムメッセージ～</a></li>
+          <li><a href="javascript/while.html">繰り返し処理～whileでモンスター退治～</a></li>
+          <li><a href="javascript/function.html">functionの作成と利用方法</a></li>
+          <li><a href="javascript/array.html">配列～項目リストの表示</a></li>
+          <li><a href="javascript/object.html">オブジェクト～複数データを1つの変数で管理～</a></li>
+          <li><a href="javascript/input.html">インプットとデータの加工</a></li>
+          <li><a href="javascript/hour.html">最終アクセス日時～年月日と日時を表示～</a></li>
+          <li><a href="javascript/digit.html">桁数合わせ～数値を文字列連結へ～</a></li>
+          <li><a href="javascript/math.html">Mathオブジェクト～小数点の切り捨て～</a></li>
+          <li><a href="javascript/current_time.html">現在時刻～リアルタイム表示～</a></li>
+          <li><a href="javascript/countdown.html">残り時間の計算～カウントダウンタイマー～</a></li>
+          <li><a href="javascript/location.html">プルダウンメニューでページ移動～プール属性の設定とid属性のないHTML要素取得方法～</a></li>
+          <li><a href="javascript/cookie.html">クッキーを使ってフォームの送信を1度だけにする</a></li>
+          <li><a href="javascript/calendar.html">簡単なカレンダーを実装する</a></li>
+          <li><a href="javascript/image.html">サムネイル表示画像切り替え</a></li>
+          <li><a href="javascript/slide.html">ボタンで画像スライド</a></li>
         </ul>
       </div>
-
-      <h1>jQueryとは？</h1>
-      <div
-        style="padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
-        jQueryとはJavaScriptのオープンソースのライブラリです。<br><br>HTMLから動かしたい要素を取得して、タグ、属性、コンテンツ、やCSSを操作し、ある程度まとまったプログラムを作ってくれているファイルです。<br>少ない記述で様々な表現を実行し、webページのUIの作成やAjaxを得意としています。
-      </div>
-
-      <div id="box">
-        <ul>
-          <li><a href="menu.html">目次やサブメニューを開閉させる</a></li>
-
-        </ul>
-
     </section>
+    <div class="blank"></div>
+    <h2>jQueryとは？</h2>
+    <div
+      style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+      jQueryとはJavaScriptのオープンソースのライブラリです。<br><br>HTMLから動かしたい要素を取得して、タグ、属性、コンテンツ、やCSSを操作し、ある程度まとまったプログラムを作ってくれているファイルです。<br>少ない記述で様々な表現を実行し、webページのUIの作成やAjaxを得意としています。
+    </div>
+    <div class="blank"></div>
+    <section id="jquery">
+      <h2 class="heading" data-en="jQuery">jQuery学習帳</h2>
+      <div id="box">
+        <ul>
+          <li><a href="jquery/menu.html">目次やサブメニューを開閉させる</a></li>
+          <li><a href="jquery/box.html">ボックス開閉アニメーション</a></li>
+          <li><a href="jquery/ajax.html">ajaxとJson</a></li>
+          <li><a href="jquery/jquerymethod.html">よく使うjQueryメソッド</a></li>
+        </ul>
+    </section>
+
   </div><!-- /.main-wrapper -->
-  <footer>JavaScriptかつまる学習帳</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script src="scripts/move.js"></script>
 </body>
 
 </html>

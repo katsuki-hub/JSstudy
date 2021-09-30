@@ -18,7 +18,7 @@
   <title>JavaScript超入門"最終アクセス日時～年月日と日時を表示"</title>
   <meta name=”description” content=”JavaScript入門編。Dateオブジェクトを見やすく12時間表記に加工します”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -31,19 +31,11 @@
       <h1>最終アクセス日時を表示する</h1>
       <h2>12時間時計にしてみよう</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="hour.html">アクセス日時</a></li>
     </ol>
   </div>
@@ -95,7 +87,7 @@ document.getElementById(&quot;time&quot;).textContent = output;</code></pre>
       24時間表記の時間を12で割った余りを計算すれば、12時間表記になります。
     </section>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScriptかつまる学習帳</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
     var now = new Date();
     var year = now.getFullYear();

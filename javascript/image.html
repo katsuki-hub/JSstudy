@@ -18,8 +18,8 @@
   <title>JavaScript初級編”サムネイル画像切り替え”</title>
   <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。画像をクリックしてサムネイル画像を切り替えていきます”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href="css/image.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/image.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
@@ -33,7 +33,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="../manifest.json">
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -55,20 +55,12 @@
       <h1>サムネイル画像の切り替え</h1>
       <h2>表示する大きな画像をクリックで選べるよ</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="image.html">サムネイル変更</a></li>
     </ol>
   </div>
@@ -78,12 +70,12 @@
         <h2>見たい画像を選択してみて</h2>
         <div class="img">
           <div>
-            <img src="images/j1.jpg" id="bigimg">
+            <img src="../images/j1.jpg" id="bigimg">
           </div>
           <ul>
-            <li><img src="images/j1.jpg" class="thumb" data-image="images/j1.jpg"></li>
-            <li><img src="images/j2.jpg" class="thumb" data-image="images/j2.jpg"></li>
-            <li><img src="images/j3.jpg" class="thumb" data-image="images/j3.jpg"></li>
+            <li><img src="../images/j1.jpg" class="thumb" data-image="../images/j1.jpg"></li>
+            <li><img src="../images/j2.jpg" class="thumb" data-image="../images/j2.jpg"></li>
+            <li><img src="../images/j3.jpg" class="thumb" data-image="../images/j3.jpg"></li>
           </ul>
         </div>
 
@@ -159,7 +151,7 @@ for (var i = 0; i &lt; thumbs.length; i++) {
       </section>
     </article>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScript Samples</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
     var thumbs = document.querySelectorAll(".thumb");
     for (var i = 0; i < thumbs.length; i++) {

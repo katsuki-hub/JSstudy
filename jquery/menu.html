@@ -18,7 +18,7 @@
   <title>jQuery編”目次やサブメニューを開閉させよう”</title>
   <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。ナビゲーションをクリックするとサブメニューが開くUIを作成”>
   <meta name="keywords" content="jQuery,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="../manifest.json">
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -83,20 +83,12 @@
       <h1>目次やサブメニューを開閉</h1>
       <h2>クリックするとサブメニューが開く</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="menu.html">サブメニュー</a></li>
     </ol>
   </div>
@@ -108,18 +100,18 @@
           <div class="submenu">
             <h3>JavaScriptの学習ページ</h3>
             <ul class="hidden">
-              <li><a href="current_time.html">現在時刻～リアルタイム表示～</a></li>
-              <li><a href="countdown.html">残り時間の計算～カウントダウンタイマー～</a></li>
-              <li><a href="array.html">配列～項目リストの表示</a></li>
-              <li><a href="object.html">オブジェクト～複数データを1つの変数で管理～</a></li>
+              <li><a href="../javascript/current_time.html">現在時刻</a></li>
+              <li><a href="../javascript/countdown.html">残り時間の計算</a></li>
+              <li><a href="../javascript/array.html">配列</a></li>
+              <li><a href="../javascript/object.html">オブジェクト</a></li>
             </ul>
           </div>
           <div class="submenu">
             <h3>jQueryの学習ページ</h3>
             <ul class="hidden">
               <li><a href="menu.html">目次やサブメニューを開閉させる</a></li>
-              <li><a href="menu.html">目次やサブメニューを開閉させる</a></li>
-              <li><a href="menu.html">目次やサブメニューを開閉させる</a></li>
+              <li><a href="box.html">ボックス開閉アニメーション</a></li>
+              <li><a href="ajax.html">ajaxとJson</a></li>
             </ul>
           </div>
         </div>
@@ -150,8 +142,8 @@
 
         <h3>JavaScriptのソースコードと概要</h3>
         <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.min.js&quot;
-          integrity=&quot;sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        <pre><code class="prettyprint">&lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;
+          integrity=&quot;integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   $(document).ready(function () {
     $(&quot;.submenu h3&quot;).on(&quot;click&quot;, function () {
@@ -233,9 +225,9 @@
       </section>
     </article>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScript Samples</footer>
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
     $(document).ready(function () {
       $(".submenu h3").on("click", function () {

@@ -18,7 +18,7 @@
   <title>JavaScript超入門"リスト番号に0足して桁数を合わせよう"</title>
   <meta name=”description” content=”JavaScript入門編。曲名などのリスト番号の頭に0を足して桁数を合わせていきます”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript入門,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -31,19 +31,11 @@
       <h1>「0」をつけて桁数を合わせる</h1>
       <h2>曲目リストに番号をつける</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="digit.html">桁数合わせ</a></li>
     </ol>
   </div>
@@ -106,7 +98,7 @@ for (var i = 0; i &lt; songs.length; i++) {
     </section>
 
   </div><!-- /.main-wrapper -->
-  <footer>JavaScriptかつまる学習帳</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
     var addzero = function (num, digit) {
       var numString = String(num);

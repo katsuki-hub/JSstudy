@@ -18,8 +18,8 @@
   <title>JavaScript初級編”スライドショー”</title>
   <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。ボタンクリックで画像を切り替えます”>
   <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href="css/slide.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/slide.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
@@ -33,7 +33,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="../manifest.json">
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -55,20 +55,12 @@
       <h1>画像のスライドショー</h1>
       <h2>ボタンクリックで画像切り替え</h2>
     </div><!-- /.header-contents -->
-
-    <!-- グローバルナビ -->
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="https://katsumaru.blog">アウトドア部Log</a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="index.html">HOME</a></li>
+      <li><a href="../index.html">HOME</a></li>
       <li><a href="slide.html">スライドショー</a></li>
     </ol>
   </div>
@@ -78,7 +70,7 @@
         <h2>見たい画像を選択してみて</h2>
         <div class="slide">
           <div class="image_box">
-            <img id="main_image" src="images/j1.jpg">
+            <img id="main_image" src="../images/j1.jpg">
           </div>
           <div class="toolbar">
             <div class="nav">
@@ -240,9 +232,9 @@ document.getElementById(&quot;next&quot;).onclick = function () {
       </section>
     </article>
   </div><!-- /.main-wrapper -->
-  <footer>JavaScript Samples</footer>
+  <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
-    var images = ["images/j1.jpg", "images/j2.jpg", "images/j3.jpg"];
+    var images = ["../images/j1.jpg", "../images/j2.jpg", "../images/j3.jpg"];
     var current = 0;
     var pageNum = function () {
       document.getElementById("page").textContent = (current + 1) + "/" + images.length;
