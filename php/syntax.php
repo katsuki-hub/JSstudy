@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”条件が満たされている間は繰り返すwhile文”</title>
+  <title>PHP編”制御構造~条件分岐や繰り返し処理~”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,8 +50,8 @@
 
   <header>
     <div class="header-contents">
-      <h1>条件が満たされている間は繰り返すwhile文</h1>
-      <h2>do while文</h2>
+      <h1>制御構造~条件分岐や繰り返し処理~</h1>
+      <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
   </header>
 
@@ -59,13 +59,14 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="menu.html">サブメニュー</a></li>
+      <li><a href="syntax.php">PHPシンタックス</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>合計が21になる3個の変数が決まるまで繰り返す</h2>
+        <h2>条件が満たされている間は繰り返すwhile文</h2>
+        <h3>合計が21になる3個の変数が決まるまで繰り返す</h3>
         <?php
         do {
           //変数に1～13の乱数を入れる
@@ -81,7 +82,7 @@
         echo "合計が21になる3個の数字　{$a}、{$b}、{$c}";
         ?>
         <!-- ソースコード -->
-<pre><code class="prettyprint">&lt;?php
+        <pre><code class="prettyprint">&lt;?php
 do {
   //変数に1～13の乱数を入れる
   $a = mt_rand(1, 13);
@@ -94,6 +95,47 @@ do {
   }
 } while (TRUE);
 echo &quot;合計が21になる3個の数字　{$a}、{$b}、{$c}&quot;;
+?&gt;
+</code></pre>
+
+        <div class="blank"></div>
+        <h2>カウンタを使った繰り返し for文</h2>
+        <h3>for文で処理を10回繰り返す</h3>
+        <?php
+        for ($i = 0; $i < 10; $i++) {
+          echo "{$i}回。";
+        }
+        ?>
+        <pre><code class="prettyprint">&lt;?php
+for ($i = 0; $i &lt; 10; $i++) {
+  echo &quot;{$i}回。&quot;;
+}
+?&gt;</code></pre>
+
+        <div class="blank"></div>
+        <h2>カウンタの値に意味をもたせた処理</h2>
+        <h3>人数が3人までなら1人1,000円、4人目からは半額の500円として6人までの料金計算</h3>
+        <?php
+        $price = 0;
+        for ($people = 1; $people <= 6; $people++) {
+          if ($people <= 3) {
+            $price += 1000;
+          } else {
+            $price += 500;
+          }
+          echo "{$people}人なら{$price}円です。";
+        }
+        ?>
+        <pre><code class="prettyprint">&lt;?php
+$price = 0;
+for ($people=1; $people&lt;=6; $people++) {
+  if ($people&lt;=3) {
+    $price += 1000;
+  } else {
+    $price += 500;
+  }
+  echo &quot;{$people}人なら{$price}円です。&quot;;
+}
 ?&gt;
 </code></pre>
 
