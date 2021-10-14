@@ -500,8 +500,8 @@ a:hover {
 		top: -14px;
 		left: 48%;
 		transform: translateX(-50%);
-		color: rgba(240, 85, 90, 0.4);
-		font-size: 60px;
+		color: rgba(240, 85, 90, 0.6);
+		font-size: 58px;
 		font-style: italic;
 	}
 	.heading::after {
