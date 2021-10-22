@@ -196,12 +196,12 @@ echo strtolower($alphabet),&quot;&lt;br&gt;&quot;,PHP_EOL;
         <?php
         $tabu = "\tタブと改行を入れてるよ！！     \n\n";
         $result = trim($tabu);
-        echo "処理前：\n";
-        echo "[", $tabu, "]\n";
-        echo "処理後：\n";
-        echo "[", $result, "]\n";
-        ?><br><br>
-
+        echo "処理前：\n", "<br>";
+        echo "[", $tabu, "]\n", "<br>";
+        echo "処理後：\n", "<br>";
+        echo "[", $result, "]\n", "<br>";
+        ?><br>
+        ※ソースではタブと改行されている
 
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
@@ -213,6 +213,20 @@ echo &quot;処理後：\n&quot;;
 echo &quot;[&quot;, $result, &quot;]\n&quot;;
 </code></pre>
         <div class="blank"></div>
+
+        <h2>その他の文字変換</h2>
+        <table border="1" class="function">
+          <tr>
+            <td>htmlspecialchars()</td>
+            <td>&から始まる文字列(エンティティ)に置き換える<br>第2引数でENT_QUOTES指定でシングルとダブルクォートの両方変換。デフォルトはダブルクォートのみ</td>
+          </tr>
+          <tr>
+            <td>strip_tags()</td>
+            <td>HTMLタグが含まれた文字列を全て取り除く</td>
+          </tr>
+          
+        </table>
+        
       </section>
     </article>
   </div><!-- /.main-wrapper -->
