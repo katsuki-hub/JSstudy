@@ -59,7 +59,7 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="string.php">文字列の変換</a></li>
+      <li><a href="convert.php">文字列の変換</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
@@ -224,9 +224,24 @@ echo &quot;[&quot;, $result, &quot;]\n&quot;;
             <td>strip_tags()</td>
             <td>HTMLタグが含まれた文字列を全て取り除く</td>
           </tr>
-          
+          <tr>
+            <td>rawurlencode()</td>
+            <td>URLエンコード<br>空白文字は％20に変換</td>
+          </tr>
+          <tr>
+            <td>urlencode()</td>
+            <td>URLエンコード<br>空白文字は+に変換</td>
+          </tr>
+          <tr>
+            <td>rawurldecode()</td>
+            <td>rawurlencode()でエンコードされた文字をデコード</td>
+          </tr>
+          <tr>
+            <td>urldecode()</td>
+            <td>urlencode()でエンコードされた文字をデコード</td>
+          </tr>
         </table>
-        
+        <br><br><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
