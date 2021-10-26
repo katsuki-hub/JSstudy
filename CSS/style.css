@@ -353,6 +353,12 @@ a:hover {
 	background-color: #fdfdbd;
 }
 
+.frame3 {
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #d7f7d7;
+}
+
 .method tr td, .function tr td {
 	font-size: 12px;
 	line-height: 1.8;

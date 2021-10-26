@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”文字列の比較”</title>
+  <title>PHP編”文字列の検索”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
   <header>
     <div class="header-contents">
-      <h1>文字列の比較</h1>
+      <h1>文字列の検索</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
   </header>
@@ -59,112 +59,54 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="comparison.php">文字列の比較</a></li>
+      <li><a href="search.php">文字列の検索</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>文字列を比較する</h2>
-        <h3>文字列と文字列の比較</h3>
+        <h2>文字列を検索する</h2>
+        <div class="frame3">
+          文字列を検索する関数のstrpos()またはmb_strpos()は、検索して最初に見つかった位置を返します。<br>マルチバイト文字の検索にはmb_strpos()を使い、文字の位置は0から数え、ない場合はfalseを返す。<br>この時、if文では0はfalseと判定されるので===演算子を使って厳密な判定を行う。<br><br>※最後に見つかった位置を返す関数は strrpos()及び mb_strrpos()もある
+        </div>
+        <h3>文字列が含まれている位置を調べる</h3>
         <?php
-        function holiady($youbi)
+        function check($target, $str)
         {
-          if (($youbi == "土曜日") || ($youbi == "日曜日")) {
-            echo $youbi, "はお休みです。\n <br>", PHP_EOL;
+          $result = mb_strpos($target, $str);
+          if ($result === false) {
+            echo "「{$str}」は「{$target}」には含まれていません。\n <br>";
           } else {
-            echo $youbi, "はお休みではありません。\n <br>", PHP_EOL;
+            echo "「{$str}」は「{$target}」の{$result}文字目にあります。\n <br>";
           }
         }
-        holiady("金曜日");
-        holiady("土曜日");
-        holiady("日曜日");
+        check("福岡県福岡市博多区", "博多");
+        check("福岡県福岡市博多区", "天神");
+        check("PHP,JavaScript,Ruby", "PHP");
+        check("PHP,JavaScript,Ruby", "c++");
         ?>
 
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
-function holiady($youbi) {
-  if (($youbi == &quot;土曜日&quot;) || ($youbi == &quot;日曜日&quot;)) {
-    echo $youbi, &quot;はお休みです。\n &lt;br&gt;&quot;,PHP_EOL;
+function check ($target,$str) {
+  $result = mb_strpos($target,$str);
+  if ($result === false) {
+    echo &quot;「{$str}」は「{$target}」には含まれていません。\n &lt;br&gt;&quot;;
   } else {
-    echo $youbi, &quot;はお休みではありません。\n &lt;br&gt;&quot;,PHP_EOL;
+    echo &quot;「{$str}」は「{$target}」の{$result}文字目にあります。\n &lt;br&gt;&quot;;
   }
 }
-holiady(&quot;金曜日&quot;);
-holiady(&quot;土曜日&quot;);
-holiady(&quot;日曜日&quot;);
+check(&quot;福岡県福岡市博多区&quot;,&quot;博多&quot;);
+check(&quot;福岡県福岡市博多区&quot;,&quot;天神&quot;);
+check(&quot;PHP,JavaScript,Ruby&quot;,&quot;PHP&quot;);
+check(&quot;PHP,JavaScript,Ruby&quot;,&quot;c++&quot;);
 ?&gt;
 </code></pre>
         <div class="blank"></div>
 
-        <h3>文字列と数値を比較</h3>
-        <?php
-        function check($a, $b)
-        {
-          if ($a === $b) {
-            echo "{$a}と{$b}は", "同じ。\n <br>";
-          } else {
-            echo "{$a}と{$b}は", "違う。\n <br>";
-          }
-        }
-        check("10cm", "10cm");
-        check("10km", "10cm");
-        check("10人", "10");
-        check("PHP7", "7");
-        check("七", "0");
-        ?>
+        <h3>「不可」が含まれている個数を調べる</h3>
 
-        <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;?php
-function check($a, $b)
-{
-  if ($a === $b) {
-    echo &quot;{$a}と{$b}は&quot;, &quot;同じ。\n &lt;br&gt;&quot;;
-  } else {
-    echo &quot;{$a}と{$b}は&quot;, &quot;違う。\n &lt;br&gt;&quot;;
-  }
-}
-check(&quot;10cm&quot;, &quot;10cm&quot;);
-check(&quot;10km&quot;, &quot;10cm&quot;);
-check(&quot;10人&quot;, &quot;10&quot;);
-check(&quot;PHP7&quot;, &quot;7&quot;);
-check(&quot;七&quot;, &quot;0&quot;);
-?&gt;
-</code></pre>     
 
-        <div class="frame1">
-          <b>厳密に比較する演算子</b><br>
-          比較に==演算子を===に書き換えると、厳密な比較になる。
-        </div>
-
-        <h2>その他の比較演算子</h2>
-        <table border="1" class="function">
-          <tr>
-            <td><,<=,>,>=</td>
-            <td>文字列に対して使用できるが、大小関係はアルファベット順。大小の比較を有効に利用できるのは半角英文字の場合で1文字目が同じなら次の文字、大文字の方が前の順になる。</td>
-          </tr>
-          <tr>
-            <td>(string)$var</td>
-            <td>数値を文字列にキャストして比較する。</td>
-          </tr>
-          <tr>
-            <td>strcmp($str1,$str2)</td>
-            <td>引数が数値であっても文字列にキャストして比較する。</td>
-          </tr>
-          <tr>
-            <td>strcasecmp()</td>
-            <td>引数を文字列にキャストし、英文字の大文字と小文字を区別せずに比較します。</td>
-          </tr>
-          <tr>
-            <td>strncmp($str1,$str2,len)</td>
-            <td>前方一致で比較する。</td>
-          </tr>
-          <tr>
-            <td>strncasecmp($str1,$str2,len)</td>
-            <td>英文字の大文字と小文字を区別せず前方一致で比較します。</td>
-          </tr>
-        </table>
-        <br><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
