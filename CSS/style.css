@@ -381,7 +381,7 @@ a:hover {
 	#boxmenu {
 		top: -200%;
 		position: fixed;
-		background-color: rgba(65, 50, 110, 0.8);
+		background-color: rgba(3, 25, 0, 0.75);
 		transition: all 0.6s;
 		width: 100%;
 		max-width: 960px;

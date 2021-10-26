@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”文字列の検索”</title>
+  <title>PHP編”正規表現の基本知識”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
   <header>
     <div class="header-contents">
-      <h1>文字列の検索</h1>
+      <h1>正規表現の基本知識</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
   </header>
@@ -59,23 +59,43 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="search.php">文字列の検索</a></li>
+      <li><a href="regex.php">正規表現</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>文字列を検索する</h2>
-        <h3></h3>
-        
+        <h2>正規表現の基本知識</h2>
+        <h4>正規表現とは</h4>
+        <div class="frame1">
+          文字列をパターンで検索して、パターンにマッチするかどうかチェックする、置換する、分割するといった文字列処理を行う手法です。<br>
+          パターンにマッチで利用する関数はpreg_match()です。第1引数にパターンの文字列、第2引数に検索対象の文字列を指定する。
+        </div>
+        <div class="frame2">
+          $result = preg_match($pattern,$subject)<br>
+          マッチした時1、マッチしなかったら0が戻る解析できなかったり、エラーの場合はfalseになります。パターンは//で囲む。
+        </div>
+
+        <h3>「46-49」が含まれているかどうか調べる</h3>
+        <?php
+        $result1 = preg_match("/46-49/u", "確か49-46でした");
+        $result2 = preg_match("/46-49/u", "たぶん46-49だった");
+        var_dump($result1);
+        var_dump($result2);
+        ?>
+
+
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
-
+$result1 = preg_match(&quot;/46-49/u&quot;, &quot;確か49-46でした&quot;);
+$result2 = preg_match(&quot;/46-49/u&quot;, &quot;たぶん46-49だった&quot;);
+var_dump($result1);
+var_dump($result2);
 ?&gt;
 </code></pre>
         <div class="blank"></div>
 
-        
+
       </section>
     </article>
   </div><!-- /.main-wrapper -->

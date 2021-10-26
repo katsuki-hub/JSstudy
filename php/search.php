@@ -105,8 +105,151 @@ check(&quot;PHP,JavaScript,Ruby&quot;,&quot;c++&quot;);
         <div class="blank"></div>
 
         <h3>「不可」が含まれている個数を調べる</h3>
+        <div class="frame2">
+          mb_substr_countは検索した文字列が何個含まれているかを返す関数。下のソースでは「不可」が3個以上含まれていると再試験にしている。
+        </div>
+        <?php
+        function check2($target2)
+        {
+          $result = mb_substr_count($target2, "不可");
+          if ($result >= 3) {
+            echo "不可が{$result}個あるので、再試験です。\n <br>";
+          } else {
+            echo "合格です\n <br>";
+          }
+        }
+        check2("優,不可,良,可,良,可");
+        check2("可,優,不可,不可,良,不可");
+        check2("不可,可,不可,不可,良,不可");
+        check2("可,可,不可,良,良");
+        ?>
 
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+function check2($target2)
+{
+  $result = mb_substr_count($target2, &quot;不可&quot;);
+  if ($result &gt;= 3) {
+    echo &quot;不可が{$result}個あるので、再試験です。\n &lt;br&gt;&quot;;
+  } else {
+    echo &quot;合格です\n &lt;br&gt;&quot;;
+  }
+}
+check2(&quot;優,不可,良,可,良,可&quot;);
+check2(&quot;可,優,不可,不可,良,不可&quot;);
+check2(&quot;不可,可,不可,不可,良,不可&quot;);
+check2(&quot;可,可,不可,良,良&quot;);
+?&gt;
+</code></pre>
+        <div class="blank"></div>
 
+        <h3>見つかった位置から後ろの文字列を取り出す</h3>
+        <div class="frame2">
+          mb_strstr()は特定の文字を検索して最初に見つかった位置から後ろにある文字を取り出す関数です。大文字小文字を区別しないで検索するなら mb_stristr()を使います。見るからない場合はfalseが戻ってきます。
+        </div>
+        <?php
+        function pickout($target3, $str3)
+        {
+          $result = mb_stristr($target3, $str3);
+          if ($result === false) {
+            echo "(not found)\n <br>";
+          } else {
+            echo "{$result}\n <br>";
+          }
+        }
+        pickout("福岡県福岡市博多区1-1-1", "博多区");
+        pickout("福岡県福岡市博多区1-1-1", "福岡");
+        pickout("福岡県福岡市博多区1-1-1", "東京");
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+function pickout($target3, $str3)
+{
+  $result = mb_stristr($target3, $str3);
+  if ($result === false) {
+    echo &quot;(not found)\n &lt;br&gt;&quot;;
+  } else {
+    echo &quot;{$result}\n &lt;br&gt;&quot;;
+  }
+}
+pickout(&quot;福岡県福岡市博多区1-1-1&quot;, &quot;博多区&quot;);
+pickout(&quot;福岡県福岡市博多区1-1-1&quot;, &quot;福岡&quot;);
+pickout(&quot;福岡県福岡市博多区1-1-1&quot;, &quot;東京&quot;);
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h3>検索置換を行う</h3>
+        <div class="frame2">
+          <b>検索して置換する</b><br>
+          str_replace($search,$replace,$subject,$count)<br><br>
+          <b>大文字小文字を区別せずに置換する</b><br>
+          str_ireplace($search,$replace,$subject,$count)<br><br>
+          ※検索した文字を空白 "" に置換することで、見つかった文字を削除できる。
+        </div>
+
+        <?php
+        $subject = "三匹の子猫がいる。";
+        echo str_replace("猫", "豚", $subject), "\n <br>";
+        echo str_replace("猫", "牛", $subject), "\n <br>";
+        echo $subject;
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$subject = &quot;三匹の子猫がいる。&quot;;
+echo str_replace(&quot;猫&quot;,&quot;豚&quot;,$subject),&quot;\n &lt;br&gt;&quot;;
+echo str_replace(&quot;猫&quot;,&quot;牛&quot;,$subject),&quot;\n &lt;br&gt;&quot;;
+echo $subject;
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+        <h4>検索文字と置換文字を配列で指定する</h4>
+        <div class="frame3">
+          str_replace()とstr_ireplace()では、第1引数と第2引数を配列で指定できる。つまり、複数の検索文字を置換したり設定が可能
+        </div>
+        <h3>"p"と"a"を"?"に置き換える</h3>
+        <?php
+        $search = array("p", "a");
+        $subject = "Do you want a piece of pumpkin pie, Katsumaru?";
+        $result = str_ireplace($search, "?", $subject, $count);
+        echo "置換前：{$subject}", "\n <br>";
+        echo "置換後：{$result}", "\n <br>";
+        echo "置換個数：{$count}";
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$search = array(&quot;p&quot;,&quot;a&quot;);
+$subject = &quot;Do you want a piece of pumpkin pie, Katsumaru?&quot;;
+$result = str_ireplace($search,&quot;?&quot;,$subject,$count);
+echo &quot;置換前：{$subject}&quot;,&quot;\n &lt;br&gt;&quot;;
+echo &quot;置換後：{$result}&quot;,&quot;\n &lt;br&gt;&quot;;
+echo &quot;置換個数：{$count}&quot;;
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h3>それぞれ配列指定で名前と年齢をベルの文字に置換</h3>
+        <?php
+        $search = ["鈴木", "35歳"];
+        $replace = ["A", "x歳"];
+        $subject = "担任の鈴木先生は35歳の英語担当です。";
+        $result = str_replace($search, $replace, $subject);
+        echo "置換前：{$subject}", "\n <br>";
+        echo "置換後：{$result}";
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$search = [&quot;鈴木&quot;, &quot;35歳&quot;];
+$replace = [&quot;A&quot;, &quot;x歳&quot;];
+$subject = &quot;担任の鈴木先生は35歳の英語担当です。&quot;;
+$result = str_replace($search, $replace, $subject);
+echo &quot;置換前：{$subject}&quot;, &quot;\n &lt;br&gt;&quot;;
+echo &quot;置換後：{$result}&quot;;
+</code></pre><br><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
