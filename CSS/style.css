@@ -360,7 +360,7 @@ a:hover {
 }
 
 .method tr td, .function tr td {
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 1.8;
 }
 
@@ -526,7 +526,7 @@ a:hover {
 		background-color: rgb(226, 23, 84);
 	}
 	.method tr td, .function tr td {
-		font-size: 11px;
+		font-size: 12px;
 	}
 	.menu-btn {
 		top: 18px;

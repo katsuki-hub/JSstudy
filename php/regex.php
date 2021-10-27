@@ -129,8 +129,212 @@ var_dump($result2);
           </tr>
         </table><br><br>
 
-        <h3>文字クラスを使ったパターン</h3>
+        <h4>文字クラス定義[]の中で使うメタ文字</h4>
+        <table border="1" class="function">
+          <tr bgcolor="pink">
+            <th>メタ文字</th>
+            <th>説明</th>
+          </tr>
+          <tr>
+            <td>\</td>
+            <td>エスケープ文字</td>
+          </tr>
+          <tr>
+            <td>^</td>
+            <td>否定</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>文字の範囲の指定</td>
+          </tr>
+        </table>
 
+        <h3>文字クラスを使ったパターン</h3>
+        <?php
+        $pattern = "/[赤青緑]の玉/u";
+        $pattern2 = "/緑の[^玉]でした/u";
+        var_dump(preg_match($pattern, "それは赤の玉です"));
+        var_dump(preg_match($pattern, "青の玉が2個です"));
+        var_dump(preg_match($pattern, "緑の玉でした"));
+        var_dump(preg_match($pattern, "緑の箱でした"));
+        var_dump(preg_match($pattern2, "緑の箱でした"));
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$pattern = &quot;/[赤青緑]の玉/u&quot;;
+$pattern2 = &quot;/緑の[^玉]でした/u&quot;;
+var_dump(preg_match($pattern,&quot;それは赤の玉です&quot;));
+var_dump(preg_match($pattern,&quot;青の玉が2個です&quot;));
+var_dump(preg_match($pattern,&quot;緑の玉でした&quot;));
+var_dump(preg_match($pattern,&quot;緑の箱でした&quot;));
+var_dump(preg_match($pattern2,&quot;緑の箱でした&quot;));
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h4>定義済みの文字クラス</h4>
+        <table border="1" class="function">
+          <tr bgcolor="pink">
+            <th>文字クラス</th>
+            <th>説明</th>
+          </tr>
+          <tr>
+            <td>\d</td>
+            <td>数値。[0-9]と同じ</td>
+          </tr>
+          <tr>
+            <td>\D</td>
+            <td>数値以外。[^0-9]と同じ</td>
+          </tr>
+          <tr>
+            <td>\s</td>
+            <td>空白文字。[\n\r\t\x0B]と同じ</td>
+          </tr>
+          <tr>
+            <td>\S</td>
+            <td>空白文字以外。[^\s]と同じ</td>
+          </tr>
+          <tr>
+            <td>\w</td>
+            <td>英数文字、アンダースコア。[a-zA-Z_0-9]と同じ</td>
+          </tr>
+          <tr>
+            <td>\W</td>
+            <td>文字以外。[^\w]と同じ</td>
+          </tr>
+        </table><br><br>
+
+
+        <h4>文字クラス[]の外で使うメタ文字</h4>
+        <table border="1" class="function">
+          <tr bgcolor="pink">
+            <th>メタ文字</th>
+            <th>説明</th>
+          </tr>
+          <tr>
+            <td>\</td>
+            <td>エスケープ文字</td>
+          </tr>
+          <tr>
+            <td>^</td>
+            <td>先頭一致(複数行の場合は業の先頭)</td>
+          </tr>
+          <tr>
+            <td>$</td>
+            <td>終端一致(複数行の場合は行末)</td>
+          </tr>
+          <tr>
+            <td>.</td>
+            <td>任意の1文字(改行を除く)</td>
+          </tr>
+          <tr>
+            <td>[]</td>
+            <td>文字クラスの定義</td>
+          </tr>
+          <tr>
+            <td>|</td>
+            <td>選択肢の区切り</td>
+          </tr>
+          <tr>
+            <td>()</td>
+            <td>サブパターンの囲み</td>
+          </tr>
+          <tr>
+            <td>{n}</td>
+            <td>n回の繰り返し</td>
+          </tr>
+          <tr>
+            <td>{n,}</td>
+            <td>n回以上の繰り返し</td>
+          </tr>
+          <tr>
+            <td>{n,m}</td>
+            <td>n~m回の繰り返し</td>
+          </tr>
+          <tr>
+            <td>*</td>
+            <td>{0,}の省略形(0回以上の繰り返し)/td>
+          </tr>
+          <tr>
+            <td>+</td>
+            <td>{1,}の省略形(1回以上の繰り返し)</td>
+          </tr>
+          <tr>
+            <td>?</td>
+            <td>{0,1}の省略形(0または1回の繰り返し)</td>
+          </tr>
+        </table><br><br>
+
+        <h2>サブパターンの囲み</h2>
+        <div class="frame1">
+          パターンを()で囲み、パターンの中にサブパターンを入れる。<br>
+        </div>
+        <h3>携帯番号にマッチする</h3>
+        <?php
+        $pattern = "/(090|080|070)-{0,1}[0-9]{4}-{0,1}[0-9]{4}/u";
+        var_dump(preg_match($pattern, "090-1234-5678"));
+        var_dump(preg_match($pattern, "080-1234-5678"));
+        var_dump(preg_match($pattern, "07012345678"));
+        var_dump(preg_match($pattern, "123456789"));
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$pattern = &quot;/(090|080|070)-{0,1}[0-9]{4}-{0,1}[0-9]{4}/u&quot;;
+var_dump(preg_match($pattern, &quot;090-1234-5678&quot;));
+var_dump(preg_match($pattern, &quot;080-1234-5678&quot;));
+var_dump(preg_match($pattern, &quot;07012345678&quot;));
+var_dump(preg_match($pattern, &quot;123456789&quot;));
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h2>メタ文字をエスケープしたパターンを作る便利な関数</h2>
+        <div class="frame1">
+          文字列をpreg_quote()に通すと必要な個所にエスケープの\を埋め込んでくれます。<br>URL等のスラッシュとピリオドをエスケープする必要がある時に便利
+        </div>
+        <h3>URLに含まれるメタ文字をエスケープする</h3>
+        <?php
+        $escaped = preg_quote("https://sample.com/php/", "/");
+        $pattern = "/{$escaped}/u";
+        echo $pattern, "\n <br>";
+        var_dump(preg_match($pattern, "https://sample.com/php/です"));
+        var_dump(preg_match($pattern, "https://sample.com/javascript/です"));
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$escaped = preg_quote(&quot;https://sample.com/php/&quot;, &quot;/&quot;);
+$pattern = &quot;/{$escaped}/u&quot;;
+echo $pattern, &quot;\n &lt;br&gt;&quot;;
+var_dump(preg_match($pattern, &quot;https://sample.com/php/です&quot;));
+var_dump(preg_match($pattern, &quot;https://sample.com/javascript/です&quot;));
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h2>正規表現でマッチした値の取り出しと置換</h2>
+        <div class="frame1">
+          preg_match()の第3引数に変数を指定すると、その変数にマッチした値が配列で入ります。
+          <div class="frame3">
+            $result = preg_match($pattern,$subject,&$matches)
+          </div>
+          マッチした値は$resultに戻るのではなく、第3引数の$matchesに入ります。＄resultの値は、マッチした個数、またはエラーがあった場合のfalseです。第3引数の$matchesは配列ですが、preg_match()はマッチした文字列が見つかったならそこで走査を中止するので値は1個しか入りません。<br>見つかった値は$matches(0)で取り出せます。
+        </div>
+
+        <h3>マッチした名前を取り出す</h3>
+        <?php
+
+        $result = preg_match($pattern, $subject, $matches);
+        if ($result === false) {
+          echo "エラー", preg_last_error();
+        } else if ($result == 0) {
+          echo "マッチした値はありません。";
+        } else {
+          echo "「", $matches[0], "」が見つかりました。";
+        }
+        ?>
 
       </section>
     </article>
