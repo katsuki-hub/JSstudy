@@ -88,16 +88,45 @@
     <article>
       <section>
         <h2>配列を作る</h2>
-        <h3></h3>
-        
+        <div class="frame1">
+          []に値だけ入っているのが、インデックス配列<br>
+          キーと値がペアになっているのが連想配列
+          <div class="frame3">
+            <b>インデックス配列</b><br>
+            $myArray = [値1,値2,値3,...]
+          </div>
+        </div>
+        <h3>配列から値を取り出す＆値の変更＆for文を利用</h3>
+        <?php
+        $teamA = ["桃太郎", "金太郎", "一寸法師", "赤鬼"];
+        $teamA[3] = "織姫";
+        echo $teamA[0], "さん\n";
+        echo $teamA[1], "さん\n";
+        echo $teamA[2], "さん\n";
+        echo $teamA[3], "さん\n <br>";
+
+        for ($i = 0; $i < count($teamA); $i++) {
+          echo $teamA[$i],"さん\n";
+        }
+        ?>
+
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
+$teamA = [&quot;桃太郎&quot;, &quot;金太郎&quot;, &quot;一寸法師&quot;, &quot;赤鬼&quot;];
+$teamA[3] = &quot;織姫&quot;;
+echo $teamA[0], &quot;さん\n&quot;;
+echo $teamA[1], &quot;さん\n&quot;;
+echo $teamA[2], &quot;さん\n&quot;;
+echo $teamA[3], &quot;さん\n &lt;br&gt;&quot;;
 
+for ($i = 0; $i &lt; count($teamA); $i++) {
+  echo $teamA[$i],&quot;さん\n&quot;;
+}
 ?&gt;
 </code></pre>
         <div class="blank"></div>
 
-        
+
       </section>
     </article>
   </div><!-- /.main-wrapper -->
