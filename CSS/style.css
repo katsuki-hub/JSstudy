@@ -393,6 +393,10 @@ a:hover {
 		top: 0;
 	}
 	#boxmenu.panelactive,#boxmenu li {
+		position: fixed;
+    z-index: 999; 
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 	}
