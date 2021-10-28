@@ -392,6 +392,10 @@ a:hover {
 	#boxmenu.panelactive {
 		top: 0;
 	}
+	#boxmenu.panelactive,#boxmenu li {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+	}
 	#boxmenu nav {
 		display: inline;
 		width: 100%;

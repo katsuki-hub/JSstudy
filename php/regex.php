@@ -67,6 +67,7 @@
           <li><a href="comparison.php">文字列の比較</a></li>
           <li><a href="search.php">文字列の検索</a></li>
           <li><a href="regex.php">正規表現</a></li>
+          <li><a href="array.php">配列</a></li>
         </ul>
 
         <div class="copyright">
