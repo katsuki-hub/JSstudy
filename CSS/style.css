@@ -57,15 +57,26 @@ header {
 	text-shadow: 2px 2px 2px rgb(214, 22, 22);
 }
 
+#boxmenu {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
 #boxmenu ul {
 	list-style-type: none;
 	display: flex;
+	margin: 10px auto;
+}
+
+#boxmenu nav {
+	width: 120%;
 }
 
 #boxmenu li {
 	flex-wrap: wrap;
-	padding: 0 30px;
-	margin: auto;
+	padding: 0 10px;
+	margin: 0 auto;
+	font-size: 16px;
 }
 
 #boxmenu li a {
@@ -379,7 +390,7 @@ a:hover {
 		padding: 80px 0 0 0;
 	}
 	#boxmenu {
-		top: -200%;
+		top: -250%;
 		position: fixed;
 		background-color: rgba(3, 25, 0, 0.75);
 		transition: all 0.6s;
@@ -393,9 +404,9 @@ a:hover {
 		top: 0;
 	}
 	#boxmenu.panelactive {
-    height: 88vh;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+		height: 85%;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 	#boxmenu nav {
 		display: inline;

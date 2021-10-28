@@ -59,7 +59,7 @@
 
     <div id="boxmenu">
       <nav>
-        <ul class="menu_1 btn">
+        <ul class="menu_1">
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
           <li><a href="string.php">文字列</a></li>
