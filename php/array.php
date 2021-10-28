@@ -58,7 +58,7 @@
     </div>
 
     <div id="boxmenu">
-      <nav>
+      <nav class="phpnav">
         <ul class="menu_1">
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
@@ -106,7 +106,7 @@
         echo $teamA[3], "さん\n <br>";
 
         for ($i = 0; $i < count($teamA); $i++) {
-          echo $teamA[$i],"さん\n";
+          echo $teamA[$i], "さん\n";
         }
         ?>
 

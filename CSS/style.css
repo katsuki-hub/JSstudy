@@ -68,8 +68,12 @@ header {
 	margin: 10px auto;
 }
 
-#boxmenu nav {
+.phpnav {
 	width: 120%;
+}
+
+.javanav {
+	width: 220%;
 }
 
 #boxmenu li {

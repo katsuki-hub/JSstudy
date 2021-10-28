@@ -58,7 +58,7 @@
     </div>
 
     <div id="boxmenu">
-      <nav>
+      <nav class="phpnav">
         <ul class="menu_1">
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
@@ -89,7 +89,7 @@
       <section>
         <h2>文字列を検索する</h2>
         <h3></h3>
-        
+
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
 
@@ -97,7 +97,7 @@
 </code></pre>
         <div class="blank"></div>
 
-        
+
       </section>
     </article>
   </div><!-- /.main-wrapper -->

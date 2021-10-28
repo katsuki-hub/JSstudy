@@ -58,7 +58,7 @@
     </div>
 
     <div id="boxmenu">
-      <nav>
+      <nav class="phpnav">
         <ul class="menu_1">
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
