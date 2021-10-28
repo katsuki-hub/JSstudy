@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”文字列の検索”</title>
+  <title>PHP編”配列”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
   <header>
     <div class="header-contents">
-      <h1>文字列の検索</h1>
+      <h1>配列</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
   </header>
@@ -59,13 +59,13 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="search.php">文字列の検索</a></li>
+      <li><a href="array.php">配列</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>文字列を検索する</h2>
+        <h2>配列を作る</h2>
         <h3></h3>
         
         <!-- ソースコード -->

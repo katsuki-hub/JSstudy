@@ -53,6 +53,27 @@
       <h1>正規表現の基本知識</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
+    <div class="btn" id="open_btn">
+      <label class="menu-btn"><span></span></label>
+    </div>
+
+    <div id="boxmenu">
+      <nav>
+        <ul class="menu_1 btn">
+          <li><a href="syntax.php">制御構造</a></li>
+          <li><a href="function.php">関数</a></li>
+          <li><a href="string.php">文字列</a></li>
+          <li><a href="convert.php">文字列の変換</a></li>
+          <li><a href="comparison.php">文字列の比較</a></li>
+          <li><a href="search.php">文字列の検索</a></li>
+          <li><a href="regex.php">正規表現</a></li>
+        </ul>
+
+        <div class="copyright">
+          <small>&copy; 2021 かつまる学習帳</small>
+        </div>
+      </nav>
+    </div><!-- /boxmenu -->
   </header>
 
   <!-- パンくずリスト -->
@@ -320,28 +341,159 @@ var_dump(preg_match($pattern, &quot;https://sample.com/javascript/です&quot;))
           <div class="frame3">
             $result = preg_match($pattern,$subject,&$matches)
           </div>
-          マッチした値は$resultに戻るのではなく、第3引数の$matchesに入ります。＄resultの値は、マッチした個数、またはエラーがあった場合のfalseです。第3引数の$matchesは配列ですが、preg_match()はマッチした文字列が見つかったならそこで走査を中止するので値は1個しか入りません。<br>見つかった値は$matches(0)で取り出せます。
+          マッチした値は$resultに戻るのではなく、第3引数の$matchesに入ります。＄resultの値は、マッチした個数、またはエラーがあった場合のfalseです。第3引数の$matchesは配列ですが、preg_match()はマッチした文字列が見つかったならそこで走査を中止するので値は1個しか入りません。<br>見つかった値は$matches(0)で取り出せます。<br><br>
+          <div class="frame3"><b>マッチしたすべての要素を取り出す</b><br>
+            $result = preg_match_all($pattern,$subject,&$matches)
+          </div>
+          implode("、",$matches[0])のように実行すると、配列から値が全て取り出され、「、」で連結された文字になる。
+
         </div>
 
         <h3>マッチした名前を取り出す</h3>
         <?php
-
-        $result = preg_match($pattern, $subject, $matches);
+        $pattern = "/佐.+子/u";
+        //ヒアドキュメント
+        $subject = <<< "names"
+        佐藤由紀
+        佐藤順子
+        坂田玲子
+        冴島陽子
+        佐々木裕子
+        names;
+        $result = preg_match_all($pattern, $subject, $matches);
         if ($result === false) {
           echo "エラー", preg_last_error();
         } else if ($result == 0) {
           echo "マッチした値はありません。";
         } else {
-          echo "「", $matches[0], "」が見つかりました。";
+          echo "{$result}人マッチしました。\n <br>";
+          echo implode("、", $matches[0]);
         }
         ?>
 
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$pattern = &quot;/佐.+子/u&quot;;
+//ヒアドキュメント
+$subject = &lt;&lt;&lt; &quot;names&quot;
+佐藤由紀
+佐藤順子
+坂田玲子
+冴島陽子
+佐々木裕子
+names;
+$result = preg_match_all($pattern, $subject, $matches);
+if ($result === false) {
+  echo &quot;エラー&quot;, preg_last_error();
+} else if ($result == 0) {
+  echo &quot;マッチした値はありません。&quot;;
+} else {
+  echo &quot;{$result}人マッチしました。\n &lt;br&gt;&quot;;
+  echo implode(&quot;、&quot;, $matches[0]);
+}
+</code></pre>
+        <div class="blank"></div>
+
+        <h4>サブパターンの値を調べる</h4>
+        <div class="frame3">
+          preg_match_all()の第3引数にマッチした値が入るが、パターン()で囲まれたサブパターンがある場合は、$第3引数[1]、$第3引数[2]、...にサブパターンでマッチした値が入ります。
+        </div>
+
+        <h2>正規表現を使って検索置換を行う</h2>
+        <div class="frame3">
+          preg_replace()を使うことで複雑な検索置換を行うことが出来ます。<br>
+          単純な文字列の検索や置換は str_replace()の方が高速に行えます。
+          <div class="frame3">
+            $result = preg_replace($pattern,$replacement,$subject)
+          </div>
+          第3引数の$subjectの文字列を$patternのパターンで検索し、マッチした値をすべて$replacementで置換した新しい文字を作ります。<br>
+          置換後の文字は$resultに入ります。マッチした値がなかった場合は元の$subjectと同じ文字列が返り、エラーの場合はNULLが返ります。<br>
+          NULLチェックはis_null()で行うことが出来ます。
+        </div>
+
+        <h3>クレジット番号を伏字にする</h3>
+        <?php
+        function numbermask($subject)
+        {
+          $pattern = "/^\d{4}\s?\d{4}\s?\d{4}\s?\d{2}(\d{2})$/";
+          $replacement = "**** **** **** **$1";
+          $result = preg_replace($pattern, $replacement, $subject);
+          if (is_null($result)) {
+            return "エラー：" . preg_last_error();
+          } else if ($result == $subject) {
+            return "番号エラー";
+          } else {
+            return $result;
+          }
+        }
+        $number1 = "1234 5678 9123 4567";
+        $number2 = "6566846328412597";
+        $num1 = numbermask($number1);
+        $num2 = numbermask($number2);
+        echo "{$number1}は次のようになります。\n <br>";
+        echo $num1, "\n <br>";
+        echo "{$number2}は次のようになります。\n <br>";
+        echo $num2, "\n <br>";
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+function numbermask($subject) {
+  $pattern = &quot;/^\d{4}\s?\d{4}\s?\d{4}\s?\d{2}(\d{2})$/&quot;;
+  $replacement = &quot;**** **** **** **$1&quot;;
+  $result = preg_replace($pattern,$replacement,$subject);
+  if (is_null($result)) {
+    return &quot;エラー：&quot; .preg_last_error();
+  } else if ($result == $subject) {
+    return &quot;番号エラー&quot;;
+  } else {
+    return $result;
+  }
+}
+$number1 = &quot;1234 5678 9123 4567&quot;;
+$number2 = &quot;6566846328412597&quot;;
+$num1 = numbermask($number1);
+$num2 = numbermask($number2);
+echo &quot;{$number1}は次のようになります。\n &lt;br&gt;&quot;;
+echo $num1,&quot;\n &lt;br&gt;&quot;;
+echo &quot;{$number2}は次のようになります。\n &lt;br&gt;&quot;;
+echo $num2,&quot;\n &lt;br&gt;&quot;;
+?&gt;
+</code></pre>
+        <div class="frame3">
+          最後の2桁をサブパターンで分ける理由は、サブパターンでマッチした値は$
+          1、$2、$3と順に取り出せる為です。「**** **** **$1」で置換すると最後の2桁だけが表示されて、他は伏字になる。
+        </div>
+        <div class="blank"></div>
+
+        <h3>パターンと文字列を配列で指定する</h3>
+        <?php
+        $pattern = ["/開催日/u", "/開始時間/u"];
+        $replacement = ["金曜日", "19：30"];
+        $subject = "次回は開催日の開始時間からです。";
+        $result = preg_replace($pattern, $replacement, $subject);
+        echo $result;
+        ?>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$pattern = [&quot;/開催日/u&quot;,&quot;/開始時間/u&quot;];
+$replacement = [&quot;金曜日&quot;,&quot;19：30&quot;];
+$subject = &quot;次回は開催日の開始時間からです。&quot;;
+$result = preg_replace($pattern,$replacement,$subject);
+echo $result;
+?&gt;
+</code></pre>
+        <div class="frame3">
+          preg_replace()及びpreg_filter()を使えば、配列の値を正規表現を使って検索置換できます。
+        </div><br><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
   <footer><small>&copy;かつまる学習帳</small></footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script src="../scripts/move.js"></script>
 </body>
 
 </html>
