@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”文字列の検索”</title>
+  <title>PHP編”配列要素の削除と置換”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
   <header>
     <div class="header-contents">
-      <h1>文字列の検索</h1>
+      <h1>配列要素の削除・置換・連結・分割</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
     <div class="btn" id="open_btn">
@@ -68,6 +68,7 @@
           <li><a href="search.php">文字列の検索</a></li>
           <li><a href="regex.php">正規表現</a></li>
           <li><a href="array.php">配列</a></li>
+          <li><a href="array.php">配列の要素</a></li>
         </ul>
 
         <div class="copyright">
@@ -81,21 +82,86 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="search.php">文字列の検索</a></li>
+      <li><a href="search.php">配列要素</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>文字列を検索する</h2>
-        <h3></h3>
+        <h2>配列の要素を削除する</h2>
+        <div class="frame3">
+          <div class="frame2">
+            $removed = array_splice($myArray,$start,$lengs);
+          </div>
+          第1引数の配列$myArrayの$startで指定した位置から、$lengsで指定した個数の要素を削除します。$lengsを省略すると初期値の0になり、1個も削除しません。$removedに戻るのは、削除後の配列ではなく、削除した要素の配列です。
+        </div>
+        <h3>インデックス配列から値を削除する</h3>
+        <?php
+        $myArray = ["a", "b", "c", "d", "e"];
+        $removed = array_splice($myArray, 1, 2);
+        echo '実行後：$myArray', "\n <br>";
+        print_r($myArray);
+        echo "<br>";
+        echo '戻り：$removed', "\n <br>";
+        print_r($removed);
+        ?>
 
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
-
+$myArray = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;];
+$removed = array_splice($myArray, 1, 2);
+echo &#039;実行後：$myArray&#039;, &quot;\n &lt;br&gt;&quot;;
+print_r($myArray);
+echo &quot;&lt;br&gt;&quot;;
+echo &#039;戻り：$removed&#039;,&quot;\n &lt;br&gt;&quot;;
+print_r($removed);
 ?&gt;
 </code></pre>
         <div class="blank"></div>
+
+        <h2>配列の先頭・末尾を取り出す</h2>
+        <div class="frame3">
+          <b>配列の先頭から値を取り出す</b>
+          <div class="frame2">
+            $removed = array_shift($myArray);
+          </div>
+          <b>配列の末尾から値を取り出す</b>
+          <div class="frame2">
+            $removed = array_pop($myArray);
+          </div><br>
+          値を取り除くと、値の並びのインデックス番号はリセットされます。
+        </div>
+        <h3>配列の先頭の値を取り出す</h3>
+        <?php
+        $myArray = ["a", "b", "c", "d", "e"];
+        $removed1 = array_shift($myArray);
+        $removed2 = array_pop($myArray);
+        echo '実行後：$myArray', "\n <br>";
+        print_r($myArray);
+        echo "<br>";
+        echo '戻り：$removed1',"\n <br>";
+        print_r($removed1);
+        echo "<br>";
+        echo '戻り：$removed2',"\n <br>";
+        print_r($removed2);
+        ?>
+        <!-- ソースコード -->
+<pre><code class="prettyprint">&lt;?php
+$myArray = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;];
+$removed1 = array_shift($myArray);
+$removed2 = array_pop($myArray);
+echo &#039;実行後：$myArray&#039;, &quot;\n &lt;br&gt;&quot;;
+print_r($myArray);
+echo &quot;&lt;br&gt;&quot;;
+echo &#039;戻り：$removed1&#039;,&quot;\n &lt;br&gt;&quot;;
+print_r($removed1);
+echo &quot;&lt;br&gt;&quot;;
+echo &#039;戻り：$removed2&#039;,&quot;\n &lt;br&gt;&quot;;
+print_r($removed2);
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
 
 
       </section>
