@@ -60,6 +60,7 @@
     <div id="boxmenu">
       <nav class="phpnav">
         <ul class="menu_1">
+          <li><a href="../index.html">HOME</a></li>
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
           <li><a href="string.php">文字列</a></li>
@@ -68,6 +69,9 @@
           <li><a href="search.php">文字列の検索</a></li>
           <li><a href="regex.php">正規表現</a></li>
           <li><a href="array.php">配列</a></li>
+          <li><a href="array02.php">配列の要素</a></li>
+          <li><a href="arrayextract.php">配列の抽出</a></li>
+          <li><a href="arraysort.php">配列をソート</a></li>
         </ul>
 
         <div class="copyright">

@@ -60,6 +60,7 @@
     <div id="boxmenu">
       <nav class="phpnav">
         <ul class="menu_1">
+          <li><a href="../index.html">HOME</a></li>
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
           <li><a href="string.php">文字列</a></li>
@@ -322,18 +323,18 @@ print_r($unique);
         <h2>配列を切り出す</h2>
         <div class="frame3">
           array_spliceを利用すると、配列を切り出して新しい配列を作ることができます。
-        <div class="frame2">
-          <b>配列を切り出す</b><br>
-          $slice = array_splice($myArray,$start,$length)
-        </div>
-        第1引数の$myArray配列の$start位置から$lengthの長さだけ切り出して、$sliceに代入します。$lengthを省略すると$start位置から最後までが切り出される。
+          <div class="frame2">
+            <b>配列を切り出す</b><br>
+            $slice = array_splice($myArray,$start,$length)
+          </div>
+          第1引数の$myArray配列の$start位置から$lengthの長さだけ切り出して、$sliceに代入します。$lengthを省略すると$start位置から最後までが切り出される。
         </div>
         <h3>配列を切り出す</h3>
         <?php
-        $myArray = ["A", "B", "C", "D", "E","F"];
-        $slice1 = array_slice($myArray,0,3);
-        $slice2 = array_slice($myArray,3,2);
-        $slice3 = array_slice($myArray,-3);
+        $myArray = ["A", "B", "C", "D", "E", "F"];
+        $slice1 = array_slice($myArray, 0, 3);
+        $slice2 = array_slice($myArray, 3, 2);
+        $slice3 = array_slice($myArray, -3);
         print_r($slice1);
         echo "<br>";
         print_r($slice2);
@@ -341,7 +342,7 @@ print_r($unique);
         print_r($slice3);
         ?>
         <!-- ソースコード -->
-<pre><code class="prettyprint">&lt;?php
+        <pre><code class="prettyprint">&lt;?php
 $myArray = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;,&quot;F&quot;];
 $slice1 = array_slice($myArray,0,3);
 $slice2 = array_slice($myArray,3,2);

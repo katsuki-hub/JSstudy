@@ -60,6 +60,7 @@
     <div id="boxmenu">
       <nav class="phpnav">
         <ul class="menu_1">
+          <li><a href="../index.html">HOME</a></li>
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
           <li><a href="string.php">文字列</a></li>
@@ -259,8 +260,8 @@ print_r($nameList);
         $nameList .= "さん";
         print_r($nameList);
         ?>
-<!-- ソースコード -->
-<pre><code class="prettyprint">&lt;?php
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
 $data = [&quot;桃太郎&quot;, &quot;金太郎&quot;, &quot;一寸法師&quot;, &quot;赤鬼&quot;];
 $glue = &quot;さん、&quot;;
 $nameList = implode($glue, $data);
@@ -272,11 +273,11 @@ print_r($nameList);
 
         <h3>配列を定数にする</h3>
         <?php
-        define("RANK",["松","竹","梅"]);
+        define("RANK", ["松", "竹", "梅"]);
         echo RANK[2];
         ?>
         <!-- ソースコード -->
-<pre><code class="prettyprint">&lt;?php
+        <pre><code class="prettyprint">&lt;?php
 define(&quot;RANK&quot;,[&quot;松&quot;,&quot;竹&quot;,&quot;梅&quot;]);
 echo RANK[2];
 ?&gt;
