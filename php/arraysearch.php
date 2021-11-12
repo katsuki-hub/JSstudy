@@ -94,19 +94,146 @@
         <h2>配列の値を検索する</h2>
         <div class="frame3">
           配列の検索で簡単なのは in_array()を使った検索です。配列に探している値があるかチェックし、見つかればtrue、見つからなければfalceを返します。
-        <div class="frame2">
-          $isIn = in_array($value,$array);
-        </div>
-        配列$arrayに$valueが見つかれば、$isInにtrueが代入されます。インデックス配列、連想配列のどちらの値でも検索可能ｓ
+          <div class="frame2">
+            <b>配列に値があるかどうかをチェック</b><br>
+            $isIn = in_array($value,$array);
+          </div>
+          配列$arrayに$valueが見つかれば、$isInにtrueが代入されます。インデックス配列、連想配列のどちらの値でも検索可能
         </div>
         <h3>値を自然順位並べて検索して表示</h3>
+        <?php
+        $numlist = [4108, 4350, 4488, 4691];
+        $numbers = [4426, 4350, 4444, 4488, 4424];
+
+        function checkNumber($no)
+        {
+          global $numbers;
+          if (in_array($no, $numbers)) {
+            echo "{$no}番は合格です";
+          } else {
+            echo "{$no}は見つかりません";
+          }
+        }
+        echo "<ol>\n";
+        foreach ($numlist as $value) {
+          echo "<li>", checkNumber($value), "</li>\n";
+        }
+        echo "</ol>\n";
+        ?>
 
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
+$numlist = [4108, 4350, 4488, 4691];
+$numbers = [4426, 4350, 4444, 4488, 4424];
 
+function checkNumber($no) {
+  global $numbers;
+  if(in_array($no,$numbers)) {
+    echo &quot;{$no}番は合格です&quot;;
+  } else {
+    echo &quot;{$no}は見つかりません&quot;;
+  }
+}
+echo &quot;&lt;ol&gt;\n&quot;;
+foreach ($numlist as $value) {
+  echo &quot;&lt;li&gt;&quot;,checkNumber($value),&quot;&lt;/li&gt;\n&quot;;
+}
+echo &quot;&lt;/ol&gt;\n&quot;;
 ?&gt;
 </code></pre>
         <div class="blank"></div>
+
+        <h3>文字列の配列を検索（完全一致検索）</h3>
+        <?php
+        $nameList = ["桃太郎", "浦島太郎", "一寸法師"];
+
+        function namecheck($name)
+        {
+          global $nameList;
+          if (in_array($name, $nameList)) {
+            echo "{$name}は仲間です";
+          } else {
+            echo "{$name}は仲間ではありません";
+          }
+        }
+
+        echo namecheck("桃太郎"), "\n <br>";
+        echo namecheck("赤鬼"), "\n <br>";
+        echo namecheck("浦島太郎"), "\n <br>";
+        echo namecheck("一寸法師"), "\n <br>";
+        ?>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$nameList = [&quot;桃太郎&quot;,&quot;浦島太郎&quot;,&quot;一寸法師&quot;];
+
+function namecheck ($name) {
+  global $nameList;
+  if (in_array($name,$nameList)) {
+    echo &quot;{$name}は仲間です&quot;;
+  } else {
+    echo &quot;{$name}は仲間ではありません&quot;;
+  }
+}
+
+echo namecheck(&quot;桃太郎&quot;),&quot;\n &lt;br&gt;&quot;;
+echo namecheck(&quot;赤鬼&quot;),&quot;\n &lt;br&gt;&quot;;
+echo namecheck(&quot;浦島太郎&quot;),&quot;\n &lt;br&gt;&quot;;
+echo namecheck(&quot;一寸法師&quot;),&quot;\n &lt;br&gt;&quot;;
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h4>新規の値だけを追加する</h4>
+        <div class="frame3">
+          新規の値だけを配列に追加する関数 array_addUnique()をin_array()を利用して作成。第1引数で元の配列、第2引数で追加する値を渡します。<br>追加する値がin_array()でチェックし存在するならfalceを渡し、存在しなければ値を追加してtrueを返します。第1引数には&をつけて&$arrayとして参照渡しをしているので、引数で渡した配列を直接操作しています。
+        </div>
+
+        <h3>配列に新規の値だけを追加</h3>
+        <?php
+        function array_addUnique(&$array, $value)
+        {
+          if (in_array($value, $array)) {
+            return false;
+          } else {
+            $array[] = $value; //値が含まれていなかった時に値を追加
+            return true;
+          }
+        }
+
+        $myList = ["キビ団子", "剣",];
+        array_addUnique($myList, "金棒");
+        array_addUnique($myList, "草履");
+        array_addUnique($myList, "盾");
+        print_r($myList);
+        ?>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+function array_addUnique(&amp;$array, $value)
+{
+  if (in_array($value, $array)) {
+    return false;
+  } else {
+    $array[] = $value; //値が含まれていなかった時に値を追加
+    return true;
+  }
+}
+
+$myList = [&quot;キビ団子&quot;, &quot;剣&quot;,];
+array_addUnique($myList, &quot;金棒&quot;);
+array_addUnique($myList, &quot;草履&quot;);
+array_addUnique($myList, &quot;盾&quot;);
+print_r($myList);
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h2>値が見つかった位置、キーを返す</h2>
+        <div class="frame3">
+          array_search()は見つかった値のキーを返します。<br>インデックス配列の場合は値のインデックス番号がキーとして戻ります。複数の値が一致する場合は一番最初に見つかった値のキーを返します。見つからない場合はfalseが返る。
+        </div>
+
+        <h3>見つかったキーで別の配列から値を取り出す</h3>
+
 
 
       </section>
