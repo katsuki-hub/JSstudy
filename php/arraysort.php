@@ -136,6 +136,139 @@ print_r($clone);
 </code></pre>
         <div class="blank"></div>
 
+        <h4>ソートの型のフラグ</h4>
+        <div class="frame3">
+          値を数値としてソートするか文字列としてソートするかといったオプションを第2引数で指定できます。
+        </div>
+        <table border="1" class="function">
+          <tr bgcolor="pink">
+            <th>ソート型のフラグ</th>
+            <th>動作</th>
+          </tr>
+          <tr>
+            <td>SORT_REGULAR</td>
+            <td>型変更をしない(初期値)</td>
+          </tr>
+          <tr>
+            <td>SORT_NUMERIC</td>
+            <td>数値として比較</td>
+          </tr>
+          <tr>
+            <td>SORT_STRING</td>
+            <td>文字列として比較</td>
+          </tr>
+          <tr>
+            <td>SORT_LOCALE_STRING</td>
+            <td>現在のロケールに基づく</td>
+          </tr>
+          <tr>
+            <td>SORT_NATURAL</td>
+            <td>文字列として自然順で比較</td>
+          </tr>
+          <tr>
+            <td>SORT_FLAG_CASE</td>
+            <td>大文字小文字を比較しない</td>
+          </tr>
+        </table>
+        <div class="blank"></div>
+
+        <h4>配列をソートする関数</h4>
+        <div class="frame3">
+          配列をソートする関数には値とキーどちらでソートするか、キーと値の関係性が維持されるか、昇順か降順かといった違いがあります。
+        </div>
+        <table border="1" class="function">
+          <tr bgcolor="pink">
+            <th>関数名</th>
+            <th>概要</th>
+            <th>ソート</th>
+            <th>キーと値の関係</th>
+            <th>ソート順</th>
+          </tr>
+          <tr>
+            <td>asort()</td>
+            <td>連想配列を値で昇順にソートする</td>
+            <td>値</td>
+            <td>維持する</td>
+            <td>昇順</td>
+          </tr>
+          <tr>
+            <td>arsort()</td>
+            <td>連想配列を値で降順にソートする</td>
+            <td>値</td>
+            <td>維持する</td>
+            <td>降順</td>
+          </tr>
+          <tr>
+            <td>ksort()</td>
+            <td>連想配列をキーで昇順にソートする</td>
+            <td>キー</td>
+            <td>維持する</td>
+            <td>昇順</td>
+          </tr>
+          <tr>
+            <td>krsort</td>
+            <td>連想配列をキーで降順にソートする</td>
+            <td>キー</td>
+            <td>維持する</td>
+            <td>降順</td>
+          </tr>
+          <tr>
+            <td>natcasesort()</td>
+            <td>大文字小文字を区別せず自然順でソートする</td>
+            <td>値</td>
+            <td>維持する</td>
+            <td>自然順</td>
+          </tr>
+          <tr>
+            <td>natsort()</td>
+            <td>自然順でソートする</td>
+            <td>値</td>
+            <td>維持する</td>
+            <td>自然順</td>
+          </tr>
+          <tr>
+            <td>sort()</td>
+            <td>値で昇順にソートする</td>
+            <td>値</td>
+            <td>維持しない</td>
+            <td>昇順</td>
+          </tr>
+          <tr>
+            <td>rsort()</td>
+            <td>値で降順にソートする</td>
+            <td>値</td>
+            <td>維持しない</td>
+            <td>降順</td>
+          </tr>
+          <tr>
+            <td>shuffle()</td>
+            <td>ランダムに並べる</td>
+            <td>値</td>
+            <td>維持しない</td>
+            <td>ランダム</td>
+          </tr>
+          <tr>
+            <td>uasort()</td>
+            <td>値でユーザー定義順にソートする</td>
+            <td>値</td>
+            <td>維持する</td>
+            <td>ユーザー定義</td>
+          </tr>
+          <tr>
+            <td>uksort()</td>
+            <td>キーでユーザー定義順にソートする</td>
+            <td>キー</td>
+            <td>維持する</td>
+            <td>ユーザー定義</td>
+          </tr>
+          <tr>
+            <td>usort()</td>
+            <td>値でユーザー定義順にソートする</td>
+            <td>値</td>
+            <td>維持しない</td>
+            <td>ユーザー定義</td>
+          </tr>
+        </table><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
