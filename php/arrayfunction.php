@@ -72,7 +72,7 @@
           <li><a href="arrayextract.php">配列の抽出</a></li>
           <li><a href="arraysort.php">配列をソート</a></li>
           <li><a href="arraysearch.php">配列の比較・検索</a></li>
-          <li><a href="arrayfunction.php">配列の要素に関数適用</a></li>
+          <li><a href="arrayfunction.php">配列の要素に関数</a></li>
         </ul>
 
         <div class="copyright">
@@ -113,7 +113,8 @@
         </div>
         <h3>配列の値をドル換算してリスト表示する</h3>
         <?php
-        function exchabgeList($value, $key, $rateData) {
+        function exchabgeList($value, $key, $rateData)
+        {
           $rate = $rateData["rate"];
           if ($rate == 0) {
             return;
@@ -152,25 +153,45 @@ echo &quot;&lt;/ul&gt;&quot;;
 
         <h2>配列の要素全てに同じ関数を適用する</h2>
         <div class="frame3">
-        <div class="frame2">
-          <b>配列の個々の値でコールバック関数を実行する</b><br>
-          $result = array_map($callBack,$array);
-        </div>
-        array_map()には2つの使い方があります。1つは指定した配列の要素にコールバック関数を適用したいときです。<br>※引数で与えた配列を直接書き換えるのではなく、コールバック関数で処理した配列が$resultに入ります。
-        <div class="frame2">
-          <b>コールバック関数</b><br>
-          function 関数名($value) {<br>
+          <div class="frame2">
+            <b>配列の個々の値でコールバック関数を実行する</b><br>
+            $result = array_map($callBack,$array);
+          </div>
+          array_map()には2つの使い方があります。1つは指定した配列の要素にコールバック関数を適用したいときです。<br>※引数で与えた配列を直接書き換えるのではなく、コールバック関数で処理した配列が$resultに入ります。
+          <div class="frame2">
+            <b>コールバック関数</b><br>
+            function 関数名($value) {<br>
             　処理文<br>
             　return 値<br>
-          }
+            }
+          </div>
         </div>
-        </div>
+        <h3>コールバック関数で2つの配列を合わせてリスト表示</h3>
         <?php
+        function listUp($value1, $value2)
+        {
+          echo "<li>", $value1, "==", $value2, "</li>", "\n";
+        }
+
+        $point = ["10km", "20km", "30km", "40km", "Goal"];
+        $split = ["00:55:21", "01:45:33", "02:39:59", "03:26:18", "03:48:06",];
+        echo "<ul>", "\n";
+        array_map("listUp", $point, $split);
+        echo "</ul>";
         ?>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+function listUp($value1,$value2) {
+  echo &quot;&lt;li&gt;&quot;,$value1,&quot;==&quot;,$value2,&quot;&lt;/li&gt;&quot;,&quot;\n&quot;;
+}
 
-
-
-
+$point = [&quot;10km&quot;,&quot;20km&quot;,&quot;30km&quot;,&quot;40km&quot;,&quot;Goal&quot;];
+$split = [&quot;00:55:21&quot;,&quot;01:45:33&quot;,&quot;02:39:59&quot;,&quot;03:26:18&quot;,&quot;03:48:06&quot;,];
+echo &quot;&lt;ul&gt;&quot;,&quot;\n&quot;;
+array_map(&quot;listUp&quot;,$point,$split);
+echo &quot;&lt;/ul&gt;&quot;;
+?&gt;
+</code></pre><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
