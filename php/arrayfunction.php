@@ -94,12 +94,12 @@
       <section>
         <h2>配列の要素で関数を繰り返し実行する</h2>
         <div class="frame3">
-          array_walk()は各要素を引数にして指定の関数を繰り返し実行します。これはforeach文の配列から値を取り出して繰り返すのと似ています。
+          array_walk()は各要素を引数にして指定の関数を繰り返し実行します。<br>これはforeach文の配列から値を取り出して繰り返すのと似ています。
           <div class="frame2">
             <b>各要素を引数にして関数を繰り返し実行する</b><br>
             $result = array_walk(&$array,$callBack,$userdata);
           </div>
-          $arrayの配列から1つ要素を取り出し、それを引数として$callBackで指定した関数を実行します。実行後、次の要素を取り出し、その要素を引数として再び$callBack関数で実行します。この操作は配列の要素の数だけ繰り返します。※引数で渡された配列$arrayの値を直接書き換える<br>$userdataはオプションですが、$callBack関数の第3引数として渡すことができる値です。<br>戻り値の$resultはarray_walk()の処理が成功した時true、失敗した時falseが返る
+          $arrayの配列から1つ要素を取り出し、それを引数として$callBackで指定した関数を実行します。<br>実行後、次の要素を取り出し、その要素を引数として再び$callBack関数で実行します。<br>この操作は配列の要素の数だけ繰り返します。<br>※引数で渡された配列$arrayの値を直接書き換える<br>$userdataはオプションですが、$callBack関数の第3引数として渡すことができる値です。<br>戻り値の$resultはarray_walk()の処理が成功した時true、失敗した時falseが返る
           <div class="frame2">
             <b>コールバック関数</b><br>
             function 関数名($value,$key,$userdata) {<br>
