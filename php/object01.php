@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”オブジェクト指向プログラミング”</title>
+  <title>PHP編”オブジェクトのクラス定義”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
   <header>
     <div class="header-contents">
-      <h1>オブジェクト指向プログラミング</h1>
+      <h1>オブジェクト指向~クラス定義~</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
     <div class="btn" id="open_btn">
@@ -74,6 +74,7 @@
           <li><a href="arraysearch.php">配列の比較・検索</a></li>
           <li><a href="arrayfunction.php">配列の要素に関数</a></li>
           <li><a href="object.php">オブジェクト指向</a></li>
+          <li><a href="object01.php">OOP~クラス定義</a></li>
         </ul>
 
         <div class="copyright">
@@ -87,80 +88,109 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="object.php">OOP</a></li>
+      <li><a href="object.php">OOPクラス定義</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>オブジェクト指向プログラミングの概要</h2>
-        <h4>クラス定義</h4>
+        <h2>オブジェクト指向のクラス定義</h2>
         <div class="frame3">
-          オブジェクトにどんなプロパティがあり、メソッドがあるかを定義したものがクラスです。
-        <div class="frame1">
-          <b>プロパティとメソッドを定義するクラス</b><br>
-          class クラス名 {<br>
-          　プロパティの定義<br>
-          　メソッドの定義<br>
-          }
-        </div>
-        </div>
-        <h4>クラスの継承</h4>
-        <div class="frame3">
-          OOPはプログラムコードの機能を改変、拡張したいとき「継承」を使います。<br>PHPでは継承をextendsキーワードを使って記述。子クラスが親クラスを指定する
-        <div class="frame1">
-          class 子クラス extends 親クラス {<br>
-          }
-        </div>
-        </div>
-        <h4>トレイト</h4>
-        <div class="frame3">
-          PHPにはトレイトというコードのインクルード（読み込み）に似た仕組みがある。トレイトでプロパティやメソッドを定義しておくと、useキーワードでトレイトを指定するだけで、自分のクラスで定義してあるかのように利用できます。
-        <div class="frame1">
-          <b>トレイトの定義</b><br>
-          trait トレイト名 {<br>
-          //トレイトのプロパティ<br>
-          //トレイトのメソッド<br>
-          }<br><br>
+          classキーワードで宣言します。基本的には定義できる内容はプロパティとメソッドです。<br>プロパティは変数と定数で定義しメソッドは関数で定義します<br>クラス名は慣例として大文字から始めます。<br>publicキーワードはアクセス権を示します。<br>publicを付けるとほかのクラスからもアクセスでき、メソッドのアクセス権は省略できます。省略するとpublicになります。
+          <div class="frame2">
+            class クラス名 {<br>
+            　public const 定数名 = 値;<br>
+            　public $変数名;<br><br>
 
-          <b>トレイトを利用するクラス</b><br>
-          class クラス名 {<br>
-            　use トレイト名;<br>
-            　//クラスのコード<br>
-          }
-        </div>
-        </div>
-        <h4>インターフェース</h4>
-        <div class="frame3">
-          インターフェースは規格のようなものです。クラスが採用しているインターフェースを見れば、そのクラスで確実に実行できるメソッドと呼び出し方がわかる。interfaceキーワードをつけて宣言して定義し、採用するクラスではimplementsキーワードで指定する。
-        <div class="frame1">
-          <b>インターフェースの定義</b><br>
-          interface インターフェース名 {<br>
-            　function 関数名();<br>
-          }<br><br>
-          <b>インターフェースを採用するクラス</b><br>
-          class クラス名 implements インターフェース名 {<br>
-            　//クラスのコード<br>
-          }
-        </div>
-        </div>
-        <h4>抽象クラスト抽象メソッド</h4>
-        <div class="frame3">
-          メソッド宣言のみを行って処理を実行しない特殊なメソッド定義があります。abstractキーワードをつけてメソッド宣言を行うことから抽象メソッドと呼びます。<br>そして、抽象メソッドが1つでもあるクラスにはabstractキーワードを付ける必要があり、抽象クラスと呼びます。<br>抽象クラスのインスタンスを作ることは出来ず、必ず継承して利用する。<br>抽象メソッドの機能を子クラスで上書きして実装します。<br>他の言語と違いPHPの抽象メソッドは初期機能を実装できません。
-        <div class="frame1">
-          <b>抽象クラス</b><br>
-          abstract class 抽象クラス名 {<br>
-            　abstract function 抽象メソッド名();<br>
-          }<br><br>
-          <b>抽象メソッドを実装する</b><br>
-          class クラス名 extends 抽象クラス名 {<br>
-            　function 抽象メソッド名() {<br>
-              　　//メソッドをオーバーライドして機能を定義する<br>
+            　public function メソッド名() {<br>
             　}<br>
+            }
+          </div>
+          ※クラスのインスタンスはnew演算子で作ります。
+        </div>
+
+        <h3>frend クラスを定義する</h3>
+        <?php
+        class Frend
+        {
+          public $name;
+          public $age;
+
+          public function hello() {
+            if(is_null($this->name)) {
+              echo "こんにちは！！","\n";
+            } else {
+              echo "こんにちは、{$this->name}です！","\n";
+            }
           }
+        }
+        ?>
+        <pre><?php
+              $momo = new Frend(); //クラスのインスタンス
+              $ura = new Frend();
+
+              $momo->name = "桃太郎"; //プロパティの値を設定
+              $momo->age = 17;
+              $ura->name = "浦島太郎";
+              $ura->age = 25;
+
+              print_r($momo); //インスタンスを確認
+              print_r($ura);
+
+              $momo->hello(); //メソッドを実行
+              $ura->hello();
+              ?></pre>
+        <h3>ソースコード</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+class Frend {
+  public $name;
+  public $age;
+
+  public function hello() {
+          if(is_null($this-&gt;name)) {
+            echo &quot;こんにちは！！&quot;,&quot;\n&quot;;
+          } else {
+            echo &quot;こんにちは、{$this-&gt;name}です！&quot;,&quot;\n&quot;;
+          }
+        }
+}
+?&gt;
+</code></pre>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$momo = new Frend(); //クラスのインスタンス
+$ura = new Frend();
+
+$momo-&gt;name = &quot;桃太郎&quot;; //プロパティの値を設定
+$momo-&gt;age = 17;
+$ura-&gt;name = &quot;浦島太郎&quot;;
+$ura-&gt;age = 25;
+
+print_r($momo); //インスタンスを確認
+print_r($ura);
+
+$momo-&gt;hello(); //メソッドを実行
+$ura-&gt;hello();
+?&gt;
+</code></pre>
+
+        <h4>インスタンス自身を指し示す $this</h4>
+        <div class="frame3">
+          プロパティ $name にアクセスするには、インスタンス自身を指し示す $this を使って【$this->name】のような記述が必要です。<br>ちなみに$nameには初期値が設定されていません。その値はnullです。<br>そこで、is_null()関数を使ってnullを判断し、値がnullの時は「こんにちは！！」を表示それ以外は「こんにちは、{name}です！」としています。
         </div>
+
+        <h2>コンストラクタ</h2>
+        <div class="frame3">
+          インスタンスを作成する際に、初期値を引数で渡せるようにします。<br>使うのはコンストラクタです。インスタンスがつくられる際に自動的に呼ばれる特殊な関数です。<br>そこで、最初に実行したいことはコンストラクタに書いておきます。<br>※引数を省略した場合の初期値は、通常の関数の引数と同じように指定できます。
+          <div class="frame2">
+            function __construct(引数1,引数2,...) {<br>
+              　//インスタンス作成時に最初に実行したい処理<br>
+            }
+          </div>
         </div>
-        <p>※以降の章から個々に解説</p>
+
+
       </section>
     </article>
   </div><!-- /.main-wrapper -->
