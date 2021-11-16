@@ -406,8 +406,6 @@ a:hover {
 	}
 	#boxmenu.panelactive {
 		top: 0;
-	}
-	#boxmenu.panelactive {
 		height: 85%;
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
@@ -554,6 +552,9 @@ a:hover {
 	#boxmenu {
 		top: -200%;
 		margin-top: 60px;
+	}
+	#boxmenu.panelactive {
+		height: 95%;
 	}
 }
 
