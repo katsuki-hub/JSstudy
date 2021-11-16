@@ -397,7 +397,7 @@ a:hover {
 		top: -350%;
 		position: fixed;
 		background-color: rgba(3, 25, 0, 0.75);
-		transition: all 1.3s;
+		transition: all 0.9s;
 		width: 100%;
 		max-width: 960px;
 		margin-top: 80px;
