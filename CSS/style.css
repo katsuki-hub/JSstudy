@@ -394,7 +394,7 @@ a:hover {
 		padding: 80px 0 0 0;
 	}
 	#boxmenu {
-		top: -350%;
+		top: -450%;
 		position: fixed;
 		background-color: rgba(3, 25, 0, 0.75);
 		transition: all 0.9s;
@@ -483,7 +483,7 @@ a:hover {
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 	header {
 		position: fixed;
 		z-index: 100;
@@ -552,9 +552,11 @@ a:hover {
 		top: 18px;
 	}
 	#boxmenu {
+		top: -200%;
 		margin-top: 60px;
 	}
 }
+
 
 /*ソースコードclass="prettyprint"*/
 
