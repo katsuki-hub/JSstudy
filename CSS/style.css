@@ -251,10 +251,10 @@ h4::after {
 	content: "学習ノート";
 	/* 右下の文字 */
 	position: absolute;
-	bottom: 8px;
-	right: 3em;
-	font-size: 14px;
-	color: rgb(133, 133, 133);
+	bottom: 40px;
+	right: 5em;
+	font-size: 15px;
+	color: rgb(112, 112, 112);
 }
 
 #box li {
@@ -561,6 +561,75 @@ b {
 		height: 92%;
 	}
 }
+
+/*=====================
+page-top
+=====================*/
+
+#page-top a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1630c2;
+    border-radius: 5px;
+    width: 50px;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.6rem;
+    transition: all 0.3s;
+    letter-spacing: 0.2em;
+}
+
+#page-top a:hover {
+    background: #777;
+}
+
+#page-top {
+    /*リンクを右下に固定*/
+    position: fixed;
+    right: 10px;
+    bottom: 25px;
+    z-index: 2;
+    opacity: 0;
+    /*はじめは非表示*/
+    transform: translateY(100px);
+}
+
+#page-top.UpMove {
+    /*　上に上がる動き　*/
+    animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#page-top.DownMove {
+    /*　下に下がる動き　*/
+    animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+}
+
 
 /*ソースコードclass="prettyprint"*/
 
