@@ -60,6 +60,7 @@
     <div id="boxmenu">
       <nav class="phpnav">
         <ul class="menu_1">
+          <li><a href="../index.html">HOME</a></li>
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
           <li><a href="string.php">文字列</a></li>
@@ -391,7 +392,7 @@ foreach ($noresult as $value) {
         }
         ?>
         <!-- ソースコード -->
-<pre><code class="prettyprint">&lt;?php
+        <pre><code class="prettyprint">&lt;?php
 $data = [];
 $data[] = [&quot;name&quot; =&gt; &quot;桃太郎&quot;, &quot;age&quot; =&gt; 18, &quot;phone&quot; =&gt; &quot;080-8888-8888&quot;];
 $data[] = [&quot;name&quot; =&gt; &quot;一寸法師&quot;, &quot;age&quot; =&gt; 32, &quot;phone&quot; =&gt; &quot;090-1919-1919&quot;];

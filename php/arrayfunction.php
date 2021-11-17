@@ -60,6 +60,7 @@
     <div id="boxmenu">
       <nav class="phpnav">
         <ul class="menu_1">
+          <li><a href="../index.html">HOME</a></li>
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
           <li><a href="string.php">文字列</a></li>

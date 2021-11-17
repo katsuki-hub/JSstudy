@@ -383,6 +383,15 @@ a:hover {
 	margin: 120px;
 }
 
+.re {
+	background: #9099997c;
+	color: rgb(0, 0, 0);
+}
+
+b {
+	color: #1a0252;
+}
+
 @media (max-width: 960px) {
 	header {
 		position: fixed;

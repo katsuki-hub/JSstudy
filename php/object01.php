@@ -60,6 +60,7 @@
     <div id="boxmenu">
       <nav class="phpnav">
         <ul class="menu_1">
+          <li><a href="../index.html">HOME</a></li>
           <li><a href="syntax.php">制御構造</a></li>
           <li><a href="function.php">関数</a></li>
           <li><a href="string.php">文字列</a></li>
@@ -88,7 +89,7 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="object.php">OOPクラス定義</a></li>
+      <li><a href="object01.php">OOPクラス定義</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
@@ -116,30 +117,31 @@
           public $name;
           public $age;
 
-          public function hello() {
-            if(is_null($this->name)) {
-              echo "こんにちは！！","\n";
+          public function hello()
+          {
+            if (is_null($this->name)) {
+              echo "こんにちは！！", "\n";
             } else {
-              echo "こんにちは、{$this->name}です！","\n";
+              echo "こんにちは、{$this->name}です！", "\n";
             }
           }
         }
         ?>
-        <pre><?php
-              $momo = new Frend(); //クラスのインスタンス
-              $ura = new Frend();
+        <pre class="re"><?php
+                        $momo = new Frend(); //クラスのインスタンス
+                        $ura = new Frend();
 
-              $momo->name = "桃太郎"; //プロパティの値を設定
-              $momo->age = 17;
-              $ura->name = "浦島太郎";
-              $ura->age = 25;
+                        $momo->name = "桃太郎"; //プロパティの値を設定
+                        $momo->age = 17;
+                        $ura->name = "浦島太郎";
+                        $ura->age = 25;
 
-              print_r($momo); //インスタンスを確認
-              print_r($ura);
+                        print_r($momo); //インスタンスを確認
+                        print_r($ura);
 
-              $momo->hello(); //メソッドを実行
-              $ura->hello();
-              ?></pre>
+                        $momo->hello(); //メソッドを実行
+                        $ura->hello();
+                        ?></pre>
         <h3>ソースコード</h3>
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
@@ -178,19 +180,131 @@ $ura-&gt;hello();
         <h4>インスタンス自身を指し示す $this</h4>
         <div class="frame3">
           プロパティ $name にアクセスするには、インスタンス自身を指し示す $this を使って【$this->name】のような記述が必要です。<br>ちなみに$nameには初期値が設定されていません。その値はnullです。<br>そこで、is_null()関数を使ってnullを判断し、値がnullの時は「こんにちは！！」を表示それ以外は「こんにちは、{name}です！」としています。
-        </div>
+        </div><br>
 
         <h2>コンストラクタ</h2>
         <div class="frame3">
           インスタンスを作成する際に、初期値を引数で渡せるようにします。<br>使うのはコンストラクタです。インスタンスがつくられる際に自動的に呼ばれる特殊な関数です。<br>そこで、最初に実行したいことはコンストラクタに書いておきます。<br>※引数を省略した場合の初期値は、通常の関数の引数と同じように指定できます。
           <div class="frame2">
             function __construct(引数1,引数2,...) {<br>
-              　//インスタンス作成時に最初に実行したい処理<br>
+            　//インスタンス作成時に最初に実行したい処理<br>
             }
           </div>
         </div>
 
+        <h3>コンストラクタが定義してあるStaffクラス</h3>
+        <?php
+        class Staff //クラス定義
+        {
+          public $name;
+          public $age;
 
+          function __construct($name, $age)
+          {
+            $this->name = $name;
+            $this->age = $age;
+          }
+
+          public function hello() //インスタンスメソッド
+          {
+            if (is_null($this->name)) {
+              echo "こんにちは！", "\n";
+            } else {
+              echo "こんにちは、{$this->name}です！", "\n";
+            }
+          }
+        }
+        ?>
+
+        <pre class="re"><?php
+                        $housi = new Staff("一寸法師", 38); //クラスのインスタンスを作る
+                        $hosi = new Staff("ひこ星", 19);
+
+                        $housi->hello();
+                        $hosi->hello();
+                        ?></pre>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+&lt;?php
+class Staff //クラス定義
+{
+  public $name;
+  public $age;
+
+  function __construct($name, $age)
+  {
+    $this-&gt;name = $name;
+    $this-&gt;age = $age;
+  }
+
+  public function hello() //インスタンスメソッド
+  {
+    if (is_null($this-&gt;name)) {
+      echo &quot;こんにちは！&quot;, &quot;\n&quot;;
+    } else {
+      echo &quot;こんにちは、{$this-&gt;name}です！&quot;, &quot;\n&quot;;
+    }
+  }
+}
+?&gt;
+</code></pre>
+
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+$housi = new Staff(&quot;一寸法師&quot;, 38); //クラスのインスタンスを作る
+$hosi = new Staff(&quot;ひこ星&quot;, 19);
+
+$housi-&gt;hello();
+$hosi-&gt;hello();
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h4>クラス定義ファイルを読み込む</h4>
+        <div class="frame3">
+          クラス定義ファイルを読み込んで利用するには、require_once()を使います。<br>読み込みはインスタンスを作るよりも前に読み込む必要があります。<br><br>※メソッドはinclude、include_once、require、require_onceがあります。_onceが付くものは同じファイルを繰り返し読まない仕様で、違いは読み込みエラーの対応です。<br>require_once()はfatalエラーとなり、処理が中断することから通常はこちらを使用する。
+        </div><br>
+
+        <h2>スタティックプロパティとスタティックメソッド</h2>
+        <div class="frame3">
+          インスタンスだけでなく、クラス自身のクラスプロパティとクラスメソッドを設定することが出来ます。<br>PHPではこれをstaticキーワードを利用して作るスタティックプロパティ（静的プロパティ）とスタティックメソッド（静的メソッド）で代替します。
+          <div class="frame2">
+            <b>スタティックプロパティとメソッドがあるクラス定義</b><br>
+            class クラス名 {<br>
+              public static const 定数名 = 値;<br>
+              public static $変数名;<br><br>
+
+              public static function メソッド名() {<br>
+              　}<br>
+            }
+          </div>
+          <b>クラスの中からクラスメンバーにアクセスする</b><br>
+          クラス内で利用するには、self::を付けて「self::$変数名」あるいは「self::メソッド名()」のようにアクセスする。<br><br>
+          <div class="frame1">
+            <b>クラスメンバーとインスタンスメンバー</b><br>
+            プロパティとメソッドを合わせてメンバーと呼ぶ。クラスとインスタンスでそれぞれ呼び方がある。
+          </div>
+        </div>
+
+        <h4>アクセス修飾子</h4>
+        <table border="12">
+          <tr bgcolor=yellow>
+            <th>修飾子</th>
+            <th>アクセス権</th>
+          </tr>
+          <tr>
+            <td>public</td>
+            <td>どこからでもアクセスが可能</td>
+          </tr>
+          <tr>
+            <td>protected</td>
+            <td>定義したクラスと子クラスからアクセス可能</td>
+          </tr>
+          <tr>
+            <td>private</td>
+            <td>定義したクラス内のみでアクセスが可能</td>
+          </tr>
+        </table><br><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
