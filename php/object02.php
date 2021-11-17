@@ -138,17 +138,18 @@ class Climber
         <pre><code class="prettyprint">&lt;?php
 require_once(&quot;Climber.php&quot;); //親クラス読み込み
 
-class Result extends Climber {
-  public function clim() {
-    echo &quot;{$this-&gt;name}の予選結果は{$this-&gt;score}点です。&quot;,&quot;\n&quot;;
-  }
+class Result extends Climber
+{
+    public function yosen()
+    {
+        echo "{$this->name}の予選リザルトは{$this->score}点です。", "\n";
+    }
 }
-?&gt;
 </code></pre>
 
         <h3>子クラスのインスタンスを使う</h3>
         <pre class="re"><?php
-                        require_once("Climber.php");
+                        require_once("Result.php");
                         ?>
 
 <?php
@@ -164,8 +165,8 @@ $climber2->who();
 ?>
 </pre>
 
-<!-- ソースコード -->
-<pre><code class="prettyprint">&lt;?php
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
 require_once(&quot;Result.php&quot;);
 ?&gt;
 

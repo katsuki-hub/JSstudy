@@ -383,11 +383,6 @@ a:hover {
 	margin: 120px;
 }
 
-.re {
-	background: #9099997c;
-	color: rgb(0, 0, 0);
-}
-
 b {
 	color: #1a0252;
 }
@@ -567,7 +562,6 @@ b {
 	}
 }
 
-
 /*ソースコードclass="prettyprint"*/
 
 pre .str, code .str {
@@ -628,9 +622,16 @@ pre {
 	padding: 2% 3%;
 	overflow: auto;
 	border-radius: 2%;
-	line-height: 1em;
+	line-height: 1.2em;
 	font-family: "Meiryo";
 	letter-spacing: 0.2;
+}
+
+.re {
+	background: #9099997c;
+	color: rgb(0, 0, 0);
+	font-size: 15px;
+	line-height: 1.4em;
 }
 
 /*prettyprint*/
