@@ -106,8 +106,84 @@
           </div>
         </div>
 
-        <h3>親クラス</h3>
-        
+        <h3>親クラスClimber.php</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+class Climber
+{
+  public $name;
+  public $score;
+
+  function __construct($name = &#039;名無し&#039;,$score = 0) //引数が省略された場合のコンストラクタ初期値
+  {
+    $this-&gt;name = $name;
+    $this-&gt;score = $score;
+  }
+
+  public function __toString() //ストリングにキャストされたとき返す文字列
+  {
+    return $this-&gt;name;
+    return $this-&gt;score;
+  }
+
+  public function who()//インスタンスメソッド
+  {
+    echo &quot;{$this-&gt;name}です。&quot;, &quot;\n&quot;;
+  }
+}
+</code></pre>
+
+        <h3>子クラスResult.php</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;?php
+require_once(&quot;Climber.php&quot;); //親クラス読み込み
+
+class Result extends Climber {
+  public function clim() {
+    echo &quot;{$this-&gt;name}の予選結果は{$this-&gt;score}点です。&quot;,&quot;\n&quot;;
+  }
+}
+?&gt;
+</code></pre>
+
+        <h3>子クラスのインスタンスを使う</h3>
+        <pre class="re"><?php
+                        require_once("Climber.php");
+                        ?>
+
+<?php
+$climber1 = new Climber("ともあ", 56.00);
+$climber1->who();
+$climber1->yosen();
+?>
+
+<?php
+$climber2 = new Climber("みほう");
+echo "{$climber2}", "\n"; //__toString()で文字列にキャスト
+$climber2->who();
+?>
+</pre>
+
+<!-- ソースコード -->
+<pre><code class="prettyprint">&lt;?php
+require_once(&quot;Result.php&quot;);
+?&gt;
+
+&lt;?php
+$climber1 = new Climber(&quot;ともあ&quot;, 56.00);
+$climber1-&gt;who();
+$climber1-&gt;yosen();
+?&gt;
+
+&lt;?php
+$climber2 = new Climber(&quot;みほう&quot;);
+echo &quot;{$climber2}&quot;, &quot;\n&quot;; //__toString()で文字列にキャスト
+$climber2-&gt;who();
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+
 
 
       </section>

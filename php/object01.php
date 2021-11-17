@@ -142,7 +142,7 @@
                         $momo->hello(); //メソッドを実行
                         $ura->hello();
                         ?></pre>
-        <h3>ソースコード</h3>
+                        
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
 class Frend {

@@ -166,7 +166,7 @@ header {
 .heading::before {
 	content: attr(data-en);
 	position: absolute;
-	top: 10px;
+	top: 47px;
 	left: 50%;
 	transform: translateX(-50%);
 	color: rgba(223, 45, 179, 0.5);
@@ -535,11 +535,11 @@ b {
 	.heading::before {
 		content: attr(data-en);
 		position: absolute;
-		top: -14px;
+		top: -8px;
 		left: 48%;
 		transform: translateX(-50%);
 		color: rgba(240, 85, 90, 0.6);
-		font-size: 58px;
+		font-size: 65px;
 		font-style: italic;
 	}
 	.heading::after {
@@ -623,12 +623,12 @@ pre.prettyprinted {
 pre {
 	width: 92%;
 	background-color: #2b2b2b;
-	font-size: 14px;
+	font-size: 12px;
 	color: #fffef9;
 	padding: 2% 3%;
 	overflow: auto;
 	border-radius: 2%;
-	line-height: 1.5em;
+	line-height: 1em;
 	font-family: "Meiryo";
 	letter-spacing: 0.2;
 }
