@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”オブジェクトのクラスの継承”</title>
+  <title>PHP編”オブジェクト指向~トレイト~”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
   <header>
     <div class="header-contents">
-      <h1>オブジェクト指向~クラスの継承~</h1>
+      <h1>オブジェクト指向~トレイト~</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
     <div class="btn" id="open_btn">
@@ -77,6 +77,7 @@
           <li><a href="object.php">オブジェクト指向</a></li>
           <li><a href="object01.php">OOP~クラス定義</a></li>
           <li><a href="extends.php">OOP~クラス継承</a></li>
+          <li><a href="trait.php">OOP~トレイト</a></li>
         </ul>
 
         <div class="copyright">
@@ -90,108 +91,36 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="extends.php">OOPクラス継承</a></li>
+      <li><a href="trait.php">OOPトレイト</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>オブジェクト指向~クラスの継承~</h2>
+        <h2>オブジェクト指向~トレイト~</h2>
         <div class="frame3">
-          クラスの継承とは、既存のクラスを拡張するように自身のクラスを定義する方法です。<br>クラスAを基にクラスBを作りたいとき、クラスAを継承して追加変更したい機能だけをクラスBで定義します。<br>クラスの継承にはextendsキーワードを使います。
+          クラス継承では親クラスを1個しか指定できませんが、トレイトでは複数のトレイトを指定してコードを活用できる。
           <div class="frame2">
-            <b>クラスの継承</b><br>
-            class 子クラス extends 親クラス {<br>
+            <b>トレイトの定義</b><br>
+            trait トレイト名 {<br>
+            　//トレイトのプロパティ<br>
+            　//トレイトのメソッド<br>
+            }
+          </div>
+          <div class="frame2">
+            <b>親クラスを指定したトレイトの定義</b><br>
+            trait トレイト名 extends 親クラス {<br>
+            　//トレイトのプロパティ<br>
+            　//トレイトのメソッド<br>
             }
           </div>
         </div>
 
-        <h3>親クラスproduct.php</h3>
-        <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;?php
-class Product
-{
-  private $name;
+        <h3></h3>
+        
 
-  public function getName()
-  {
-    return $this-&gt;name;
-  }
 
-  public function setName($name)
-  {
-    $this-&gt;name = $name;
-  }
-}
-</code></pre>
 
-        <h3>子クラスのインスタンスを使う</h3>
-        <pre class="re"><?php
-                        require_once("product.php");
-
-                        class DeskProduct extends Product
-                        {
-                          private $price;
-
-                          public function getPrice()
-                          {
-                            return $this->price;
-                          }
-
-                          public function setPrice($price)
-                          {
-                            $this->price = $price;
-                          }
-                        }
-
-                        $desk = new DeskProduct();
-                        $desk->setName("ボールペン");
-                        $desk->setPrice(500);
-
-                        echo $desk->getName() . "の金額は" . $desk->getPrice() . "円です";
-                        ?></pre>
-
-        <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;?php
-require_once(&quot;product.php&quot;);
-
-class DeskProduct extends Product
-{
-  private $price;
-
-  public function getPrice()
-  {
-    return $this-&gt;price;
-  }
-
-  public function setPrice($price)
-  {
-    $this-&gt;price = $price;
-  }
-}
-
-$desk = new DeskProduct();
-$desk-&gt;setName(&quot;ボールペン&quot;);
-$desk-&gt;setPrice(500);
-
-echo $desk-&gt;getName() . &quot;の金額は&quot; . $desk-&gt;getPrice() . &quot;円です&quot;;
-</code></pre>
-        <div class="blank"></div>
-
-        <h4>子クラスのコンストラクタから親クラスのコンストラクタを呼び出す</h4>
-        <div class="frame3">
-          子クラスのコンストラクタから親のコンストラクタを<b>parent::__construct($name)</b>のように呼び出して値を渡す。これで親クラスの初期値が設定されて、子クラスも初期化できる。
-        </div>
-
-        <h4>親クラスのメソッドをオーバーライドして書き替える</h4>
-        <div class="frame3">
-          親クラスのメソッドをそのまま使わず、子クラスで同じ名前のメソッドを定義することで、親クラスの同名のメソッドを上書きすることができる。この手法をオーバーライドと呼びます。
-        </div><br>
-
-        <div style="border: 3px double #333333;">
-        <b>　継承の禁止、オーバーライドの禁止</b><br>
-        final class~のようにクラス定義にfinalキーワードを付けることで継承されないように制限できます。<br>同様にfinal function~のようにメソッド定義にfinalキーワードを付けると、子クラスからオーバーライドを禁止できます。 
-        </div><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
