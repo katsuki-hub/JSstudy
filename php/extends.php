@@ -76,7 +76,7 @@
           <li><a href="arrayfunction.php">配列の要素に関数</a></li>
           <li><a href="object.php">オブジェクト指向</a></li>
           <li><a href="object01.php">OOP~クラス定義</a></li>
-          <li><a href="object02.php">OOP~クラス継承</a></li>
+          <li><a href="extends.php">OOP~クラス継承</a></li>
         </ul>
 
         <div class="copyright">
@@ -90,7 +90,7 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="object02.php">OOPクラス継承</a></li>
+      <li><a href="extends.php">OOPクラス継承</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
@@ -106,81 +106,75 @@
           </div>
         </div>
 
-        <h3>親クラスClimber.php</h3>
+        <h3>親クラスproduct.php</h3>
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
-class Climber
+class Product
 {
-  public $name;
-  public $score;
+  private $name;
 
-  function __construct($name = &#039;名無し&#039;,$score = 0) //引数が省略された場合のコンストラクタ初期値
-  {
-    $this-&gt;name = $name;
-    $this-&gt;score = $score;
-  }
-
-  public function __toString() //ストリングにキャストされたとき返す文字列
+  public function getName()
   {
     return $this-&gt;name;
-    return $this-&gt;score;
   }
 
-  public function who()//インスタンスメソッド
+  public function setName($name)
   {
-    echo &quot;{$this-&gt;name}です。&quot;, &quot;\n&quot;;
+    $this-&gt;name = $name;
   }
-}
-</code></pre>
-
-        <h3>子クラスResult.php</h3>
-        <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;?php
-require_once(&quot;Climber.php&quot;); //親クラス読み込み
-
-class Result extends Climber
-{
-    public function yosen()
-    {
-        echo "{$this->name}の予選リザルトは{$this->score}点です。", "\n";
-    }
 }
 </code></pre>
 
         <h3>子クラスのインスタンスを使う</h3>
         <pre class="re"><?php
-                        require_once("Result.php");
-                        ?>
+require_once("product.php");
 
-<?php
-$climber1 = new Climber("ともあ", 56.00);
-$climber1->who();
-$climber1->yosen();
-?>
+class DeskProduct extends Product
+{
+  private $price;
 
-<?php
-$climber2 = new Climber("みほう");
-echo "{$climber2}", "\n"; //__toString()で文字列にキャスト
-$climber2->who();
-?>
-</pre>
+  public function getPrice()
+  {
+    return $this->price;
+  }
+
+  public function setPrice($price)
+  {
+    $this->price = $price;
+  }
+}
+
+$desk = new DeskProduct();
+$desk->setName("ボールペン");
+$desk->setPrice(500);
+
+echo $desk->getName() . "の金額は" . $desk->getPrice() . "円です";
+?></pre>
 
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
-require_once(&quot;Result.php&quot;);
-?&gt;
+require_once(&quot;product.php&quot;);
 
-&lt;?php
-$climber1 = new Climber(&quot;ともあ&quot;, 56.00);
-$climber1-&gt;who();
-$climber1-&gt;yosen();
-?&gt;
+class DeskProduct extends Product
+{
+  private $price;
 
-&lt;?php
-$climber2 = new Climber(&quot;みほう&quot;);
-echo &quot;{$climber2}&quot;, &quot;\n&quot;; //__toString()で文字列にキャスト
-$climber2-&gt;who();
-?&gt;
+  public function getPrice()
+  {
+    return $this-&gt;price;
+  }
+
+  public function setPrice($price)
+  {
+    $this-&gt;price = $price;
+  }
+}
+
+$desk = new DeskProduct();
+$desk-&gt;setName(&quot;ボールペン&quot;);
+$desk-&gt;setPrice(500);
+
+echo $desk-&gt;getName() . &quot;の金額は&quot; . $desk-&gt;getPrice() . &quot;円です&quot;;
 </code></pre>
         <div class="blank"></div>
 
