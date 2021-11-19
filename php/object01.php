@@ -158,9 +158,8 @@ class Frend {
         }
 }
 ?&gt;
-</code></pre>
-        <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;?php
+
+&lt;?php
 $momo = new Frend(); //クラスのインスタンス
 $ura = new Frend();
 
@@ -225,7 +224,6 @@ $ura-&gt;hello();
                         ?></pre>
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
-&lt;?php
 class Staff //クラス定義
 {
   public $name;
@@ -247,10 +245,8 @@ class Staff //クラス定義
   }
 }
 ?&gt;
-</code></pre>
 
-        <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;?php
+&lt;?php
 $housi = new Staff(&quot;一寸法師&quot;, 38); //クラスのインスタンスを作る
 $hosi = new Staff(&quot;ひこ星&quot;, 19);
 

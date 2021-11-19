@@ -424,7 +424,7 @@ b {
 		list-style-type: none;
 	}
 	#boxmenu li {
-		font-size: 20px;
+		font-size: 16px;
 		padding: 5px 15px;
 		text-align: center;
 	}
@@ -442,7 +442,7 @@ b {
 	}
 	.menu_1 li {
 		border-bottom: 1px solid #ffffff;
-		width: 50%;
+		width: 65%;
 		margin: auto;
 	}
 	.copyright {
