@@ -116,6 +116,7 @@
           </div>
         </div>
         <h3>2つの関数があるDateトレイト</h3>
+        <button type="button">Date.php</button>
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
 trait Date
@@ -144,6 +145,7 @@ trait Date
           </div>
         </div>
         <h3>トレイトを利用したDeliveryDateクラス</h3>
+        <button type="button">DeliveryDate.php</button>
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
 require_once(&quot;Date.php&quot;);

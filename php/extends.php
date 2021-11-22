@@ -107,6 +107,7 @@
         </div>
 
         <h3>親クラスproduct.php</h3>
+        <button type="button">product.php</button>
         <!-- ソースコード -->
         <pre><code class="prettyprint">&lt;?php
 class Product
