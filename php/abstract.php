@@ -23,7 +23,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”文字列の検索”</title>
+  <title>PHP編”オブジェクト指向~抽象クラス~”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -50,7 +50,7 @@
 
   <header>
     <div class="header-contents">
-      <h1>文字列の検索</h1>
+      <h1>オブジェクト指向~抽象クラス~</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
     <div class="btn" id="open_btn">
@@ -69,6 +69,17 @@
           <li><a href="search.php">文字列の検索</a></li>
           <li><a href="regex.php">正規表現</a></li>
           <li><a href="array.php">配列</a></li>
+          <li><a href="array02.php">配列の要素</a></li>
+          <li><a href="arrayextract.php">配列の抽出</a></li>
+          <li><a href="arraysort.php">配列をソート</a></li>
+          <li><a href="arraysearch.php">配列の比較・検索</a></li>
+          <li><a href="arrayfunction.php">配列の要素に関数</a></li>
+          <li><a href="object.php">オブジェクト指向</a></li>
+          <li><a href="object01.php">OOP~クラス定義</a></li>
+          <li><a href="extends.php">OOP~クラス継承</a></li>
+          <li><a href="trait.php">OOP~トレイト</a></li>
+          <li><a href="interface.php">OOP~インターフェース</a></li>
+          <li><a href="abstract.php">OOP~抽象クラス</a></li>
         </ul>
 
         <div class="copyright">
@@ -82,21 +93,17 @@
   <div id="bread">
     <ol>
       <li><a href="../index.html">HOME</a></li>
-      <li><a href="search.php">文字列の検索</a></li>
+      <li><a href="abstract.php">OOP抽象クラス</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>文字列を検索する</h2>
-        <h3></h3>
+        <h2>オブジェクト指向~抽象クラス~</h2>
+        <p>抽象クラスは</p><br>
 
-        <!-- ソースコード -->
-        <pre><code class="prettyprint">&lt;?php
 
-?&gt;
-</code></pre>
-        <div class="blank"></div>
+
 
 
       </section>
