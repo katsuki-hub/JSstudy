@@ -107,7 +107,7 @@
         if(in_array($no,$nolist)) {
           echo "{$no}はあります。";
         } else {
-          echo "{$NO}は見つかりませんでした。";
+          echo "{$no}は見つかりませんでした。";
         }
         ?>
       </section>

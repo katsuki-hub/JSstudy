@@ -212,7 +212,7 @@ $nolist = [2,4,6,8,10,12,14,16,18,20];
 if(in_array($no,$nolist)) {
   echo &quot;{$no}はあります。&quot;;
 } else {
-  echo &quot;{$NO}は見つかりませんでした。&quot;;
+  echo &quot;{$no}は見つかりませんでした。&quot;;
 }
 </code></pre><br>
 
