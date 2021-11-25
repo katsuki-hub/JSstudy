@@ -388,6 +388,10 @@ b {
 	color: #1a0252;
 }
 
+.nolist {
+	list-style-type: none;
+}
+
 @media (max-width: 960px) {
 	header {
 		position: fixed;
@@ -395,9 +399,11 @@ b {
 		width: 100%;
 		height: 80px;
 	}
+
 	#bread {
 		padding: 80px 0 0 0;
 	}
+
 	#boxmenu {
 		top: -450%;
 		position: fixed;
@@ -409,26 +415,31 @@ b {
 		padding: 0;
 		z-index: 99;
 	}
+
 	#boxmenu.panelactive {
 		top: 0;
 		height: 85%;
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
 	}
+
 	#boxmenu nav {
 		display: inline;
 		width: 100%;
 	}
+
 	#boxmenu ul {
 		display: inline;
 		margin-top: 20px;
 		list-style-type: none;
 	}
+
 	#boxmenu li {
 		font-size: 16px;
 		padding: 5px 15px;
 		text-align: center;
 	}
+
 	#boxmenu li a {
 		display: block;
 		text-transform: uppercase;
@@ -438,14 +449,17 @@ b {
 		color: rgb(200, 209, 159);
 		text-decoration: none;
 	}
+
 	#boxmenu li a:hover {
 		color: darksalmon;
 	}
+
 	.menu_1 li {
 		border-bottom: 1px solid #ffffff;
 		width: 65%;
 		margin: auto;
 	}
+
 	.copyright {
 		display: block;
 		text-align: center;
@@ -454,13 +468,16 @@ b {
 		padding: 15px;
 		margin-top: 60px;
 	}
+
 	/*三本線のメニューボタン*/
 	.menu-btn span:before {
 		bottom: 8px;
 	}
+
 	.menu-btn span:after {
 		top: 8px;
 	}
+
 	.menu-btn span, .menu-btn span:before, .menu-btn span:after {
 		content: '';
 		display: block;
@@ -471,6 +488,7 @@ b {
 		text-shadow: rgb(145, 40, 40);
 		position: absolute;
 	}
+
 	/*三本線のメニューボタン*/
 	.menu-btn {
 		position: fixed;
@@ -493,33 +511,41 @@ b {
 		width: 100%;
 		height: 60px;
 	}
+
 	.header-contents {
 		min-height: 75px;
 		background-size: 40px 40px;
 		background-position: 10px 50%;
 	}
+
 	.header-contents h1 {
 		padding: 15px 0 5px 60px;
 		font-size: 16px;
 	}
+
 	.header-contents h2 {
 		padding: 0 0 0 60px;
 		font-size: 14px;
 	}
+
 	#bread {
 		padding: 60px 0 0 0;
 	}
+
 	section h2 {
 		font-size: 20px;
 		margin: 20px 0 40px 0;
 	}
+
 	pre {
 		font-size: 12px;
 	}
+
 	.main-wrapper {
 		font-size: 16px;
 		line-height: 1.5em;
 	}
+
 	.heading {
 		position: relative;
 		padding-top: 50px;
@@ -528,6 +554,7 @@ b {
 		text-align: center;
 		margin-bottom: 30px;
 	}
+
 	.heading::before {
 		content: attr(data-en);
 		position: absolute;
@@ -538,6 +565,7 @@ b {
 		font-size: 65px;
 		font-style: italic;
 	}
+
 	.heading::after {
 		content: '';
 		position: absolute;
@@ -548,16 +576,20 @@ b {
 		height: 30px;
 		background-color: rgb(226, 23, 84);
 	}
+
 	.method tr td, .function tr td {
 		font-size: 12px;
 	}
+
 	.menu-btn {
 		top: 18px;
 	}
+
 	#boxmenu {
 		top: -200%;
 		margin-top: 60px;
 	}
+
 	#boxmenu.panelactive {
 		height: 92%;
 	}
@@ -568,84 +600,131 @@ page-top
 =====================*/
 
 #page-top a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #1630c2;
-    border-radius: 5px;
-    width: 50px;
-    height: 30px;
-    color: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 0.6rem;
-    transition: all 0.3s;
-    letter-spacing: 0.2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #1630c2;
+	border-radius: 5px;
+	width: 50px;
+	height: 30px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 0.6rem;
+	transition: all 0.3s;
+	letter-spacing: 0.2em;
 }
 
 #page-top a:hover {
-    background: #777;
+	background: #777;
 }
 
 #page-top {
-    /*リンクを右下に固定*/
-    position: fixed;
-    right: 10px;
-    bottom: 25px;
-    z-index: 2;
-    opacity: 0;
-    /*はじめは非表示*/
-    transform: translateY(100px);
+	/*リンクを右下に固定*/
+	position: fixed;
+	right: 10px;
+	bottom: 25px;
+	z-index: 2;
+	opacity: 0;
+	/*はじめは非表示*/
+	transform: translateY(100px);
 }
 
 #page-top.UpMove {
-    /*　上に上がる動き　*/
-    animation: UpAnime 0.5s forwards;
+	/*　上に上がる動き　*/
+	animation: UpAnime 0.5s forwards;
 }
 
 @keyframes UpAnime {
-    from {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 #page-top.DownMove {
-    /*　下に下がる動き　*/
-    animation: DownAnime 0.5s forwards;
+	/*　下に下がる動き　*/
+	animation: DownAnime 0.5s forwards;
 }
 
 @keyframes DownAnime {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(100px);
-    }
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(100px);
+	}
 }
 
 
 /* Pretty printing styles. Used with prettify.js. */
 /* Vim sunburst theme by David Leibovic */
 
-pre .str, code .str { color: #65B042; } /* string  - green */
-pre .kwd, code .kwd { color: #E28964; } /* keyword - dark pink */
-pre .com, code .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
-pre .typ, code .typ { color: #89bdff; } /* type - light blue */
-pre .lit, code .lit { color: #3387CC; } /* literal - blue */
-pre .pun, code .pun { color: #fff; } /* punctuation - white */
-pre .pln, code .pln { color: #fff; } /* plaintext - white */
-pre .tag, code .tag { color: #89bdff; } /* html/xml tag    - light blue */
-pre .atn, code .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
-pre .atv, code .atv { color: #65B042; } /* html/xml attribute value - green */
-pre .dec, code .dec { color: #3387CC; } /* decimal - blue */
+pre .str, code .str {
+	color: #65B042;
+}
+
+/* string  - green */
+pre .kwd, code .kwd {
+	color: #E28964;
+}
+
+/* keyword - dark pink */
+pre .com, code .com {
+	color: #AEAEAE;
+	font-style: italic;
+}
+
+/* comment - gray */
+pre .typ, code .typ {
+	color: #89bdff;
+}
+
+/* type - light blue */
+pre .lit, code .lit {
+	color: #3387CC;
+}
+
+/* literal - blue */
+pre .pun, code .pun {
+	color: #fff;
+}
+
+/* punctuation - white */
+pre .pln, code .pln {
+	color: #fff;
+}
+
+/* plaintext - white */
+pre .tag, code .tag {
+	color: #89bdff;
+}
+
+/* html/xml tag    - light blue */
+pre .atn, code .atn {
+	color: #bdb76b;
+}
+
+/* html/xml attribute name  - khaki */
+pre .atv, code .atv {
+	color: #65B042;
+}
+
+/* html/xml attribute value - green */
+pre .dec, code .dec {
+	color: #3387CC;
+}
+
+/* decimal - blue */
 
 pre.prettyprint, code.prettyprint {
 	background-color: #2b2b2b;
@@ -661,22 +740,64 @@ pre.prettyprint {
 
 
 /* Specify class=linenums on a pre to get line numbering */
-ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+ol.linenums {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: #AEAEAE;
+}
+
+/* IE indents via margin-left */
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
+	list-style-type: none
+}
+
 /* Alternate shading for lines */
-li.L1,li.L3,li.L5,li.L7,li.L9 { }
+li.L1, li.L3, li.L5, li.L7, li.L9 {}
 
 @media print {
-  pre .str, code .str { color: #060; }
-  pre .kwd, code .kwd { color: #006; font-weight: bold; }
-  pre .com, code .com { color: #600; font-style: italic; }
-  pre .typ, code .typ { color: #404; font-weight: bold; }
-  pre .lit, code .lit { color: #044; }
-  pre .pun, code .pun { color: #440; }
-  pre .pln, code .pln { color: #000; }
-  pre .tag, code .tag { color: #006; font-weight: bold; }
-  pre .atn, code .atn { color: #404; }
-  pre .atv, code .atv { color: #060; }
+	pre .str, code .str {
+		color: #060;
+	}
+
+	pre .kwd, code .kwd {
+		color: #006;
+		font-weight: bold;
+	}
+
+	pre .com, code .com {
+		color: #600;
+		font-style: italic;
+	}
+
+	pre .typ, code .typ {
+		color: #404;
+		font-weight: bold;
+	}
+
+	pre .lit, code .lit {
+		color: #044;
+	}
+
+	pre .pun, code .pun {
+		color: #440;
+	}
+
+	pre .pln, code .pln {
+		color: #000;
+	}
+
+	pre .tag, code .tag {
+		color: #006;
+		font-weight: bold;
+	}
+
+	pre .atn, code .atn {
+		color: #404;
+	}
+
+	pre .atv, code .atv {
+		color: #060;
+	}
 }
 
 pre {

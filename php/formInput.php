@@ -100,9 +100,127 @@
   <div class="main-wrapper">
     <article>
       <section>
-        <h2>フォーム~入力処理~</h2>
-        
+        <h2>HTTPの基礎知識</h2>
+        <h4>スーパーグローバル変数</h4>
+        <p>PHPではWEBサーバーへのリクエスト情報を参照したり、操作したりするためのスーパーグローバル変数をもっています。どこからでも参照できる配列です。</p>
 
+        <table border="5" class="function">
+          <tr bgcolor="yellow">
+            <th>変数名</th>
+            <th>内容</th>
+          </tr>
+          <tr>
+            <td>$_GET</td>
+            <td>GETリクエストのパラメーター。パラメーター名が配列のキーになる。</td>
+          </tr>
+          <tr>
+            <td>$_POST</td>
+            <td>POSTリクエストのパラメーター。パラメーター名が配列のキーになる。</td>
+          </tr>
+          <tr>
+            <td>$_COOKIE</td>
+            <td>クッキーの値。クッキーの名前が配列のキーになる。</td>
+          </tr>
+          <tr>
+            <td>$_SESSION</td>
+            <td>セッション変数</td>
+          </tr>
+          <tr>
+            <td>$_FILES</td>
+            <td>アップロードされたファイルの情報</td>
+          </tr>
+          <tr>
+            <td>$_SERVER</td>
+            <td>Webサーバーに関する情報</td>
+          </tr>
+          <tr>
+            <td>$_ENV</td>
+            <td>サーバー側の環境変数。環境変数名が配列のキーになる。</td>
+          </tr>
+        </table><br>
+        <button type="button">MEMO</button>
+        <div class="frame3">
+          <ul>
+            <li>GETはリクエストをURLのアドレスの後に?を付けて送信する。キーと値のペア部分がクエリ文字で複数のパラメーターがある場合は&でつなぐ。</li>
+            <li>POSTはリクエストを本文に含めて送信します。リクエスト内容を簡単に見られない。</li>
+            <li>GETのレスポンスはキャッシュされるが、POSTはキャッシュされない。</li>
+          </ul>
+        </div>
+        <div class="blank"></div>
+        <h2>送信フォームの作成</h2>
+        <form method="POST" action="calc.php">
+          <ul class="nolist">
+            <li><label>単価：<input type="number" name="tanka"></label></li>
+            <li><label>個数：<input type="number" name="kosu"></label></li><br>
+            <li><input type="submit" value="計算する"></li>
+          </ul>
+        </form>
+
+        <h3>リクエストフォーム</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;form method=&quot;POST&quot; action=&quot;calc.php&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;label&gt;単価：&lt;input type=&quot;number&quot; name=&quot;tanka&quot;&gt;&lt;/label&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;label&gt;個数：&lt;input type=&quot;number&quot; name=&quot;kosu&quot;&gt;&lt;/label&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;計算する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+</code></pre><br>
+
+        <h3>POSTメソッドのフォーム</h3>
+        <!-- ソースコード -->
+        <button type="button">calc.php</button>
+        <pre><code class="prettyprint">&lt;?php
+//フォーム入力の値を取り出す
+$tanka = $_POST[&quot;tanka&quot;];
+$kosu = $_POST[&quot;kosu&quot;];
+//計算
+$price = $tanka * $kosu;
+//3桁位取り表示
+$tanka = number_format($tanka);
+$kosu = number_format($kosu);
+$price = number_format($price);
+echo &quot;単価{$tanka}円　×　{$kosu}個は{$price}円です。&quot;;
+?&gt;
+</code></pre>
+        <div class="blank"></div>
+
+        <h2>GETメソッドで送信する場合</h2>
+        <form method="GET" action="check.php">
+          <ul class="nolist">
+            <li><label>番号：<input type="number" name="no"></label></li><br>
+            <li><input type="submit" value="調べる"></li>
+          </ul>
+        </form>
+        <h3>リクエストフォーム</h3>
+        <!-- ソースコード -->
+        <pre><code class="prettyprint">&lt;form method=&quot;GET&quot; action=&quot;check.php&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;label&gt;番号：&lt;input type=&quot;number&quot; name=&quot;no&quot;&gt;&lt;/label&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;調べる&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+</code></pre><br>
+
+        <h3>GETメソッドのフォーム</h3>
+        <!-- ソースコード -->
+        <button type="button">check.php</button>
+        <pre><code class="prettyprint">&lt;?php
+$no = $_GET[&quot;no&quot;];
+$nolist = [2,4,6,8,10,12,14,16,18,20];
+
+if(in_array($no,$nolist)) {
+  echo &quot;{$no}はあります。&quot;;
+} else {
+  echo &quot;{$NO}は見つかりませんでした。&quot;;
+}
+</code></pre><br>
+
+        <button type="button">MEMO</button>
+        <div class="frame3">
+          <b>マルチバイト文字をURLエンコードする</b><br>
+          GETリクエストのクエリ文字にマルチバイトが含まれている場合は、パラメーターをURLエンコードしてから添付します。<br>URLエンコードはrawurlencode()で行い、逆のデコードはrawurldecode()で行います。<br>※POSTメソッドを使う場合はPHPがエンコードとデコードを自動で行います。
+        </div>
 
 
 
