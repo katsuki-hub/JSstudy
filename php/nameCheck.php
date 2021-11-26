@@ -18,7 +18,6 @@
     </div><!-- /.header-contents -->
     <?php include(dirname(__FILE__) . '/../commom/phpBoxMenu.php'); ?>
   </header>
-
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
@@ -26,7 +25,6 @@
       <li><a href="formDetaCheck.php">フォーム~データチェック~</a></li>
     </ol>
   </div>
-
   <!-- main-wrapper -->
   <div class="main-wrapper">
     <article>
