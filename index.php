@@ -173,8 +173,8 @@
     <br><br>
   </div><!-- /.main-wrapper -->
   <footer>
-    <a href="php/formDetaCheck.php">テスト</a>
-    <?php include(dirname(__FILE__) . "/commom/footer.php"); ?>
+    <small>&copy; 2021 かつまる学習帳</small>
+    <p id="page-top"><a href="#">TOP</a></p>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

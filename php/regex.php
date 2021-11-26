@@ -59,7 +59,7 @@
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../index.php">HOME</a></li>
       <li><a href="regex.php">正規表現</a></li>
     </ol>
   </div>

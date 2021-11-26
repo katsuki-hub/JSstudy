@@ -59,7 +59,7 @@
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../index.php">HOME</a></li>
       <li><a href="object01.php">OOPクラス定義</a></li>
     </ol>
   </div>

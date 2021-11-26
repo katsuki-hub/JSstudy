@@ -21,7 +21,7 @@
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../index.php">HOME</a></li>
       <li><a href="formDetaCheck.php">フォーム~データチェック~</a></li>
     </ol>
   </div>

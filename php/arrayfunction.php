@@ -59,7 +59,7 @@
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
-      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../index.php">HOME</a></li>
       <li><a href="arrayfunction.php">配列の要素に関数</a></li>
     </ol>
   </div>
