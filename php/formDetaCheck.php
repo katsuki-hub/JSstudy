@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-<?php require_once "../commom/phpBoxMenu.php"; ?>
+<?php require_once "../common/phpBoxMenu.php"; ?>
 <title>PHP編”フォーム~入力データのチェック~”</title>
 </head>
 
@@ -41,7 +41,7 @@
     </article>
   </div><!-- /.main-wrapper -->
   <footer>
-    <?php require_once "../commom/footer.php"; ?>
+    <?php require_once "../common/footer.php"; ?>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
