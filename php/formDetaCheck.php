@@ -2,20 +2,18 @@
 <html lang="ja">
 
 <head>
-<?php require_once "../common/phpBoxMenu.php"; ?>
-<title>PHP編”フォーム~入力データのチェック~”</title>
+  <?php $title = "PHPフォーム~入力データのチェック~" ?>
+  <?php require_once "../common/head.php"; ?>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+
   <header>
-    <div class="header-contents">
-      <h1>フォーム~入力データのチェック~</h1>
-      <h2>PHPのシンタックス</h2>
-    </div><!-- /.header-contents -->
-    <?php include(dirname(__FILE__) . '/../commom/phpBoxMenu.php'); ?>
+    <?php $hederTitle = "フォーム~入力データのチェック~" ?>
+    <?php require_once "../common/header.php"; ?>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
