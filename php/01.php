@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-  <?php $title = "PHPフォーム~~" ?>
+  <?php $title = "PHP編~~" ?>
   <?php require_once "../common/head.php"; ?>
 </head>
 
@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "フォーム~~" ?>
+    <?php $hederTitle = "" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
   <!-- パンくずリスト -->

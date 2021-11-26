@@ -2,8 +2,8 @@
 <html lang="ja">
 
 <head>
-  <?php include(dirname(__FILE__) . '/../commom/phpHead.php'); ?>
-  <title>PHP編”フォーム~入力データのチェック~”</title>
+  <?php $title = "PHP編~フォームの入力データのチェック~" ?>
+  <?php require_once "../common/head.php"; ?>
 </head>
 
 <body>
@@ -12,11 +12,8 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <div class="header-contents">
-      <h1>フォーム~入力データのチェック~</h1>
-      <h2>PHPのシンタックス</h2>
-    </div><!-- /.header-contents -->
-    <?php include(dirname(__FILE__) . '/../commom/phpBoxMenu.php'); ?>
+    <?php $hederTitle = "フォーム~入力データのチェック~" ?>
+    <?php require_once "../common/header.php"; ?>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
@@ -42,7 +39,7 @@
     </article>
   </div><!-- /.main-wrapper -->
   <footer>
-    <?php include(dirname(__FILE__) . '/../commom/footer.php'); ?>
+    <?php require_once "../common/footer.php"; ?>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
