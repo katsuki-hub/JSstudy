@@ -164,14 +164,13 @@
           <li><a href="php/interface.php">OOP~インターフェース~</a></li>
           <li><a href="php/abstract.php">OOP~抽象クラス~</a></li>
           <li><a href="php/formInput.php">フォーム~入力処理~</a></li>
+          <li><a href="php/formDetaCheck.php">フォーム~入力データのチェック~</a></li>
         </ul>
     </section>
     <br><br>
   </div><!-- /.main-wrapper -->
   <footer>
-    <a href="php/formDataCheck.php">テスト</a>
-    <small>&copy; 2021 かつまる学習帳</small>
-    <p id="page-top"><a href="#">TOP</a></p>
+    <?php include(dirname(__FILE__) . '/commom/footer.php'); ?>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

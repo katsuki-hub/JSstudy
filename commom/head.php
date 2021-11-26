@@ -1,9 +1,5 @@
-<!doctype html>
-<html lang="ja">
-
-<head>
-  <!-- Google Tag Manager -->
-  <script>
+<!-- Google Tag Manager -->
+<script>
     (function(w, d, s, l, i) {
       w[l] = w[l] || [];
       w[l].push({
@@ -23,7 +19,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>PHP編”フォーム入力の値で計算”</title>
   <meta name=”description” content=”PHP編の学習技術ブログです。”>
   <meta name="keywords" content="PHP,プログラミング,技術ブログ,PHP超入門編,ソースコード" />
   <link href="../css/style.css" rel="stylesheet" type="text/css">
@@ -41,50 +36,3 @@
   <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="../manifest.json">
-</head>
-
-<body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <header>
-    <div class="header-contents">
-      <h1>フォーム~入力計算結果~</h1>
-      <h2>PHPのシンタックス</h2>
-    </div><!-- /.header-contents -->
-    <?php include(dirname(__FILE__) . '/../commom/phpBoxMenu.php'); ?>
-  </header>
-
-  <!-- パンくずリスト -->
-  <div id="bread">
-    <ol>
-      <li><a href="../index.html">HOME</a></li>
-      <li><a href="formInput.php">フォーム~入力処理~</a></li>
-    </ol>
-  </div>
-  <div class="main-wrapper">
-    <article>
-      <section>
-        <?php
-        //フォーム入力の値を取り出す
-        $tanka = $_POST["tanka"];
-        $kosu = $_POST["kosu"];
-        //計算
-        $price = $tanka * $kosu;
-        //3桁位取り表示
-        $tanka = number_format($tanka);
-        $kosu = number_format($kosu);
-        $price = number_format($price);
-        echo "単価{$tanka}円　×　{$kosu}個は{$price}円です。";
-        ?>
-      </section>
-    </article>
-  </div><!-- /.main-wrapper -->
-  <footer><?php include(dirname(__FILE__) . '/../commom/footer.php'); ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-  <script src="../scripts/move.js"></script>
-</body>
-
-</html>

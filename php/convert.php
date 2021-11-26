@@ -53,32 +53,7 @@
       <h1>文字列の変換</h1>
       <h2>PHPのシンタックス</h2>
     </div><!-- /.header-contents -->
-    <div class="btn" id="open_btn">
-      <label class="menu-btn"><span></span></label>
-    </div>
-
-    <div id="boxmenu">
-      <nav class="phpnav">
-        <ul class="menu_1">
-          <li><a href="../index.html">HOME</a></li>
-          <li><a href="syntax.php">制御構造</a></li>
-          <li><a href="function.php">関数</a></li>
-          <li><a href="string.php">文字列</a></li>
-          <li><a href="convert.php">文字列の変換</a></li>
-          <li><a href="comparison.php">文字列の比較</a></li>
-          <li><a href="search.php">文字列の検索</a></li>
-          <li><a href="regex.php">正規表現</a></li>
-          <li><a href="array.php">配列</a></li>
-          <li><a href="array02.php">配列の要素</a></li>
-          <li><a href="arrayextract.php">配列の抽出</a></li>
-          <li><a href="arraysort.php">配列をソート</a></li>
-        </ul>
-
-        <div class="copyright">
-          <small>&copy; 2021 かつまる学習帳</small>
-        </div>
-      </nav>
-    </div><!-- /boxmenu -->
+    <?php include(dirname(__FILE__) . '/../commom/phpBoxMenu.php'); ?>
   </header>
 
   <!-- パンくずリスト -->
@@ -271,7 +246,7 @@ echo &quot;[&quot;, $result, &quot;]\n&quot;;
       </section>
     </article>
   </div><!-- /.main-wrapper -->
-  <footer><small>&copy;かつまる学習帳</small></footer>
+  <footer><?php include(dirname(__FILE__) . '/../commom/footer.php'); ?></footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
