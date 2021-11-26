@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-  <?php include(dirname(__FILE__) . '/../commom/head.php'); ?>
+  <?php include(dirname(__FILE__) . '/../commom/phpHead.php'); ?>
   <title>PHP編”フォーム~入力データのチェック~”</title>
 </head>
 

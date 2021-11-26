@@ -3,21 +3,28 @@
 
 <head>
   <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');
+  </script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
   <title>プログラミング学習帳～簡単解説！WEBプログラミング基本コード～</title>
-  <meta name="description"
-    content="WEBプログラミング入門編の学習技術ブログです。初級編～中級編までアップします。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
+  <meta name="description" content="WEBプログラミング入門編の学習技術ブログです。初級編～中級編までアップします。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
   <meta name="keywords" content="JavaScript,プログラミング,技術ブログ,ソースコード,PHP,jQuery">
   <link href="css/style.css?Ver=20211126" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -46,8 +53,7 @@
 
 <body class="inbody">
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src=" https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src=" https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="header-contents">
@@ -84,8 +90,7 @@
     </div>
     <div class="blank"></div>
     <h2>JavaScriptとは？</h2>
-    <div
-      style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+    <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
       JavaScriptはWEBページにて複雑な機能をさせることが可能なプログラミング言語です。<br><br>HTMLとCSSで作られたWEBサイトでは、静的な表現しかできませんが、JavaScriptによって動的にコンテンツを表現させることが出来ます。<br>ユーザーのアクションに応じたコンテンツの表示だったり、地図やグラフィックアニメーションなども表示可能です。
     </div>
     <div class="blank"></div>
@@ -117,8 +122,7 @@
     </section>
     <div class="blank"></div>
     <h2>jQueryとは？</h2>
-    <div
-      style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+    <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
       jQueryとはJavaScriptのオープンソースのライブラリです。<br><br>HTMLから動かしたい要素を取得して、タグ、属性、コンテンツ、やCSSを操作し、ある程度まとまったプログラムを作ってくれているファイルです。<br>少ない記述で様々な表現を実行し、webページのUIの作成やAjaxを得意としています。
     </div>
     <div class="blank"></div>
@@ -135,8 +139,7 @@
     </section>
     <div class="blank"></div>
     <h2>PHPとは？</h2>
-    <div
-      style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+    <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
       PHPはサーバーで実行されるサーバーサイドスクリプトです。<br>MySQLなどのデータベースとの連携により、データの追加・値を検索して表示・値の更新といった処理が出来ます。<br>具体的にブログ、SNS、ショッピングサイト、スケジュール管理、会員管理といったデータベースを組み合わせたサイト構築で利用されています。
     </div>
     <div class="blank"></div>
@@ -170,10 +173,10 @@
     <br><br>
   </div><!-- /.main-wrapper -->
   <footer>
-    <?php include(dirname(__FILE__) . '/commom/footer.php'); ?>
+    <a href="php/formDetaCheck.php">テスト</a>
+    <?php include(dirname(__FILE__) . "/commom/footer.php"); ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="scripts/move.js"></script>
 </body>
