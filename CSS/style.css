@@ -392,6 +392,14 @@ b {
 	list-style-type: none;
 }
 
+li {
+	margin-bottom: 1em;
+}
+
+.error {
+	color: #FF0000;
+}
+
 @media (max-width: 960px) {
 	header {
 		position: fixed;

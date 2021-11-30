@@ -27,12 +27,99 @@
     <article>
       <section>
         <h2>値が入っているかどうかチェック</h2>
-        <h3>入力フォームを表示</h3>
-        <form method="POST" action="nameCkeck.php">
+        <form method="POST" action="nameCheck.php">
+          <ul class="nolist">
+            <li><label>名前：<input type="text" name="name"></label></li>
+            <li><input type="submit" value="送信する"></li>
+          </ul>
+        </form><br>
 
+        <h3>入力フォーム</h3>
+        <!-- ソースコード -->
+        <?php
+        require_once("code.php");
+        echo "{$form1}";
+        ?>
+
+        <h3>入力フォームに値が入っているかどうかで分岐する</h3>
+        <!-- ソースコード -->
+        <button type="button">es.php</button>
+        <?php
+        require_once("es.php");
+        echo "{$esCheck}"
+        ?>
+        <br>
+
+        <!-- ソースコード -->
+        <button type="button">nameCkeck.php</button>
+        <pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;);
+if (!checkEn($_POST)) { //文字エンコードの検証
+  $encoding = mb_internal_encoding(); //PHPが使うエンコードを調べる
+  $err = &quot;Encoding Error! The espected encoding is&quot; . $encoding;
+  exit($err); //エラーメッセージを出してコードのキャンセルする
+}
+$_POST = es($_POST); //HTMLエスケープ(xss対策)
+?&gt;
+
+&lt;?php
+$isError = false; //エラーフラグ
+if (isset($_POST[&#039;name&#039;])) { //名前を取り出す
+  $name = trim($_POST[&#039;name&#039;]);
+  if ($name === &quot;&quot;) { //空白のときエラー
+    $isError = true;
+  }
+} else { //未設定のときエラー
+  $isError = true;
+}
+?&gt;
+
+&lt;?php if ($isError) : ?&gt;
+  &lt;!-- エラーがあったとき --&gt;
+  &lt;span class=&quot;error&quot;&gt;名前を入力してください。&lt;/span&gt;
+  &lt;form method=&quot;POST&quot; action=&quot;formDetaCheck.php&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;戻る&quot;&gt;
+  &lt;/form&gt;
+&lt;?php else : ?&gt;
+  &lt;!-- エラーがなかったとき --&gt;
+  &lt;span&gt;こんにちは、&lt;?php echo $name; ?&gt;さん。&lt;/span&gt;
+&lt;?php endif; ?&gt;
+</code></pre><br>
+
+        <button type="button">MEMO</button>
+        <div class="frame1">
+          <li>exit()とdie()は同じ機能です。どちらも引数を与えたメッセージを出力した後に、続くコードの実行を全てキャンセルします。コードの実行を突然終えるexit()は多用すべきではない。</li>
+          <li>isset()で$_POST['name']に値が設定されているかどうかをチェック。空白が入っている場合があるので、trim()を使って値の前後の空白を取り除いた後でチェックする</li>
+          <div class="frame2">
+            <b>制御構造の別の構文</b><br>
+            if:else:endif;だけでなく、switch:case:endswitch;、foreach:endforeach;、for:endfor;、while:endwhile;のように同様の構文がある
+          </div>
+        </div>
+        <div class="blank"></div>
+
+        <h2 id="warikan">入力された値が数値かどうか、0ではないかチェック</h2>
+        <form method="POST" action="warikan.php">
+          <ul class="nolist">
+            <li><label>合計金額：<input type="number" name="goukei"></label></li>
+            <li><label>　人数　：<input type="number" name="ninzu"></label></li>
+            <li><input type="submit" value="割り勘する"></li>
+          </ul>
         </form>
 
+        <h3>入力ホーム</h3>
+        <!-- ソースコード -->
+        <?php
+        require_once("code.php");
+        echo "{$form2}";
+        ?>
 
+        <h3>入力フォームに値が計算できる数値かどうかで分岐</h3>
+        <button type="button">warikan.php</button>
+        <!-- ソースコード -->
+        <?php
+        require_once("code.php");
+        echo "{$warikan}";
+        ?>
 
 
       </section>

@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-  <?php $title = "PHP編~フォームの入力データのチェック~" ?>
+  <?php $title = "PHP編~フォーム入力チェック~" ?>
   <?php require_once "../common/head.php"; ?>
 </head>
 
@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "フォーム~入力データのチェック~" ?>
+    <?php $hederTitle = "フォーム入力チェック" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
   <!-- パンくずリスト -->
@@ -24,19 +24,42 @@
   </div>
   <!-- main-wrapper -->
   <div class="main-wrapper">
-    <article>
-      <section>
-        <h2>値が入っているかどうかチェック</h2>
-        <h3>入力フォームを表示</h3>
-        <form method="POST" action="nameCkeck.php">
-
-        </form>
 
 
+    <?php
+    require_once("es.php");
+    if (!checkEn($_POST)) { //文字エンコードの検証
+      $encoding = mb_internal_encoding();
+      $err = "Encoding Error! The espected encoding is" . $encoding;
+      exit($err); //エラーメッセージを出してコードのキャンセルする
+    }
+    $_POST = es($_POST); //HTMLエスケープ(xss対策)
+    ?>
+
+    <?php
+    $isError = false; //エラーフラグ
+    if (isset($_POST['name'])) { //名前を取り出す
+      $name = trim($_POST['name']);
+      if ($name === "") { //空白のときエラー
+        $isError = true;
+      }
+    } else { //未設定のときエラー
+      $isError = true;
+    }
+    ?>
+
+    <?php if ($isError) : ?>
+      <!-- エラーがあったとき -->
+      <span class="error">名前を入力してください。</span>
+      <form method="POST" action="formDetaCheck.php">
+        <input type="submit" value="戻る">
+      </form>
+    <?php else : ?>
+      <!-- エラーがなかったとき -->
+      <span>こんにちは、<?php echo $name; ?>さん。</span>
+    <?php endif; ?>
 
 
-      </section>
-    </article>
   </div><!-- /.main-wrapper -->
   <footer>
     <?php require_once "../common/footer.php"; ?>

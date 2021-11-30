@@ -77,7 +77,7 @@
         <form method="POST" action="calc.php">
           <ul class="nolist">
             <li><label>単価：<input type="number" name="tanka"></label></li>
-            <li><label>個数：<input type="number" name="kosu"></label></li><br>
+            <li><label>個数：<input type="number" name="kosu"></label></li>
             <li><input type="submit" value="計算する"></li>
           </ul>
         </form>
@@ -114,7 +114,7 @@ echo &quot;単価{$tanka}円　×　{$kosu}個は{$price}円です。&quot;;
         <h2>GETメソッドで送信する場合</h2>
         <form method="GET" action="check.php">
           <ul class="nolist">
-            <li><label>番号：<input type="number" name="no"></label></li><br>
+            <li><label>番号：<input type="number" name="no"></label></li>
             <li><input type="submit" value="調べる"></li>
           </ul>
         </form>
