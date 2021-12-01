@@ -120,8 +120,32 @@ if (isset($_POST[&#039;name&#039;])) { //名前を取り出す
         require_once("code.php");
         echo "{$warikan}";
         ?>
+        <h4>数値かどうかのチェック</h4>
+        <div class="frame3">
+          フォームからの入力は文字列になるので、ctype_digit()〖0以上の整数〗または is_numeric()〖+-の符号を含んだ数字〗を使って判定します。<br>※is_float()やis_int()はそのままでは使えません。
+        </div>
 
+        <h2 id="postNo">正規表現を使って郵便番号のチェック</h2>
+        <form method="POST" action="postCheck.php">
+          <ul class="nolist">
+            <li><label>郵便番号：<input type="text" name="postno"></label></li>
+            <li><input type="submit" value="送信する"></li>
+          </ul>
+        </form>
 
+        <h3>入力フォーム</h3>
+        <!-- ソースコード -->
+        <?php
+        require_once("code.php");
+        echo "{$form3}";
+        ?>
+        <h3>郵便番号のフォーム</h3>
+        <!-- ソースコード -->
+        <button type="button">postCheck.php</button>
+        <?php
+        require_once("code.php");
+        echo "{$post}";
+        ?><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
