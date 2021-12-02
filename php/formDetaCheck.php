@@ -124,7 +124,7 @@ if (isset($_POST[&#039;name&#039;])) { //名前を取り出す
         <div class="frame3">
           フォームからの入力は文字列になるので、ctype_digit()〖0以上の整数〗または is_numeric()〖+-の符号を含んだ数字〗を使って判定します。<br>※is_float()やis_int()はそのままでは使えません。
         </div>
-
+        <div class="blank"></div>
         <h2 id="postNo">正規表現を使って郵便番号のチェック</h2>
         <form method="POST" action="postCheck.php">
           <ul class="nolist">

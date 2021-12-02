@@ -168,6 +168,7 @@
           <li><a href="php/abstract.php">OOP~抽象クラス~</a></li>
           <li><a href="php/formInput.php">フォーム~入力処理~</a></li>
           <li><a href="php/formDetaCheck.php">フォーム~入力データのチェック~</a></li>
+          <li><a href="php/hidden.php">フォーム~隠しフィールド~</a></li>
         </ul>
     </section>
     <br><br>

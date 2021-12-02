@@ -137,3 +137,114 @@ if (count($errors) &gt; 0) { //エラーがあったら
   &lt;/ul&gt;
 &lt;/form&gt;
 </code></pre>';
+
+$form4 = '<pre><code class="prettyprint">&lt;!-- 戻るボタンで初期値に個数を入れる --&gt;
+&lt;?php
+if (isset($_POST[&#039;kosu&#039;])) {
+  $kosu = $_POST[&#039;kosu&#039;];
+} else {
+  $kosu = &quot;&quot;;
+}
+?&gt;
+
+&lt;!-- 割引の初期値 --&gt;
+&lt;?php
+$discount = 0.8;
+$off = (1 - $discount) * 100;
+if ($discount &gt; 0) {
+  echo &quot;&lt;b&gt;ECサイトからのご購入は{$off}% OFFになります！&lt;/b&gt;&quot;;
+}
+$tanka = 1250;
+$tanka_fm = number_format($tanka);
+?&gt;
+
+&lt;!-- 入力フォーム --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;discount.php&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;discount&quot; value=&quot;&lt;?php echo $discount; ?&gt;&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;tanka&quot; value=&quot;&lt;?php echo $tanka; ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;label&gt;単価：&lt;?php echo $tanka_fm; ?&gt;円&lt;/label&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;label&gt;個数：&lt;input type=&quot;number&quot; name=&quot;kosu&quot; value=&quot;&lt;?php echo $kosu ?&gt;&quot;&gt;&lt;/label&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;計算する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+</code></pre>';
+
+$hidden = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+if (!checkEn($_POST)) { //文字エンコードの検証
+  $encoding = mb_internal_encoding(); //PHPが使うエンコードを調べる
+  $err = &quot;Encoding Error! The espected encoding is&quot; . $encoding;
+  exit($err); //エラーメッセージを出してコードのキャンセルする
+}
+$_POST = es($_POST); //HTMLエスケープ(xss対策)
+?&gt;
+
+&lt;?php
+$errors = [];
+if (isset($_POST[&#039;discount&#039;])) {
+  $discount = $_POST[&#039;discount&#039;];
+  if (!is_numeric($discount)) {
+    $errors[] = &quot;割引率の数値エラー&quot;;
+  }
+} else {
+  $errors[] = &quot;割引率が未設定&quot;;
+}
+
+if (isset($_POST[&#039;tanka&#039;])) {
+  $tanka = $_POST[&#039;tanka&#039;];
+  if (!ctype_digit($tanka)) {
+    $errors[] = &quot;単価の数値エラー&quot;;
+  }
+} else {
+  $errors[] = &quot;単価が未設定&quot;;
+}
+?&gt;
+
+&lt;?php
+if (isset($_POST[&#039;kosu&#039;])) {
+  $kosu = $_POST[&#039;kosu&#039;];
+  if (!ctype_digit($kosu)) {
+    $errors[] = &quot;個数は正の数で要入力&quot;;
+  }
+} else {
+  $errors[] = &quot;個数が未設定&quot;;
+}
+?&gt;
+
+&lt;?php
+if (count($errors) &gt; 0) {
+  echo &#039;&lt;ol class = &quot;error&quot;&gt;&#039;;
+  foreach ($errors as $value) {
+    echo &quot;&lt;li&gt;&quot;, $value, &quot;&lt;/li&gt;&quot;;
+  }
+  echo &quot;&lt;/ol&gt;&quot;;
+} else {
+  $price = $tanka * $kosu;
+  $discount_price = floor($price * $discount);
+  $off_price = $price - $discount_price;
+  $off_per = (1 - $discount) * 100;
+  $tanka_fm = number_format($tanka);
+  $discount_price_fm = number_format($discount_price);
+  $off_price_fm = number_format($off_price);
+
+  echo &quot;単価：{$tanka_fm}円、&quot;, &quot;個数：{$kosu}個&quot;, &quot;&lt;br&gt;&quot;;
+  echo &quot;金額：{$discount_price_fm}円&quot;, &quot;&lt;br&gt;&quot;;
+  echo &quot;割引：{$off_price_fm}円、&quot;, &quot;{$off_per}％ OFF&quot;, &quot;&lt;br&gt;&quot;;
+}
+?&gt;
+
+&lt;!-- 戻りボタン --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;hidden.php#shop&quot;&gt;
+  &lt;!-- hiddenで個数を設定して戻った時にPOSTする --&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;kosu&quot; value=&quot;&lt;?php echo $kosu; ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;戻る&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+</code></pre>';
+
+
+
+?>
+
