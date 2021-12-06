@@ -70,7 +70,7 @@
         <?php
         require_once("code.php");
         echo "{$hidden}";
-        ?>
+        ?><br>
       </section>
     </article>
   </div><!-- /.main-wrapper -->

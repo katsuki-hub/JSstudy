@@ -29,6 +29,8 @@
         <li><a href="abstract.php">OOP~抽象クラス</a></li>
         <li><a href="formInput.php">フォーム~入力処理~</a></li>
         <li><a href="formDetaCheck.php">フォーム~データチェック~</a></li>
+        <li><a href="hidden.php">フォーム~隠しフィールド~</a></li>
+        <li><a href="sale.php">フォーム~クーポンで割引率~</a></li>
       </ul>
 
       <div class="copyright">

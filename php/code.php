@@ -244,7 +244,157 @@ if (count($errors) &gt; 0) {
 &lt;/form&gt;
 </code></pre>';
 
+$saleCoupon = '<pre><code class="prettyprint">&lt;?php
+//配列データは外部ファイルやデータベースからの読み込みにした方がいい
+$couponList = [&quot;kkpp&quot; =&gt; 0.75, &quot;nnpp&quot; =&gt; 0.8, &quot;aapp&quot; =&gt; 0.85];
+$priceList = [&quot;xp10&quot; =&gt; 12000, &quot;win11&quot; =&gt; 38000];
+
+function getCouponRate($code) //コードで割引率を調べて返す
+{
+  global $couponList;
+  $isCouponCode = array_key_exists($code, $couponList); //該当するコードがあるかチェック
+  if ($isCouponCode) {
+    return $couponList[$code]; //割引率を返す
+  } else {
+    return NULL; //見つからなかったらNULLを返す
+  }
+}
+
+function getPrice($id) //商品IDで価格を調べて返す
+{
+  global $priceList;
+  $isGoodsID = array_key_exists($id, $priceList);
+  if ($isGoodsID) {
+    return $priceList[$id]; //価格を返す
+  } else {
+    return Null; //見つからなかったらNULLを返す
+  }
+}
+</code></pre>';
+
+$form5 = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+if (!checkEn($_POST)) { //文字エンコードの検証
+  $encoding = mb_internal_encoding(); //PHPが使うエンコードを調べる
+  $err = &quot;Encoding Error! The espected encoding is&quot; . $encoding;
+  exit($err); //エラーメッセージを出してコードのキャンセルする
+}
+$_POST = es($_POST); //HTMLエスケープ(xss対策)
+?&gt;
+
+&lt;!-- 割引率と単価の値を直接書かずに式で求める --&gt;
+&lt;?php
+require_once(&quot;saleData.php&quot;);
+$couponCode = &quot;nnpp&quot;;
+$goodsID = &quot;win11&quot;;
+
+//コードとIDから割引率と単価を調べる
+$discount = getCouponRate($couponCode);
+$tanka = getPrice($goodsID);
+
+//割引率と単価に値があるかチェック
+if (is_null($discount) || is_null($tanka)) {
+  $err = &#039;&lt;div class = &quot;error&quot;&gt;不正な操作がありました。&lt;/div&gt;&#039;;
+  exit($err);
+}
+?&gt;
+
+&lt;?php
+$off = (1 - $discount) * 100;
+if ($discount &gt; 0) {
+  echo &quot;&lt;b&gt;このページでご購入で{$off}％ OFFになります！&lt;/b&gt;&quot;;
+}
+$tanka_fm = number_format($tanka);
+?&gt;
+
+&lt;!-- 入力フォーム --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;discountCoupon.php&quot;&gt;
+  &lt;!-- 隠しフィールドにコードとIDを設定してPOSTする --&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;couponCode&quot; value=&quot;&lt;?php echo $couponCode; ?&gt;&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;goodsID&quot; value=&quot;&lt;?php echo $goodsID; ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;label&gt;単価：&lt;?php echo $tanka_fm; ?&gt;円&lt;/label&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;label&gt;個数：&lt;input type=&quot;number&quot; name=&quot;kosu&quot; value=&quot;&lt;?php echo $kosu; ?&gt;&quot;&gt;&lt;/label&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;購入する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+</code></pre>';
+
+$coupon = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+if (!checkEn($_POST)) { //文字エンコードの検証
+  $encoding = mb_internal_encoding(); //PHPが使うエンコードを調べる
+  $err = &quot;Encoding Error! The espected encoding is&quot; . $encoding;
+  exit($err); //エラーメッセージを出してコードのキャンセルする
+}
+$_POST = es($_POST); //HTMLエスケープ(xss対策)
+?&gt;
+
+&lt;?php
+$errors = [];
+if (isset($_POST[&#039;couponCode&#039;])) {
+  $couponCode = $_POST[&#039;couponCode&#039;];
+} else {
+  $couponCode = &quot;&quot;; //未設定
+}
+
+if (isset($_POST[&#039;goodsID&#039;])) {
+  $goodsID = $_POST[&#039;goodsID&#039;];
+} else {
+  $goodsID = &quot;&quot;; //未設定
+}
+?&gt;
+
+&lt;?php
+require_once(&quot;saleData.php&quot;);
+$discount = getCouponRate($couponCode); //割引率
+$tanka = getPrice($goodsID); //単価
+if (is_null($discount) || is_null($tanka)) {
+  $err = &#039;&lt;div class = &quot;error&quot;&gt;不正な操作がありました。&lt;/div&gt;&#039;;
+  exit($err);
+}
+?&gt;
+
+&lt;?php
+if (isset($_POST[&#039;kosu&#039;])) {
+  $kosu = $_POST[&#039;kosu&#039;];
+  if (!ctype_digit($kosu)) {
+    $errors[] = &quot;個数は整数で入力してください。&quot;;
+  }
+} else {
+  $errors[] = &quot;個数が未設定&quot;;
+}
+?&gt;
+
+&lt;?php
+if (count($errors) &gt; 0) {
+  echo &#039;&lt;ol class = &quot;error&quot;&gt;&#039;;
+  foreach ($errors as $value) {
+    echo &quot;&lt;li&gt;&quot;, $value, &quot;&lt;/li&gt;&quot;;
+  }
+  echo &quot;&lt;/ol&gt;&quot;;
+} else {
+  $price = $tanka * $kosu;
+  $discount_price = floor($price * $discount);
+  $off_price = $price - $discount_price;
+  $off_per = (1 - $discount) * 100;
+  $tanka_fm = number_format($tanka);
+  $discount_price_fm = number_format($discount_price);
+  $off_price_fm = number_format($off_price);
+
+  echo &quot;単価：{$tanka_fm}円、&quot;, &quot;個数：{$kosu}個&quot;, &quot;&lt;br&gt;&lt;br&gt;&quot;;
+  echo &quot;金額：{$discount_price_fm}円&quot;, &quot;&lt;br&gt;&quot;;
+  echo &quot;(割引：-{$off_price_fm}円、&quot;, &quot;{$off_per}％ OFF)&quot;, &quot;&lt;br&gt;&quot;;
+}
+?&gt;
+
+&lt;!-- 戻りボタン --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;sale.php&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;戻る&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+</code></pre>';
 
 
 ?>
-
