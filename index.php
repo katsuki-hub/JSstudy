@@ -170,6 +170,7 @@
           <li><a href="php/formDetaCheck.php">フォーム~入力データのチェック~</a></li>
           <li><a href="php/hidden.php">フォーム~隠しフィールド~</a></li>
           <li><a href="php/sale.php">フォーム~クーポンで割引率を出す~</a></li>
+          <li><a href="php/mile.php">1つのファイルでフォーム処理</a></li>
         </ul>
     </section>
     <br><br>

@@ -396,5 +396,53 @@ if (count($errors) &gt; 0) {
 &lt;/form&gt;
 </code></pre>';
 
+$mileKm = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+if (!checkEn($_POST)) { //文字エンコードの検証
+  $encoding = mb_internal_encoding(); //PHPが使うエンコードを調べる
+  $err = &quot;Encoding Error! The espected encoding is&quot; . $encoding;
+  exit($err); //エラーメッセージを出してコードのキャンセルする
+}
+$_POST = es($_POST); //HTMLエスケープ(xss対策)
+?&gt;
+
+&lt;?php
+if (isset($_POST[&quot;mile&quot;])) {
+  $isNum = is_numeric($_POST[&quot;mile&quot;]); //数値かどうか確認
+  if ($isNum) {
+    $mile = $_POST[&quot;mile&quot;];
+    $error = &quot;&quot;;
+  } else {
+    $mile = &quot;&quot;;
+    $error = &#039;&lt;span class = error&gt;数値を入力してください。&lt;/span&gt;&#039;;
+  }
+} else { //POSTされた値がないとき
+  $isNum = false;
+  $mile = &quot;&quot;;
+  $error = &quot;&quot;;
+}
+?&gt;
+
+&lt;!-- 入力フォーム（現在のページにPOST） --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo es($_SERVER[&#039;PHP_SELF&#039;]); ?&gt;&quot;&gt;&lt;!-- es.phpのes()でxss対策--&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;
+      &lt;label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;mile&quot; value=&quot;&lt;?php echo $mile; ?&gt;&quot;&gt;
+      &lt;/label&gt;
+      &lt;?php echo $error ?&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;計算する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;?php
+if ($isNum) { //$mileが数値であれば計算結果を表示する
+  echo &quot;&lt;HR&gt;&quot;;
+  $km = $mile * 1.609344;
+  echo &quot;{$mile}マイルは{$km}kmです！！&quot;;
+}
+?&gt;
+</code></pre>';
 
 ?>

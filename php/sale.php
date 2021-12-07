@@ -73,10 +73,7 @@
             <li><input type="submit" value="購入する"></li>
           </ul>
         </form>
-
-
-
-
+        <div class="blank"></div>
 
         <h4>値の改ざん防止</h4>
         <div class="frame3">

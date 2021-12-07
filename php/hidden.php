@@ -56,7 +56,7 @@
             <li><input type="submit" value="計算する"></li>
           </ul>
         </form>
-
+        <div class="blank"></div>
         <h3>入力フォーム</h3>
         <!-- ソースコード -->
         <?php

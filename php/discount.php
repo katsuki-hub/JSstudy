@@ -83,8 +83,8 @@
       $off_price_fm = number_format($off_price);
 
       echo "単価：{$tanka_fm}円、", "個数：{$kosu}個", "<br>";
-      echo "金額：{$discount_price_fm}円", "<br>";
-      echo "割引：{$off_price_fm}円、", "{$off_per}％ OFF", "<br>";
+      echo "金額：{$discount_price_fm}円", "<br><br>";
+      echo "(割引：-{$off_price_fm}円、", "{$off_per}％ OFF)", "<br>";
     }
     ?>
 
