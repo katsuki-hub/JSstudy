@@ -31,6 +31,8 @@
         <li><a href="formDetaCheck.php">フォーム~データチェック~</a></li>
         <li><a href="hidden.php">フォーム~隠しフィールド~</a></li>
         <li><a href="sale.php">フォーム~クーポンで割引率~</a></li>
+        <li><a href="php/mile.php">1つのファイルでフォーム処理</a></li>
+        <li><a href="php/radio.php">フォーム~ラジオボタン~</a></li>
       </ul>
 
       <div class="copyright">

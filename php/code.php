@@ -445,4 +445,96 @@ if ($isNum) { //$mileが数値であれば計算結果を表示する
 ?&gt;
 </code></pre>';
 
+$xss = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+if (!checkEn($_POST)) { //文字エンコードの検証
+  $encoding = mb_internal_encoding(); //PHPが使うエンコードを調べる
+  $err = &quot;Encoding Error! The espected encoding is&quot; . $encoding;
+  exit($err); //エラーメッセージを出してコードのキャンセルする
+}
+$_POST = es($_POST); //HTMLエスケープ(xss対策)
+?&gt;
+</code></pre>';
+
+$radio = '<pre><code class="prettyprint">&lt;?php
+$error = []; //エラーを入れる配列
+if (isset($_POST[&quot;sex&quot;])) {
+  $sexValues = [&quot;男性&quot;, &quot;女性&quot;];
+  $isSex = in_array($_POST[&quot;sex&quot;], $sexValues);
+  if ($isSex) {
+    $sex = $_POST[&quot;sex&quot;];
+  } else {
+    $sex = &quot;error&quot;;
+    $error[] = &quot;「性別」に入力エラーがあります。&quot;;
+  }
+} else { //POSTされた値がないとき
+  $isSex = false;
+  $sex = &quot;男性&quot;;
+}
+
+if (isset($_POST[&quot;marriage&quot;])) {
+  $marriageValue = [&quot;独身&quot;, &quot;既婚&quot;, &quot;同棲中&quot;];
+  $isMarriage = in_array($_POST[&quot;marriage&quot;], $marriageValue);
+  if ($isMarriage) {
+    $marriage = $_POST[&quot;marriage&quot;];
+  } else {
+    $marriage = &quot;error&quot;;
+    $error[] = &quot;「結婚」に入力エラー！！&quot;;
+  }
+} else { //POSTされた値がないとき
+  $isMarriage = false;
+  $marriage = &quot;独身&quot;;
+}
+?&gt;
+
+&lt;!-- ラジオボタンを初期値でチェック(選択)するかどうか --&gt;
+&lt;?php
+function checked($value, $question)
+{
+  if (is_array($question)) { //配列のとき値が含まれていればtrue
+    $isChecked = in_array($value, $question);
+  } else { //配列でないとき値が一致すればtrue
+    $isChecked = ($value === $question);
+  }
+  if ($isChecked) { //ラジオボタンのinputにchecked入れるかどうか
+    echo &quot;checked&quot;;
+  } else {
+    echo &quot;&quot;;
+  }
+}
+?&gt;
+
+&lt;!-- 入力フォーム --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo es($_SERVER[&#039;PHP_SELF&#039;]); ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;span&gt;性別：　&lt;/span&gt;
+      &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;男性&quot; &lt;?php checked(&quot;男性&quot;, $sex); ?&gt;&gt;男性&lt;/label&gt;
+      &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;女性&quot; &lt;?php checked(&quot;女性&quot;, $sex); ?&gt;&gt;女性&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;結婚：　&lt;/span&gt;
+      &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;marriage&quot; value=&quot;独身&quot; &lt;?php checked(&quot;独身&quot;, $marriage); ?&gt;&gt;独身&lt;/label&gt;
+      &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;marriage&quot; value=&quot;既婚&quot; &lt;?php checked(&quot;既婚&quot;, $marriage); ?&gt;&gt;既婚&lt;/label&gt;
+      &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;marriage&quot; value=&quot;同棲中&quot; &lt;?php checked(&quot;同棲中&quot;, $marriage); ?&gt;&gt;同棲中&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;?php
+$isSubmited = $isSex &amp;&amp; $isMarriage;
+if ($isSubmited) { //「性別」と「結婚」が受信されていれば結果を表示
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &quot;あなたは{$sex}、{$marriage}です。&quot;;
+}
+?&gt;
+
+&lt;?php
+if (count($error) &gt; 0) { //エラー表示
+  echo &quot;&lt;HR&gt;&quot;;
+  //implode関数で配列の要素に&lt;br&gt;を付けて連結
+  echo &#039;&lt;span class = &quot;error&quot;&gt;&#039;, implode(&quot;&lt;br&gt;&quot;, $error), &#039;&lt;/span&gt;&#039;;
+}
+?&gt;</code></pre>';
+
+
 ?>

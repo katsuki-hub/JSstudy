@@ -36,7 +36,7 @@
         }
         $_POST = es($_POST); //HTMLエスケープ(xss対策)
         ?>
-
+        <b>マイルをkmに計算する</b>
         <?php
         if (isset($_POST["mile"])) {
           $isNum = is_numeric($_POST["mile"]); //数値かどうか確認
@@ -45,7 +45,7 @@
             $error = "";
           } else {
             $mile = "";
-            $error = '<span class = error>数値を入力してください。</span>';
+            $error = '<span class = "error">数値を入力してください。</span>';
           }
         } else { //POSTされた値がないとき
           $isNum = false;
@@ -55,12 +55,13 @@
         ?>
 
         <!-- 入力フォーム（現在のページにPOST） -->
-        <form method="POST" action="<?php echo es($_SERVER['PHP_SELF']); ?>"><!-- es.phpのes()でxss対策-->
+        <form method="POST" action="<?php echo es($_SERVER['PHP_SELF']); ?>">
+          <!-- es.phpのes()でxss対策-->
           <ul class="nolist">
             <li>
               <label>
                 <input type="text" name="mile" value="<?php echo $mile; ?>">
-              </label>
+              </label>マイル
               <?php echo $error ?>
             </li>
             <li><input type="submit" value="計算する"></li>
