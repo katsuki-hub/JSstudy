@@ -171,7 +171,8 @@
           <li><a href="php/hidden.php">フォーム~隠しフィールド~</a></li>
           <li><a href="php/sale.php">フォーム~クーポンで割引率を出す~</a></li>
           <li><a href="php/mile.php">1つのファイルでフォーム処理</a></li>
-          <li><a href="php/radio.php">フォーム~ラジオボタンで選択~</a></li>
+          <li><a href="php/radio.php">フォーム~様々なフォーム~</a></li>
+          <li><a href="php/textarea.php">フォーム~テキストエリア~</a></li>
         </ul>
     </section>
     <br><br>

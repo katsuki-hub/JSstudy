@@ -485,10 +485,25 @@ if (isset($_POST[&quot;marriage&quot;])) {
   $isMarriage = false;
   $marriage = &quot;独身&quot;;
 }
+
+if (isset($_POST[&quot;blood&quot;])) {
+  $bloodType = [&quot;A型&quot;, &quot;B型&quot;, &quot;O型&quot;, &quot;AB型&quot;];
+  $isBlood = in_array($_POST[&quot;blood&quot;], $bloodType);
+  if ($isBlood) {
+    $blood = $_POST[&quot;blood&quot;];
+  } else {
+    $blood = &quot;error&quot;;
+    $error[] = &quot;「血液型」に入力エラー！！&quot;;
+  }
+} else { //POSTされた値がないとき
+  $isBlood = false;
+  $blood = &quot;A型&quot;;
+}
 ?&gt;
 
-&lt;!-- ラジオボタンを初期値でチェック(選択)するかどうか --&gt;
+
 &lt;?php
+//ラジオボタンを初期値でチェック(選択)するかどうか
 function checked($value, $question)
 {
   if (is_array($question)) { //配列のとき値が含まれていればtrue
@@ -496,8 +511,23 @@ function checked($value, $question)
   } else { //配列でないとき値が一致すればtrue
     $isChecked = ($value === $question);
   }
-  if ($isChecked) { //ラジオボタンのinputにchecked入れるかどうか
+  if ($isChecked) { //フォームのinputにchecked入れるかどうか
     echo &quot;checked&quot;;
+  } else {
+    echo &quot;&quot;;
+  }
+}
+
+//プルダウンを初期値でチェック(選択)するかどうか
+function selected($value, $question)
+{
+  if (is_array($question)) {
+    $isSelected = in_array($value, $question);
+  } else {
+    $isSelected = ($value === $question);
+  }
+  if ($isSelected) { //フォームのinputにselected入れるかどうか
+    echo &quot;selected&quot;;
   } else {
     echo &quot;&quot;;
   }
@@ -516,6 +546,14 @@ function checked($value, $question)
       &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;marriage&quot; value=&quot;既婚&quot; &lt;?php checked(&quot;既婚&quot;, $marriage); ?&gt;&gt;既婚&lt;/label&gt;
       &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;marriage&quot; value=&quot;同棲中&quot; &lt;?php checked(&quot;同棲中&quot;, $marriage); ?&gt;&gt;同棲中&lt;/label&gt;
     &lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;血液型：　&lt;/span&gt;
+      &lt;select name=&quot;blood&quot;&gt;
+        &lt;option value=&quot;A型&quot; &lt;?php selected(&quot;A型&quot;, $blood); ?&gt;&gt;A型&lt;/option&gt;
+        &lt;option value=&quot;B型&quot; &lt;?php selected(&quot;B型&quot;, $blood); ?&gt;&gt;B型&lt;/option&gt;
+        &lt;option value=&quot;O型&quot; &lt;?php selected(&quot;O型&quot;, $blood); ?&gt;&gt;O型&lt;/option&gt;
+        &lt;option value=&quot;AB型&quot; &lt;?php selected(&quot;AB型&quot;, $blood); ?&gt;&gt;AB型&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/li&gt;
     &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/form&gt;
@@ -524,7 +562,8 @@ function checked($value, $question)
 $isSubmited = $isSex &amp;&amp; $isMarriage;
 if ($isSubmited) { //「性別」と「結婚」が受信されていれば結果を表示
   echo &quot;&lt;HR&gt;&quot;;
-  echo &quot;あなたは{$sex}、{$marriage}です。&quot;;
+  echo &quot;あなたは{$sex}、{$marriage}です。&quot;, &quot;&lt;br&gt;&quot;;
+  echo &quot;血液型は{$blood}です。&quot;;
 }
 ?&gt;
 
@@ -536,5 +575,96 @@ if (count($error) &gt; 0) { //エラー表示
 }
 ?&gt;</code></pre>';
 
+$checkBox = '<pre><code class="prettyprint">&lt;?php
+$error2 = [];
+if (isset($_POST[&quot;tour&quot;])) {
+  $tours = [&quot;キャンプ&quot;, &quot;コテージ&quot;, &quot;ホテル&quot;];
+  $diffValue = array_diff($_POST[&quot;tour&quot;], $tours); //配列同士を比較し、重複していない要素を取得
+  if (count($diffValue) == 0) { //規格外の値が含まれてなければOK
+    $tourChecked = $_POST[&quot;tour&quot;];
+  } else {
+    $tourChecked = [];
+  }
+} else {
+  $tourChecked = [];
+  $error2[] = &quot;「宿泊先」にエラーがあります。&quot;;
+}
+
+if (isset($_POST[&quot;meal&quot;])) {
+  $meals = [&quot;朝食付き&quot;, &quot;昼食付き&quot;, &quot;ディナー付き&quot;];
+  $diffValue = array_diff($_POST[&quot;meal&quot;], $meals); //配列同士を比較し、重複していない要素を取得
+  if (count($diffValue) == 0) { //規格外の値が含まれてなければOK
+    $mealChecked = $_POST[&quot;meal&quot;];
+  } else {
+    $mealChecked = [];
+  }
+} else {
+  $mealChecked = [];
+  $error2[] = &quot;「食事」にエラーがあります。&quot;;
+}
+
+if (isset($_POST[&quot;place&quot;])) {
+  $placeArea = [&quot;河川&quot;, &quot;山&quot;, &quot;海&quot;];
+  $diffValue = array_diff($_POST[&quot;place&quot;], $placeArea); //配列同士を比較し、重複していない要素を取得
+  if (count($diffValue) == 0) { //規格外の値が含まれてなければOK
+    $placeSelected = $_POST[&quot;place&quot;];
+  } else {
+    $placeSelected = [];
+  }
+} else {
+  $placeSelected = [];
+  $error2[] = &quot;「場所」にエラーがあります。&quot;;
+}
+?&gt;
+
+
+&lt;!-- 入力フォーム --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo es($_SERVER[&#039;PHP_SELF&#039;]); ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;span&gt;宿泊先：　&lt;/span&gt;
+      &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;tour[]&quot; value=&quot;キャンプ&quot; &lt;?php checked(&quot;キャンプ&quot;, $tourChecked); ?&gt;&gt;キャンプ&lt;/label&gt;
+      &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;tour[]&quot; value=&quot;コテージ&quot; &lt;?php checked(&quot;コテージ&quot;, $tourChecked); ?&gt;&gt;コテージ&lt;/label&gt;
+      &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;tour[]&quot; value=&quot;ホテル&quot; &lt;?php checked(&quot;ホテル&quot;, $tourChecked); ?&gt;&gt;ホテル&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;お食事：　&lt;/span&gt;
+      &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;meal[]&quot; value=&quot;朝食付き&quot; &lt;?php checked(&quot;朝食付き&quot;, $mealChecked); ?&gt;&gt;朝食付き&lt;/label&gt;
+      &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;meal[]&quot; value=&quot;昼食付き&quot; &lt;?php checked(&quot;昼食付き&quot;, $mealChecked); ?&gt;&gt;昼食付き&lt;/label&gt;
+      &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;meal[]&quot; value=&quot;ディナー付き&quot; &lt;?php checked(&quot;ディナー付き&quot;, $mealChecked); ?&gt;&gt;ディナー付き&lt;/label&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;場所：　&lt;/span&gt;
+      &lt;select name=&quot;place[]&quot; size=&quot;3&quot; multiple&gt;
+        &lt;option value=&quot;河川&quot; &lt;?php selected(&quot;河川&quot;, $placeSelected); ?&gt;&gt;河川&lt;/option&gt;
+        &lt;option value=&quot;山&quot; &lt;?php selected(&quot;山&quot;, $placeSelected); ?&gt;&gt;山&lt;/option&gt;
+        &lt;option value=&quot;海&quot; &lt;?php selected(&quot;海&quot;, $placeSelected); ?&gt;&gt;海&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;!-- 宿泊先か食事のどちらかがチェックされていれば結果表示 --&gt;
+&lt;?php
+$isSelected = count($mealChecked) &gt; 0 || count($tourChecked) &gt; 0;
+if ($isSelected) {
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &quot;宿泊先：&quot;, implode(&quot;と&quot;, $tourChecked), &quot;&lt;br&gt;&quot;;
+  echo &quot;お食事：&quot;, implode(&quot;と&quot;, $mealChecked), &quot;&lt;br&gt;&quot;;
+  echo &quot;場所：&quot;, implode(&quot;と&quot;, $placeSelected), &quot;&lt;br&gt;&quot;;
+} else {
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &quot;選択されていません。&quot;;
+}
+?&gt;
+
+&lt;?php
+if (count($error2) &gt; 0) { //エラー表示
+  echo &quot;&lt;HR&gt;&quot;;
+  //implode関数で配列の要素に&lt;br&gt;を付けて連結
+  echo &#039;&lt;span class = &quot;error&quot;&gt;&#039;, implode(&quot;&lt;br&gt;&quot;, $error2), &#039;&lt;/span&gt;&#039;;
+}
+?&gt;
+&lt;!-- 初期値でチェックchecked関数は上記のラジオボタンフォームを参照 --&gt;
+</code></pre>';
 
 ?>
+
