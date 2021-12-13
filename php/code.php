@@ -666,5 +666,80 @@ if (count($error2) &gt; 0) { //エラー表示
 &lt;!-- 初期値でチェックchecked関数は上記のラジオボタンフォームを参照 --&gt;
 </code></pre>';
 
+$slider = '<pre><code class="prettyprint">&lt;?php
+$error = [];
+$min = 1;
+$max = 5;
+if (isset($_POST[&quot;roasting&quot;])) {
+  $roasting = $_POST[&quot;roasting&quot;];
+  $isRoasting = ctype_digit($roasting) &amp;&amp; ($roasting &gt;= $min) &amp;&amp; ($roasting &lt;= $max);
+  if (!$isRoasting) {
+    $error[] = &quot;焙煎殿値にエラーがあります。&quot;;
+    $roasting = $min;
+  }
+} else {
+  $roasting = round(($min + $max) / 2);
+  $isRoasting = true;
+}
+?&gt;
+
+&lt;!-- 入力フォーム --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo es($_SERVER[&#039;PHP_SELF&#039;]); ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;span&gt;焙煎土：　&lt;/span&gt;
+      &lt;input type=&quot;range&quot; name=&quot;roasting&quot; min=&quot;1&quot; max=&quot;5&quot; step=&quot;1&quot; value=&quot;&lt;?php echo $roasting; ?&gt;&quot;&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;決定&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;?php
+if ($isRoasting) {
+  $rostList = [&quot;ライトロースト&quot;, &quot;ミディアムロースト&quot;, &quot;ハイロースト&quot;, &quot;シティロースト&quot;, &quot;フレンチロースト&quot;];
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &quot;お好みの焙煎度は「{$roasting}、{$rostList[$roasting - 1]}」です。&quot;;
+}
+?&gt;
+
+&lt;?php
+if (count($error) &gt; 0) {
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &#039;&lt;span class = &quot;error&quot;&gt;&#039;, implode(&quot;&lt;br&gt;&quot;, $error), &#039;&lt;/span&gt;&#039;;
+}
+?&gt;
+</code></pre>
+';
+
+$text = '<pre><code class="prettyprint">&lt;?php
+if (isset($_POST[&quot;note&quot;])) {
+  $note = $_POST[&quot;note&quot;];
+  $note = strip_tags($note); //HTML,PHPタグを削除する
+  $note = mb_substr($note, 0, 150); //最大150文字だけ取り出し
+  $note = es($note); //HTMLエスケープ
+} else {
+  $note = &quot;&quot;; //POSTされた値が無いとき
+}
+?&gt;
+
+&lt;!-- 入力フォーム --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo es($_SERVER[&#039;PHP_SELF&#039;]); ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;span&gt;お問い合わせ：　&lt;/span&gt;
+      &lt;textarea name=&quot;note&quot; cols=&quot;30&quot; rows=&quot;5&quot; maxlength=&quot;150&quot; placeholder=&quot;コメント入力&quot;&gt;&lt;/textarea&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;?php
+$length = mb_strlen($note); //テキストが入力されていれば表示
+if ($length &gt; 0) {
+  echo &quot;&lt;HR&gt;&quot;;
+  $note_br = nl2br($note, false); //改行コード前に&lt;br&gt;を挿入
+  echo $note_br;
+}
+?&gt;
+</code></pre>';
+
 ?>
 
