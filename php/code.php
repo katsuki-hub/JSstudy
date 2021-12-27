@@ -741,5 +741,177 @@ if ($length &gt; 0) {
 ?&gt;
 </code></pre>';
 
+$datefield = '<pre><code class="prettyprint">&lt;?php
+$error = [];
+if (!empty($_POST[&quot;theDate&quot;])) { //POSTされた日付取り出し
+  $postDate = trim($_POST[&quot;theDate&quot;]); //日付文字列を取り出す
+  $postDate = mb_convert_kana($postDate, &quot;as&quot;); //全角を半角にする
+
+  $pattern1 = preg_match(&quot;/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/&quot;, $postDate);
+  $pattern2 = preg_match(&quot;#^[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}$#&quot;, $postDate);
+  if ($pattern1) {
+    $dataArray = explode(&quot;-&quot;, $postDate); //指定文字&quot;-&quot;で分割
+  }
+  if ($pattern2) {
+    $dataArray = explode(&quot;/&quot;, $postDate); //指定文字&quot;/&quot;で分割
+  }
+  if ($pattern1 || $pattern2) { //正しい日付形式だったとき
+    $theYear = $dataArray[0];
+    $theMonth = $dataArray[1];
+    $theDay = $dataArray[2];
+    $isDate = checkdate($theMonth, $theDay, $theYear);
+    if ($isDate) { //日付のオブジェクトを作る
+      $dateObj = new DateTime($postDate);
+    } else {
+      $error[] = &quot;日付として正しくありません。&quot;;
+    }
+  } else { //正しい日付形式でないときの表示例
+    $today = new DateTime();
+    $today1 = $today-&gt;format(&quot;Y-n-j&quot;);
+    $today2 = $today-&gt;format(&quot;Y/n/j&quot;);
+    $error[] = &quot;日付は次のどちらかの形式で入力してください。&lt;br&gt;{$today1}または{$today2}&quot;;
+    $isDate = false;
+  }
+} else {
+  $isDate = false;
+  $postDate = &quot;&quot;;
+}
+?&gt;
+
+&lt;!-- 入力フォーム --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo es($_SERVER[&#039;PHP_SELF&#039;]); ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;&lt;span&gt;日付を選ぶ：&lt;/span&gt;
+      &lt;input type=&quot;date&quot; name=&quot;theDate&quot; value=&lt;?php echo &quot;{$postDate}&quot; ?&gt;&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;?php
+if ($isDate) { //正しい日付であれば表示する
+  $date = $dateObj-&gt;format(&quot;Y年m月d日&quot;);
+  $w = (int)$dateObj-&gt;format(&quot;w&quot;);
+  $week = [&quot;日&quot;, &quot;月&quot;, &quot;火&quot;, &quot;水&quot;, &quot;木&quot;, &quot;金&quot;, &quot;土&quot;];
+  $youbi = $week[$w];
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &quot;{$date}は、{$youbi}曜日です。&quot;;
+}
+?&gt;
+
+&lt;?php
+if (count($error) &gt; 0) {
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &#039;&lt;span class = &quot;error&quot;&gt;&#039;, implode(&quot;&lt;br&gt;&quot;, $error), &#039;&lt;/span&gt;&#039;;
+}
+?&gt;
+</code></pre>
+';
+
+$pullDate = '<pre><code class="prettyprint">&lt;?php
+//日付の初期値
+$theYear2 = date(&#039;Y&#039;);
+$theMonth2 = date(&#039;n&#039;);
+$theDay2 = date(&#039;j&#039;);
+$error = [];
+if (isset($_POST[&quot;year&quot;]) &amp;&amp; isset($_POST[&quot;month&quot;]) &amp;&amp; isset($_POST[&quot;day&quot;])) {
+  $theYear2 = $_POST[&quot;year&quot;]; //POSTされた年月日で書き換える
+  $theMonth2 = $_POST[&quot;month&quot;];
+  $theDay2 = $_POST[&quot;day&quot;];
+  //値が日付として正しいかチェック
+  $isDate2 = checkdate($theMonth2, $theDay2, $theYear2);
+  if (!$isDate2) {
+    $error[] = &quot;日付として正しくありません&quot;;
+  } else { //日付オブジェクト作成
+    $dateString = $theYear2 . &quot;-&quot; . $theMonth2 . &quot;-&quot; . $theDay2;
+    $dateObj2 = new DateTime($dateString);
+  }
+} else {
+  $isDate2 = false;
+}
+?&gt;
+
+&lt;?php
+//今年前後15年のプルダウンメニュー
+function yearOption()
+{
+  global $theYear2;
+  $thisYear = date(&#039;Y&#039;);
+  $startYear = $thisYear - 15;
+  $endYear = $thisYear + 15;
+  echo &#039;&lt;select name = &quot;year&quot;&gt;&#039;, &#039;\n&#039;;
+  for ($i = $startYear; $i &lt;= $endYear; $i++) {
+    if ($i == $theYear2) {
+      echo &quot;&lt;option value = {$i} selected&gt;{$i}&lt;/option&gt;&quot;, &quot;\n&quot;;
+    } else {
+      echo &quot;&lt;option value = {$i}&gt;{$i}&lt;/option&gt;&quot;, &quot;\n&quot;;
+    }
+  }
+  echo &#039;&lt;/select&gt;&#039;;
+}
+
+//1~12月のプルダウンメニュー
+function monthOption()
+{
+  global $theMonth2;
+  echo &#039;&lt;select name = &quot;month&quot;&gt;&#039;;
+  for ($i = 1; $i &lt;= 12; $i++) { //POSTされた月を選択する
+    if ($i == $theMonth2) {
+      echo &quot;&lt;option value = {$i} selected&gt;{$i}&lt;/option&gt;&quot;, &quot;\n&quot;;
+    } else {
+      echo &quot;&lt;option value = {$i}&gt;{$i}&lt;/option&gt;&quot;, &quot;\n&quot;;
+    }
+  }
+  echo &#039;&lt;/select&gt;&#039;;
+}
+
+//1~31日のプルダウンメニュー
+function dayOption()
+{
+  global $theDay2;
+  echo &#039;&lt;select name = &quot;day&quot;&gt;&#039;;
+  for ($i = 1; $i &lt;= 31; $i++) {
+    if ($i == $theDay2) { //POSTされた日を選択
+      echo &quot;&lt;option value = {$i} selected&gt;{$i}&lt;/option&gt;&quot;, &quot;\n&quot;;
+    } else {
+      echo &quot;&lt;option value = {$i}&gt;{$i}&lt;/option&gt;&quot;, &quot;\n&quot;;
+    }
+  }
+  echo &#039;&lt;/select&gt;&#039;;
+}
+?&gt;
+
+&lt;!-- 年月日のプルダウンメニュー --&gt;
+&lt;form method=&quot;POST&quot; action=&quot;&lt;?php echo es($_SERVER[&#039;PHP_SELF&#039;]); ?&gt;&quot;&gt;
+  &lt;ul class=&quot;nolist&quot;&gt;
+    &lt;li&gt;
+      &lt;?php yearOption(); ?&gt;年
+      &lt;?php monthOption(); ?&gt;月
+      &lt;?php dayOption(); ?&gt;日
+    &lt;/li&gt;
+    &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;?php
+if ($isDate2) {
+  $date2 = $dateObj2-&gt;format(&quot;Y年m月d日&quot;);
+  $w = (int)$dateObj2-&gt;format(&quot;w&quot;);
+  $week = [&quot;日&quot;, &quot;月&quot;, &quot;火&quot;, &quot;水&quot;, &quot;木&quot;, &quot;金&quot;, &quot;土&quot;];
+  $youbi = $week[$w];
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &quot;{$date2}は、{$youbi}曜日です。&quot;;
+}
+?&gt;
+
+&lt;?php
+if (count($error) &gt; 0) {
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &#039;&lt;span class = &quot;error&quot;&gt;&#039;, implode(&quot;&lt;br&gt;&quot;, $error), &#039;&lt;/span&gt;&#039;;
+}
+?&gt;
+</code></pre>';
+
+
 ?>
 

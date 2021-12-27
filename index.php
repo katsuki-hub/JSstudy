@@ -173,6 +173,7 @@
           <li><a href="php/mile.php">1つのファイルでフォーム処理</a></li>
           <li><a href="php/radio.php">フォーム~様々なフォーム~</a></li>
           <li><a href="php/textarea.php">フォーム~テキストエリア~</a></li>
+          <li><a href="php/day.php">フォーム~日付フィールド~</a></li>
         </ul>
     </section>
     <br><br>
