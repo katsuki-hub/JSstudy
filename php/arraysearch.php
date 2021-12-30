@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "配列の比較・検索" ?>
+    <?php $headerTitle = "配列の比較・検索" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

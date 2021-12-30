@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "クーポンで割引率を出す" ?>
+    <?php $headerTitle = "クーポンで割引率を出す" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
   <!-- パンくずリスト -->

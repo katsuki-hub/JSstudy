@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "配列" ?>
+    <?php $headerTitle = "配列" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "制御構造~条件分岐や繰り返し処理~" ?>
+    <?php $headerTitle = "制御構造~条件分岐や繰り返し処理~" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

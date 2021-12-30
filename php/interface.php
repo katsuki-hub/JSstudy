@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "オブジェクト指向~インターフェース~" ?>
+    <?php $headerTitle = "オブジェクト指向~インターフェース~" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "配列要素の削除・置換・連結・分割" ?>
+    <?php $headerTitle = "配列要素の削除・置換・連結・分割" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

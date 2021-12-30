@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "配列の値を効率よく取り出す" ?>
+    <?php $headerTitle = "配列の値を効率よく取り出す" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

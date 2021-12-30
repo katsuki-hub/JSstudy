@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "フォーム~ラジオ・チェック・プル・リスト" ?>
+    <?php $headerTitle = "フォーム~ラジオ・チェック・プル・リスト" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
   <!-- パンくずリスト -->

@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "配列をソート" ?>
+    <?php $headerTitle = "配列をソート" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

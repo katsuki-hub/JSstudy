@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "オブジェクト指向~クラスの継承~" ?>
+    <?php $headerTitle = "オブジェクト指向~クラスの継承~" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

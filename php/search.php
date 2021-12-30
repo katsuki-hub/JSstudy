@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "文字列の検索" ?>
+    <?php $headerTitle = "文字列の検索" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

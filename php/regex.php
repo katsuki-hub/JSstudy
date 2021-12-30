@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "正規表現の基本知識" ?>
+    <?php $headerTitle = "正規表現の基本知識" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

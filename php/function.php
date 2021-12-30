@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "関数の使い方" ?>
+    <?php $headerTitle = "関数の使い方" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 

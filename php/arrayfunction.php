@@ -12,7 +12,7 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <header>
-    <?php $hederTitle = "配列の各要素に関数適用" ?>
+    <?php $headerTitle = "配列の各要素に関数適用" ?>
     <?php require_once "../common/header.php"; ?>
   </header>
 
