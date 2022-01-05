@@ -166,6 +166,7 @@
           <li><a href="php/trait.php">OOP~トレイト~</a></li>
           <li><a href="php/interface.php">OOP~インターフェース~</a></li>
           <li><a href="php/abstract.php">OOP~抽象クラス~</a></li>
+          <li><a href="php/numerical.php">PHPの数値チェック</a></li>
           <li><a href="php/formInput.php">フォーム~入力処理~</a></li>
           <li><a href="php/formDetaCheck.php">フォーム~入力データのチェック~</a></li>
           <li><a href="php/hidden.php">フォーム~隠しフィールド~</a></li>
