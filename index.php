@@ -175,6 +175,7 @@
           <li><a href="php/radio.php">フォーム~様々なフォーム~</a></li>
           <li><a href="php/textarea.php">フォーム~テキストエリア~</a></li>
           <li><a href="php/day.php">フォーム~日付フィールド~</a></li>
+          <li><a href="php/sessionForm1.php">フォーム入力をセッション変数へ</a></li>
         </ul>
     </section>
     <br><br>

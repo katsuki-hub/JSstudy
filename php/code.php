@@ -912,6 +912,139 @@ if (count($error) &gt; 0) {
 ?&gt;
 </code></pre>';
 
+$seForm1 = '<pre><code class="prettyprint">&lt;form method=&quot;POST&quot; action=&quot;confirm.php&quot;&gt;
+&lt;li&gt;&lt;label&gt;　　　　名前：
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;ニックネーム可&quot; ;&gt;
+  &lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;好きな食べ物：
+    &lt;input type=&quot;text&quot; name=&quot;food&quot; ;&gt;
+  &lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;確認する&quot;&gt;&lt;/li&gt;
+&lt;/form&gt;</code></pre>';
 
+
+$confirm = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;);
+session_start();
+?&gt;
+
+&lt;?php
+if (!checkEn($_POST)) { //文字エンコードの検証
+  $encoding = mb_internal_encoding(); //PHPが使うエンコードを調べる
+  $err = &quot;Encoding Error! The espected encoding is&quot; . $encoding;
+  exit($err); //エラーメッセージを出してコードのキャンセルする
+}
+?&gt;
+
+&lt;?php
+//POSTされた値をセッション変数に受け渡す
+if (isset($_POST[&#039;name&#039;])) {
+  $_SESSION[&#039;name&#039;] = $_POST[&#039;name&#039;];
+}
+if (isset($_POST[&#039;food&#039;])) {
+  $_SESSION[&#039;food&#039;] = $_POST[&#039;food&#039;];
+}
+$error = [];
+if (empty($_SESSION[&#039;name&#039;])) { //未設定の時エラー
+  $error[] = &quot;名前を入力してください&quot;;
+} else {
+  $name = trim($_SESSION[&#039;name&#039;]); //名前を取り出す
+}
+if (empty($_SESSION[&#039;food&#039;])) { //未設定の時エラー
+  $error[] = &quot;好きな食べ物を入力してください&quot;;
+} else {
+  $food = trim($_SESSION[&#039;food&#039;]); //名前を取り出す
+}
+?&gt;
+
+&lt;!doctype html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+
+&lt;head&gt;&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;header&gt;&lt;/header&gt;
+  &lt;div class=&quot;main-wrapper&quot;&gt;
+    &lt;h2&gt;セッション確認ページ&lt;/h2&gt;
+    &lt;form&gt;
+      &lt;?php if (count($error) &gt; 0) { ?&gt;
+        &lt;!-- エラーがあったとき --&gt;
+        &lt;span class=&quot;error&quot;&gt;&lt;?php echo implode(&#039;&lt;br&gt;&#039;, $error); ?&gt;&lt;/span&gt;&lt;br&gt;
+        &lt;span&gt;
+          &lt;input type=&quot;button&quot; value=&quot;戻る&quot; onclick=&quot;location.href=&#039;sessionForm1.php&#039;&quot;&gt;
+        &lt;/span&gt;
+      &lt;?php } else { ?&gt;
+        &lt;!-- エラーがなかったとき --&gt;
+        &lt;span&gt;
+          　　　　名前：&lt;?php echo es($name); ?&gt;&lt;br&gt;
+          好きな食べ物：&lt;?php echo es($food); ?&gt;&lt;br&gt;
+          &lt;input type=&quot;button&quot; value=&quot;戻る&quot; onclick=&quot;location.href=&#039;sessionForm1.php&#039;&quot;&gt;
+          &lt;input type=&quot;button&quot; value=&quot;送信する&quot; onclick=&quot;location.href=&#039;thanks.php&#039;&quot;&gt;
+        &lt;/span&gt;
+      &lt;?php } ?&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;&lt;!-- /.main-wrapper --&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>';
+
+$thanks = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;);
+session_start();
+$error = [];
+//セッションのチェック
+if (!empty($_SESSION[&#039;name&#039;]) &amp;&amp; !empty($_SESSION[&#039;food&#039;])) {
+  $name = $_SESSION[&#039;name&#039;];
+  $food = $_SESSION[&#039;food&#039;];
+} else {
+  $error[] = &quot;セッションエラーです&quot;;
+}
+
+killSession();
+?&gt;
+
+&lt;?php
+function killSession()
+{
+  $_SESSION = []; //セッション変数の値を空にする
+  //セッションクッキーを破棄
+  if (isset($_COOKIE[session_name()])) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), &quot;&quot;, time() - 36000, $params[&#039;path&#039;]);
+  }
+  session_destroy(); //セッションを破棄
+}
+?&gt;
+
+&lt;!doctype html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+
+&lt;head&gt;&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;header&gt;&lt;/header&gt;
+  &lt;div class=&quot;main-wrapper&quot;&gt;
+    &lt;h2&gt;セッション完了ページ&lt;/h2&gt;
+    &lt;?php if (count($error) &gt; 0) { ?&gt;
+      &lt;!-- エラーがあったとき --&gt;
+      &lt;span class=&quot;error&quot;&gt;&lt;?php echo implode(&#039;&lt;br&gt;&#039;, $error); ?&gt;&lt;/span&gt;&lt;br&gt;
+      &lt;a href=&quot;sessionForm1.php&quot;&gt;最初のページに戻る&lt;/a&gt;
+    &lt;?php } else { ?&gt;
+      &lt;!-- エラーがなかったとき --&gt;
+      &lt;span&gt;
+        次のように受付しました。ありがとうございました。
+        &lt;HR&gt;
+        &lt;span&gt;
+          　　　　名前：&lt;?php echo es($name); ?&gt;&lt;br&gt;
+          好きな食べ物：&lt;?php echo es($food); ?&gt;&lt;br&gt;
+          &lt;a href=&quot;sessionForm1.php&quot;&gt;最初のページに戻る&lt;/a&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;?php } ?&gt;
+
+  &lt;/div&gt;&lt;!-- /.main-wrapper --&gt;
+  &lt;footer&gt;&lt;/footer&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>';
 ?>
-

@@ -187,7 +187,7 @@ section h2 {
 	font-family: meiryo;
 	text-shadow: 2px 2px 2px #1ebf1ec4;
 	text-align: center;
-	margin: 80px 0 40px 0;
+	margin: 30px 0 40px 0;
 }
 
 h3 {
@@ -384,11 +384,15 @@ a:hover {
 	margin: 120px;
 }
 
+.br50 {
+	height: 50px;
+}
+
 b {
 	color: #1a0252;
 }
 
-.nolist {
+section li {
 	list-style-type: none;
 }
 
