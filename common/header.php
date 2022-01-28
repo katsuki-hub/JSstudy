@@ -34,6 +34,9 @@
         <li><a href="mile.php">1つのファイルでフォーム処理</a></li>
         <li><a href="radio.php">フォーム~様々なフォーム~</a></li>
         <li><a href="textarea.php">フォーム~テキストエリア~</a></li>
+        <li><a href="day.php">フォーム~日付フィールド~</a></li>
+        <li><a href="sessionForm1.php">フォーム入力をセッション変数へ</a></li>
+        <li><a href="visitedLog.php">訪問回数と日時を配列でクッキーに保存</a></li>
       </ul>
 
       <div class="copyright">

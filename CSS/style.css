@@ -18,7 +18,7 @@ body {
 }
 
 html, body {
-	height: 100%;
+	height: 100vh;
 }
 
 header {
@@ -69,7 +69,7 @@ header {
 }
 
 .phpnav {
-	width: 380%;
+	width: 680%;
 }
 
 .javanav {
@@ -96,6 +96,7 @@ header {
 	max-width: 960px;
 	margin: 0 auto;
 	list-style: none;
+	height: 60px;
 }
 
 #bread ol li {
@@ -137,7 +138,7 @@ header {
 	background-color: rgba(255, 255, 255, 0.9);
 	border-left: #dadada 1px solid;
 	border-right: #dadada 1px solid;
-	min-height: 80%;
+	min-height: 100vh;
 	min-height: calc(100% - 200px);
 }
 
@@ -187,7 +188,7 @@ section h2 {
 	font-family: meiryo;
 	text-shadow: 2px 2px 2px #1ebf1ec4;
 	text-align: center;
-	margin: 30px 0 40px 0;
+	margin: 16px 0 40px 0;
 }
 
 h3 {

@@ -1047,4 +1047,58 @@ function killSession()
 &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>';
+
+$visit = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;);
+//クッキーの値を取り出す
+date_default_timezone_set(&#039;Asia/Tokyo&#039;);
+if (isset($_COOKIE[&quot;visitedLog&quot;])) {
+  $logdata = $_COOKIE[&quot;visitedLog&quot;];
+  $counter = $logdata[&quot;counter&quot;];
+  $time = $logdata[&quot;time&quot;];
+  $lasttime = date(&quot;Y年n月j日Ag時i分&quot;, $time);
+} else {
+  $counter = 0;
+  $lasttime = &quot;直近で初めての訪問&quot;;
+}
+//訪問ログをクッキーに保存(30日有効)
+$result1 = setcookie(&#039;visitedLog[counter]&#039;, ++$counter, time() + 60 * 60 * 24 * 30);
+$result2 = setcookie(&#039;visitedLog[time]&#039;, time(), time() + 60 * 60 * 24 * 30);
+$result = ($result1 &amp;&amp; $result2);
+?&gt;
+
+&lt;!doctype html&gt;
+&lt;html&gt;
+・・・・・・・↓
+・・・・・・・↓
+&lt;?php
+if ($result) {
+  echo &quot;ページ訪問は&quot;, es($counter), &quot;回目です&quot;, &quot;&lt;br&gt;&quot;;
+  echo &quot;前回の訪問：&quot;, es($lasttime), &quot;&lt;HR&gt;&quot;;
+  echo &#039;(&lt;a href=&quot;resetLog.php&quot;&gt;リセットする&lt;/a&gt;)&#039;;
+} else {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;クッキーが利用できませんでした&lt;/span&gt;&#039;;
+}
+?&gt;</code></pre>';
+
+$reset = '<pre><code class="prettyprint">&lt;?php
+$result1 = setcookie(&#039;visitedLog[counter]&#039;, &quot;&quot;, time()-3600);//有効期限を過去へ
+$result2 = setcookie(&#039;visitedLog[time]&#039;, &quot;&quot;, time()-3600);
+$result = ($result1 &amp;&amp; $result2);
+?&gt;
+
+&lt;!doctype html&gt;
+&lt;html&gt;
+・・・・・・・↓
+・・・・・・・↓
+&lt;?php
+  if($result){
+    echo &quot;訪問ログのクッキーを破棄しました&quot;,&quot;&lt;hr&gt;&quot;;
+    echo &#039;&lt;a href=&quot;visitedLog.php&quot;&gt;訪問カウンターページに戻る&lt;/a&gt;&#039;;
+  } else {
+    echo &#039;&lt;span class=&quot;error&quot;&gt;クッキーの破棄でエラー&lt;/span&gt;&#039;;
+  }
+?&gt;
+</code></pre>';
 ?>
+

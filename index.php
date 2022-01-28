@@ -176,6 +176,7 @@
           <li><a href="php/textarea.php">フォーム~テキストエリア~</a></li>
           <li><a href="php/day.php">フォーム~日付フィールド~</a></li>
           <li><a href="php/sessionForm1.php">フォーム入力をセッション変数へ</a></li>
+          <li><a href="php/visitedLog.php">訪問回数と日時を配列でクッキーに保存</a></li>
         </ul>
     </section>
     <br><br>
