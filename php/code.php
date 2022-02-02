@@ -1100,5 +1100,150 @@ $result = ($result1 &amp;&amp; $result2);
   }
 ?&gt;
 </code></pre>';
+
+$write = '<pre><code class="prettyprint">&lt;?php
+date_default_timezone_set(&#039;Asia/Tokyo&#039;);
+$date = date(&quot;Y/n/j G:i:s&quot;, time());
+$writedata = &lt;&lt;&lt; &quot;EOD&quot;
+ヒアドキュメント
+途中で改行しても
+変数を使った文章の作成が可能です！！
+更新日：$date
+EOD;
+?&gt;
+
+&lt;!doctype html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+
+&lt;head&gt;&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;header&gt;&lt;/header&gt;
+  &lt;div class=&quot;main-wrapper&quot;&gt;
+    &lt;?php
+    $filename = &quot;../data/mytext.txt&quot;; //保存するファイル名
+    try { //ファイルオブジェクトの作成
+      $fileobj = new SplFileObject($filename, &quot;wb&quot;);
+    } catch (Exception $e) {
+      echo &#039;&lt;span class=&quot;error&quot;&gt;エラーがありました&lt;/span&gt;&#039;;
+      echo $e-&gt;getMessage();
+      exit();
+    }
+    //ファイルに書き込む
+    $written = $fileobj-&gt;fwrite($writedata);
+    if ($written === false) {
+      echo &#039;&lt;span class=&quot;error&quot;&gt;ファイルに保存できませんでした&lt;/span&gt;&#039;;
+    } else {
+      echo &quot;SplFileobjectのfwriteを使って、&lt;br&gt;{$filename}に{$written}バイトを書き出しました。&quot;, &quot;&lt;HR&gt;&quot;;
+      echo &#039;&lt;a href=&quot;readFile.php&quot;&gt;ファイルを読む&lt;/a&gt;&#039;;
+    }
+    ?&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>';
+
+$read = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+?&gt;
+
+&lt;!doctype html&gt;
+・・・・・・・↓
+・・・・・・・↓
+&lt;?php
+$filename = &quot;../data/mytext.txt&quot;;
+try {
+  $fileobj = new SplFileObject($filename, &quot;rb&quot;);
+} catch (Exception $e) {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;エラーがありました&lt;/span&gt;&#039;;
+  echo $e-&gt;getMessage();
+  exit();
+}
+//ストリングを読み込む
+$readdata = $fileobj-&gt;fread($fileobj-&gt;getSize());
+if (!($readdata === FALSE)) {
+  $readdata = es($readdata);
+  //改行コードの前に&lt;br&gt;を挿入※HTMLエスケープ後に行う
+  $readdata_br = nl2br($readdata, false);
+  echo &quot;{$filename}を読み込みました&quot;, &quot;&lt;br&gt;&quot;;
+  echo $readdata_br, &quot;&lt;HR&gt;&quot;;
+  echo &#039;&lt;a href=&quot;writeFile.php&quot;&gt;ファイルに書き込む&lt;/a&gt;&#039;;
+} else {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;ファイルを読み込めませんでした&lt;/span&gt;&#039;;
+}
+?&gt;
+</code></pre>';
+
+$memoForm = '<pre><code class="prettyprint">&lt;form method=&quot;POST&quot; action=&quot;writeMemo.php&quot;&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;span&gt;memo：&lt;/span&gt;
+    &lt;textarea name=&quot;memo&quot; cols=&quot;25&quot; rows=&quot;4&quot; maxlength=&quot;100&quot; placeholder=&quot;メモを書く&quot;&gt;&lt;/textarea&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/form&gt;
+</code></pre>';
+
+$memoWrite = '<pre><code class="prettyprint">&lt;?php
+if (empty($_POST[&quot;memo&quot;])) {
+  //POSTされた値がないとき入力ページへリダイレクト
+  $url = &quot;https://&quot; . $_SERVER[&#039;HTTP_HOST&#039;] . dirname($_SERVER[&#039;PHP_SELF&#039;]);
+  header(&quot;Location:&quot; . $url . &quot;/inputMemo.php&quot;);
+  exit();
+}
+
+date_default_timezone_set(&#039;Asia/Tokyo&#039;);
+$memo = $_POST[&quot;memo&quot;];
+$date = date(&quot;Y/n/j G:i:s&quot;, time());
+$writedata = &quot;---\n&quot; . $date . &quot;\n&quot; . $memo . &quot;\n&quot;;
+$filename = &quot;../data/memo.txt&quot;;
+try {
+  $fileobj = new SplFileObject($filename, &quot;a+b&quot;);
+} catch (Exception $e) {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;エラーがありました&lt;/span&gt;&#039;;
+  echo $e-&gt;getMessage();
+  exit();
+}
+
+$fileobj-&gt;flock(LOCK_EX); // 排他ロック
+$result = $fileobj-&gt;fwrite($writedata); //メモを追記
+$fileobj-&gt;flock(LOCK_UN); //アンロック
+
+//メモを読むページへリダイレクト
+$url = &quot;https://&quot; . $_SERVER[&#039;HTTP_HOST&#039;] . dirname($_SERVER[&#039;PHP_SELF&#039;]);
+header(&quot;Location:&quot; . $url . &quot;/readMemo.php&quot;);
+exit();
+</code></pre>';
+
+$memoRead = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+?&gt;
+
+&lt;!doctype html&gt;
+....↓
+....↓
+&lt;?php
+$filename = &quot;../data/memo.txt&quot;;
+try {
+  $fileobj = new SplFileObject($filename, &quot;rb&quot;);
+} catch (Exception $e) {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;エラーがありました&lt;/span&gt;&#039;;
+  echo $e-&gt;getMessage();
+  exit();
+}
+
+$fileobj-&gt;flock(LOCK_SH);
+$readdata = $fileobj-&gt;fread($fileobj-&gt;getSize());
+$fileobj-&gt;flock(LOCK_UN);
+
+if (!($readdata === FALSE)) {
+  $readdata = es($readdata);
+  $readdata_br = nl2br($readdata, false);
+  echo &quot;{$filename}を読み込みました&quot;, &quot;&lt;br&gt;&quot;;
+  echo $readdata_br, &quot;&lt;HR&gt;&quot;;
+  echo &#039;&lt;a href=&quot;inputMemo.php&quot;&gt;メモ入力ページへ&lt;/a&gt;&#039;;
+} else {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;ファイルを読み込めませんでした&lt;/span&gt;&#039;;
+}
+?&gt;
+</code></pre>';
 ?>
 

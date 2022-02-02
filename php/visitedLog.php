@@ -65,7 +65,6 @@ $result = ($result1 && $result2);
         <h3>リセットページ</h3>
         <input type="button" value="reset.php">
         <?php
-        require_once("code.php");
         echo $reset;
         ?><br>
 
