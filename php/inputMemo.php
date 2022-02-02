@@ -76,9 +76,11 @@
         ?>
 
         <h3>書き込みページのソースコード</h3>
+        <button type="button">writeMemo.php</button>
         <?php echo $memoWrite; ?>
 
         <h3>読み込みページのソースコード</h3>
+        <button type="button">readMemo.php</button>
         <?php echo $memoRead; ?>
         <br>
 

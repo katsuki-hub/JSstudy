@@ -88,14 +88,13 @@
         動作確認用に作成した学習帳ページ
       </div>
     </div>
-    <div class="blank"></div>
-    <h2>JavaScriptとは？</h2>
-    <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
-      JavaScriptはWEBページにて複雑な機能をさせることが可能なプログラミング言語です。<br><br>HTMLとCSSで作られたWEBサイトでは、静的な表現しかできませんが、JavaScriptによって動的にコンテンツを表現させることが出来ます。<br>ユーザーのアクションに応じたコンテンツの表示だったり、地図やグラフィックアニメーションなども表示可能です。
-    </div>
+
     <div class="blank"></div>
     <section id="javascript">
       <h2 class="heading" data-en="JavaScript">JavaScript学習帳</h2>
+      <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+        JavaScriptはWEBページにて複雑な機能をさせることが可能なプログラミング言語です。<br>HTMLとCSSで作られたWEBサイトでは、静的な表現しかできませんが、JavaScriptによって動的にコンテンツを表現させることが出来ます。<br>ユーザーのアクションに応じたコンテンツの表示だったり、地図やグラフィックアニメーションなども表示可能です。
+      </div>
       <div id="box">
         <ul>
           <li><a href="javascript/if.html">if文～条件分岐で動作を変える～</a></li>
@@ -121,13 +120,12 @@
       </div>
     </section>
     <div class="blank"></div>
-    <h2>jQueryとは？</h2>
-    <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
-      jQueryとはJavaScriptのオープンソースのライブラリです。<br><br>HTMLから動かしたい要素を取得して、タグ、属性、コンテンツ、やCSSを操作し、ある程度まとまったプログラムを作ってくれているファイルです。<br>少ない記述で様々な表現を実行し、webページのUIの作成やAjaxを得意としています。
-    </div>
-    <div class="blank"></div>
+
     <section id="jquery">
       <h2 class="heading" data-en="jQuery">jQuery学習帳</h2>
+      <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+        jQueryとはJavaScriptのオープンソースのライブラリです。<br>HTMLから動かしたい要素を取得して、タグ、属性、コンテンツ、やCSSを操作し、ある程度まとまったプログラムを作ってくれているファイルです。<br>少ない記述で様々な表現を実行し、webページのUIの作成やAjaxを得意としています。
+      </div>
       <div id="box">
         <ul>
           <li><a href="jquery/jquerymethod.html">よく使うjQueryメソッド</a></li>
@@ -138,13 +136,12 @@
         </ul>
     </section>
     <div class="blank"></div>
-    <h2>PHPとは？</h2>
-    <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
-      PHPはサーバーで実行されるサーバーサイドスクリプトです。<br>MySQLなどのデータベースとの連携により、データの追加・値を検索して表示・値の更新といった処理が出来ます。<br>具体的にブログ、SNS、ショッピングサイト、スケジュール管理、会員管理といったデータベースを組み合わせたサイト構築で利用されています。
-    </div>
-    <div class="blank"></div>
+
     <section id="php">
       <h2 class="heading" data-en="PHP">PHP学習帳</h2>
+      <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+        PHPはサーバーで実行されるサーバーサイドスクリプトです。<br>MySQLなどのデータベースとの連携により、データの追加・値を検索して表示・値の更新といった処理が出来ます。<br>具体的にブログ、SNS、ショッピングサイト、スケジュール管理、会員管理といったデータベースを組み合わせたサイト構築で利用されています。
+      </div>
       <div id="box">
         <ul>
           <li><a href="php/syntax.php">制御構造~条件分岐や繰り返し処理~</a></li>
