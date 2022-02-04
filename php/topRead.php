@@ -47,8 +47,10 @@ require_once("es.php");
     }
     $fileObj->flock(LOCK_UN);
 
-    echo "<HR>",'<a href="topMemo.php">メモ入力ページへ</a>';
+    echo "<HR>", '<a href="topMemo.php">メモ入力ページへ</a>';
     ?>
+    <br>
+    <input type="button" id="reload" value="リロード">
   </div><!-- /.main-wrapper -->
   <footer>
     <?php require_once "../common/footer.php"; ?>
@@ -56,6 +58,12 @@ require_once("es.php");
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
+  <script>
+    var reload = document.getElementById('reload');
+    reload.addEventListener('click', function() {
+      window.location.reload(true);
+    });
+  </script>
 </body>
 
 </html>

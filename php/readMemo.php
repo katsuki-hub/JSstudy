@@ -52,6 +52,8 @@ require_once("es.php"); //フォーム~入力データのチェック~で参照�
       echo '<span class="error">ファイルを読み込めませんでした</span>';
     }
     ?>
+    <br>
+    <input type="button" id="reload" value="リロード">
   </div><!-- /.main-wrapper -->
   <footer>
     <?php require_once "../common/footer.php"; ?>
@@ -59,6 +61,12 @@ require_once("es.php"); //フォーム~入力データのチェック~で参照�
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
+  <script>
+    var reload = document.getElementById('reload');
+    reload.addEventListener('click', function() {
+      window.location.reload(true);
+    });
+  </script>
 </body>
 
 </html>
