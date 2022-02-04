@@ -82,9 +82,9 @@
 
   <div class="home-wrapper">
     <h2 class="heading" data-en="WEB">WEBプログラミング入門<br>☆学習技術ブログ☆</h2>
-    <div style="font-size: 14px; padding: 15px; margin: 8px; background-color: rgba(197, 252, 176, 0.4);">
+    <div style="font-size: 16px; padding: 15px; margin: 8px; background-color: rgba(20, 10, 50, 0.75); color:#fff; text-shadow: 2px 2px 2px rgb(40, 140, 130); text-align: center; line-height: 1.3em;">
       <p>Webサイトを動かすプログラミングの基本構文をWEBノート化！！<br><br>どんなソースコードで作成されているのか？<br>ソースコードと概要を分かりやすく説明しています。</p><br>
-      <div style="padding: 10px; margin-bottom: 10px; border: 5px double #333333; font-size: 14px;">
+      <div style="color:rgb(242, 243, 172); padding: 10px; margin-bottom: 10px; border: 5px double rgb(242, 243, 172); font-weight: bold;">
         動作確認用に作成した学習帳ページ
       </div>
     </div>
@@ -176,6 +176,7 @@
           <li><a href="php/visitedLog.php">訪問回数と日時を配列でクッキーに保存</a></li>
           <li><a href="php/writeFile.php">SplFileObjectクラス</a></li>
           <li><a href="php/inputMemo.php">フォームでテキストファイルに追記</a></li>
+          <li><a href="php/topMemo.php">新しいメモをトップに挿入保存</a></li>
         </ul>
     </section>
     <br><br>

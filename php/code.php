@@ -1245,5 +1245,100 @@ if (!($readdata === FALSE)) {
 }
 ?&gt;
 </code></pre>';
+
+$top = '<pre><code class="prettyprint">&lt;form method=&quot;POST&quot; action=&quot;topWrite.php&quot;&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;label&gt;memo:&lt;input name=&quot;memo&quot; class=&quot;memofield&quot; placeholder=&quot;メモを書く&quot;&gt;&lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;送信する&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/form&gt;
+</code></pre>';
+
+$topW = '<pre><code class="prettyprint">&lt;?php
+if (empty($_POST[&quot;memo&quot;])) {
+  //POSTされた値がないとき入力ページへリダイレクト
+  $url = &quot;https://&quot; . $_SERVER[&#039;HTTP_HOST&#039;] . dirname($_SERVER[&#039;PHP_SELF&#039;]);
+  header(&quot;HTTP/1.1 303 See Other&quot;);
+  header(&quot;Location:&quot; . $url . &quot;/topMemo.php&quot;);
+  exit();
+}
+
+date_default_timezone_set(&#039;Asia/Tokyo&#039;);
+$memo = $_POST[&quot;memo&quot;];
+$date = date(&quot;Y/n/j G:i:s&quot;, time());
+$newdata = $date . &quot;　　&quot; . $memo;
+try {
+  $workingfileObj = new SplFileObject(&quot;../data/working.tmp&quot;, &quot;wb&quot;);
+  //メモをワークファイルへ
+  $workingfileObj-&gt;flock(LOCK_EX);
+  $workingfileObj-&gt;fwrite($newdata);
+  $workingfileObj-&gt;flock(LOCK_UN);
+} catch (Exception $e) {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;エラーがありました&lt;/span&gt;&lt;br&gt;&#039;;
+  echo $e-&gt;getMessage();
+  exit();
+}
+
+//元ファイル
+$filename = &quot;../data/topMemo.txt&quot;;
+if (file_exists($filename)) { //元ファイルがあるか確認
+  $fileObj = new SplFileObject($filename, &quot;rb&quot;);
+  //元データ読み込み
+  $fileObj-&gt;flock(LOCK_SH);
+  $olddata = $fileObj-&gt;fread($fileObj-&gt;getSize());
+  $fileObj-&gt;flock(LOCK_UN);
+
+  //古いデータを作業ファイルに追記
+  $olddata = &quot;\n&quot; . $olddata;
+  $workingfileObj-&gt;flock(LOCK_EX);
+  $workingfileObj-&gt;fwrite($olddata);
+  $workingfileObj-&gt;fwrite(LOCK_UN);
+
+  $fileObj = NUll; //元ファイル閉じる
+  unlink($filename); //元ファイル削除
+}
+
+$workingfileObj = NULL; //作業ファイルクローズ
+rename(&quot;../data/working.tmp&quot;, $filename); //作業ファイルをリネーム
+
+//メモを読むページへリダイレクト
+$url = &quot;https://&quot; . $_SERVER[&#039;HTTP_HOST&#039;] . dirname($_SERVER[&#039;PHP_SELF&#039;]);
+header(&quot;HTTP/1.1 303 See Other&quot;);
+header(&quot;Location:&quot; . $url . &quot;/topRead.php&quot;);
+exit();
+
+</code></pre>';
+
+$topR = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;es.php&quot;); //フォーム~入力データのチェック~で参照してね
+?&gt;
+
+&lt;!doctype html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+....↓
+....↓
+
+&lt;?php
+$filename = &quot;../data/topMemo.txt&quot;;
+try {
+  $fileObj = new SplFileObject($filename, &quot;rb&quot;);
+} catch (Exception $e) {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;エラーがありました&lt;/span&gt;&#039;;
+  echo $e-&gt;getMessage();
+  exit();
+}
+
+$fileObj-&gt;flock(LOCK_SH);
+//先頭から10行取り出し
+$data = new LimitIterator($fileObj, 0, 10);
+foreach ($data as $key =&gt; $value) {
+  //01~10,ストリング,改行
+  echo sprintf(&quot;%02d: %s\n&quot;, $key + 1, es($value)), &quot;&lt;br&gt;&quot;;
+}
+$fileObj-&gt;flock(LOCK_UN);
+
+echo &quot;&lt;HR&gt;&quot;, &#039;&lt;a href=&quot;topMemo.php&quot;&gt;メモ入力ページへ&lt;/a&gt;&#039;;
+?&gt;
+</code></pre>';
 ?>
 

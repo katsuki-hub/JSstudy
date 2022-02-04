@@ -62,6 +62,10 @@ header {
 	-webkit-overflow-scrolling: touch;
 }
 
+#boxmenu li a {
+	text-transform: none;
+}
+
 #boxmenu ul {
 	list-style-type: none;
 	display: flex;
@@ -455,12 +459,12 @@ li {
 
 	#boxmenu li a {
 		display: block;
-		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		font-weight: bold;
 		margin: 6px 0;
 		color: rgb(200, 209, 159);
 		text-decoration: none;
+		text-transform: none;
 	}
 
 	#boxmenu li a:hover {
