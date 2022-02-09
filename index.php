@@ -71,6 +71,7 @@
           <li><a href="#javascript">JavaScript</a></li>
           <li><a href="#jquery">jQuery</a></li>
           <li><a href="#php">PHP</a></li>
+          <li><a href="#mysql">MySQL</a></li>
         </ul>
 
         <div class="copyright">
@@ -189,6 +190,7 @@
       <div id="box">
         <ul>
           <li><a href="mysql/pdo.php">データベースに接続する</a></li>
+          <li><a href="mysql/selectAnd.php">レコードの抽出・更新・挿入・削除</a></li>
         </ul>
       </div>
     </section>

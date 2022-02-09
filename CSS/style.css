@@ -618,6 +618,10 @@ li {
 	#boxmenu.panelactive {
 		height: 92%;
 	}
+
+	.frame1,.frame2 {
+		font-size: 13px;
+	}
 }
 
 /*=====================
