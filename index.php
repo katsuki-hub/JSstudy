@@ -179,6 +179,19 @@
           <li><a href="php/topMemo.php">新しいメモをトップに挿入保存</a></li>
         </ul>
     </section>
+    <div class="blank"></div>
+
+    <section id="mysql">
+      <h2 class="heading" data-en="MySQL">MySQL学習帳</h2>
+      <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+        PHPを使ってMySQLデータベースからレコードの抽出・更新・挿入・削除が行えます。<br>フォーム入力でMySQLを操作し、トランザクション処理を使ってリレーショナルデータを操作していきます。
+      </div>
+      <div id="box">
+        <ul>
+          <li><a href="mysql/pdo.php">データベースに接続する</a></li>
+        </ul>
+      </div>
+    </section>
     <br><br>
   </div><!-- /.main-wrapper -->
   <footer>

@@ -72,8 +72,16 @@ header {
 	margin: 10px auto;
 }
 
+.jquerynav {
+	width: 130%;
+}
+
 .phpnav {
 	width: 680%;
+}
+
+.mysqlnav {
+	width: 150%;
 }
 
 .javanav {
