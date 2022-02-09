@@ -26,10 +26,37 @@
   <div class="main-wrapper">
     <article>
       <section>
-        <h2></h2>
+        <h2>PDOでデータベースに接続する</h2>
+        <?php
+        $user = 'katsuki';
+        $passwoed = 'katsu4426';
+        $dbName = 'kyotei';
+        $host = 'localhost:3306';
+        $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
+
+        //MySQLデータベースに接続する
+        try {
+          $pdo = new PDO($dsn, $user, $passwoed);
+          //プリペアドステートメントのエミュレーションを無効にする
+          $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+          //例外がスローされる設定にする
+          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          echo "データベース{$dbName}に接続しました。";
+          //接続解除
+          $pdo = NULL;
+        } catch (Exception $e) { //接続失敗で例外処理実行
+          echo '<span class="error">エラーがありました</span><br>';
+          echo $e->getMessage();
+          exit();
+        }
+        ?>
+        <div class="br50"></div>
         
-
-
+        <h3>接続のソースコード</h3>
+        <?php
+        require_once("sqlCode.php");
+        echo $pdo;
+        ?>
 
       </section>
     </article>
