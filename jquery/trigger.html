@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>jQueryで動くきっかけ</title>
+  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。”>
+  <meta name="keywords" content="jQuery,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
+  <meta property="og:title" content="プログラミング学習帳～簡単解説！JavaScript初級コード～">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="JavaScript超入門編の学習技術ブログです。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
+  <meta property="og:url" content="https://katsu-study.work/">
+  <meta property="og:site_name" content="JavaScript学習帳">
+  <meta property="og:image" content="https://katsu-study.work/images/js.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="header-contents">
+      <h1>動かすきっかけの記述</h1>
+      <h2>jQuery</h2>
+    </div><!-- /.header-contents -->
+    <div class="btn" id="open_btn">
+      <label class="menu-btn"><span></span></label>
+    </div>
+    
+    <div id="boxmenu">
+      <nav class="phpnav">
+        <ul class="menu_1">
+          <li><a href="../index.php">HOME</a></li>
+          <li><a href="jquerymethod.html">よく使うjQueryメソッド</a></li>
+          <li><a href="trigger.html">jQueryが動くきっかけの記述</a></li>
+          <li><a href="menu.html">目次やサブメニューを開閉させる</a></li>
+          <li><a href="box.html">ボックス開閉アニメーション</a></li>
+          <li><a href="ajax.html">ajaxとJson</a></li>
+        </ul>
+
+        <div class="copyright">
+          <small>&copy; 2021 かつまる学習帳</small>
+        </div>
+      </nav>
+    </div><!-- /boxmenu -->
+  </header>
+
+  <!-- パンくずリスト -->
+  <div id="bread">
+    <ol>
+      <li><a href="../index.php">HOME</a></li>
+      <li><a href="trigger.html">jQueryきっかけ</a></li>
+    </ol>
+  </div>
+  <div class="main-wrapper">
+    <article>
+      <section>
+        <h2>動くきっかけの指定記述</h2>
+        <div class="frame3">
+          サイト内でどの操作をしたときに、jQueryを発火させるのか！代表的な記述の仕方を学んでいく。
+        </div>
+        <h3>画面の読み込み</h3>
+        <div class="frame1">
+          $(function() {<br>
+          　//画面の読み込み時に動かしたいソースコードを記述<br>
+          });
+        </div><br>
+
+        <h3>画面が読み込まれた後</h3>
+        <div class="frame1">
+          $(window).on('load',function() {<br>
+          　//画面が読み込まれた後に動かしたいソースコードを記述<br>
+          });
+        </div><br>
+
+        <h3>画面のスクロール</h3>
+        <div class="frame1">
+          $(window).on('scroll', function () {<br>
+          　//画面がスクロールされたら動かしたいソースコードを記述<br>
+          });
+        </div><br>
+
+        <h3>画面のリサイズ</h3>
+        <div class="frame1">
+          $(window).on('resize', function () {<br>
+          　//画面がリサイズされたら動かしたいソースコードを記述する<br>
+          });
+        </div><br>
+
+        <h3>要素やクラス・ID名をクリック</h3>
+        <div class="frame1">
+          $('●●').on('click', function() {<br>
+          　//クリックしたら動かしたいソースコードを記述する<br>
+          })
+        </div><br>
+
+        <h3>要素やクラス・ID名にマウスが乗ったり外れたりした時</h3>
+        <div class="frame1">
+          $('●●').on('mouseenter', function () {<br>
+          　//マウスが乗ったら動かしたいソースコードを記述 <br>
+          })<br><br>
+
+          $('●●').on('mouseleave', function () {<br>
+          　//マウスが外れたら動かしたいソースコードを記述<br>
+          })
+        </div><br>
+
+        <h3>要素やクラス・ID名がタッチされたり外れたりした時</h3>
+        <div class="frame1">
+          $('●●').on('touchstart', function () {<br>
+          　//タッチされた時に動かしたいソースコードを記述する<br>
+          });<br><br>
+          $('●●').on('touchend', function () {<br>
+          　//タッチして指が離れた時に動かしたいソースコードを記述する<br>
+          });
+        </div><br>
+
+        <h3>マウスが移動</h3>
+        <div class="frame1">
+          $(window).on('mousemove', function () {<br>
+          　//マウスが移動したら動かしたいソースコードを記述する<br>
+          });
+        </div><br>
+
+        <h3>要素やクラス・ID名のCSSアニメーションが終わった後</h3>
+        <div class="frame1">
+          $('●●').on('animationend', function () {<br>
+          　//CSSアニメーションが終わった後に動かしたいソースコードを記述する<br>
+          })
+        </div><br>
+
+        <h3>〇秒遅れて動く</h3>
+        <div class="frame1">
+          setTimeout(function () {<br>
+          　//時間を遅らせて動かしたいソースコードを記述する<br>
+          }, 1000);//この場合1秒後
+        </div><br>
+
+        <h2>WordPressのjQueryを利用して自作のJSを読み込むときの書き方</h2>
+        <div class="frame3">
+          <div class="frame2">
+            jQuery(function($){<br>
+            　// この中に$マークからはじまる記述<br>
+            });
+          </div>
+          自作のJavaScriptの中に$マークからはじまる記述があると動かない場合があります。その時はソースコード全体を、上記のコードでくくると解決する
+        </div><br>
+      </section>
+    </article>
+  </div><!-- /.main-wrapper -->
+  <footer>JavaScript Samples</footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <script src="../scripts/move.js"></script>
+</body>
+
+</html>

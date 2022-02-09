@@ -15,3 +15,38 @@ $('#boxmenu a').click(function () {
   $('body,html').animate({ scrollTop: pos }, 1000);//※数値が大きいほどゆっくりスクロール
   return false;
 });
+
+/*=====================
+TOP PAGEへ
+=====================*/
+function PageTopAnime() {
+  var scroll = $(window).scrollTop();
+  if (scroll >= 500) {
+    //上から200pxスクロールしたら
+    $("#page-top").removeClass("DownMove");
+    $("#page-top").addClass("UpMove");
+  } else {
+    if ($("#page-top").hasClass("UpMove")) {
+      $("#page-top").removeClass("UpMove");
+      $("#page-top").addClass("DownMove");
+    }
+  }
+}
+
+$(window).scroll(function () {
+  PageTopAnime();
+});
+
+$(window).on("load", function () {
+  PageTopAnime();
+});
+
+// #page-topをクリックした際の設定
+$("#page-top a").click(function () {
+  $("body,html").animate({
+    scrollTop: 0,
+  },
+    1000
+  ); //ページトップスクロールの速さ。
+  return false; //リンク自体の無効化
+});

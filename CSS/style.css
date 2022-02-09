@@ -18,7 +18,7 @@ body {
 }
 
 html, body {
-	height: 100%;
+	height: 100vh;
 }
 
 header {
@@ -46,7 +46,7 @@ header {
 
 .header-contents h1 {
 	padding: 20px 0 10px 100px;
-	font-size: 28px;
+	font-size: 22px;
 	text-shadow: #000 2px 0, #000 -2px 0, #000 0 -2px, #000 0 2px, #000 2px 2px, #000 -2px 2px, #000 2px -2px, #000 -2px -2px, #000 1px 2px, #000 -1px 2px, #000 1px -2px, #000 -1px -2px, #000 2px 1px, #000 -2px 1px, #000 2px -1px, #000 -2px -1px, 4px 4px 0 #000, 0 4px 0 #000;
 }
 
@@ -57,15 +57,34 @@ header {
 	text-shadow: 2px 2px 2px rgb(214, 22, 22);
 }
 
+#boxmenu {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+#boxmenu li a {
+	text-transform: none;
+}
+
 #boxmenu ul {
 	list-style-type: none;
 	display: flex;
+	margin: 10px auto;
+}
+
+.phpnav {
+	width: 680%;
+}
+
+.javanav {
+	width: 220%;
 }
 
 #boxmenu li {
 	flex-wrap: wrap;
-	padding: 0 30px;
-	margin: auto;
+	padding: 0 10px;
+	margin: 0 auto;
+	font-size: 15px;
 }
 
 #boxmenu li a {
@@ -80,8 +99,8 @@ header {
 #bread {
 	max-width: 960px;
 	margin: 0 auto;
-	padding: 60px 0 0 0;
 	list-style: none;
+	height: 60px;
 }
 
 #bread ol li {
@@ -123,7 +142,7 @@ header {
 	background-color: rgba(255, 255, 255, 0.9);
 	border-left: #dadada 1px solid;
 	border-right: #dadada 1px solid;
-	min-height: 80%;
+	min-height: 100vh;
 	min-height: calc(100% - 200px);
 }
 
@@ -152,7 +171,7 @@ header {
 .heading::before {
 	content: attr(data-en);
 	position: absolute;
-	top: 10px;
+	top: 47px;
 	left: 50%;
 	transform: translateX(-50%);
 	color: rgba(223, 45, 179, 0.5);
@@ -173,7 +192,7 @@ section h2 {
 	font-family: meiryo;
 	text-shadow: 2px 2px 2px #1ebf1ec4;
 	text-align: center;
-	margin: 80px 0 40px 0;
+	margin: 16px 0 40px 0;
 }
 
 h3 {
@@ -237,18 +256,18 @@ h4::after {
 	content: "学習ノート";
 	/* 右下の文字 */
 	position: absolute;
-	bottom: 8px;
-	right: 3em;
-	font-size: 14px;
-	color: rgb(133, 133, 133);
+	bottom: 40px;
+	right: 5em;
+	font-size: 15px;
+	color: rgb(112, 112, 112);
 }
 
 #box li {
 	position: relative;
-	padding: 6px 5px 10px 50px;
-	margin: 7px 0 10px 0px;
+	padding: 6px 5px 6px 50px;
+	margin: 7px 0;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 12px;
 	border-bottom: dashed 1px #ccc;
 	color: #333;
 }
@@ -348,19 +367,46 @@ a:hover {
 }
 
 .frame2 {
+	font-size: 13px;
 	padding: 10px;
 	margin-bottom: 10px;
 	border: 1px dashed #333333;
 	background-color: #fdfdbd;
 }
 
-.method tr td {
-	font-size: 12px;
+.frame3 {
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #d7f7d7;
+}
+
+.method tr td, .function tr td {
+	font-size: 14px;
 	line-height: 1.8;
 }
 
 .blank {
-	margin: 60px;
+	margin: 120px;
+}
+
+.br50 {
+	height: 50px;
+}
+
+b {
+	color: #1a0252;
+}
+
+section li {
+	list-style-type: none;
+}
+
+li {
+	margin-bottom: 1em;
+}
+
+.error {
+	color: #FF0000;
 }
 
 @media (max-width: 960px) {
@@ -370,51 +416,67 @@ a:hover {
 		width: 100%;
 		height: 80px;
 	}
+
+	#bread {
+		padding: 80px 0 0 0;
+	}
+
 	#boxmenu {
-		top: -200%;
+		top: -450%;
 		position: fixed;
-		background-color: rgba(65, 50, 110, 0.8);
-		transition: all 0.6s;
+		background-color: rgba(3, 25, 0, 0.75);
+		transition: all 0.9s;
 		width: 100%;
 		max-width: 960px;
 		margin-top: 80px;
 		padding: 0;
 		z-index: 99;
 	}
+
 	#boxmenu.panelactive {
 		top: 0;
+		height: 85%;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
 	}
+
 	#boxmenu nav {
 		display: inline;
 		width: 100%;
 	}
+
 	#boxmenu ul {
 		display: inline;
 		margin-top: 20px;
 		list-style-type: none;
 	}
+
 	#boxmenu li {
-		font-size: 20px;
+		font-size: 16px;
 		padding: 5px 15px;
 		text-align: center;
 	}
+
 	#boxmenu li a {
 		display: block;
-		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		font-weight: bold;
 		margin: 6px 0;
 		color: rgb(200, 209, 159);
 		text-decoration: none;
+		text-transform: none;
 	}
+
 	#boxmenu li a:hover {
 		color: darksalmon;
 	}
+
 	.menu_1 li {
 		border-bottom: 1px solid #ffffff;
-		width: 50%;
+		width: 65%;
 		margin: auto;
 	}
+
 	.copyright {
 		display: block;
 		text-align: center;
@@ -423,13 +485,16 @@ a:hover {
 		padding: 15px;
 		margin-top: 60px;
 	}
+
 	/*三本線のメニューボタン*/
 	.menu-btn span:before {
 		bottom: 8px;
 	}
+
 	.menu-btn span:after {
 		top: 8px;
 	}
+
 	.menu-btn span, .menu-btn span:before, .menu-btn span:after {
 		content: '';
 		display: block;
@@ -440,6 +505,7 @@ a:hover {
 		text-shadow: rgb(145, 40, 40);
 		position: absolute;
 	}
+
 	/*三本線のメニューボタン*/
 	.menu-btn {
 		position: fixed;
@@ -455,37 +521,48 @@ a:hover {
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 	header {
 		position: fixed;
 		z-index: 100;
 		width: 100%;
 		height: 60px;
 	}
+
 	.header-contents {
 		min-height: 75px;
 		background-size: 40px 40px;
 		background-position: 10px 50%;
 	}
+
 	.header-contents h1 {
 		padding: 15px 0 5px 60px;
-		font-size: 17px;
+		font-size: 16px;
 	}
+
 	.header-contents h2 {
 		padding: 0 0 0 60px;
 		font-size: 14px;
 	}
+
+	#bread {
+		padding: 60px 0 0 0;
+	}
+
 	section h2 {
 		font-size: 20px;
 		margin: 20px 0 40px 0;
 	}
+
 	pre {
 		font-size: 12px;
 	}
+
 	.main-wrapper {
 		font-size: 16px;
 		line-height: 1.5em;
 	}
+
 	.heading {
 		position: relative;
 		padding-top: 50px;
@@ -494,16 +571,18 @@ a:hover {
 		text-align: center;
 		margin-bottom: 30px;
 	}
+
 	.heading::before {
 		content: attr(data-en);
 		position: absolute;
-		top: -14px;
+		top: -8px;
 		left: 48%;
 		transform: translateX(-50%);
-		color: rgba(240, 85, 90, 0.4);
-		font-size: 60px;
+		color: rgba(240, 85, 90, 0.6);
+		font-size: 65px;
 		font-style: italic;
 	}
+
 	.heading::after {
 		content: '';
 		position: absolute;
@@ -514,80 +593,248 @@ a:hover {
 		height: 30px;
 		background-color: rgb(226, 23, 84);
 	}
-	.method tr td {
-		font-size: 11px;
+
+	.method tr td, .function tr td {
+		font-size: 12px;
 	}
+
 	.menu-btn {
 		top: 18px;
 	}
+
 	#boxmenu {
+		top: -400%;
 		margin-top: 60px;
+	}
+
+	#boxmenu.panelactive {
+		height: 92%;
 	}
 }
 
-/*ソースコードclass="prettyprint"*/
+/*=====================
+page-top
+=====================*/
+
+#page-top a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #1630c2;
+	border-radius: 5px;
+	width: 50px;
+	height: 30px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 0.6rem;
+	transition: all 0.3s;
+	letter-spacing: 0.2em;
+}
+
+#page-top a:hover {
+	background: #777;
+}
+
+#page-top {
+	/*リンクを右下に固定*/
+	position: fixed;
+	right: 10px;
+	bottom: 25px;
+	z-index: 2;
+	opacity: 0;
+	/*はじめは非表示*/
+	transform: translateY(100px);
+}
+
+#page-top.UpMove {
+	/*　上に上がる動き　*/
+	animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#page-top.DownMove {
+	/*　下に下がる動き　*/
+	animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(100px);
+	}
+}
+
+
+/* Pretty printing styles. Used with prettify.js. */
+/* Vim sunburst theme by David Leibovic */
 
 pre .str, code .str {
-	color: #e6db5a;
+	color: #65B042;
 }
 
+/* string  - green */
 pre .kwd, code .kwd {
-	color: #66d9ef;
+	color: #E28964;
 }
 
+/* keyword - dark pink */
 pre .com, code .com {
-	color: #75715e;
+	color: #AEAEAE;
 	font-style: italic;
 }
 
+/* comment - gray */
 pre .typ, code .typ {
-	color: #66d9ef;
+	color: #89bdff;
 }
 
+/* type - light blue */
 pre .lit, code .lit {
-	color: #ae81ff;
+	color: #3387CC;
 }
 
+/* literal - blue */
 pre .pun, code .pun {
 	color: #fff;
 }
 
+/* punctuation - white */
 pre .pln, code .pln {
 	color: #fff;
 }
 
+/* plaintext - white */
 pre .tag, code .tag {
-	color: #f92672;
+	color: #89bdff;
 }
 
+/* html/xml tag    - light blue */
 pre .atn, code .atn {
-	color: #a6e22a;
+	color: #bdb76b;
 }
 
+/* html/xml attribute name  - khaki */
 pre .atv, code .atv {
-	color: #e6db74;
+	color: #65B042;
 }
 
+/* html/xml attribute value - green */
 pre .dec, code .dec {
-	color: #ae81ff;
+	color: #3387CC;
 }
 
-pre.prettyprinted {
-	box-shadow: inset 0 0 1px 2px #3c3d39, 0 0 15px rgba(0, 0, 0, 0.5);
-	border: 1px solid #0b0c0a;
+/* decimal - blue */
+
+pre.prettyprint, code.prettyprint {
+	background-color: #2b2b2b;
+	border-radius: 8px;
+}
+
+pre.prettyprint {
+	width: 95%;
+	margin: 1em auto;
+	padding: 1em;
+	white-space: pre-wrap;
+}
+
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: #AEAEAE;
+}
+
+/* IE indents via margin-left */
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
+	list-style-type: none
+}
+
+/* Alternate shading for lines */
+li.L1, li.L3, li.L5, li.L7, li.L9 {}
+
+@media print {
+	pre .str, code .str {
+		color: #060;
+	}
+
+	pre .kwd, code .kwd {
+		color: #006;
+		font-weight: bold;
+	}
+
+	pre .com, code .com {
+		color: #600;
+		font-style: italic;
+	}
+
+	pre .typ, code .typ {
+		color: #404;
+		font-weight: bold;
+	}
+
+	pre .lit, code .lit {
+		color: #044;
+	}
+
+	pre .pun, code .pun {
+		color: #440;
+	}
+
+	pre .pln, code .pln {
+		color: #000;
+	}
+
+	pre .tag, code .tag {
+		color: #006;
+		font-weight: bold;
+	}
+
+	pre .atn, code .atn {
+		color: #404;
+	}
+
+	pre .atv, code .atv {
+		color: #060;
+	}
 }
 
 pre {
 	width: 92%;
 	background-color: #2b2b2b;
-	font-size: 14px;
+	font-size: 13px;
 	color: #fffef9;
 	padding: 2% 3%;
 	overflow: auto;
 	border-radius: 2%;
-	line-height: 1.5em;
+	line-height: 1.2em;
 	font-family: "Meiryo";
 	letter-spacing: 0.2;
+}
+
+.re {
+	background: #9099997c;
+	color: rgb(0, 0, 0);
+	font-size: 15px;
+	line-height: 1.4em;
 }
 
 /*prettyprint*/
