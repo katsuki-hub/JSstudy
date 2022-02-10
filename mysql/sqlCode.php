@@ -52,7 +52,7 @@ try {
 ?&gt;
 </code></pre>';
 
-$bra = '<pre><code class="prettyprint">$sql = &quot;SELECT * FROM classic2022 WHERE number &gt;= 3800 AND branch = &#039;愛知&#039;&quot;; //SQL文を作る
+$bra = '<pre><code class="prettyprint">$sql = &quot;SELECT * FROM classic2022 WHERE number &gt;= 3500 AND branch = &#039;福岡&#039;&quot;; //SQL文を作る
 $stm = $pdo-&gt;prepare($sql); //プリペアドステートメントを作る
 $stm-&gt;execute(); //SQL文を実行
 </code></pre>';

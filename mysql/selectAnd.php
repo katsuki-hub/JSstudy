@@ -37,7 +37,7 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
     <article>
       <section>
         <h2>データの抽出</h2>
-        <h4>登録番号3800以降で愛知支部の選手</h4>
+        <h4>登録番号3500以降で福岡支部の選手</h4>
         <?php
         //MySQLデータベースに接続する
         try {
@@ -47,7 +47,7 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
           //例外がスローされる設定にする
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           echo "データベース{$dbName}に接続しました。", "<br>";
-          $sql = "SELECT * FROM classic2022 WHERE number >= 3800 AND branch = '愛知'"; //SQL文を作る
+          $sql = "SELECT * FROM classic2022 WHERE number >= 3500 AND branch = '福岡'"; //SQL文を作る
           $stm = $pdo->prepare($sql); //プリペアドステートメントを作る
           $stm->execute(); //SQL文を実行
           $result = $stm->fetchAll(PDO::FETCH_ASSOC); //結果の取得(連想配列で受け取る)
@@ -77,102 +77,24 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
         }
         ?>
         <?php
-        require_once("sqlcode.php");
+        require_once("sqlCode.php");
         echo $bra;
-        ?>
-        <div class="blank"></div>
+        ?><br>
 
         <h4>登録番号3000番～4000番の選手</h4>
-        <?php
-        //MySQLデータベースに接続する
-        try {
-          $pdo = new PDO($dsn, $user, $passwoed);
-          //プリペアドステートメントのエミュレーションを無効にする
-          $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-          //例外がスローされる設定にする
-          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          echo "データベース{$dbName}に接続しました。", "<br>";
-          $sql = "SELECT * FROM classic2022 WHERE number BETWEEN 3000 AND 4000 ORDER BY number"; //SQL文を作る
-          $stm = $pdo->prepare($sql); //プリペアドステートメントを作る
-          $stm->execute(); //SQL文を実行
-          $result = $stm->fetchAll(PDO::FETCH_ASSOC); //結果の取得(連想配列で受け取る)
-
-          echo "<b>2022年ボートレースクラシック出場選手</b>";
-          echo "<table border=1>";
-          echo "<tr>";
-          echo "<th>", "登録番号", "</th>";
-          echo "<th>", "選手名", "</th>";
-          echo "<th>", "登録期", "</th>";
-          echo "<th>", "支部", "</th>";
-          echo "</tr>";
-
-          foreach ($result as $row) {
-            echo "<tr>";
-            echo "<td>", es($row['number']), "</td>";
-            echo "<td>", es($row['name']), "</td>";
-            echo "<td>", es($row['reg']), "</td>";
-            echo "<td>", es($row['branch']), "</td>";
-            echo "</tr>";
-          }
-          echo "</table>";
-        } catch (Exception $e) { //接続失敗で例外処理実行
-          echo '<span class="error">エラーがありました</span><br>';
-          echo $e->getMessage();
-          exit();
-        }
-        ?>
-        <?php echo $between ?>
-        <div class="blank"></div>
+        <?php echo $between ?><br>
 
         <h4>「田」の文字が含まれている人</h4>
-        <?php
-        //MySQLデータベースに接続する
-        try {
-          $pdo = new PDO($dsn, $user, $passwoed);
-          //プリペアドステートメントのエミュレーションを無効にする
-          $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-          //例外がスローされる設定にする
-          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          echo "データベース{$dbName}に接続しました。", "<br>";
-          $sql = "SELECT * FROM classic2022 WHERE name LIKE '%田%'"; //SQL文を作る
-          $stm = $pdo->prepare($sql); //プリペアドステートメントを作る
-          $stm->execute(); //SQL文を実行
-          $result = $stm->fetchAll(PDO::FETCH_ASSOC); //結果の取得(連想配列で受け取る)
-
-          echo "<b>2022年ボートレースクラシック出場選手</b>";
-          echo "<table border=1>";
-          echo "<tr>";
-          echo "<th>", "登録番号", "</th>";
-          echo "<th>", "選手名", "</th>";
-          echo "<th>", "登録期", "</th>";
-          echo "<th>", "支部", "</th>";
-          echo "</tr>";
-
-          foreach ($result as $row) {
-            echo "<tr>";
-            echo "<td>", es($row['number']), "</td>";
-            echo "<td>", es($row['name']), "</td>";
-            echo "<td>", es($row['reg']), "</td>";
-            echo "<td>", es($row['branch']), "</td>";
-            echo "</tr>";
-          }
-          echo "</table>";
-        } catch (Exception $e) { //接続失敗で例外処理実行
-          echo '<span class="error">エラーがありました</span><br>';
-          echo $e->getMessage();
-          exit();
-        }
-        ?>
         <?php echo $like ?>
-        <div class="blank"></div>
 
+        <div class="blank"></div>
         <h2>データの更新</h2>
         <div class="frame2">
           <b>UPDATE命令</b><br>
           UPDATE テーブル SET カラム = 値 WHERE 条件
-        </div>
+        </div><br>
         <h4>カラムの値を変更する</h4>
-        <?php echo $up ?>
+        <?php echo $up ?><br>
         <h4>全員の番号に1を加算</h4>
         <?php echo $purasu ?>
         <div class="blank"></div>
@@ -181,7 +103,7 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
         <div class="frame2">
           <b>INSERT命令</b><br>
           INSERT テーブル(カラム,カラム,...) VALUES(値,値,...),(値,値,...),...
-        </div>
+        </div><br>
         <h4>メンバーを3人追加する</h4>
         <?php echo $insert ?>
 
@@ -191,11 +113,9 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
         <div class="frame2">
           <b>DELETE命令</b><br>
           DELITE FROM テーブル WHERE 条件
-        </div>
+        </div><br>
+        <h4>東京支部を削除する</h4>
         <?php echo $del ?>
-
-
-
       </section>
     </article><br>
   </div><!-- /.main-wrapper -->
