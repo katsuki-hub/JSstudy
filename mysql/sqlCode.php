@@ -52,5 +52,36 @@ try {
 ?&gt;
 </code></pre>';
 
+$bra = '<pre><code class="prettyprint">$sql = &quot;SELECT * FROM classic2022 WHERE number &gt;= 3800 AND branch = &#039;愛知&#039;&quot;; //SQL文を作る
+$stm = $pdo-&gt;prepare($sql); //プリペアドステートメントを作る
+$stm-&gt;execute(); //SQL文を実行
+</code></pre>';
+
+$between = '<pre><code class="prettyprint">$sql = &quot;SELECT * FROM classic2022 WHERE number BETWEEN 3000 AND 4000 ORDER BY number&quot;; //SQL文を作る
+</code></pre>';
+
+$like = '<pre><code class="prettyprint">$sql = &quot;SELECT * FROM classic2022 WHERE name LIKE &#039;%田%&#039;&quot;; //SQL文を作る
+</code></pre>';
+
+$up = '<pre><code class="prettyprint">$sql = &quot;UPDATE classic2022 set name = &#039;変更後の名前&#039; WHERE number = 〇&quot;;
+</code></pre>';
+
+$purasu = '<pre><code class="prettyprint">$sql = &quot;UPDATE classic2022 set number = number + 1&quot;;
+</code></pre>';
+
+$insert = '<pre><code class="prettyprint">$sql = &quot;INSERT classic2022 (number, name, reg, branch) VALUES
+(9999, &#039;ていちゃん&#039;, 10, &#039;オフィシャル&#039;),
+(8888, &#039;ペラ坊&#039;, 11, &#039;福岡&#039;),
+(7777, &#039;アシ夢&#039;, 12, &#039;福岡&#039;),&quot;;
+$stm = $pdo-&gt;prepare($sql); //プリペアドステートメントを作る
+$stm-&gt;execute(); //SQL文を実行
+</code></pre>';
+
+$del = '<pre><code class="prettyprint">$sql = &quot;DELETE FROM classic2022 WHERE reg = &#039;東京&#039;&quot;;
+$stm = $pdo-&gt;prepare($sql); //プリペアドステートメントを作る
+$stm-&gt;execute(); //SQL文を実行
+</code></pre>';
+
+
 ?>
 

@@ -405,6 +405,14 @@ b {
 	color: #1a0252;
 }
 
+th {
+	background: rgb(230, 237, 111);
+}
+
+td {
+	background: rgba(222, 220, 228, 0.5);
+}
+
 section li {
 	list-style-type: none;
 }
