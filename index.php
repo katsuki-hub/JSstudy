@@ -71,6 +71,7 @@
           <li><a href="#javascript">JavaScript</a></li>
           <li><a href="#jquery">jQuery</a></li>
           <li><a href="#php">PHP</a></li>
+          <li><a href="#mysql">MySQL</a></li>
         </ul>
 
         <div class="copyright">
@@ -178,6 +179,21 @@
           <li><a href="php/inputMemo.php">フォームでテキストファイルに追記</a></li>
           <li><a href="php/topMemo.php">新しいメモをトップに挿入保存</a></li>
         </ul>
+    </section>
+    <div class="blank"></div>
+
+    <section id="mysql">
+      <h2 class="heading" data-en="MySQL">MySQL学習帳</h2>
+      <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+        PHPを使ってMySQLデータベースからレコードの抽出・更新・挿入・削除が行えます。<br>フォーム入力でMySQLを操作し、トランザクション処理を使ってリレーショナルデータを操作していきます。
+      </div>
+      <div id="box">
+        <ul>
+          <li><a href="mysql/pdo.php">データベースに接続する</a></li>
+          <li><a href="mysql/selectAnd.php">レコードの抽出・更新・挿入・削除</a></li>
+          <li><a href="mysql/searchForm.php">データベースをフォームから検索する</a></li>
+        </ul>
+      </div>
     </section>
     <br><br>
   </div><!-- /.main-wrapper -->

@@ -39,6 +39,7 @@
         <li><a href="visitedLog.php">訪問回数と日時を配列でクッキーに保存</a></li>
         <li><a href="writeFile.php">SplFileObjectクラス</a></li>
         <li><a href="inputMemo.php">フォームでテキストファイルに追記</a></li>
+        <li><a href="topMemo.php">新しいメモをトップに挿入保存</a></li>
       </ul>
 
       <div class="copyright">

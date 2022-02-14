@@ -72,8 +72,16 @@ header {
 	margin: 10px auto;
 }
 
+.jquerynav {
+	width: 130%;
+}
+
 .phpnav {
 	width: 680%;
+}
+
+.mysqlnav {
+	width: 150%;
 }
 
 .javanav {
@@ -380,7 +388,7 @@ a:hover {
 	background-color: #d7f7d7;
 }
 
-.method tr td, .function tr td {
+table {
 	font-size: 14px;
 	line-height: 1.8;
 }
@@ -389,12 +397,24 @@ a:hover {
 	margin: 120px;
 }
 
+.br100 {
+	height: 100px;
+}
+
 .br50 {
 	height: 50px;
 }
 
 b {
 	color: #1a0252;
+}
+
+th {
+	background: rgb(230, 237, 111);
+}
+
+td {
+	background: rgba(222, 220, 228, 0.5);
 }
 
 section li {
@@ -594,7 +614,7 @@ li {
 		background-color: rgb(226, 23, 84);
 	}
 
-	.method tr td, .function tr td {
+	table {
 		font-size: 12px;
 	}
 
@@ -609,6 +629,10 @@ li {
 
 	#boxmenu.panelactive {
 		height: 92%;
+	}
+
+	.frame1, .frame2 {
+		font-size: 13px;
 	}
 }
 
