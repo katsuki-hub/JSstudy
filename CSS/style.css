@@ -388,13 +388,17 @@ a:hover {
 	background-color: #d7f7d7;
 }
 
-.method tr td, .function tr td {
+table {
 	font-size: 14px;
 	line-height: 1.8;
 }
 
 .blank {
 	margin: 120px;
+}
+
+.br100 {
+	height: 100px;
 }
 
 .br50 {
@@ -610,7 +614,7 @@ li {
 		background-color: rgb(226, 23, 84);
 	}
 
-	.method tr td, .function tr td {
+	table {
 		font-size: 12px;
 	}
 
@@ -627,7 +631,7 @@ li {
 		height: 92%;
 	}
 
-	.frame1,.frame2 {
+	.frame1, .frame2 {
 		font-size: 13px;
 	}
 }
