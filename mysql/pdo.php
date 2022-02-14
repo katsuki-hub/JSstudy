@@ -46,7 +46,6 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
           $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
           //例外がスローされる設定にする
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          echo "データベース{$dbName}に接続しました。", "<br>";
           $sql = "SELECT * FROM classic2022"; //SQL文を作る
           $stm = $pdo->prepare($sql); //プリペアドステートメントを作る
           $stm->execute(); //SQL文を実行
