@@ -165,6 +165,129 @@ try {
 &lt;p&gt;&lt;a href=&quot;&lt;?php echo $backURL ?&gt;&quot;&gt;戻る&lt;/a&gt;&lt;/p&gt;
 </code></pre>';
 
+$newForm = '<pre><code class="prettyprint">&lt;form method=&quot;POST&quot; action=&quot;insertData.php&quot;&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;label&gt;登録番号：
+      &lt;input type=&quot;number&quot; name=&quot;number&quot; placeholder=&quot;登録番号&quot;&gt;
+    &lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;label&gt;　　名前：
+      &lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;名前&quot;&gt;
+    &lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;label&gt;　登録期：
+      &lt;input type=&quot;number&quot; name=&quot;reg&quot; placeholder=&quot;登録期&quot;&gt;
+    &lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;label&gt;　　支部：
+      &lt;input type=&quot;text&quot; name=&quot;branch&quot; placeholder=&quot;所属支部&quot;&gt;
+    &lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;追加する&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/form&gt;
+</code></pre>
+';
+
+$newData = '<pre><code class="prettyprint">&lt;?php
+require_once(&quot;../common/es.php&quot;);
+$backURL = &quot;classicForm.php&quot;;
+
+if (!checkEn($_POST)) { //エンコードチェック
+  header(&quot;Location:{$backURL}&quot;);
+  exit();
+}
+
+//簡単なエラー処理
+$errors = [];
+if (!isset($_POST[&#039;number&#039;]) || (!ctype_digit($_POST[&quot;number&quot;]))) {
+  $errors[] = &quot;登録番号には数値を入れてください&quot;;
+}
+if (!isset($_POST[&#039;name&#039;]) || ($_POST[&#039;name&#039;] === &quot;&quot;)) {
+  $errors[] = &quot;名前が空です&quot;;
+}
+if (!isset($_POST[&#039;reg&#039;]) || (!ctype_digit($_POST[&quot;reg&quot;]))) {
+  $errors[] = &quot;登録期には数値を入れてください&quot;;
+}
+if (!isset($_POST[&#039;branch&#039;]) || ($_POST[&#039;branch&#039;] === &quot;&quot;)) {
+  $errors[] = &quot;所属支部が空です&quot;;
+}
+
+//エラーがあったとき
+if (count($errors) &gt; 0) {
+  echo &#039;&lt;ol class=&quot;error&quot;&gt;&#039;;
+  foreach ($errors as $value) {
+    echo &quot;&lt;li&gt;&quot;, $value, &quot;&lt;/li&gt;&quot;;
+  }
+  echo &quot;&lt;/ol&gt;&quot;;
+  echo &quot;&lt;HR&gt;&quot;;
+  echo &quot;&lt;a href=&quot;, $backURL, &quot;&gt;戻る&lt;/a&gt;&quot;;
+  exit();
+}
+
+//データベース
+require_once(&quot;../common/es.php&quot;); //PHPのフォーム~入力データのチェック~で参照してね
+$user = &#039;****&#039;;
+$passwoed = &#039;****&#039;;
+$dbName = &#039;kyotei&#039;;
+$host = &#039;localhost:8888&#039;;
+$dsn = &quot;mysql:host={$host};dbname={$dbName};charset=utf8&quot;;
+?&gt;
+
+&lt;!doctype html&gt;
+&lt;html lang=&quot;ja&quot;&gt;
+・・・・↓↓
+
+&lt;?php
+$number = $_POST[&quot;number&quot;];
+$name = $_POST[&quot;name&quot;];
+$reg = $_POST[&quot;reg&quot;];
+$branch = $_POST[&quot;branch&quot;];
+
+try {
+  $pdo = new PDO($dsn, $user, $passwoed);
+  $pdo-&gt;setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+  $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $sql = &quot;INSERT INTO classic2022 (number, name, reg, branch) VALUES (:number, :name, :reg, :branch)&quot;;
+  $stm = $pdo-&gt;prepare($sql);
+  $stm-&gt;bindValue(&#039;:number&#039;, $number, PDO::PARAM_INT);
+  $stm-&gt;bindValue(&#039;:name&#039;, $name, PDO::PARAM_STR);
+  $stm-&gt;bindValue(&#039;:reg&#039;, $reg, PDO::PARAM_INT);
+  $stm-&gt;bindValue(&#039;:branch&#039;, $branch, PDO::PARAM_STR);
+
+  if ($stm-&gt;execute()) {
+    //レコードの表示
+    $sql = &quot;SELECT * FROM classic2022&quot;; //SQL文を作る
+    $stm = $pdo-&gt;prepare($sql); //プリペアドステートメントを作る
+    $stm-&gt;execute(); //SQL文を実行
+    $result = $stm-&gt;fetchAll(PDO::FETCH_ASSOC); //結果の取得(連想配列で受け取る)
+
+    echo &quot;&lt;table border=1&gt;&quot;;
+    echo &quot;&lt;tr&gt;&quot;;
+    echo &quot;&lt;th&gt;&quot;, &quot;登録番号&quot;, &quot;&lt;/th&gt;&quot;;
+    echo &quot;&lt;th&gt;&quot;, &quot;選手名&quot;, &quot;&lt;/th&gt;&quot;;
+    echo &quot;&lt;th&gt;&quot;, &quot;登録期&quot;, &quot;&lt;/th&gt;&quot;;
+    echo &quot;&lt;th&gt;&quot;, &quot;支部&quot;, &quot;&lt;/th&gt;&quot;;
+    echo &quot;&lt;/tr&gt;&quot;;
+
+    foreach ($result as $row) {
+      echo &quot;&lt;tr&gt;&quot;;
+      echo &quot;&lt;td&gt;&quot;, es($row[&#039;number&#039;]), &quot;&lt;/td&gt;&quot;;
+      echo &quot;&lt;td&gt;&quot;, es($row[&#039;name&#039;]), &quot;&lt;/td&gt;&quot;;
+      echo &quot;&lt;td&gt;&quot;, es($row[&#039;reg&#039;]), &quot;&lt;/td&gt;&quot;;
+      echo &quot;&lt;td&gt;&quot;, es($row[&#039;branch&#039;]), &quot;&lt;/td&gt;&quot;;
+      echo &quot;&lt;/tr&gt;&quot;;
+    }
+    echo &quot;&lt;/table&gt;&quot;;
+  } else {
+    echo &#039;&lt;span class=&quot;error&quot;&gt;追加エラーがありました&lt;/span&gt;&lt;br&gt;&#039;;
+  };
+} catch (Exception $e) {
+  echo &#039;&lt;span class=&quot;error&quot;&gt;エラーがありました&lt;/span&gt;&lt;br&gt;&#039;;
+  echo $e-&gt;getMessage();
+}
+?&gt;
+&lt;HR&gt;
+&lt;p&gt;&lt;a href=&quot;&lt;?php echo $backURL ?&gt;&quot;&gt;戻る&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+';
 
 ?>
 

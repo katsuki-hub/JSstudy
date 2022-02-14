@@ -192,6 +192,7 @@
           <li><a href="mysql/pdo.php">データベースに接続する</a></li>
           <li><a href="mysql/selectAnd.php">レコードの抽出・更新・挿入・削除</a></li>
           <li><a href="mysql/searchForm.php">データベースをフォームから検索する</a></li>
+          <li><a href="mysql/newRecord.php">新規レコードを追加する</a></li>
         </ul>
       </div>
     </section>
