@@ -88,6 +88,10 @@ header {
 	width: 220%;
 }
 
+.vue_nav {
+	width: 150%;
+}
+
 #boxmenu li {
 	flex-wrap: wrap;
 	padding: 0 10px;

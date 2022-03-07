@@ -201,15 +201,15 @@
     <div class="blank"></div>
 
     <section id="vue">
-    <h2 class="heading" data-en="Vue.js">Vue.js学習帳</h2>
-    <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
-    WEBアプリケーションのUI構築するためのJavaScriptフレームワークです。<br>ReactやAngularJSと並ぶJavaScriptフレームワークの3強と言われており、多くの企業がフロントエンド開発で採用している。フレームワークとは開発を効率化するために用意された枠組みのことです。
-  </div>
-  <div id="box">
-    <ul>
-
-    </ul>
-  </div>
+      <h2 class="heading" data-en="Vue.js">Vue.js学習帳</h2>
+      <div style="font-size: 13px; padding: 10px; margin-bottom: 10px; border: 3px double #333333; background-color: rgba(198, 207, 109, 0.356);">
+        WEBアプリケーションのUI構築するためのJavaScriptフレームワークです。<br>ReactやAngularJSと並ぶJavaScriptフレームワークの3強と言われており、多くの企業がフロントエンド開発で採用している。フレームワークとは開発を効率化するために用意された枠組みのことです。
+      </div>
+      <div id="box">
+        <ul>
+          <li><a href="vue/option.php">オプションの構成と役割</a></li>
+        </ul>
+      </div>
     </section>
     <br><br>
   </div><!-- /.main-wrapper -->
