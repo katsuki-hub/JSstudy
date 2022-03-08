@@ -208,6 +208,7 @@
       <div id="box">
         <ul>
           <li><a href="vue/option.php">オプションの構成と役割</a></li>
+          <li><a href="vue/bind.php">バインドする</a></li>
         </ul>
       </div>
     </section>

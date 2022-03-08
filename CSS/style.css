@@ -372,6 +372,7 @@ a:hover {
 }
 
 .frame1 {
+	font-size: 14px;
 	padding: 10px;
 	margin-bottom: 10px;
 	border: 3px double #333333;
@@ -387,6 +388,7 @@ a:hover {
 }
 
 .frame3 {
+	font-size: 14px;
 	padding: 10px;
 	margin-bottom: 10px;
 	background-color: #d7f7d7;

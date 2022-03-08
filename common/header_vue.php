@@ -9,6 +9,7 @@
       <ul class="menu_1">
         <li><a href="../index.php">HOME</a></li>
         <li><a href="option.php">オプションの構成</a></li>
+        <li><a href="bind.php">バインドする</a></li>
       </ul>
 
       <div class="copyright">
