@@ -11,6 +11,8 @@
         <li><a href="option.php">オプションの構成</a></li>
         <li><a href="bind.php">バインドする</a></li>
         <li><a href="filter.php">フィルターで表示データを加工</a></li>
+        <li><a href="computed.php">算出プロパティ</a></li>
+        <li><a href="event.php">ユーザーの操作を検知する</a></li>
       </ul>
 
       <div class="copyright">
