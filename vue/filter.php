@@ -45,7 +45,7 @@
         echo $bind_fil;
         ?>
         <h3>グローバルフィルター登録</h3>
-        <?php echo $Filter_g ?>
+        <?php echo $Filter_g; ?>
         <div class="br50"></div>
         <h2>ローカルスコープにフィルター登録</h2>
         <p>filtersオプションを使ってコンポーネントの中に登録したフィルターは、その中だけで使えるローカルスコープとなり、他のコンポーネントから隠れる。特定のコンポーネントの中だけで使うフィルターは、なるべくローカルスコープに登録したほうが独立性を保てます。</p>
@@ -54,7 +54,7 @@
           filters: {フィルター名: 関数オブジェクト}
         </div>
         <h3>ローカルフィルター登録</h3>
-        <?php echo $filter_l ?>
+        <?php echo $filter_l; ?>
         <div class="br50"></div>
 
         <h2>複数のフィルターを連結</h2>
@@ -71,10 +71,9 @@
           {{price | unit}} {{price | number_format | unit}}
         </div>
         <h3>複数バインド</h3>
-        <?php echo $bind_w ?>
+        <?php echo $bind_w; ?>
         <h3>複数フィルター</h3>
-        <?php echo $filter_w ?>
-
+        <?php echo $filter_w; ?>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
