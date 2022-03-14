@@ -156,6 +156,72 @@ $pointWin = '<pre><code class="prettyprint">var app3 = new Vue({
 });
 </code></pre>';
 
+$watch = '<pre><code class="prettyprint">&lt;div id=&quot;app&quot;&gt;
+&lt;template v-if=&quot;stock &gt;= 1&quot;&gt;
+  &lt;span class=&quot;num&quot;&gt;在庫はあと{{stock}}個&lt;/span&gt;
+  &lt;button class=&quot;btn&quot; v-on:click=&quot;onDeleteItem&quot;&gt;削除ボタン&lt;/button&gt;
+&lt;/template&gt;
+{{message}}
+&lt;/div&gt;
+</code></pre>';
+
+$watch_jav = '<pre><code class="prettyprint">var app = new Vue({
+  el: &#039;#app&#039;,
+  data: {
+    message: &#039;&#039;,
+    stock: 9
+  },
+  methods: {
+    onDeleteItem: function() {
+      this.stock--;
+    }
+  },
+  watch: {
+    stock: function(newStock, oldStock) {
+      if (newStock == 0) {
+        this.message = &#039;売り切れ！！&#039;;
+      }
+    }
+  }
+});
+</code></pre>';
+
+$c_watch = '<pre><code class="prettyprint">&lt;div id=&quot;app2&quot;&gt;
+&lt;template v-if=&quot;stock &gt;= 1&quot;&gt;
+  &lt;span class=&quot;num&quot;&gt;在庫はあと{{stock}}個&lt;/span&gt;
+  &lt;button class=&quot;btn&quot; v-on:click=&quot;onDeleteItem&quot;&gt;削除ボタン&lt;/button&gt;
+&lt;/template&gt;
+{{statusMesseage}}
+&lt;/div&gt;
+</code></pre>';
+
+$c_watch_js = '<pre><code class="prettyprint">var app2 = new Vue({
+  el: &#039;#app2&#039;,
+  data: {
+    message: &#039;&#039;,
+    stock: 10
+  },
+  methods: {
+    onDeleteItem: function () {
+      this.stock--;
+    }
+  },
+  computed: {
+    statusMesseage: function () {
+      if (this.stock == 0) {
+        return &#039;売り切れです&#039;;
+      }
+      return &#039;&#039;;
+    }
+  },
+  watch: {
+    statusMesseage: function () {
+      console.log(&#039;商品のステータスが変化しました。&#039;);
+    }
+  }
+});
+</code></pre>';
+
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 
@@ -165,4 +231,3 @@ $a = '<pre><code class="prettyprint">
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 ?>
-

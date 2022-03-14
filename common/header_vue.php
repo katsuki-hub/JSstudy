@@ -13,6 +13,8 @@
         <li><a href="filter.php">フィルターで表示データを加工</a></li>
         <li><a href="computed.php">算出プロパティ</a></li>
         <li><a href="event.php">ユーザーの操作を検知する</a></li>
+        <li><a href="watch.php">データの変更を監視する</a></li>
+        </ul>
       </ul>
 
       <div class="copyright">

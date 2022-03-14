@@ -212,6 +212,7 @@
           <li><a href="vue/filter.php">フィルターで表示データを加工</a></li>
           <li><a href="vue/computed.php">算出プロパティ</a></li>
           <li><a href="vue/event.php">ユーザーの操作を検知する</a></li>
+          <li><a href="vue/watch.php">データの変更を監視する</a></li>
         </ul>
       </div>
     </section>
