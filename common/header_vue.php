@@ -14,6 +14,7 @@
         <li><a href="computed.php">算出プロパティ</a></li>
         <li><a href="event.php">ユーザーの操作を検知する</a></li>
         <li><a href="watch.php">データの変更を監視する</a></li>
+        <li><a href="formbind.php">データと入力を同期する</a></li>
         </ul>
       </ul>
 

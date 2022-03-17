@@ -250,6 +250,13 @@ h4::after {
 	transform: rotate(35deg)
 }
 
+h5 {
+	color: rgb(10, 68, 68);
+	font-style: italic;
+	font-size: 15px;
+	text-shadow: 1px 1px 1px #fff12cc4;
+}
+
 #box ul {
 	width: 85%;
 	margin: 0 auto 0 auto;
@@ -392,6 +399,18 @@ a:hover {
 	padding: 10px;
 	margin-bottom: 10px;
 	background-color: #d7f7d7;
+}
+
+.frame4 {
+	padding: 10px;
+  margin: 10px;
+  background-color: rgba(212, 195, 137, 0.8);
+  line-height: 1.8em;
+  border: 4px dashed #444444;
+}
+
+p {
+	font-size: 14px;
 }
 
 table {

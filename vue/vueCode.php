@@ -222,7 +222,110 @@ $c_watch_js = '<pre><code class="prettyprint">var app2 = new Vue({
 });
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$check = '<pre><code class="prettyprint">&lt;div id=&quot;app&quot;&gt;
+&lt;p&gt;休日の過ごし方：{{selection}}&lt;/p&gt;
+&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; v-model=&quot;answer&quot; value=&quot;読書&quot;&gt;読書
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; v-model=&quot;answer&quot; value=&quot;ボルダリング&quot;&gt;ボルダリング
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type=&quot;checkbox&quot; v-model=&quot;answer&quot; value=&quot;キャンプ&quot;&gt;キャンプ
+&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>';
+
+$check_js = '<pre><code class="prettyprint">var app = new Vue({
+  el: &#039;#app&#039;,
+  data: {
+    answer: []
+  },
+  computed: {
+    //チェック内容を連結した文字列を返す算出プロパティ
+    selection: function () {
+      return this.answer.join();
+    }
+  }
+});
+</code></pre>';
+
+$date = '<pre><code class="prettyprint">&lt;div id=&quot;app2&quot;&gt;
+&lt;p&gt;ご希望日：{{request_date}}&lt;/p&gt;
+&lt;input type=&quot;date&quot; v-model=&quot;request_date&quot; v-bind:min=&quot;min_date&quot;&gt;
+&lt;/div&gt;
+</code></pre>';
+
+$date_js = '<pre><code class="prettyprint">var app2 = new Vue({
+  el: &#039;#app2&#039;,
+  data: {
+    request_date: null,
+    min_date: null
+  },
+  created: function() {
+    //初期値設定を翌日へ
+    var dt = new Date();
+    dt.setDate(dt.getDate() + 1);
+    this.request_date = this.formatDate(dt);
+    //翌日の日付を最小値へ
+    this.min_date = this.request_date;
+  },
+  methods: {
+    //日付をYYYY-MM-DDに整形するメソッド
+    formatDate: function(dt) {
+      var y = dt.getFullYear();
+      var m = (&#039;00&#039; + (dt.getMonth() + 1)).slice(-2);
+      var d = (&#039;00&#039; + dt.getDate()).slice(-2);
+      var result = y + &#039;-&#039; + m + &#039;-&#039; + d;
+      return result;
+    }
+  }
+});
+</code></pre>';
+
+$color = '<pre><code class="prettyprint">&lt;div id=&quot;app3&quot;&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;色の選択&lt;/legend&gt;
+  &lt;input type=&quot;color&quot; v-model=&quot;color&quot;&gt;{{color}}&lt;br&gt;
+  赤：&lt;input type=&quot;range&quot; v-model.number=&quot;red&quot; min=&quot;0&quot; max=&quot;255&quot;&gt;{{red}}&lt;br&gt;
+  緑：&lt;input type=&quot;range&quot; v-model.number=&quot;green&quot; min=&quot;0&quot; max=&quot;255&quot;&gt;{{green}}&lt;br&gt;
+  青：&lt;input type=&quot;range&quot; v-model.number=&quot;blue&quot; min=&quot;0&quot; max=&quot;255&quot;&gt;{{blue}}&lt;br&gt;
+&lt;/fieldset&gt;
+&lt;/div&gt;
+</code></pre>';
+
+$color_js = '<pre><code class="prettyprint">var app3 = new Vue({
+  el: &#039;#app3&#039;,
+  data: {
+    color: &#039;#000000&#039;,
+    red: 0,
+    blue: 0,
+    green: 0
+  },
+  computed: {
+    //赤・緑・青を配列で返す算出プロパティ
+    colorElement: function() {
+      return [this.red, this.green, this.blue];
+    }
+  },
+  watch: {
+    //赤・緑・青のいずれかの変更を監視する
+    colorElement: function(newRGB, oldRGB) {
+      //赤・緑・青を2桁の16進数表記に変換する
+      var r = (&#039;00&#039; + newRGB[0].toString(16).toUpperCase()).slice(-2);
+      var g = (&#039;00&#039; + newRGB[1].toString(16).toUpperCase()).slice(-2);
+      var b = (&#039;00&#039; + newRGB[2].toString(16).toUpperCase()).slice(-2);
+      //#RRGGBB形式の文字列で更新する
+      this.color = &#039;#&#039; + r + g + b;
+    },
+    //カラーパレットの選択変更を監視する
+    color: function(newColor, oldColor) {
+      this.red = parseInt(newColor, substr(1, 2), 16);
+      this.green = parseInt(newColor, substr(3, 2), 16);
+      this.blue = parseInt(newColor, substr(5, 2), 16);
+    }
+  }
+});
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">
