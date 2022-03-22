@@ -328,6 +328,56 @@ $color_js = '<pre><code class="prettyprint">var app3 = new Vue({
 });
 </code></pre>';
 
+$fade = '<pre><code class="prettyprint">&lt;div id=&quot;fade&quot;&gt;
+&lt;button v-on:click=&quot;show = !show&quot;&gt;表示の切り替え&lt;/button&gt;
+&lt;transition&gt;
+  &lt;p v-if=&quot;show&quot;&gt;
+    1. ユーザーに焦点を絞れば、他のものはみな後からついてくる&lt;br&gt;
+    2. 1つのことをとことん極めてうまくやるのが一番&lt;br&gt;
+    3. 遅いより速いほうがいい&lt;br&gt;
+    4. ウェブ上の民主主義は機能する&lt;br&gt;
+    5. 情報を探したくなるのはパソコンの前にいるときだけではない&lt;br&gt;
+    6. 悪事を働かなくてもお金は稼げる&lt;br&gt;
+    7. 世の中にはまだまだ情報があふれている&lt;br&gt;
+    8. 情報のニーズはすべての国境を越える&lt;br&gt;
+    9. スーツがなくても真剣に仕事はできる&lt;br&gt;
+    10.「すばらしい」では足りない
+  &lt;/p&gt;
+&lt;/transition&gt;
+&lt;/div&gt;
+</code></pre>';
+
+$fade_js = '<pre><code class="prettyprint">var fade = new Vue({
+  el: &#039;#fade&#039;,
+  data: {
+    show: false
+  }
+});
+</code></pre>';
+
+$fade_css = '<pre><code class="prettyprint">.v-enter, .v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-to, .v-leave {
+  opacity: 1;
+}
+
+.v-enter-active, .v-leave-active {
+  transition: opacity 0.8s;
+}
+</code></pre>';
+
+$animated = '<pre><code class="prettyprint">&lt;transition name=zoom enter-active-class=&quot;animated zoomIn&quot; leave-active-class=&quot;animated zoomOut&quot;&gt;
+&lt;/transition&gt;
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 
