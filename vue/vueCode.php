@@ -372,15 +372,112 @@ $animated = '<pre><code class="prettyprint">&lt;transition name=zoom enter-activ
 &lt;/transition&gt;
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$ec = '<pre><code class="prettyprint">&lt;div id=&quot;app&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;h1 class=&quot;pageTitle&quot;&gt;商品一覧&lt;/h1&gt;
+  &lt;!--検索欄--&gt;
+  &lt;div class=&quot;search&quot;&gt;
+    &lt;div class=&quot;result&quot;&gt;
+      検索結果&lt;span class=&quot;count&quot;&gt;{{count}}件&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;condition&quot;&gt;
+      &lt;div class=&quot;terget&quot;&gt;
+        &lt;label&gt;&lt;input type=&quot;checkbox&quot; v-model=&quot;showSaleItem&quot;&gt;セール商品&lt;/label&gt;
+        &lt;label&gt;&lt;input type=&quot;checkbox&quot; v-model=&quot;showDelvFree&quot;&gt;送料無料&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sort&quot;&gt;
+        &lt;!--文字列型になる数値を.number修飾子で数値型へ--&gt;
+        &lt;label for=&quot;sort&quot;&gt;並び替え&lt;/label&gt;
+        &lt;select id=&quot;sort&quot; class=&quot;sorting&quot; v-model.number=&quot;sortOrder&quot;&gt;
+          &lt;option value=&quot;1&quot;&gt;標準&lt;/option&gt;
+          &lt;option value=&quot;2&quot;&gt;価格が安い順&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!--商品一覧--&gt;
+  &lt;div class=&quot;list&quot;&gt;
+    &lt;div class=&quot;item&quot; v-for=&quot;product in filteredList&quot; v-bind:key=&quot;products.id&quot;&gt;
+      &lt;figure class=&quot;image&quot;&gt;
+        &lt;template v-if=&quot;product.isSale&quot;&gt;
+          &lt;div class=&quot;status&quot;&gt;SALE&lt;/div&gt;
+        &lt;/template&gt;
+        &lt;img v-bind:src=&quot;product.image&quot; alt=&quot;&quot;&gt;
+        &lt;!-- &lt;figcaption&gt;{{product.name}}&lt;/figcaption&gt; --&gt;
+        &lt;figcaption v-html=&quot;product.name&quot;&gt;&lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;div class=&quot;detail&quot;&gt;
+        &lt;div class=&quot;price&quot;&gt;&lt;span&gt;{{product.price | number_format}}&lt;/span&gt;円(税込)&lt;/div&gt;
+        &lt;template v-if=&quot;product.delv == 0&quot;&gt;
+          &lt;div class=&quot;shipping-fee none&quot;&gt;送料無料&lt;/div&gt;
+        &lt;/template&gt;
+        &lt;template v-else&gt;
+          &lt;div class=&quot;shipping-fee none&quot;&gt;+送料{{product.delv | number_format}}円&lt;/div&gt;
+        &lt;/template&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- app --&gt;
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
-</code></pre>';
+$ec_js = '<pre><code class="prettyprint">Vue.filter(&#039;number_format&#039;, function (val) {
+  return val.toLocaleString();
+});
 
-$a = '<pre><code class="prettyprint">
+//商品一覧コンポーネント
+var app = new Vue({
+  el: &#039;#app&#039;,
+  data: {
+    showSaleItem: false, //SALE商品のチェック状態Vue.filter
+    showDelvFree: false, //送料無料のチェック状態
+    sortOrder: 1, //並び替えの選択値(1:標準 2:価格が安い順)
+    products: [ //商品リスト
+      { id: 1, name: &#039;ジム&lt;br&gt;クライミング体験会&#039;, price: 1550, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: true },
+      { id: 2, name: &#039;ジム&lt;br&gt;クライミング観戦チケット&#039;, price: 1280, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: true },
+      { id: 3, name: &#039;福岡会場&lt;br&gt;公式戦観戦チケット&#039;, price: 1680, image: &#039;../images/clim.jpg&#039;, delv: 190, isSale: true },
+      { id: 4, name: &#039;外岩講習会&lt;br&gt;外岩クライミング体験チケット&#039;, price: 500, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: true },
+      { id: 5, name: &#039;リード&lt;br&gt;リードクライミング講習&#039;, price: 890, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: false },
+      { id: 6, name: &#039;ロープの使い方&lt;br&gt;クライミング座談会&#039;, price: 990, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: false }
+    ]
+  },
+  computed: {
+    //絞り込み後の商品リストを返す算出プロパティ
+    filteredList: function () {
+      var newList = [];
+      for (var i = 0; i &lt; this.products.length; i++) {
+        var isShow = true;
+        //i番目の商品が表示対象かどうかを判定する
+        if (this.showSaleItem &amp;&amp; !this.products[i].isSale) {
+          isShow = false;
+        }
+        if (this.showDelvFree &amp;&amp; this.products[i].delv &gt; 0) {
+          isShow = false;
+        }
+        if (isShow) {
+          newList.push(this.products[i]);
+        }
+      }
+      //新しい配列を並び替える
+      if (this.sortOrder == 1) {
+        //元の順番にpushしているので並び替え済み
+      }
+      else if (this.sortOrder == 2) {
+        newList.sort(function (a, b) {
+          return a.price - b.price;
+        });
+      }
+      return newList;
+    },
+    //絞り込み後の商品件数を返す算出プロパティ
+    count: function () {
+      return this.filteredList.length;
+    }
+  }
+});
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 ?>
+

@@ -16,12 +16,11 @@
         <li><a href="watch.php">データの変更を監視する</a></li>
         <li><a href="formbind.php">データと入力を同期する</a></li>
         <li><a href="transition.php">CSSトランジション</a></li>
-        </ul>
+        <li><a href="ec.php">ECサイトの商品一覧</a></li>
       </ul>
-
       <div class="copyright">
         <small>&copy; 2021 かつまる学習帳</small>
       </div>
     </nav>
   </div><!-- /boxmenu -->
-</div>
+</div><!-- /header-contents -->
