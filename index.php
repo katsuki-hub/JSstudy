@@ -216,6 +216,7 @@
           <li><a href="vue/formbind.php">データと入力を同期する</a></li>
           <li><a href="vue/transition.php">CSSトランジション</a></li>
           <li><a href="vue/ec.php">ECサイトの商品一覧</a></li>
+          <li><a href="vue/quote.php">自動見積もりフォーム</a></li>
         </ul>
       </div>
     </section>

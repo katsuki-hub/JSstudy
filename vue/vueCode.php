@@ -477,6 +477,273 @@ var app = new Vue({
 });
 </code></pre>';
 
+$quote = '<pre><code class="prettyprint">&lt;div id=&quot;app&quot; v-cloak&gt;
+&lt;div class=&quot;container bg-dark text-white p-5&quot;&gt;
+  &lt;h2 class=&quot;text-center border-bottom pb-3 mb-5&quot;&gt;自動見積もりフォーム&lt;/h2&gt;
+  &lt;form&gt;
+    &lt;div class=&quot;form-group row&quot;&gt;
+      &lt;label class=&quot;col-md-3 col-form-label pt-0&quot;&gt;希望する動画制作
+        &lt;span class=&quot;badge badge-danger&quot;&gt;必須&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+          &lt;div class=&quot;col-md-5&quot;&gt;
+            &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+              &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; name=&quot;movie_type&quot; id=&quot;type1&quot; value=&quot;余興ムービー&quot; v-model=&quot;movieType&quot;&gt;
+              &lt;label class=&quot;form-check-label&quot; for=&quot;type1&quot;&gt;余興ムービー&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;&lt;!-- col-md-5 --&gt;
+          &lt;div class=&quot;col-md-5&quot;&gt;
+            &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+              &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; name=&quot;movie_type&quot; id=&quot;type2&quot; value=&quot;広告用ムービー&quot; v-model=&quot;movieType&quot;&gt;
+              &lt;label class=&quot;form-check-label&quot; for=&quot;type2&quot;&gt;広告用ムービー&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;&lt;!-- col-md-5 --&gt;
+          &lt;div class=&quot;col-md-5&quot;&gt;
+            &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+              &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; name=&quot;movie_type&quot; id=&quot;type3&quot; value=&quot;プレゼン動画&quot; v-model=&quot;movieType&quot;&gt;
+              &lt;label class=&quot;form-check-label&quot; for=&quot;type3&quot;&gt;プレゼン動画&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;&lt;!-- col-md-5 --&gt;
+          &lt;div class=&quot;col-md-5&quot;&gt;
+            &lt;div class=&quot;form-check form-check-inline&quot;&gt;
+              &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; name=&quot;movie_type&quot; id=&quot;type4&quot; value=&quot;会社紹介動画&quot; v-model=&quot;movieType&quot;&gt;
+              &lt;label class=&quot;form-check-label&quot; for=&quot;type4&quot;&gt;会社紹介動画&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;&lt;!-- col-md-5 --&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 発表日 --&gt;
+    &lt;div class=&quot;form-group row&quot;&gt;
+      &lt;label class=&quot;col-md-3 col-form-label pt-0&quot; for=&quot;announcement_date&quot;&gt;発表日
+        &lt;span class=&quot;badge badge-danger&quot;&gt;必須&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;input class=&quot;form-control&quot; type=&quot;date&quot; id=&quot;announcement_date&quot; placeholder=&quot;日付を選びください&quot; v-model=&quot;announcement_date&quot;&gt;
+        &lt;small class=&quot;form-text&quot;&gt;動画発表の日にちを選択してください&lt;/small&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- DVD仕上がり予定日 --&gt;
+    &lt;div class=&quot;form-group row&quot;&gt;
+      &lt;label class=&quot;col-md-3 col-form-label pt-0&quot; for=&quot;delivery_date&quot;&gt;DVD納品予定日
+        &lt;span class=&quot;badge badge-danger&quot;&gt;必須&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;input class=&quot;form-control&quot; type=&quot;date&quot; id=&quot;delivery_date&quot; v-bind:min=&quot;tommorow&quot; placeholder=&quot;日付を選びください&quot; v-model=&quot;delivery_date&quot;&gt;
+        &lt;small class=&quot;form-text&quot;&gt;仕上がり予定日を発表日の1週間前に設定しております&lt;/small&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 基本料金 --&gt;
+    &lt;div class=&quot;form-group row&quot;&gt;
+      &lt;label class=&quot;col-md-3 col-form-label pt-0&quot;&gt;基本料金(税込)&lt;/label&gt;
+      &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+          &lt;input type=&quot;text&quot; class=&quot;form-control text-right&quot; id=&quot;sum_base&quot; v-bind:value=&quot;taxedBasePrice | number_format&quot; readonly&gt;
+          &lt;div class=&quot;input-group-append&quot;&gt;
+            &lt;label class=&quot;input-group-text&quot;&gt;円&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- オプションメニュー --&gt;
+    &lt;div class=&quot;form-group row&quot;&gt;
+      &lt;label class=&quot;col-md-3 col-form-label pt-0&quot;&gt;オプション(税込)
+        &lt;span class=&quot;badge badge-info&quot;&gt;任意&lt;/span&gt;
+      &lt;/label&gt;
+      &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;div class=&quot;form-check mb-3&quot;&gt;
+          &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;opt1&quot; v-model=&quot;opt1_use&quot;&gt;
+          &lt;label class=&quot;form-check-label&quot; for=&quot;opt1&quot;&gt;BGM制作 ＋{{taxedopt1 | number_format}}円&lt;/label&gt;
+          &lt;small class=&quot;form-text&quot;&gt;オリジナル楽曲を依頼される場合は1曲{{taxedopt1 | number_format}}円かかります&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-check mb-3&quot;&gt;
+          &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;opt2&quot; v-model=&quot;opt2_use&quot;&gt;
+          &lt;label class=&quot;form-check-label&quot; for=&quot;opt2&quot;&gt;メイキング動画 ＋{{taxedopt2 | number_format}}円&lt;/label&gt;
+          &lt;small class=&quot;form-text&quot;&gt;メイキングムービーを依頼される場合の料金です&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-check mb-3&quot;&gt;
+          &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;opt3&quot; v-model=&quot;opt3_use&quot;&gt;
+          &lt;label class=&quot;form-check-label&quot; for=&quot;opt3&quot;&gt;DVD盤面印刷 ＋{{taxedopt3 | number_format}}円&lt;/label&gt;
+          &lt;small class=&quot;form-text&quot;&gt;盤面デザインを希望される場合は{{taxedopt3 | number_format}}円(税込)がかかります&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-row mb-3 align-items-center&quot;&gt;
+          &lt;div class=&quot;col-auto&quot;&gt;
+            &lt;label class=&quot;form-check-label&quot; for=&quot;opt4&quot;&gt;写真スキャニング ＋{{taxedopt4 | number_format}}円&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-auto&quot;&gt;
+            &lt;div class=&quot;input-group&quot;&gt;
+              &lt;input class=&quot;form-control&quot; type=&quot;number&quot; id=&quot;opt4&quot; v-model.number=&quot;opt4_num&quot; min=&quot;0&quot; max=&quot;30&quot;&gt;
+              &lt;div class=&quot;input-group-append&quot;&gt;
+                &lt;label class=&quot;input-group-text&quot; for=&quot;opt4&quot;&gt;枚&lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;small class=&quot;form-text&quot;&gt;プリントアウトした写真のスキャニング希望の方は1枚当たり{{taxedopt4 | number_format}}円にて承ります&lt;/small&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 小計 --&gt;
+    &lt;div class=&quot;form-group row&quot;&gt;
+      &lt;label class=&quot;col-md-3 col-form-label pt-0&quot;&gt;オプション料金(税込)&lt;/label&gt;
+      &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+          &lt;input type=&quot;text&quot; class=&quot;form-control text-right&quot; id=&quot;sum_opt&quot; v-bind:value=&quot;taxedOptPrice | number_format&quot; readonly&gt;
+          &lt;div class=&quot;input-group-append&quot;&gt;
+            &lt;label class=&quot;input-group-text&quot;&gt;円&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 合計 --&gt;
+    &lt;div class=&quot;form-group row&quot;&gt;
+      &lt;label class=&quot;col-md-3 col-form-label pt-0&quot;&gt;合計(税込)&lt;/label&gt;
+      &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+          &lt;input type=&quot;text&quot; class=&quot;fo-m-control text-right&quot; id=&quot;sum_total&quot; v-bind:value=&quot;taxedTotalPrice | number_format&quot; readonly&gt;
+          &lt;div class=&quot;input-group-append&quot;&gt;
+            &lt;label class=&quot;input-group-text&quot;&gt;円&lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- /#app --&gt;
+</code></pre>';
+
+$quote_js = '<pre><code class="prettyprint">//通貨書式への変換フィルター
+Vue.filter(&#039;number_format&#039;, function (val) {
+  return val.toLocaleString();
+});
+
+var app = new Vue({
+  el: &#039;#app&#039;,
+  data: {
+    taxRate: 0.1,
+    movieType: &#039;余興ムービー&#039;,
+    basePrice: 25000,
+    addPrice1: 5000,
+    addPrice2: 10000,
+    addPrice3: 15000,
+    addPrice4: 20000,
+    addPrice5: 30000,
+    addPrice6: 40000,
+    addPrice7: 45000,
+    optPrice: 0,
+    totalPrice: 0,
+    announcement_date: &#039;&#039;,
+    delivery_date: &#039;&#039;,
+    opt1_use: false,
+    opt1_price: 6600,
+    opt2_use: false,
+    opt2_price: 12500,
+    opt3_use: false,
+    opt3_price: 1200,
+    opt4_num: 0,
+    opt4_price: 320,
+  },
+  methods: {
+    //税込金額に変換
+    incTax: function (untaxed) {
+      return Math.floor(untaxed * (1 + this.taxRate));
+    },
+    //日付の差分を求める
+    getDateDiff: function (dateString1, dateString2) {
+      var date1 = new Date(dateString1);
+      var date2 = new Date(dateString2);
+      //二つの日付の差分(ミリ秒)を計算
+      var msDiff = date1.getTime() - date2.getTime();
+      //差分を日付に変換　差分÷(1000ミリ秒×60秒×60分×24時間)
+      return Math.ceil(msDiff / (1000 * 60 * 60 * 24));
+    },
+    //日付をYYYY-MM-DDの書式を返すメソッド
+    formatDate: function (dt) {
+      var y = dt.getFullYear();
+      var m = (&#039;00&#039; + (dt.getMonth() + 1)).slice(-2);
+      var d = (&#039;00&#039; + dt.getDate()).slice(-2);
+      return (y + &#039;-&#039; + m + &#039;-&#039; + d);
+    }
+  },
+  computed: {
+    taxedopt1: function () {
+      return this.incTax(this.opt1_price);
+    },
+    taxedopt2: function () {
+      return this.incTax(this.opt2_price);
+    },
+    taxedopt3: function () {
+      return this.incTax(this.opt3_price);
+    },
+    taxedopt4: function () {
+      return this.incTax(this.opt4_price);
+    },
+    taxedBasePrice: function () {
+      var addPrice = 0;
+      //納期までの残り日数
+      var dateDiff = this.getDateDiff(this.delivery_date, (new Date()).toLocaleString());
+      //割増料金
+      if (21 &lt;= dateDiff &amp;&amp; dateDiff &lt; 30) {
+        addPrice = this.addPrice1;
+      } else if (14 &lt;= dateDiff &amp;&amp; dateDiff &lt; 21) {
+        addPrice = this.addPrice2;
+      } else if (7 &lt;= dateDiff &amp;&amp; dateDiff &lt; 14) {
+        addPrice = this.addPrice3;
+      } else if (3 &lt;= dateDiff &amp;&amp; dateDiff &lt; 7) {
+        addPrice = this.addPrice4;
+      } else if (dateDiff == 3) {
+        addPrice = this.addPrice5;
+      } else if (dateDiff == 2) {
+        addPrice = this.addPrice6;
+      } else if (dateDiff == 1) {
+        addPrice = this.addPrice7;
+      }
+      return this.incTax(this.basePrice + addPrice);
+    },
+    taxedOptPrice: function () {
+      var optPrice = 0;
+      if (this.opt1_use) { optPrice += this.opt1_price; }
+      if (this.opt2_use) { optPrice += this.opt2_price; }
+      if (this.opt3_use) { optPrice += this.opt3_price; }
+      if (this.opt4_num == &#039;&#039;) { this.opt4_num == 0; }
+      optPrice += this.opt4_num * this.opt4_price;
+      return this.incTax(optPrice);
+    },
+    taxedTotalPrice: function () {
+      return (this.taxedBasePrice + this.taxedOptPrice);
+    },
+  },
+  created: function () {
+    //今日の日付取得
+    var dt = new Date();
+    //発表日に2か月後の日付を初期設定
+    dt.setMonth(dt.getMonth() + 2);
+    this.announcement_date = this.formatDate(dt);
+    //DVD納品予定日をさらに1週間前に初期設定
+    dt.setDate(dt.getDate() - 7);
+    this.delivery_date = this.formatDate(dt);
+  },
+  //明日の日付をYYYY-MM-DDの書式で返すプロパティ
+  tommorow: function () {
+    var dt = new Date();
+    dt.setDate(dt.getDate() + 1);
+    return this.formatDate(dt);
+  }
+});
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 ?>
