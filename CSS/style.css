@@ -199,12 +199,12 @@ section h1 {
 }
 
 section h2 {
-	font-size: 26px;
+	font-size: 22px;
 	color: #000000;
 	font-family: meiryo;
 	text-shadow: 2px 2px 2px #1ebf1ec4;
 	text-align: center;
-	margin: 16px 0 40px 0;
+	margin-top: 40px;
 }
 
 h3 {
@@ -455,6 +455,10 @@ li {
 	color: #FF0000;
 }
 
+.mark {
+	background: #cbe7a5ad;
+}
+
 @media (max-width: 960px) {
 	header {
 		position: fixed;
@@ -597,7 +601,6 @@ li {
 
 	section h2 {
 		font-size: 20px;
-		margin: 20px 0 40px 0;
 	}
 
 	pre {

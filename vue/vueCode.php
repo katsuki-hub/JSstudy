@@ -732,13 +732,36 @@ var app = new Vue({
 });
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$child = '<pre><code class="prettyprint">Vue.component(&#039;my-product&#039;, {
+  template: `
+  &lt;div&gt;
+    &lt;button v-on:click=&quot;clickHandler&quot;&gt;値下げする&lt;/button&gt;{{price}}(円)
+  &lt;/div&gt;`,
+  props: [&#039;price&#039;],
+  methods: {
+    clickHandler: function () {
+      this.$emit(&#039;child-click&#039;);
+    }
+  }
+})
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$parent = '<pre><code class="prettyprint">var app = new Vue({
+  el: &#039;#app&#039;,
+  data: {
+    price: 990
+  },
+  methods: {
+    priceDown: function () {
+      this.price -= 100;
+    }
+  }
+});
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$temp = '<pre><code class="prettyprint">&lt;div id=&quot;app&quot;&gt;
+&lt;my-product v-on:child-click=&quot;priceDown&quot; v-bind:price=&quot;price&quot;&gt;&lt;/my-product&gt;
+&lt;/div&gt;
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">
@@ -747,4 +770,3 @@ $a = '<pre><code class="prettyprint">
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 ?>
-

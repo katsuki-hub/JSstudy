@@ -217,6 +217,7 @@
           <li><a href="vue/transition.php">CSSトランジション</a></li>
           <li><a href="vue/ec.php">ECサイトの商品一覧</a></li>
           <li><a href="vue/quote.php">自動見積もりフォーム</a></li>
+          <li><a href="vue/component.php">コンポーネントの基本</a></li>
         </ul>
       </div>
     </section>
