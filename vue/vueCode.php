@@ -764,7 +764,169 @@ $temp = '<pre><code class="prettyprint">&lt;div id=&quot;app&quot;&gt;
 &lt;/div&gt;
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$tempEC = '<pre><code class="prettyprint">&lt;div id=&quot;app&quot;&gt;
+&lt;product-list v-bind:products=&quot;products&quot;&gt;&lt;/product-list&gt;
+&lt;/div&gt;
+・・・・
+・・・・
+↓↓
+&lt;script src=&quot;../common/filter.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;components/product-header.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;components/product.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;components/product-list.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../scripts/lineUp.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>';
+
+$lineup = '<pre><code class="prettyprint">var app = new Vue({
+  el: &#039;#app&#039;,
+  data: {
+    //商品リスト
+    products: [
+      { id: 1, name: &#039;ジム&lt;br&gt;クライミング体験会&#039;, price: 1550, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: true },
+      { id: 2, name: &#039;ジム&lt;br&gt;クライミング観戦チケット&#039;, price: 1280, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: true },
+      { id: 3, name: &#039;福岡会場&lt;br&gt;公式戦観戦チケット&#039;, price: 1680, image: &#039;../images/clim.jpg&#039;, delv: 190, isSale: true },
+      { id: 4, name: &#039;外岩講習会&lt;br&gt;外岩クライミング体験チケット&#039;, price: 500, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: true },
+      { id: 5, name: &#039;リード&lt;br&gt;リードクライミング講習&#039;, price: 890, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: false },
+      { id: 6, name: &#039;ロープの使い方&lt;br&gt;クライミング座談会&#039;, price: 990, image: &#039;../images/clim.jpg&#039;, delv: 0, isSale: false }
+    ]
+  }
+});
+</code></pre>';
+
+$filteryen = '<pre><code class="prettyprint">//通貨書式に変換するフィルター
+Vue.filter(&#039;number_format&#039;, function (val) {
+  return val.toLocaleString();
+});
+</code></pre>';
+
+$product_js = '<pre><code class="prettyprint">var product = {
+  template: `
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;figure class=&quot;image&quot;&gt;
+        &lt;template v-if=&quot;product.isSale&quot;&gt;
+          &lt;div class=&quot;status&quot;&gt;SALE&lt;/div&gt;
+        &lt;/template&gt;
+        &lt;img v-bind:src=&quot;product.image&quot; alt=&quot;&quot;&gt;
+        &lt;figcaption v-html=&quot;product.name&quot;&gt;&lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;div class=&quot;detail&quot;&gt;
+        &lt;div class=&quot;price&quot;&gt;&lt;span&gt;{{ product.price | number_format }}&lt;/span&gt;円(税込)&lt;/div&gt;
+        &lt;template v-if=&quot;product.delv == 0&quot;&gt;
+          &lt;div class=&quot;shipping-fee none&quot;&gt;送料無料&lt;/div&gt;
+        &lt;/template&gt;
+        &lt;template v-else&gt;
+          &lt;div class=&quot;shipping-fee&quot;&gt;＋送料{{ product.delv | number_format }}円&lt;/div&gt;
+        &lt;/template&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;`,
+  props: [&#039;product&#039;]
+};
+</code></pre>';
+
+$header = '<pre><code class="prettyprint">var productHeader = {
+  template: `
+    &lt;header&gt;
+      &lt;h1 class=&quot;pageTitle&quot;&gt;商品一覧&lt;/h1&gt;
+      &lt;!--検索欄--&gt;
+      &lt;div class=&quot;search&quot;&gt;
+        &lt;div class=&quot;result&quot;&gt;
+          検索結果&lt;span class=&quot;count&quot;&gt;{{ count }}件&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;condition&quot;&gt;
+          &lt;div class=&quot;target&quot;&gt;
+            &lt;label&gt;
+              &lt;input type=&quot;checkbox&quot;
+                v-bind:checked=&quot;showSaleItem&quot;
+                v-on:change=&quot;$emit(&#039;showSaleItemChanged&#039;)&quot;&gt;セール対象
+            &lt;/label&gt;
+            &lt;label&gt;
+              &lt;input type=&quot;checkbox&quot;
+                v-bind:checked=&quot;showDelvFree&quot;
+                v-on:change=&quot;$emit(&#039;showDelvFreeChanged&#039;)&quot;&gt;送料無料
+            &lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sort&quot;&gt;
+            &lt;label for=&quot;sort&quot;&gt;並び替え&lt;/label&gt;
+            &lt;select id=&quot;sort&quot; class=&quot;sorting&quot;
+              v-bind:value=&quot;sortOrder&quot;
+              v-on:change=&quot;$emit(&#039;sortOrderChanged&#039;, parseInt($event.target.value))&quot;&gt;
+              &lt;option value=&quot;1&quot;&gt;標準&lt;/option&gt;
+              &lt;option value=&quot;2&quot;&gt;価格が安い順&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;`,
+  props: [&#039;count&#039;, &#039;showSaleItem&#039;, &#039;showDelvFree&#039;, &#039;sortOrder&#039;]
+};
+</code></pre>';
+
+$list = '<pre><code class="prettyprint">Vue.component(&#039;product-list&#039;, {
+  template: `
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;product-header
+        v-bind:count=&quot;filteredList.length&quot;
+        v-bind:showSaleItem=&quot;showSaleItem&quot;
+        v-bind:showDelvFree=&quot;showDelvFree&quot;
+        v-bind:sortOrder=&quot;sortOrder&quot;
+        v-on:showSaleItemChanged=&quot;showSaleItem=!showSaleItem&quot;
+        v-on:showDelvFreeChanged=&quot;showDelvFree=!showDelvFree&quot;
+        v-on:sortOrderChanged=&quot;sortOrderChanged&quot;&gt;
+      &lt;/product-header&gt;
+      &lt;div class=&quot;br200&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;list&quot;&gt;
+        &lt;product
+          v-for=&quot;product in filteredList&quot;
+          v-bind:product=&quot;product&quot;
+          v-bind:key=&quot;product.id&quot;&gt;
+        &lt;/product&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;`,
+  components: {
+    &#039;product-header&#039;: productHeader,
+    &#039;product&#039;: product
+  },
+  props: [&#039;products&#039;],
+  data: function () {
+    return {
+      showSaleItem: false,
+      showDelvFree: false,
+      sortOrder: 1
+    }
+  },
+  methods: {
+    //並び替えの選択が変わったときに呼び出されるメソッド
+    sortOrderChanged: function (order) {
+      this.sortOrder = order;
+    }
+  },
+  computed: {
+    filteredList: function () {
+      var newList = [];
+      for (var i = 0; i &lt; this.products.length; i++) {
+        var isShow = true;
+        if (this.showSaleItem &amp;&amp; !this.products[i].isSale) {
+          isShow = false;
+        }
+        if (this.showDelvFree &amp;&amp; this.products[i].delv &gt; 0) {
+          isShow = false;
+        }
+        if (isShow) {
+          newList.push(this.products[i]);
+        }
+      }
+      if (this.sortOrder == 1) {
+        //元の順番にpushしているので並び替え済み
+      } else if (this.sortOrder == 2) {
+        newList.sort(function (a, b) {
+          return a.price - b.price;
+        });
+      }
+      return newList;
+    }
+  }
+});
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">

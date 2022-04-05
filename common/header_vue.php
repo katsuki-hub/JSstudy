@@ -19,6 +19,7 @@
         <li><a href="ec.php">ECサイトの商品一覧</a></li>
         <li><a href="quote.php">自動見積もりフォーム</a></li>
         <li><a href="component.php">コンポーネントの基本</a></li>
+        <li><a href="productLineUp.php">商品一覧をコンポーネント化</a></li>
       </ul>
       <div class="copyright">
         <small>&copy; 2021 かつまる学習帳</small>
