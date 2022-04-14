@@ -235,7 +235,7 @@
       </div>
       <div id="box">
         <ul>
-          <li><a href="python/excel.php">エクセルの自動化</a></li>
+          <li><a href="python/excel.php">エクセルの自動化(基本操作)</a></li>
         </ul>
       </div>
     </section>

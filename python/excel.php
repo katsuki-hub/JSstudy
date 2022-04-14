@@ -51,7 +51,19 @@
         <?php echo $cell; ?>
         <h3>ファイルを保存</h3>
         <?php echo $save; ?>
+        <h3>iter_rowsで繰り返し指定範囲を取得</h3>
+        <?php echo $iter; ?>
+        <div class="frame3">
+          pythonのイテレータはfor文と組み合わせて使い要素を反復して値を取り出す機能です。
+        </div>
 
+        <div class="br100"></div>
+        <h2>年齢生年対応表</h2>
+        <?php echo $agelist; ?>
+
+        <div class="br100"></div>
+        <h2>西暦和暦の対応表</h2>
+        <?php echo $wareki; ?>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
