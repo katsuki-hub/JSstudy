@@ -138,7 +138,39 @@ for row in it:
         print(cell.value)
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$invoice = '<pre><code class="prettyprint">import openpyxl as excel
+template_file = &quot;invoice-template.xlsx&quot;
+save_file = &quot;invoice01.xlsx&quot;
+
+name = &quot;株式会社〇〇九州&quot;
+subject = &quot;1月分のご請求&quot;
+items = [
+    [&quot;コンサルティング代金一式&quot;, 1, 120000],
+    [&quot;システム構築費&quot;, 1, 200000],
+    [&quot;LP制作費&quot;, 4, 25000]
+]
+
+book = excel.load_workbook(template_file)
+sheet = book.active
+sheet[&quot;B4&quot;] = name
+sheet[&quot;C10&quot;] = subject
+
+# 内訳を繰り返し書き込んでいく
+total = 0
+for i, it in enumerate(items):
+    summary, count, price = it
+    subtotal = count * price
+    total += subtotal
+
+    row = 15 + i
+    sheet.cell(row, 2, summary)
+    sheet.cell(row, 5, count)
+    sheet.cell(row, 6, price)
+    sheet.cell(row, 7, subtotal)
+sheet[&quot;C11&quot;] = total
+
+book.save(save_file)
+
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">

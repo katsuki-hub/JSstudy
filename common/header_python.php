@@ -9,6 +9,7 @@
       <ul class="menu_1">
         <li><a href="../index.php">HOME</a></li>
         <li><a href="excel.php">エクセルの自動化</a></li>
+        <li><a href="excel_work.php">エクセル(WORK)</a></li>
       </ul>
       <div class="copyright">
         <small>&copy; 2021 かつまる学習帳</small>
