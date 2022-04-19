@@ -10,6 +10,8 @@
         <li><a href="../index.php">HOME</a></li>
         <li><a href="excel.php">エクセルの自動化</a></li>
         <li><a href="excel_work.php">エクセル(WORK)</a></li>
+        <li><a href="docx.php">ワード(WORK)</a></li>
+        <li><a href="pdf_join.php">PDFファイルを結合</a></li>
       </ul>
       <div class="copyright">
         <small>&copy; 2021 かつまる学習帳</small>

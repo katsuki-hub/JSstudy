@@ -173,6 +173,126 @@ book.save(save_file)
 
 </code></pre>';
 
+$word = '<pre><code class="prettyprint"># python-docxをつかう宣言文
+import docx
+
+# 新規ドキュメント作成
+doc = docx.Document()
+
+# 既存ワードファイルの読み込み
+doc = docx.Document(&#039;ファイル名.docx&#039;)
+
+# Wordファイルへの保存
+doc.save(&#039;ファイル名.docx&#039;)
+</code></pre>';
+
+$keiyaku = '<pre><code class="prettyprint">import docx
+import datetime
+
+template_file = &#039;契約書template.docx&#039;
+save_file = &#039;契約書【会社名】.docx&#039;
+now = datetime.datetime.now()
+
+card = {
+    &#039;■今日の日時&#039;: now.strftime(&#039;%Y年%m月%d日&#039;),
+    &#039;■契約会社名&#039;: &#039;〇〇株式会社&#039;,
+    &#039;■会社名と名前&#039;: &#039;〇〇株式会社　代表取締役　浦島太郎&#039;,
+    &#039;■会社の住所&#039;: &#039;福岡県福岡市博多区〇丁目〇〇&#039;,
+    &#039;■契約金&#039;: &#039;金150,000円&#039;,
+    &#039;■業務&#039;: &#039;コンサルタント業務請負代金&#039;,
+    &#039;■請求の締め日&#039;: &#039;令和4年〇月付け請求書分&#039;,
+}
+
+doc = docx.Document(template_file)
+
+for p in doc.paragraphs:
+    for k, v in card.items():
+        if p.text.find(k) &gt;= 0:
+            p.text = p.text.replace(k, v)
+
+doc.save(save_file)
+</code></pre>';
+
+$pdf_join = '<pre><code class="prettyprint">from heapq import merge
+from pathlib import Path
+import PyPDF2
+
+# フォルダのPDFファイル一覧
+pdf_dir = Path(&quot;./pdf_files&quot;)
+pdf_files = sorted(pdf_dir.glob(&quot;*.pdf&quot;))
+
+# 1つのPDFファイルへ
+pdf_join = PyPDF2.PdfFileWriter()
+for pdf_file in pdf_files:
+    pdf_reader = PyPDF2.PdfFileReader(str(pdf_file))
+    for i in range(pdf_reader.getNumPages()):
+        pdf_join.addPage(pdf_reader.getPage(i))
+
+# 保存ファイル名
+merged_file = pdf_files[0].stem + &quot;-&quot; + pdf_files[-1].stem + &quot;.pdf&quot;
+
+# 保存
+with open(merged_file, &quot;wb&quot;)as f:
+    pdf_join.write(f)
+
+</code></pre>';
+
+$imagePDF = '<pre><code class="prettyprint">import os
+import img2pdf
+from traceback import print_exc
+
+
+def convert_dir(dir_path):
+    if os.path.isdir(dir_path):
+        pdf_file_path = &quot;{}.pdf&quot;.format(os.path.basename(dir_path))
+        pdf_file_path = os.path.join(os.path.dirname(dir_path), pdf_file_path)
+    else:
+        raise Exception(&quot;invalid path&quot;)
+
+    images_ = []
+    print(&quot;scanning directory: {}&quot;.format(dir_path))
+    for item in os.listdir(dir_path):
+        path_ = os.path.join(dir_path, item)
+        if os.path.isfile(path_):
+            ext_ = os.path.splitext(path_)[-1].lower()
+            if ext_ in [&quot;.jpg&quot;, &quot;.jpeg&quot;, &quot;.png&quot;]:
+                images_.append(path_)
+            else:
+                continue
+        else:
+            continue
+
+    if len(images_) == 0:
+        raise Exception(&quot;no images files&quot;)
+    else:
+        images_.sort()
+
+    print(&quot;generating pdf file:{} ...&quot;.format(pdf_file_path))
+    with open(pdf_file_path, &#039;wb&#039;)as f:
+        f.write(img2pdf.convert(images_))
+
+
+if __name__ == &quot;__main__&quot;:
+    try:
+        dir_path = &quot;./image_files&quot;
+        convert_dir(dir_path)
+
+    except BaseException:
+        print_exc()
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 
