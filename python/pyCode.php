@@ -276,7 +276,6 @@ if __name__ == &quot;__main__&quot;:
     try:
         dir_path = &quot;./image_files&quot;
         convert_dir(dir_path)
-
     except BaseException:
         print_exc()
 </code></pre>';
