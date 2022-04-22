@@ -280,10 +280,62 @@ if __name__ == &quot;__main__&quot;:
         print_exc()
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$soup = '<pre><code class="prettyprint"># HTMLの文字列を指定
+html_str = &quot;&lt;html&gt;&lt;body&gt;...&lt;/body&gt;&lt;/html&gt;&quot;
+
+# ライブラリの取り込み
+from bs4 import BeautifulSoup
+
+# Beautiful Soupで解析を行う
+soup = BeautifulSoup(html_str, &#039;html5lib&#039;)
+
+# 出力
+print(soup.prettify())
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$img_download = '<pre><code class="prettyprint">import os
+import time
+import requests
+import urllib
+from bs4 import BeautifulSoup
+
+target_url = &#039;ダウンロードしたいサイトのURL&#039;
+save_dir = &#039;./image-download&#039;
+
+
+def download_images():  # メイン処理
+    html = requests.get(target_url).text
+    urls = get_image_urls(html)
+    go_download(urls)
+
+
+def get_image_urls(html):  # HTMLから画像のURL一覧を取得
+    soup = BeautifulSoup(html, &#039;html5lib&#039;)
+    res = []
+    for img in soup.find_all(&#039;img&#039;):
+        src = img[&#039;src&#039;]
+        url = urllib.parse.urljoin(target_url, src)
+        print(&#039;img.src=&#039;, url)
+        res.append(url)
+    return res
+
+
+def go_download(urls):  # 連続でURL一覧をダウンロード
+    if not os.path.exists(save_dir):
+        os.mkdir(save_dir)
+    for url in urls:
+        fname = os.path.basename(url)
+        save_file = save_dir + &#039;/&#039; + fname
+        r = requests.get(url)
+        with open(save_file, &#039;wb&#039;)as fp:
+            fp.write(r.content)
+            print(&quot;save:&quot;, save_file)
+        time.sleep(1)
+
+
+if __name__ == &#039;__main__&#039;:
+    download_images()
+
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">

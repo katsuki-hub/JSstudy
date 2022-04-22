@@ -239,6 +239,7 @@
           <li><a href="python/excel_work.php">エクセルの自動化(WORK)</a></li>
           <li><a href="python/docx.php">ワードの自動化(WORK)</a></li>
           <li><a href="python/pdf_join.php">PDFファイルを結合</a></li>
+          <li><a href="python/scraping.php">スクレイピング</a></li>
         </ul>
       </div>
     </section>
