@@ -107,9 +107,30 @@
           </tr>
         </table>
         <small>※複数の要素を一気に取得したい場合には、flnd elements 〇〇のような複数形を指定します</small>
-
-
-
+        <h3>Google検索を自動化</h3>
+        <p>Googleのトップベージにあるフォームにキーワードを書き込んで検索する</p>
+        <?php
+        require_once("pyCode.php");
+        echo $chromeSearch;
+        ?>
+        <h4>ヘッドレスモード</h4>
+        <p>Chromeの画面(UI)を表示せずに自動操縦する</p>
+        <div class="frame2">
+          # オプション指定<br>
+          options = webdriver.ChromeOptions()<br>
+          # オプションでヘッドレスモードを指定<br>
+          options.add_argument(&#039;--headless&#039;)<br>
+          # Chromeを起動<br>
+          driver = webdriver.Chrome(options=options)
+        </div>
+        <h3>ページ全体のスクリーンショットを撮る</h3>
+        <?php echo $screenshot; ?>
+        <h4>Chrome上でJavaScriptを実行する方法</h4>
+        <p>seleniumでは任意のタイミングでJavaScriptを実行できるメソッドがあります。</p>
+        <div class="frame2">
+          # JavaScriptを実行して結果を取得<br>
+          value = driver.execute_script(&#039;JavaScriptのコード&#039;)
+        </div>
 
       </section>
     </article>

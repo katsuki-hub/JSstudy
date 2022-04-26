@@ -338,10 +338,59 @@ if __name__ == &#039;__main__&#039;:
 
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$chromeSearch = '<pre><code class="prettyprint">from selenium import webdriver
+import time
+
+driver = webdriver.Chrome()
+driver.get(&#039;https://google.com&#039;)
+
+# 検索ボックスを探す
+el = driver.find_element_by_name(&#039;q&#039;)
+# キーワードを入力
+el.send_keys(&#039;ボートレース&#039;)
+el.submit()
+
+time.sleep(180)  # 3分後に閉じる
+driver.close
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$screenshot = '<pre><code class="prettyprint">from requests import options
+from selenium import webdriver
+
+url = &#039;サイトURL&#039;
+save_file = &#039;screenshot_full.png&#039;
+
+
+def screenshot_full(url, save_file):  # メイン処理
+    w, h = get_page_size(url)
+    screenshot_size(url, save_file, w, h)
+
+
+def get_page_size(url):  # ページの幅と高さを取得
+    driver = webdriver.Chrome()
+    driver.get(url)
+    w = driver.execute_script(&quot;return document.body.scrollWidth;&quot;)
+    h = driver.execute_script(&quot;return document.body.scrollHeight;&quot;)
+    driver.close()
+    print(&#039;page_size=&#039;, w, h)
+    return(w, h)
+
+
+def screenshot_size(url, save_file, w, h):  # 指定サイズでページを保存
+    options = webdriver.ChromeOptions()
+    options.add_argument(&#039;--headless&#039;)
+    win_size = &#039;window-size=&#039; + str(w) + &#039;,&#039; + str(h)
+    options.add_argument(win_size)
+    # Chromeを起動しページを開いてキャプチャ
+    cap_driver = webdriver.Chrome(options=options)
+    cap_driver.get(url)
+    cap_driver.save_screenshot(save_file)
+    cap_driver.close()
+
+
+if __name__ == &#039;__main__&#039;:
+    screenshot_full(url, save_file)
+
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">
