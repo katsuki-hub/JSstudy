@@ -13,6 +13,7 @@
         <li><a href="docx.php">ワード(WORK)</a></li>
         <li><a href="pdf_join.php">PDFファイルを結合</a></li>
         <li><a href="scraping.php">スクレイピング</a></li>
+        <li><a href="selenium.php">ブラウザを自動操縦</a></li>
       </ul>
       <div class="copyright">
         <small>&copy; 2021 かつまる学習帳</small>
