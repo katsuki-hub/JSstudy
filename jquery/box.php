@@ -2,78 +2,41 @@
 <html lang="ja">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>jQuery編”ボックス開閉アニメーション”</title>
-  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。jQueryメソッドを使ってメニューをアニメションで開閉させる”>
-  <meta name="keywords" content="jQuery,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <?php $title = "jQuery編~ボックス開閉アニメーション~"; ?>
+  <?php require_once "../common/head.php"; ?>
   <style>
-    #boxmenu2 {
-      display: none;
-      margin: 0 auto 0 auto;
-      max-width: 960px;
-      background-color: rgb(255, 242, 206);
-    }
+  #boxmenu2 {
+    display: none;
+    margin: 0 auto 0 auto;
+    max-width: 960px;
+    background-color: rgb(255, 242, 206);
+  }
 
-    #boxmenu2 ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
+  #boxmenu2 ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
 
-    #boxmenu2 li {
-      padding: 8px 0 8px 15px;
-      border-bottom: 1px solid #ffffff;
-    }
+  #boxmenu2 li {
+    padding: 8px 0 8px 15px;
+    border-bottom: 1px solid #ffffff;
+  }
 
-    .header-contents {
-      position: relative;
-    }
+  .header-contents {
+    position: relative;
+  }
 
-    #box_btn2 {
-      position: absolute;
-      top: 40px;
-      right: 5px;
-      border-radius: 20px;
-      padding: 6px 20px 6px 20px;
-      background-color: #fff;
-      cursor: pointer;
-    }
+  #box_btn2 {
+    position: absolute;
+    top: 40px;
+    right: 5px;
+    border-radius: 20px;
+    padding: 6px 20px 6px 20px;
+    background-color: #fff;
+    cursor: pointer;
+  }
   </style>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
-  <meta property="og:title" content="プログラミング学習帳～簡単解説！JavaScript初級コード～">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="JavaScript超入門編の学習技術ブログです。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
-  <meta property="og:url" content="https://katsu-study.work/">
-  <meta property="og:site_name" content="JavaScript学習帳">
-  <meta property="og:image" content="https://katsu-study.work/images/js.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="../manifest.json">
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then((reg) => {
-          console.log('Service worker registered.', reg);
-        });
-    }
-  </script>
 </head>
 
 <body>
@@ -116,25 +79,26 @@
         <h3>CSSのソースコード</h3>
         <!-- ソースコード -->
         <pre><code class="prettyprint"> #boxmenu {
-  margin: 0 auto 0 auto;display: none;
+  margin: 0 auto 0 auto;
+  display: none;
   max-width: 960px;
 }
-    
+
 #boxmenu ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-    
+
 #boxmenu li {
   padding: 8px 0 8px 15px;
   border-bottom: 1px solid #ffffff;
 }
-    
+
 .header-contents {
   position: relative;
 }
-    
+
 #box_btn {
   position: absolute;
   top: 40px;
@@ -186,11 +150,11 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script>
-    $(document).ready(function () {
-      $("#box_btn2").on("click", function () {
-        $("#boxmenu2").slideToggle();
-      });
+  $(document).ready(function() {
+    $("#box_btn2").on("click", function() {
+      $("#boxmenu2").slideToggle();
     });
+  });
   </script>
 </body>
 

@@ -2,84 +2,55 @@
 <html lang="ja">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>jQuery編”AjaxとJson”</title>
-  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。Ajaxを使って外部データの読み込み”>
-  <meta name="keywords" content="jQuery,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
-  <meta property="og:title" content="プログラミング学習帳～簡単解説！JavaScript初級コード～">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="JavaScript超入門編の学習技術ブログです。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
-  <meta property="og:url" content="https://katsu-study.work/">
-  <meta property="og:site_name" content="JavaScript学習帳">
-  <meta property="og:image" content="https://katsu-study.work/images/js.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="../manifest.json">
+  <?php $title = "jQuery編~AjaxとJson~"; ?>
+  <?php require_once "../common/head.php"; ?>
   <style>
-    .list {
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
+  .list {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
 
-    .list h2 {
-      margin: 0 0 2em 0;
-      font-size: 13px;
-      text-align: center;
-    }
+  .list h2 {
+    margin: 0 0 2em 0;
+    font-size: 13px;
+    text-align: center;
+  }
 
-    .gim {
-      float: left;
-      margin: 10px 10px 10px 10px;
-      border: 1px solid #2bc23f;
-      padding: 4px;
-      width: 23%;
-    }
+  .gim {
+    float: left;
+    margin: 10px 10px 10px 10px;
+    border: 1px solid #2bc23f;
+    padding: 4px;
+    width: 23%;
+  }
 
-    .check {
-      margin: 0;
-      padding: 8px;
-      font-size: 12px;
-      color: wheat;
-      background-color: rgb(135, 50, 205);
-      text-align: center;
-      cursor: pointer;
-    }
+  .check {
+    margin: 0;
+    padding: 8px;
+    font-size: 12px;
+    color: wheat;
+    background-color: rgb(135, 50, 205);
+    text-align: center;
+    cursor: pointer;
+  }
 
-    .red {
-      background-color: #e66289;
-    }
+  .red {
+    background-color: #e66289;
+  }
 
-    .green {
-      background-color: #9ac76b;
-    }
+  .green {
+    background-color: #9ac76b;
+  }
   </style>
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then((reg) => {
-          console.log('Service worker registered.', reg);
-        });
-    }
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then((reg) => {
+        console.log('Service worker registered.', reg);
+      });
+  }
   </script>
 </head>
 
@@ -253,27 +224,30 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
-    $(document).ready(function () {
-      $.ajax({ url: "data.json", dataType: "json" })
-        .done(function (data) {
-          $(data).each(function () {
-            if (this.crowded === "yes") {
-              var idName = "#" + this.id;
-              $(idName).find(".check").addClass("crowded");
-            }
-          });
-        })
-        .fail(function () {
-          window.alert("読み込みエラー");
+  $(document).ready(function() {
+    $.ajax({
+        url: "data.json",
+        dataType: "json"
+      })
+      .done(function(data) {
+        $(data).each(function() {
+          if (this.crowded === "yes") {
+            var idName = "#" + this.id;
+            $(idName).find(".check").addClass("crowded");
+          }
         });
-      $(".check").on("click", function () {
-        if ($(this).hasClass("crowded")) {
-          $(this).text("残りわずか").addClass("red");
-        } else {
-          $(this).text("予約空いています").addClass("green");
-        }
+      })
+      .fail(function() {
+        window.alert("読み込みエラー");
       });
+    $(".check").on("click", function() {
+      if ($(this).hasClass("crowded")) {
+        $(this).text("残りわずか").addClass("red");
+      } else {
+        $(this).text("予約空いています").addClass("green");
+      }
     });
+  });
   </script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
