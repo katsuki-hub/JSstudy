@@ -21,7 +21,7 @@
       <label class="menu-btn"><span></span></label>
     </div>
 
-    <?php require_once("../common.header_jquery.php"); ?>
+    <?php require_once("../common/header_jquery.php"); ?>
   </header>
 
   <!-- パンくずリスト -->
