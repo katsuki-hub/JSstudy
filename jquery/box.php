@@ -48,11 +48,11 @@
   <div id="boxmenu2">
     <ul>
       <li><a href="../index.php">HOME</a></li>
-      <li><a href="jquerymethod.html">よく使うjQueryメソッド</a></li>
-      <li><a href="trigger.html">jQueryが動くきっかけの記述</a></li>
-      <li><a href="menu.html">目次やサブメニューを開閉させる</a></li>
-      <li><a href="box.html">ボックス開閉アニメーション</a></li>
-      <li><a href="ajax.html">ajaxとJson</a></li>
+      <li><a href="jquerymethod.php">よく使うjQueryメソッド</a></li>
+      <li><a href="trigger.php">jQueryが動くきっかけの記述</a></li>
+      <li><a href="menu.php">目次やサブメニューを開閉させる</a></li>
+      <li><a href="box.php">ボックス開閉アニメーション</a></li>
+      <li><a href="ajax.php">ajaxとJson</a></li>
     </ul>
   </div>
   <header>

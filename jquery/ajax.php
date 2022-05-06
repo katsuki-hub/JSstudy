@@ -68,23 +68,7 @@
     <div class="btn" id="open_btn">
       <label class="menu-btn"><span></span></label>
     </div>
-
-    <div id="boxmenu">
-      <nav class="jquerynav">
-        <ul class="menu_1">
-          <li><a href="../index.php">HOME</a></li>
-          <li><a href="jquerymethod.html">よく使うjQueryメソッド</a></li>
-          <li><a href="trigger.html">jQueryが動くきっかけの記述</a></li>
-          <li><a href="menu.html">目次やサブメニューを開閉させる</a></li>
-          <li><a href="box.html">ボックス開閉アニメーション</a></li>
-          <li><a href="ajax.html">ajaxとJson</a></li>
-        </ul>
-
-        <div class="copyright">
-          <small>&copy; 2021 かつまる学習帳</small>
-        </div>
-      </nav>
-    </div><!-- /boxmenu -->
+    <?php require_once("../common.header_jquery.php"); ?>
   </header>
 
   <!-- パンくずリスト -->

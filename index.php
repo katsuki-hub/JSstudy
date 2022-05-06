@@ -133,11 +133,11 @@
       </div>
       <div id="box">
         <ul>
-          <li><a href="jquery/jquerymethod.html">よく使うjQueryメソッド</a></li>
-          <li><a href="jquery/trigger.html">jQueryが動くきっかけの記述</a></li>
-          <li><a href="jquery/menu.html">目次やサブメニューを開閉させる</a></li>
-          <li><a href="jquery/box.html">ボックス開閉アニメーション</a></li>
-          <li><a href="jquery/ajax.html">ajaxとJson</a></li>
+          <li><a href="jquery/jquerymethod.php">よく使うjQueryメソッド</a></li>
+          <li><a href="jquery/trigger.php">jQueryが動くきっかけの記述</a></li>
+          <li><a href="jquery/menu.php">目次やサブメニューを開閉させる</a></li>
+          <li><a href="jquery/box.php">ボックス開閉アニメーション</a></li>
+          <li><a href="jquery/ajax.php">ajaxとJson</a></li>
         </ul>
     </section>
     <div class="blank"></div>
