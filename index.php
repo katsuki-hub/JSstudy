@@ -241,6 +241,7 @@
           <li><a href="python/pdf_join.php">PDFファイルを結合</a></li>
           <li><a href="python/scraping.php">スクレイピング</a></li>
           <li><a href="python/selenium.php">ブラウザを自動操縦</a></li>
+          <li><a href="python/flask.php">社内で使える簡易WEBサーバー</a></li>
         </ul>
       </div>
     </section>

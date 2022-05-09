@@ -393,7 +393,29 @@ if __name__ == &#039;__main__&#039;:
 
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$flask = '<pre><code class="prettyprint">from flask import Flask
+import glob
+
+# Flaskオブジェクトを生成
+app = Flask(__name__)
+
+
+@app.route(&quot;/&quot;)  # 「/」へアクセスがあった場合の処理
+def root():
+    # ファイル一覧列挙
+    files = glob.glob(&#039;static/*&#039;)
+    # HTMLでファイルの一覧を表示
+    html = &#039;&lt;html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;body&gt;&#039;
+    html += &#039;&lt;h1&gt;ファイル一覧&lt;/h1&gt;&#039;
+    for f in files:
+        html += &#039;&lt;p&gt;&lt;a href=&quot;{0}&quot;&gt;{0}&lt;/a&gt;&lt;/p&gt;&#039;.format(f)
+    html += &#039;&lt;/body&gt;&lt;/html&gt;&#039;
+    return html
+
+
+# Webサーバーを起動
+if __name__ == &quot;__main__&quot;:
+    app.run(debug=True, host=&#039;0.0.0.0&#039;, port=5000)
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">

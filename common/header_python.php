@@ -14,6 +14,7 @@
         <li><a href="pdf_join.php">PDFファイルを結合</a></li>
         <li><a href="scraping.php">スクレイピング</a></li>
         <li><a href="selenium.php">ブラウザを自動操縦</a></li>
+        <li><a href="flask.php">社内で使える簡易WEBサーバー</a></li>
       </ul>
       <div class="copyright">
         <small>&copy; 2021 かつまる学習帳</small>
