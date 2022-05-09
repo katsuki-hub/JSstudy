@@ -41,7 +41,7 @@
         echo $flask;
         ?>
         <div class="frame4">
-          DLEからWebサーバーを実行する方法はタスクマネージャーからPythonのプロセスを終了させる必要があり、おすすめできません。<br>
+          IDLEからWebサーバーを実行する方法はタスクマネージャーからPythonのプロセスを終了させる必要があり、おすすめできません。<br>
           <button type="button">コマンドライン</button>
           <div class="frame2">
             cd フォルダのパス<br>
