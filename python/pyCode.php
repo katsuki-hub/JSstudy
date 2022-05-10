@@ -418,6 +418,61 @@ if __name__ == &quot;__main__&quot;:
     app.run(debug=True, host=&#039;0.0.0.0&#039;, port=5000)
 </code></pre>';
 
+$dialog = '<pre><code class="prettyprint">import tkinter as tk
+import tkinter.messagebox as mb
+import tkinter.filedialog as fd
+import tkinter.simpledialog as sd
+
+tk.Tk().withdraw()
+
+
+def info(message, title=&#039;情報&#039;):
+    mb.showinfo(title, message)
+
+
+def warning(message, title=&#039;情報&#039;):
+    mb.showwarning(title, message)
+
+
+def yesno(message, title=&#039;質問&#039;):
+    return mb.askyesno(title, message)
+
+
+def input(message, title=&#039;質問&#039;, value=&#039;&#039;):
+    return sd.askstring(
+        title, message,
+        initialvalue=value
+    )
+
+
+def select_file(initdir=&#039;./&#039;):
+    return fd.askopenfilename(initialdir=initdir)
+
+
+def select_savefile(initdir=&#039;./&#039;):
+    return fd.asksaveasfile(initialdir=initdir)
+
+
+def select_dir(initdir=&#039;./&#039;):
+    return fd.askdirectory(initialdir=initdir)
+
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
+$a = '<pre><code class="prettyprint">
+</code></pre>';
+
 $a = '<pre><code class="prettyprint">
 </code></pre>';
 
