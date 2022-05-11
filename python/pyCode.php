@@ -458,13 +458,79 @@ def select_dir(initdir=&#039;./&#039;):
 
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$parts = '<pre><code class="prettyprint">import PySimpleGUI as gui
+from datetime import datetime
+
+layout = [
+    [gui.Text(&#039;GUIの部品を参照してみよう！&#039;)],
+    [gui.OK(), gui.Cancel()],
+    [gui.Text(&#039;InputText:&#039;), gui.InputText(&#039;文字入力&#039;)],
+    [gui.Text(&#039;Checkbox:&#039;), gui.Checkbox(&#039;チェック&#039;)],
+    [gui.Text(&#039;Radio:&#039;), gui.Radio(&#039;ラジオ&#039;, group_id=&#039;r&#039;)],
+    [gui.Text(&#039;Spin:&#039;), gui.Spin([1, 2, 3, 4, 5])],
+    [gui.Text(&#039;Listbox:&#039;), gui.Listbox([1, 2, 3, 4, 5], size=(40, 5))],
+    [gui.Text(&#039;Slider:&#039;), gui.Slider(range=(1, 5), orientation=&#039;h&#039;)],
+    [gui.Button(&#039;値を表示&#039;)]
+]
+
+# ウィンドウの作成
+win = gui.Window(&#039;色んな部品のGUI&#039;, layout)
+
+# ウィンドウのイベントループ
+while True:
+    event, val = win.read()  # イベントにおけるパラメーターの取得
+    if event in (&#039;Exit&#039;, &#039;Quit&#039;, None):  # ウィンドウの終了イベント
+        break
+    if event == &#039;値を表示&#039;:
+        print(event, val)
+
+win.close()
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$inch = '<pre><code class="prettyprint">import PySimpleGUI as gui
+
+layout = [
+    [gui.Text(&#039;インチをセンチメートルに変換します。&#039;)],
+    [gui.Text(&#039;インチ&#039;), gui.InputText(key=&#039;inch&#039;)],
+    [gui.Button(&#039;変換&#039;)],
+    [gui.Text(&#039;---&#039;, key=&#039;info&#039;, size=(30, 1))]
+]
+
+win = gui.Window(&#039;インチ⇒センチ交換&#039;, layout)
+
+while True:
+    event, val = win.read()  # イベントにおけるパラメーターの取得
+    if event in (&#039;Exit&#039;, &#039;Quit&#039;, None):  # ウィンドウの終了イベントか？
+        break
+    if event == &#039;変換&#039;:
+        inch = float(val[&#039;inch&#039;])
+        cm = inch * 2.54
+        s = &#039;{0}inch = {1}cm&#039;.format(inch, cm)
+        win[&#039;info&#039;].update(s)  # テキストを更新
+
+win.close()
+
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$clock = '<pre><code class="prettyprint">import PySimpleGUI as gui
+from datetime import datetime
+
+layout = [
+    [gui.Text(&#039;デジタル時計&#039;)],
+    [gui.Text(&#039;00:00:00&#039;, key=&#039;clock&#039;, font=(&#039;Helvetica&#039;, 72))]
+]
+
+win = gui.Window(&#039;時計&#039;, layout)
+
+while True:
+    event, val = win.read(timeout=100)
+    if event in (&#039;Exit&#039;, &#039;Quit&#039;, None):
+        break
+    s = datetime.now().strftime(&#039;%H:%M:%S&#039;)
+    win[&#039;clock&#039;].update(s)
+
+win.close()
+
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">
