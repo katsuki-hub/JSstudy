@@ -46,6 +46,21 @@
         <h3>デジタル時計</h3>
         <?php echo $clock; ?>
         <img src="../images/py_img/clock.png" alt="デジタル時計" width="70%">
+
+        <div class="br50"></div>
+        <h4>Pythonを実行ファイルへ変換する</h4>
+        <p><b>Pyinstaller</b>という作成したプログラムを一つの実行ファイルにまとめるツールがあります。これで配布を行えば、Pythonのインストールや各種モジュールのインストール不要で実行できます。</p>
+        <button type="button">コマンドライン</button>
+        <div class="frame2">
+          pip install pyinstaller
+        </div><br>
+
+        <button type="button">コマンドライン</button>
+        <div class="frame2">
+          cd フォルダのパス<br>
+          pyinstaller ファイル名.py --onefile --noconsole
+        </div>
+        <p>※生成した実行ファイル.exeはOS依存します。</p>
       </section>
     </article>
   </div><!-- /.main-wrapper -->
