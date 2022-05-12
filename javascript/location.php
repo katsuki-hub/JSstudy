@@ -2,30 +2,12 @@
 <html lang="ja">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JavaScript超入門"プルダウンメニューでページ移動～プール属性の設定とid属性のないHTML要素取得方法～”</title>
-  <meta name=”description”　content=”JavaScript超入門編の学習技術ブログです。HTMLでプルダウンを作成し、選択後にページ移動させます。プール属性の設定とid属性のないHTML要素取得方法も解説”>
-  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード"/>
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <?php $title = "JavaScript編~プルダウンメニューでリンク設定~" ?>
+  <?php require_once "../common/head.php"; ?>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
   <header>
     <div class="header-contents">
       <h1>プルダウンメニューでリンク設定</h1>
@@ -35,42 +17,13 @@
       <label class="menu-btn"><span></span></label>
     </div>
 
-    <div id="boxmenu">
-      <nav class="javanav">
-        <ul class="menu_1">
-          <li><a href="../index.php">HOME</a></li>
-          <li><a href="if.html">if文</a></li>
-          <li><a href="var.html">変数</a></li>
-          <li><a href="nunber.html">データ型比較演算子</a></li>
-          <li><a href="time_msg.html">論理演算子</a></li>
-          <li><a href="while.html">繰り返し処理</a></li>
-          <li><a href="function.html">function</a></li>
-          <li><a href="array.html">配列</a></li>
-          <li><a href="object.html">オブジェクト</a></li>
-          <li><a href="input.html">インプット</a></li>
-          <li><a href="hour.html">アクセス日時</a></li>
-          <li><a href="digit.html">桁数合わせ</a></li>
-          <li><a href="math.html">Math</a></li>
-          <li><a href="current_time.html">現在時刻</a></li>
-          <li><a href="countdown.html">残り時間</a></li>
-          <li><a href="location.html">ページ移動</a></li>
-          <li><a href="cookie.html">クッキー</a></li>
-          <li><a href="calendar.html">カレンダー</a></li>
-          <li><a href="image.html">表示画像</a></li>
-          <li><a href="slide.html">画像スライド</a></li>
-        </ul>
-
-        <div class="copyright">
-          <small>&copy; 2021 かつまる学習帳</small>
-        </div>
-      </nav>
-    </div><!-- /boxmenu -->
+    <?php require_once("../common/header_js.php"); ?>
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
       <li><a href="../index.php">HOME</a></li>
-      <li><a href="location.html">プルダウン</a></li>
+      <li><a href="location.php">プルダウン</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
@@ -79,9 +32,9 @@
 
       <form id="form">
         <select name="select">
-          <option value="location.html">日本語</option>
-          <option value="location-en.html">English</option>
-          <option value="location-zh.html">中文</option>
+          <option value="location.php">日本語</option>
+          <option value="location-en.php">English</option>
+          <option value="location-zh.php">中文</option>
         </select>
       </form>
 
@@ -151,7 +104,8 @@ opt.selected = true;</code></pre>
   </div><!-- /.main-wrapper -->
   <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script src="../scripts/location.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="../scripts/move.js"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>

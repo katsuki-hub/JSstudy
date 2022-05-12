@@ -68,10 +68,6 @@
             <td>一度にキーの組み合わせを押す</td>
           </tr>
         </table>
-
-
-
-
       </section>
     </article>
   </div><!-- /.main-wrapper -->

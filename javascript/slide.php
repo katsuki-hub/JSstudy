@@ -2,53 +2,12 @@
 <html lang="ja">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JavaScript初級編”スライドショー”</title>
-  <meta name=”description” content=”JavaScript超入門編の学習技術ブログです。ボタンクリックで画像を切り替えます”>
-  <meta name="keywords" content="JavaScript初級コード,プログラミング,技術ブログ,JavaScript超入門編,ソースコード" />
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
-  <link href="../css/slide.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="android-touch-icon.png">
-  <meta property="og:title" content="プログラミング学習帳～簡単解説！JavaScript初級コード～">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="JavaScript超入門編の学習技術ブログです。どんなソースコードで作成されているのか？ソースコードと概要を分かりやすく説明しています">
-  <meta property="og:url" content="https://katsu-study.work/">
-  <meta property="og:site_name" content="JavaScript学習帳">
-  <meta property="og:image" content="https://katsu-study.work/images/js.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="JSプログラミング講座">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="../manifest.json">
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then((reg) => {
-          console.log('Service worker registered.', reg);
-        });
-    }
-  </script>
+  <?php $title = "JavaScript編~スライドショー~" ?>
+  <?php require_once "../common/head.php"; ?>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <div class="header-contents">
@@ -59,43 +18,14 @@
       <label class="menu-btn"><span></span></label>
     </div>
 
-    <div id="boxmenu">
-      <nav class="javanav">
-        <ul class="menu_1">
-          <li><a href="../index.php">HOME</a></li>
-          <li><a href="if.html">if文</a></li>
-          <li><a href="var.html">変数</a></li>
-          <li><a href="nunber.html">データ型比較演算子</a></li>
-          <li><a href="time_msg.html">論理演算子</a></li>
-          <li><a href="while.html">繰り返し処理</a></li>
-          <li><a href="function.html">function</a></li>
-          <li><a href="array.html">配列</a></li>
-          <li><a href="object.html">オブジェクト</a></li>
-          <li><a href="input.html">インプット</a></li>
-          <li><a href="hour.html">アクセス日時</a></li>
-          <li><a href="digit.html">桁数合わせ</a></li>
-          <li><a href="math.html">Math</a></li>
-          <li><a href="current_time.html">現在時刻</a></li>
-          <li><a href="countdown.html">残り時間</a></li>
-          <li><a href="location.html">ページ移動</a></li>
-          <li><a href="cookie.html">クッキー</a></li>
-          <li><a href="calendar.html">カレンダー</a></li>
-          <li><a href="image.html">表示画像</a></li>
-          <li><a href="slide.html">画像スライド</a></li>
-        </ul>
-
-        <div class="copyright">
-          <small>&copy; 2021 かつまる学習帳</small>
-        </div>
-      </nav>
-    </div><!-- /boxmenu -->
+    <?php require_once("../common/header_js.php"); ?>
   </header>
 
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
       <li><a href="../index.php">HOME</a></li>
-      <li><a href="slide.html">スライドショー</a></li>
+      <li><a href="slide.php">スライドショー</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
@@ -139,20 +69,20 @@
   width: 100%;
   background-color: black;
 }
-        
+
 img {
   max-width: 100%;
 }
-        
+
 .toolbar {
   overflow: hidden;
   text-align: center;
 }
-        
+
 .nav {
   display: inline-block;
 }
-        
+
 #prev {
   float: left;
   margin:8px 50px 0 0;
@@ -160,7 +90,7 @@ img {
   color: #fff;
   font-weight: bold;
 }
-        
+
 #next {
   float: right;
   margin: 8px 0 0 50px;
@@ -168,13 +98,13 @@ img {
   color: #fff;
   font-weight: bold;
 }
-        
+
 #prev:hover {
   background-color: #f8f0e3;
   color: #1201fd;
   text-decoration: underline;
 }
-        
+
 #next:hover {
   background-color: #f8f0e3;
   color: #1201fd;
@@ -268,38 +198,39 @@ document.getElementById(&quot;next&quot;).onclick = function () {
   </div><!-- /.main-wrapper -->
   <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
-    var images = ["../images/j1.jpg", "../images/j2.jpg", "../images/j3.jpg"];
-    var current = 0;
-    var pageNum = function () {
-      document.getElementById("page").textContent = (current + 1) + "/" + images.length;
+  var images = ["../images/j1.jpg", "../images/j2.jpg", "../images/j3.jpg"];
+  var current = 0;
+  var pageNum = function() {
+    document.getElementById("page").textContent = (current + 1) + "/" + images.length;
+  }
+  var changeImage = function(num) {
+    if (current + num >= 0 && current + num < images.length) {
+      current += num;
+      document.getElementById("main_image").src = images[current];
+      pageNum();
     }
-    var changeImage = function (num) {
-      if (current + num >= 0 && current + num < images.length) {
-        current += num;
-        document.getElementById("main_image").src = images[current];
-        pageNum();
-      }
-    };
+  };
 
-    var preloadImage = function (path) {
-      var imgTag = document.createElement("img");
-      imgTag.src = path;
-    }
+  var preloadImage = function(path) {
+    var imgTag = document.createElement("img");
+    imgTag.src = path;
+  }
 
-    for (var i = 0; i < images.length; i++) {
-      preloadImage(images[i]);
-    }
+  for (var i = 0; i < images.length; i++) {
+    preloadImage(images[i]);
+  }
 
-    pageNum();
+  pageNum();
 
-    document.getElementById("prev").onclick = function () {
-      changeImage(-1);
-    };
-    document.getElementById("next").onclick = function () {
-      changeImage(1);
-    };
+  document.getElementById("prev").onclick = function() {
+    changeImage(-1);
+  };
+  document.getElementById("next").onclick = function() {
+    changeImage(1);
+  };
   </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="../scripts/move.js"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>

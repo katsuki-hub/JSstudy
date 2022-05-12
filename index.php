@@ -102,25 +102,25 @@
       </div>
       <div id="box">
         <ul>
-          <li><a href="javascript/if.html">if文～条件分岐で動作を変える～</a></li>
-          <li><a href="javascript/var.html">変数～比較演算子を使ったダイアログボックス表示～</a></li>
-          <li><a href="javascript/nunber.html">データ型比較演算子～数字の大小を比較条件～</a></li>
-          <li><a href="javascript/time_msg.html">論理演算子～タイムメッセージ～</a></li>
-          <li><a href="javascript/while.html">繰り返し処理～whileでモンスター退治～</a></li>
-          <li><a href="javascript/function.html">functionの作成と利用方法</a></li>
-          <li><a href="javascript/array.html">配列～項目リストの表示</a></li>
-          <li><a href="javascript/object.html">オブジェクト～複数データを1つの変数で管理～</a></li>
-          <li><a href="javascript/input.html">インプットとデータの加工</a></li>
-          <li><a href="javascript/hour.html">最終アクセス日時～年月日と日時を表示～</a></li>
-          <li><a href="javascript/digit.html">桁数合わせ～数値を文字列連結へ～</a></li>
-          <li><a href="javascript/math.html">Mathオブジェクト～小数点の切り捨て～</a></li>
-          <li><a href="javascript/current_time.html">現在時刻～リアルタイム表示～</a></li>
-          <li><a href="javascript/countdown.html">残り時間の計算～カウントダウンタイマー～</a></li>
-          <li><a href="javascript/location.html">プルダウンメニューでページ移動～プール属性の設定とid属性のないHTML要素取得方法～</a></li>
-          <li><a href="javascript/cookie.html">クッキーを使ってフォームの送信を1度だけにする</a></li>
-          <li><a href="javascript/calendar.html">簡単なカレンダーを実装する</a></li>
-          <li><a href="javascript/image.html">サムネイル表示画像切り替え</a></li>
-          <li><a href="javascript/slide.html">ボタンで画像スライド</a></li>
+          <li><a href="javascript/if.php">if文～条件分岐で動作を変える～</a></li>
+          <li><a href="javascript/var.php">変数～比較演算子を使ったダイアログボックス表示～</a></li>
+          <li><a href="javascript/nunber.php">データ型比較演算子～数字の大小を比較条件～</a></li>
+          <li><a href="javascript/time_msg.php">論理演算子～タイムメッセージ～</a></li>
+          <li><a href="javascript/while.php">繰り返し処理～whileでモンスター退治～</a></li>
+          <li><a href="javascript/function.php">functionの作成と利用方法</a></li>
+          <li><a href="javascript/array.php">配列～項目リストの表示</a></li>
+          <li><a href="javascript/object.php">オブジェクト～複数データを1つの変数で管理～</a></li>
+          <li><a href="javascript/input.php">インプットとデータの加工</a></li>
+          <li><a href="javascript/hour.php">最終アクセス日時～年月日と日時を表示～</a></li>
+          <li><a href="javascript/digit.php">桁数合わせ～数値を文字列連結へ～</a></li>
+          <li><a href="javascript/math.php">Mathオブジェクト～小数点の切り捨て～</a></li>
+          <li><a href="javascript/current_time.php">現在時刻～リアルタイム表示～</a></li>
+          <li><a href="javascript/countdown.php">残り時間の計算～カウントダウンタイマー～</a></li>
+          <li><a href="javascript/location.php">プルダウンメニューでページ移動～プール属性の設定とid属性のないHTML要素取得方法～</a></li>
+          <li><a href="javascript/cookie.php">クッキーを使ってフォームの送信を1度だけにする</a></li>
+          <li><a href="javascript/calendar.php">簡単なカレンダーを実装する</a></li>
+          <li><a href="javascript/image.php">サムネイル表示画像切り替え</a></li>
+          <li><a href="javascript/slide.php">ボタンで画像スライド</a></li>
         </ul>
       </div>
     </section>

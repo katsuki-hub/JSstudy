@@ -2,25 +2,9 @@
 <html lang="ja">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-P2ZWXCZ');</script>
-  <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <title>JavaScript超入門"配列を使って項目リストを表示する"</title>
-  <meta name=”description” content=”JavaScript入門編。配列を使って複数のデータを1つにまとめて、グループ化させます。”>
-  <meta name="keywords" content="JavaScript初級コード,配列プログラミング,技術ブログ,JavaScript入門,ソースコード" />
-  <link href="../css/style.css" rel="stylesheet" type="text/css">
-</head>
-<style>
+  <?php $title = "JavaScript編~配列を使って項目リストを表示する~" ?>
+  <?php require_once "../common/head.php"; ?>
+  <style>
   .li li {
     background: #ffa89d70;
     border-radius: 8px;
@@ -34,13 +18,11 @@
     position: fixed;
     left: 5px;
   }
-</style>
+  </style>
+</head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
   <header>
     <div class="header-contents">
       <h1>項目をリスト表示する</h1>
@@ -49,43 +31,14 @@
     <div class="btn" id="open_btn">
       <label class="menu-btn"><span></span></label>
     </div>
+    <?php require_once("../common/header_js.php"); ?>
 
-    <div id="boxmenu">
-      <nav class="javanav">
-        <ul class="menu_1">
-          <li><a href="../index.php">HOME</a></li>
-          <li><a href="if.html">if文</a></li>
-          <li><a href="var.html">変数</a></li>
-          <li><a href="nunber.html">データ型比較演算子</a></li>
-          <li><a href="time_msg.html">論理演算子</a></li>
-          <li><a href="while.html">繰り返し処理</a></li>
-          <li><a href="function.html">function</a></li>
-          <li><a href="array.html">配列</a></li>
-          <li><a href="object.html">オブジェクト</a></li>
-          <li><a href="input.html">インプット</a></li>
-          <li><a href="hour.html">アクセス日時</a></li>
-          <li><a href="digit.html">桁数合わせ</a></li>
-          <li><a href="math.html">Math</a></li>
-          <li><a href="current_time.html">現在時刻</a></li>
-          <li><a href="countdown.html">残り時間</a></li>
-          <li><a href="location.html">ページ移動</a></li>
-          <li><a href="cookie.html">クッキー</a></li>
-          <li><a href="calendar.html">カレンダー</a></li>
-          <li><a href="image.html">表示画像</a></li>
-          <li><a href="slide.html">画像スライド</a></li>
-        </ul>
-
-        <div class="copyright">
-          <small>&copy; 2021 かつまる学習帳</small>
-        </div>
-      </nav>
-    </div><!-- /boxmenu -->
   </header>
   <!-- パンくずリスト -->
   <div id="bread">
     <ol>
       <li><a href="../index.php">HOME</a></li>
-      <li><a href="array.html">配列</a></li>
+      <li><a href="array.php">配列</a></li>
     </ol>
   </div>
   <div class="main-wrapper">
@@ -174,15 +127,16 @@ for (var i = 0; i &lt; todo.length; i++) {
   </div><!-- /.main-wrapper -->
   <footer><small>&copy; JavaScriptかつまる学習帳</small></footer>
   <script>
-    var todo = ["データ整理", "JavaScriptの学習", "与信審査と債権管理", "データ解析によるコンバージョン獲得経路算出", "広告キーワードプランナーによる解析"];
-    todo.push("自己分析をしておく");
-    for (var i = 0; i < todo.length; i++) {
-      var li = document.createElement("li");
-      li.textContent = todo[i];
-      document.getElementById("list").appendChild(li);
-    }
+  var todo = ["データ整理", "JavaScriptの学習", "与信審査と債権管理", "データ解析によるコンバージョン獲得経路算出", "広告キーワードプランナーによる解析"];
+  todo.push("自己分析をしておく");
+  for (var i = 0; i < script script todo.length; i++) {
+    var li = document.createElement("li");
+    li.textContent = todo[i];
+    document.getElementById("list").appendChild(li);
+  }
   </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="../scripts/move.js"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
