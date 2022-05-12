@@ -244,6 +244,7 @@
           <li><a href="python/flask.php">社内で使える簡易WEBサーバー</a></li>
           <li><a href="python/dialog.php">ダイアログを活用する</a></li>
           <li><a href="python/desktop_app.php">デスクトップアプリ</a></li>
+          <li><a href="python/memo.php">キーボードの自動化</a></li>
         </ul>
       </div>
     </section>

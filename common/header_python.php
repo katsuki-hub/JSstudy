@@ -17,6 +17,7 @@
         <li><a href="flask.php">社内で使える簡易WEBサーバー</a></li>
         <li><a href="dialog.php">ダイアログを活用する</a></li>
         <li><a href="desktop_app.php">デスクトップアプリ</a></li>
+        <li><a href="memo.php">キーボードの自動化</a></li>
       </ul>
       <div class="copyright">
         <small>&copy; 2021 かつまる学習帳</small>

@@ -533,7 +533,16 @@ win.close()
 
 </code></pre>';
 
-$a = '<pre><code class="prettyprint">
+$memo = '<pre><code class="prettyprint">import time
+import subprocess
+import platform
+import pyautogui
+
+if platform.system() == &#039;Windows&#039;:
+    subprocess.Popen(r&#039;c:\Windows\notepad.exe&#039;)
+    time.sleep(3)
+
+pyautogui.write(&quot;Hello, let&#039;s do our best today&quot;)
 </code></pre>';
 
 $a = '<pre><code class="prettyprint">
