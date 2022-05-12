@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "オブジェクト指向~抽象クラス~" ?>
@@ -29,7 +27,9 @@
         <h2>オブジェクト指向~抽象クラス~</h2>
         <div class="frame3">
           <b>抽象クラスを定義する</b><br>
-          <p>抽象クラスは機能的にインターフェースと似ているが、抽象メソッドの宣言だけで機能を実装していないメソッドで、抽象クラスを継承した子クラスで必ずオーバーライドして機能を実装しなければなりません。<br>抽象メソッドにはpubloc、protected、priveteのアクセス権を指定することができます。</p>
+          <p>
+            抽象クラスは機能的にインターフェースと似ているが、抽象メソッドの宣言だけで機能を実装していないメソッドで、抽象クラスを継承した子クラスで必ずオーバーライドして機能を実装しなければなりません。<br>抽象メソッドにはpubloc、protected、priveteのアクセス権を指定することができます。
+          </p>
           <div class="frame2">
             <b>抽象クラス</b><br>
             abstract class 抽象クラス名 {<br>
@@ -41,7 +41,9 @@
 
         <div class="frame3">
           <b>抽象クラスを継承して抽象メソッドを実装する</b><br>
-          <p>抽象クラスのインスタンスをつくることは出来ません。必ず継承して使います。<br>そして、継承した子クラスでは抽象メソッドを必ずオーバーライドして機能を実装しなければなりません。<br>アクセス権が設定されている場合は、子クラスでオーバライドの際に同じかそれより緩いアクセス権の設定が必要です。</p>
+          <p>
+            抽象クラスのインスタンスをつくることは出来ません。必ず継承して使います。<br>そして、継承した子クラスでは抽象メソッドを必ずオーバーライドして機能を実装しなければなりません。<br>アクセス権が設定されている場合は、子クラスでオーバライドの際に同じかそれより緩いアクセス権の設定が必要です。
+          </p>
           <div class="frame2">
             <b>抽象クラスを継承して、抽象メソッド実装</b><br>
             class クラス名 entends 抽象クラス名 {<br>
@@ -123,7 +125,8 @@ $goods-&gt;getSelling();
     </article>
   </div><!-- /.main-wrapper -->
   <footer><?php require_once "../common/footer.php"; ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

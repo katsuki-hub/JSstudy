@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "文字列の検索" ?>
@@ -28,7 +26,8 @@
       <section>
         <h2>文字列を検索する</h2>
         <div class="frame3">
-          文字列を検索する関数のstrpos()またはmb_strpos()は、検索して最初に見つかった位置を返します。<br>マルチバイト文字の検索にはmb_strpos()を使い、文字の位置は0から数え、ない場合はfalseを返す。<br>この時、if文では0はfalseと判定されるので===演算子を使って厳密な判定を行う。<br><br>※最後に見つかった位置を返す関数は strrpos()及び mb_strrpos()もある
+          文字列を検索する関数のstrpos()またはmb_strpos()は、検索して最初に見つかった位置を返します。<br>マルチバイト文字の検索にはmb_strpos()を使い、文字の位置は0から数え、ない場合はfalseを返す。<br>この時、if文では0はfalseと判定されるので===演算子を使って厳密な判定を行う。<br><br>※最後に見つかった位置を返す関数は
+          strrpos()及び mb_strrpos()もある
         </div>
         <h3>文字列が含まれている位置を調べる</h3>
         <?php
@@ -106,7 +105,8 @@ check2(&quot;可,可,不可,良,良&quot;);
 
         <h3>見つかった位置から後ろの文字列を取り出す</h3>
         <div class="frame2">
-          mb_strstr()は特定の文字を検索して最初に見つかった位置から後ろにある文字を取り出す関数です。大文字小文字を区別しないで検索するなら mb_stristr()を使います。見るからない場合はfalseが戻ってきます。
+          mb_strstr()は特定の文字を検索して最初に見つかった位置から後ろにある文字を取り出す関数です。大文字小文字を区別しないで検索するなら
+          mb_stristr()を使います。見るからない場合はfalseが戻ってきます。
         </div>
         <?php
         function pickout($target3, $str3)
@@ -215,7 +215,8 @@ echo &quot;置換後：{$result}&quot;;
     </article>
   </div><!-- /.main-wrapper -->
   <footer><?php require_once "../common/footer.php"; ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

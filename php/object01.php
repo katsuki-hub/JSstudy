@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "オブジェクト指向~クラス定義~" ?>
@@ -109,7 +107,8 @@ $ura-&gt;hello();
 
         <h4>インスタンス自身を指し示す $this</h4>
         <div class="frame3">
-          プロパティ $name にアクセスするには、インスタンス自身を指し示す $this を使って【$this->name】のような記述が必要です。<br>ちなみに$nameには初期値が設定されていません。その値はnullです。<br>そこで、is_null()関数を使ってnullを判断し、値がnullの時は「こんにちは！！」を表示それ以外は「こんにちは、{name}です！」としています。
+          プロパティ $name にアクセスするには、インスタンス自身を指し示す $this
+          を使って【$this->name】のような記述が必要です。<br>ちなみに$nameには初期値が設定されていません。その値はnullです。<br>そこで、is_null()関数を使ってnullを判断し、値がnullの時は「こんにちは！！」を表示それ以外は「こんにちは、{name}です！」としています。
         </div><br>
 
         <h2>コンストラクタ</h2>
@@ -236,7 +235,8 @@ $hosi-&gt;hello();
     </article>
   </div><!-- /.main-wrapper -->
   <footer><?php require_once "../common/footer.php"; ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

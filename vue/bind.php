@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "バインドする" ?>
@@ -48,7 +46,8 @@
 
         <h4>style属性にバインド</h4>
         <div class="frame3">
-          要素に直接スタイルシートを指定する場合､style="CSSプロパティ名:値:"と記述しますが、Vue.jsのデータをバインドするときは、 CSSプロパティ名をキャメルケースに置き換え、値にはバインドしたいアプリケーションのプロパティ名を記述する。
+          要素に直接スタイルシートを指定する場合､style="CSSプロパティ名:値:"と記述しますが、Vue.jsのデータをバインドするときは、
+          CSSプロパティ名をキャメルケースに置き換え、値にはバインドしたいアプリケーションのプロパティ名を記述する。
           <div class="frame2">
             &lt;要素名 v-bind:style="{cssのプロパティ名: アプリケーションのプロパティ名}"&gt;
           </div>
@@ -108,7 +107,8 @@
         <div class="frame1">
           <b>v-ifとv-show</b>
           <hr>
-          DOMの更新はブラウザにとって負担が大きい為、タブで表示内容を切り替えるような場面で v-if を使うと、タブを切り替えるたびにノードの追加と削除が発生してしまうので、 v-show を使ったほうが商速な描画が期待できます。
+          DOMの更新はブラウザにとって負担が大きい為、タブで表示内容を切り替えるような場面で v-if を使うと、タブを切り替えるたびにノードの追加と削除が発生してしまうので、 v-show
+          を使ったほうが商速な描画が期待できます。
         </div>
       </section>
     </article>
@@ -116,7 +116,8 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

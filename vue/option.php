@@ -5,16 +5,14 @@
   <?php $title = "vue.js編~オプションの構成と役割~" ?>
   <?php require_once "../common/head.php"; ?>
   <style>
-    .ball {
-      position: fixed
-    }
+  .ball {
+    position: fixed
+  }
   </style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "オプションの構成と役割" ?>
@@ -84,7 +82,8 @@
         <h4>vueオプションの構成</h4>
         <div class="frame1">
           Vue.jsでは単体のオブジェクトを<b>コンポーネント</b>と呼び、1つ以上のコンポーネント組み合わせたものがアプリケーションであると考えます。<br>
-          Vue.jsアプリケーションは<b>new Vue({...})</b>でコンポーネントを生成することで始まります。Vueはフレームワーク側で定義されているクラスでコンポーネントの中で使うデータやメソッドはあらかじめ引数として渡します。
+          Vue.jsアプリケーションは<b>new
+            Vue({...})</b>でコンポーネントを生成することで始まります。Vueはフレームワーク側で定義されているクラスでコンポーネントの中で使うデータやメソッドはあらかじめ引数として渡します。
           <div class="frame2">
             var obj = new Vue({オブジェクト});
           </div>
@@ -185,39 +184,40 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 
   <script>
-    //「動くモノ」クラスの定義
-    var Movable = function(x, y) {
-      this.pos = {
-        x: x,
-        y: y
-      };
-      this.move = function(x, y) {
-        this.pos.x += x;
-        this.pos.y += y;
-      };
-    }
+  //「動くモノ」クラスの定義
+  var Movable = function(x, y) {
+    this.pos = {
+      x: x,
+      y: y
+    };
+    this.move = function(x, y) {
+      this.pos.x += x;
+      this.pos.y += y;
+    };
+  }
 
-    //ボールオブジェクトを格納する空の配列を用意する
-    var ball = [];
+  //ボールオブジェクトを格納する空の配列を用意する
+  var ball = [];
 
-    //100個分の繰り返し
-    for (var i = 0; i <= 20; i++) {
-      //ボールプロジェクトのインスタンス生成
-      ball[i] = new Movable(
-        Math.floor(Math.random() * window.innerWidth),
-        Math.floor(Math.random() * window.innerHeight)
-      );
-    }
+  //100個分の繰り返し
+  for (var i = 0; i <= 20; i++) {
+    //ボールプロジェクトのインスタンス生成
+    ball[i] = new Movable(
+      Math.floor(Math.random() * window.innerWidth),
+      Math.floor(Math.random() * window.innerHeight)
+    );
+  }
 
-    //ボールをブラウザに描画
-    for (var i = 0; i <= 20; i++) {
-      document.write('<div class = "ball" style = "top: ' + ball[i].pos.y + 'px; left:' + ball[i].pos.x + 'px;">☆</div>');
-    }
+  //ボールをブラウザに描画
+  for (var i = 0; i <= 20; i++) {
+    document.write('<div class = "ball" style = "top: ' + ball[i].pos.y + 'px; left:' + ball[i].pos.x + 'px;">☆</div>');
+  }
   </script>
 </body>
 

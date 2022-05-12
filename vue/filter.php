@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "フィルター" ?>
@@ -48,7 +46,9 @@
         <?php echo $Filter_g; ?>
         <div class="br50"></div>
         <h2>ローカルスコープにフィルター登録</h2>
-        <p>filtersオプションを使ってコンポーネントの中に登録したフィルターは、その中だけで使えるローカルスコープとなり、他のコンポーネントから隠れる。特定のコンポーネントの中だけで使うフィルターは、なるべくローカルスコープに登録したほうが独立性を保てます。</p>
+        <p>
+          filtersオプションを使ってコンポーネントの中に登録したフィルターは、その中だけで使えるローカルスコープとなり、他のコンポーネントから隠れる。特定のコンポーネントの中だけで使うフィルターは、なるべくローカルスコープに登録したほうが独立性を保てます。
+        </p>
 
         <div class="frame2">
           filters: {フィルター名: 関数オブジェクト}
@@ -80,37 +80,38 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
   <script src="../scripts/vue2.6.14.js"></script>
   <script>
-    Vue.filter('number_format', function(val) {
-      return val.toLocaleString();
-    });
+  Vue.filter('number_format', function(val) {
+    return val.toLocaleString();
+  });
 
-    var app = new Vue({
-      el: '#app',
-      data: {
-        price: 4500
-      }
-    });
+  var app = new Vue({
+    el: '#app',
+    data: {
+      price: 4500
+    }
+  });
   </script>
   <script>
-    var app2 = new Vue({
-      el: '#app2',
-      data: {
-        price: 12500
+  var app2 = new Vue({
+    el: '#app2',
+    data: {
+      price: 12500
+    },
+    filters: {
+      number_format: function(val) {
+        return val.toLocaleString();
       },
-      filters: {
-        number_format: function(val) {
-          return val.toLocaleString();
-        },
-        unit: function(val) {
-          return val + '円';
-        }
+      unit: function(val) {
+        return val + '円';
       }
-    });
+    }
+  });
   </script>
 </body>
 

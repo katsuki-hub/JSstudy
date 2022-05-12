@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "フォーム~入力データのチェック~" ?>
@@ -122,7 +120,8 @@ if (isset($_POST[&#039;name&#039;])) { //名前を取り出す
         ?>
         <h4>数値かどうかのチェック</h4>
         <div class="frame3">
-          フォームからの入力は文字列になるので、ctype_digit()〖0以上の整数〗または is_numeric()〖+-の符号を含んだ数字〗を使って判定します。<br>※is_float()やis_int()はそのままでは使えません。
+          フォームからの入力は文字列になるので、ctype_digit()〖0以上の整数〗または
+          is_numeric()〖+-の符号を含んだ数字〗を使って判定します。<br>※is_float()やis_int()はそのままでは使えません。
         </div>
         <div class="blank"></div>
         <h2 id="postNo">正規表現を使って郵便番号のチェック</h2>
@@ -152,7 +151,8 @@ if (isset($_POST[&#039;name&#039;])) { //名前を取り出す
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

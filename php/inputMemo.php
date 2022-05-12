@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "フォームでテキスト追記" ?>
@@ -63,7 +61,9 @@
         <p><small>※後からのアクセスは待ち状態となる為、読み書きが終わったら速やかにロックの解除を行う</small></p>
         <div class="br50"></div>
         <h4>ページをリダイレクト</h4>
-        <p>リダイレクトはユーザーの入力を待たずにコードで他のURLへ移動する機能です。<br>URLは相対パスではなく、"https://~~~~.com"のような絶対パスのURLを指定します。<br>exit()により、残りのコードは実行せずにページ移動する</p>
+        <p>
+          リダイレクトはユーザーの入力を待たずにコードで他のURLへ移動する機能です。<br>URLは相対パスではなく、"https://~~~~.com"のような絶対パスのURLを指定します。<br>exit()により、残りのコードは実行せずにページ移動する
+        </p>
         <div class="frame2">
           header("Location:" . $url);<br>
           exit();
@@ -90,7 +90,8 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

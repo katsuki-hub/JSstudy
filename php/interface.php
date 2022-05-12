@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "オブジェクト指向~インターフェース~" ?>
@@ -80,7 +78,8 @@ interface Game
 //論理値（bool、boolean）とは、真か偽かを表す変数の型のことです。真の場合は「true」、偽の場合は「false」の値をそれぞれ持ちます
 </code></pre>
 
-        <p>インターフェースの指示はnewGame()の、持ち点の$pointで新しいゲームの開始、play()でゲームの実行、isAlive()でゲーム結果が分かるようにtrue/falceで返す3つです。</p><br><br>
+        <p>インターフェースの指示はnewGame()の、持ち点の$pointで新しいゲームの開始、play()でゲームの実行、isAlive()でゲーム結果が分かるようにtrue/falceで返す3つです。</p>
+        <br><br>
 
 
         <h3>Gameインターフェースを採用したHpGameクラス</h3>
@@ -128,7 +127,9 @@ class HpGame implements Game
 }
 </code></pre>
 
-        <p>Gameインターフェースの指定に基づいて、newGame()、play()、isAlive()の3つのメソッドを実装しています。<br>内容は0~50の乱数$numを作り、偶数なら$hitPointに加算、奇数なら減算しています。そして、isAlive()で現在のポイントの$hitPointが0より多ければtrue、0以下はfalceを返す</p><br><br>
+        <p>
+          Gameインターフェースの指定に基づいて、newGame()、play()、isAlive()の3つのメソッドを実装しています。<br>内容は0~50の乱数$numを作り、偶数なら$hitPointに加算、奇数なら減算しています。そして、isAlive()で現在のポイントの$hitPointが0より多ければtrue、0以下はfalceを返す
+        </p><br><br>
 
 
         <h3>ゲームの実行結果</h3>
@@ -162,7 +163,8 @@ echo &quot;ゲーム終了&quot;, &quot;\n&quot;;
     </article>
   </div><!-- /.main-wrapper -->
   <footer><?php require_once "../common/footer.php"; ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

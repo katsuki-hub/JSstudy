@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "配列" ?>
@@ -70,7 +68,8 @@ for ($i = 0; $i &lt; count($teamA); $i++) {
           <div class="frame2">
             $myArray = array(値1,値2,値3,...);
           </div>
-          ※この配列で出力をするには、print_r()またはvar_dump()を使います。echo()では、配列を出力できません。print_r()で出力すると[0] => 値 のようにインデックス番号とその値がペアで表示されます。
+          ※この配列で出力をするには、print_r()またはvar_dump()を使います。echo()では、配列を出力できません。print_r()で出力すると[0] => 値
+          のようにインデックス番号とその値がペアで表示されます。
         </div>
         <?php
         $colors = array("赤", "黄", "青");
@@ -227,7 +226,8 @@ echo RANK[2];
     </article>
   </div><!-- /.main-wrapper -->
   <footer><?php require_once "../common/footer.php"; ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

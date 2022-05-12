@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "フォーム入力バインディング" ?>
@@ -98,7 +96,9 @@
           <p>ご希望日：{{request_date}}</p>
           <input type="date" v-model="request_date" v-bind:min="min_date">
         </div>
-        <p>HTMLの使用上type="date"のinput要素に設定できる初期値はYYYY-MM-DD形式の文字列でないといけません。そのため、createdライフサイクルハックを使いコンポーネントがDOMに結びつく前にプロパティに初期値設定しています。min属性に最小値設定するとそれ以前の日付は選択できなくなります。</p>
+        <p>
+          HTMLの使用上type="date"のinput要素に設定できる初期値はYYYY-MM-DD形式の文字列でないといけません。そのため、createdライフサイクルハックを使いコンポーネントがDOMに結びつく前にプロパティに初期値設定しています。min属性に最小値設定するとそれ以前の日付は選択できなくなります。
+        </p>
         <h3>HTML</h3>
         <?php echo $date; ?>
         <h3>JavaScript</h3>
@@ -145,84 +145,85 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
   <script src="../scripts/vue2.6.14.js"></script>
   <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        answer: []
-      },
-      computed: {
-        //チェック内容を連結した文字列を返す算出プロパティ
-        selection: function() {
-          return this.answer.join();
-        }
+  var app = new Vue({
+    el: '#app',
+    data: {
+      answer: []
+    },
+    computed: {
+      //チェック内容を連結した文字列を返す算出プロパティ
+      selection: function() {
+        return this.answer.join();
       }
-    });
+    }
+  });
   </script>
   <script>
-    var app2 = new Vue({
-      el: '#app2',
-      data: {
-        request_date: null,
-        min_date: null
-      },
-      created: function() {
-        //初期値設定を翌日へ
-        var dt = new Date();
-        dt.setDate(dt.getDate() + 1);
-        this.request_date = this.formatDate(dt);
-        //翌日の日付を最小値へ
-        this.min_date = this.request_date;
-      },
-      methods: {
-        //日付をYYYY-MM-DDに整形するメソッド
-        formatDate: function(dt) {
-          var y = dt.getFullYear();
-          var m = ('00' + (dt.getMonth() + 1)).slice(-2);
-          var d = ('00' + dt.getDate()).slice(-2);
-          var result = y + '-' + m + '-' + d;
-          return result;
-        }
+  var app2 = new Vue({
+    el: '#app2',
+    data: {
+      request_date: null,
+      min_date: null
+    },
+    created: function() {
+      //初期値設定を翌日へ
+      var dt = new Date();
+      dt.setDate(dt.getDate() + 1);
+      this.request_date = this.formatDate(dt);
+      //翌日の日付を最小値へ
+      this.min_date = this.request_date;
+    },
+    methods: {
+      //日付をYYYY-MM-DDに整形するメソッド
+      formatDate: function(dt) {
+        var y = dt.getFullYear();
+        var m = ('00' + (dt.getMonth() + 1)).slice(-2);
+        var d = ('00' + dt.getDate()).slice(-2);
+        var result = y + '-' + m + '-' + d;
+        return result;
       }
-    });
+    }
+  });
   </script>
   <script>
-    var app3 = new Vue({
-      el: '#app3',
-      data: {
-        color: '#000000',
-        red: 0,
-        blue: 0,
-        green: 0
-      },
-      computed: {
-        //赤・緑・青を配列で返す算出プロパティ
-        colorElement: function() {
-          return [this.red, this.green, this.blue];
-        }
-      },
-      watch: {
-        //赤・緑・青のいずれかの変更を監視する
-        colorElement: function(newRGB, oldRGB) {
-          //赤・緑・青を2桁の16進数表記に変換する
-          var r = ('00' + newRGB[0].toString(16).toUpperCase()).slice(-2);
-          var g = ('00' + newRGB[1].toString(16).toUpperCase()).slice(-2);
-          var b = ('00' + newRGB[2].toString(16).toUpperCase()).slice(-2);
-          //#RRGGBB形式の文字列で更新する
-          this.color = '#' + r + g + b;
-        },
-        //カラーパレットの選択変更を監視する
-        color: function(newColor, oldColor) {
-          this.red = parseInt(newColor, substr(1, 2), 16);
-          this.green = parseInt(newColor, substr(3, 2), 16);
-          this.blue = parseInt(newColor, substr(5, 2), 16);
-        }
+  var app3 = new Vue({
+    el: '#app3',
+    data: {
+      color: '#000000',
+      red: 0,
+      blue: 0,
+      green: 0
+    },
+    computed: {
+      //赤・緑・青を配列で返す算出プロパティ
+      colorElement: function() {
+        return [this.red, this.green, this.blue];
       }
-    });
+    },
+    watch: {
+      //赤・緑・青のいずれかの変更を監視する
+      colorElement: function(newRGB, oldRGB) {
+        //赤・緑・青を2桁の16進数表記に変換する
+        var r = ('00' + newRGB[0].toString(16).toUpperCase()).slice(-2);
+        var g = ('00' + newRGB[1].toString(16).toUpperCase()).slice(-2);
+        var b = ('00' + newRGB[2].toString(16).toUpperCase()).slice(-2);
+        //#RRGGBB形式の文字列で更新する
+        this.color = '#' + r + g + b;
+      },
+      //カラーパレットの選択変更を監視する
+      color: function(newColor, oldColor) {
+        this.red = parseInt(newColor, substr(1, 2), 16);
+        this.green = parseInt(newColor, substr(3, 2), 16);
+        this.blue = parseInt(newColor, substr(5, 2), 16);
+      }
+    }
+  });
   </script>
 </body>
 

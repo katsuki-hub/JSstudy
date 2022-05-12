@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "算出プロパティ" ?>
@@ -51,7 +49,8 @@
         <div class="br50"></div>
         <h4>算出プロパティが適した場面</h4>
         <div class="frame3">
-          ECサイトの商品一覧ページ等で、ユーザーが検索条件を指定して絞り込んだ結果に対してレビュー順に並び替える場面などで、加工したデータをテンプレート内で頻繁に利用する場面では、 メソッドで毎回加工するよりも算出プロパティで加工してバインドしたほうが、パフォーマンスが良くなります。
+          ECサイトの商品一覧ページ等で、ユーザーが検索条件を指定して絞り込んだ結果に対してレビュー順に並び替える場面などで、加工したデータをテンプレート内で頻繁に利用する場面では、
+          メソッドで毎回加工するよりも算出プロパティで加工してバインドしたほうが、パフォーマンスが良くなります。
         </div>
       </section>
     </article>
@@ -59,27 +58,28 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
   <script src="../scripts/vue2.6.14.js"></script>
   <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        year: (new Date()).getFullYear()
-      },
-      computed: {
-        isUrudoshi: function() {
-          //「4で割り切れて100で割り切れない」または「400で割り切れる」場合
-          if ((this.year % 4 == 0) && (this.year % 100 != 0) || (this.year % 400 == 0)) {
-            return true;
-          } else {
-            return false;
-          }
+  var app = new Vue({
+    el: '#app',
+    data: {
+      year: (new Date()).getFullYear()
+    },
+    computed: {
+      isUrudoshi: function() {
+        //「4で割り切れて100で割り切れない」または「400で割り切れる」場合
+        if ((this.year % 4 == 0) && (this.year % 100 != 0) || (this.year % 400 == 0)) {
+          return true;
+        } else {
+          return false;
         }
       }
-    });
+    }
+  });
   </script>
 </body>
 

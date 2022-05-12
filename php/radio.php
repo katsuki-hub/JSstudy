@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "フォーム~ラジオ・チェック・プル・リスト" ?>
@@ -205,14 +203,19 @@
         <form method="POST" action="<?php echo es($_SERVER['PHP_SELF']); ?>">
           <ul class="nolist">
             <li><span>宿泊先：　</span>
-              <label><input type="checkbox" name="tour[]" value="キャンプ" <?php checked("キャンプ", $tourChecked); ?>>キャンプ</label>
-              <label><input type="checkbox" name="tour[]" value="コテージ" <?php checked("コテージ", $tourChecked); ?>>コテージ</label>
+              <label><input type="checkbox" name="tour[]" value="キャンプ"
+                  <?php checked("キャンプ", $tourChecked); ?>>キャンプ</label>
+              <label><input type="checkbox" name="tour[]" value="コテージ"
+                  <?php checked("コテージ", $tourChecked); ?>>コテージ</label>
               <label><input type="checkbox" name="tour[]" value="ホテル" <?php checked("ホテル", $tourChecked); ?>>ホテル</label>
             </li>
             <li><span>お食事：　</span>
-              <label><input type="checkbox" name="meal[]" value="朝食付き" <?php checked("朝食付き", $mealChecked); ?>>朝食付き</label>
-              <label><input type="checkbox" name="meal[]" value="昼食付き" <?php checked("昼食付き", $mealChecked); ?>>昼食付き</label>
-              <label><input type="checkbox" name="meal[]" value="ディナー付き" <?php checked("ディナー付き", $mealChecked); ?>>ディナー付き</label>
+              <label><input type="checkbox" name="meal[]" value="朝食付き"
+                  <?php checked("朝食付き", $mealChecked); ?>>朝食付き</label>
+              <label><input type="checkbox" name="meal[]" value="昼食付き"
+                  <?php checked("昼食付き", $mealChecked); ?>>昼食付き</label>
+              <label><input type="checkbox" name="meal[]" value="ディナー付き"
+                  <?php checked("ディナー付き", $mealChecked); ?>>ディナー付き</label>
             </li>
             <li><span>場所：　</span>
               <select name="place[]" size="3" multiple>
@@ -276,7 +279,8 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

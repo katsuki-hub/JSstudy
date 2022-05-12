@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "文字列の変換" ?>
@@ -151,7 +149,8 @@ echo strtolower($alphabet),&quot;&lt;br&gt;&quot;,PHP_EOL;
 
         <h2>不要な改行や空白を取り除く</h2>
         <div class="frame1">
-          フォームに入力されたテキストの先頭や末尾の不要な空白や改行を取り除く関数<br>trim()先頭と末尾<br>ltrim()が先頭、rtrim()が末尾の除去<br><br>※初期値では全角空白を取り除けない。第2引数に取り除きたい文字を指定することが出来る。<br>全角空白を取り除くには第2引数に "\x20\t\n\r\o\v　"　※最後の空きは全角空白です
+          フォームに入力されたテキストの先頭や末尾の不要な空白や改行を取り除く関数<br>trim()先頭と末尾<br>ltrim()が先頭、rtrim()が末尾の除去<br><br>※初期値では全角空白を取り除けない。第2引数に取り除きたい文字を指定することが出来る。<br>全角空白を取り除くには第2引数に
+          "\x20\t\n\r\o\v　"　※最後の空きは全角空白です
         </div>
         <h3>不要な文字の取り除き</h3>
         <?php
@@ -207,7 +206,8 @@ echo &quot;[&quot;, $result, &quot;]\n&quot;;
     </article>
   </div><!-- /.main-wrapper -->
   <footer><?php require_once "../common/footer.php"; ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

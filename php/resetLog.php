@@ -1,6 +1,6 @@
 <?php
-$result1 = setcookie('visitedLog[counter]', "", time()-3600);//有効期限を過去へ
-$result2 = setcookie('visitedLog[time]', "", time()-3600);
+$result1 = setcookie('visitedLog[counter]', "", time() - 3600); //有効期限を過去へ
+$result2 = setcookie('visitedLog[time]', "", time() - 3600);
 $result = ($result1 && $result2);
 ?>
 
@@ -13,9 +13,7 @@ $result = ($result1 && $result2);
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "リセットページ" ?>
@@ -23,20 +21,21 @@ $result = ($result1 && $result2);
   </header>
   <!-- main-wrapper -->
   <div class="main-wrapper">
-  <div class="blank"></div>
-  <?php
-  if($result){
-    echo "訪問ログのクッキーを破棄しました","<hr>";
-    echo '<a href="visitedLog.php">訪問カウンターページに戻る</a>';
-  } else {
-    echo '<span class="error">クッキーの破棄でエラー</span>';
-  }
-  ?>
+    <div class="blank"></div>
+    <?php
+    if ($result) {
+      echo "訪問ログのクッキーを破棄しました", "<hr>";
+      echo '<a href="visitedLog.php">訪問カウンターページに戻る</a>';
+    } else {
+      echo '<span class="error">クッキーの破棄でエラー</span>';
+    }
+    ?>
   </div><!-- /.main-wrapper -->
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

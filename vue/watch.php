@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "ウォッチャ" ?>
@@ -76,57 +74,58 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
   <script src="../scripts/vue2.6.14.js"></script>
   <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: '',
-        stock: 9
-      },
-      methods: {
-        onDeleteItem: function() {
-          this.stock--;
-        }
-      },
-      watch: {
-        stock: function(newStock, oldStock) {
-          if (newStock == 0) {
-            this.message = '売り切れ！！';
-          }
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: '',
+      stock: 9
+    },
+    methods: {
+      onDeleteItem: function() {
+        this.stock--;
+      }
+    },
+    watch: {
+      stock: function(newStock, oldStock) {
+        if (newStock == 0) {
+          this.message = '売り切れ！！';
         }
       }
-    });
+    }
+  });
   </script>
   <script>
-    var app2 = new Vue({
-      el: '#app2',
-      data: {
-        message: '',
-        stock: 10
-      },
-      methods: {
-        onDeleteItem: function() {
-          this.stock--;
-        }
-      },
-      computed: {
-        statusMesseage: function() {
-          if (this.stock == 0) {
-            return '売り切れです';
-          }
-          return '';
-        }
-      },
-      watch: {
-        statusMesseage: function() {
-          console.log('商品のステータスが変化しました。');
-        }
+  var app2 = new Vue({
+    el: '#app2',
+    data: {
+      message: '',
+      stock: 10
+    },
+    methods: {
+      onDeleteItem: function() {
+        this.stock--;
       }
-    });
+    },
+    computed: {
+      statusMesseage: function() {
+        if (this.stock == 0) {
+          return '売り切れです';
+        }
+        return '';
+      }
+    },
+    watch: {
+      statusMesseage: function() {
+        console.log('商品のステータスが変化しました。');
+      }
+    }
+  });
   </script>
 </body>
 

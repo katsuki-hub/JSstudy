@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "配列の比較・検索" ?>
@@ -120,7 +118,8 @@ echo namecheck(&quot;一寸法師&quot;),&quot;\n &lt;br&gt;&quot;;
 
         <h4>新規の値だけを追加する</h4>
         <div class="frame3">
-          新規の値だけを配列に追加する関数 array_addUnique()をin_array()を利用して作成。第1引数で元の配列、第2引数で追加する値を渡します。<br>追加する値がin_array()でチェックし存在するならfalceを渡し、存在しなければ値を追加してtrueを返します。第1引数には&をつけて&$arrayとして参照渡しをしているので、引数で渡した配列を直接操作しています。
+          新規の値だけを配列に追加する関数
+          array_addUnique()をin_array()を利用して作成。第1引数で元の配列、第2引数で追加する値を渡します。<br>追加する値がin_array()でチェックし存在するならfalceを渡し、存在しなければ値を追加してtrueを返します。第1引数には&をつけて&$arrayとして参照渡しをしているので、引数で渡した配列を直接操作しています。
         </div>
 
         <h3>配列に新規の値だけを追加</h3>
@@ -245,7 +244,8 @@ foreach ($diffID as $value) {
 
         <h2>配列の値を検索置換する</h2>
         <div class="frame3">
-          <a href="search.php">「文字列の検索」</a>でstr_replace(),str_ireplace()を使って文字列を置換したが、配列の検索置換も行えます。検索できるのはインデックス配列の値のみで、連想配列の値を検索したい場合はpreg_replace()を使う。
+          <a
+            href="search.php">「文字列の検索」</a>でstr_replace(),str_ireplace()を使って文字列を置換したが、配列の検索置換も行えます。検索できるのはインデックス配列の値のみで、連想配列の値を検索したい場合はpreg_replace()を使う。
         </div>
         <h3>配列の値を検索置換して表示する</h3>
         <?php
@@ -346,7 +346,8 @@ foreach ($data as $user) {
     </article>
   </div><!-- /.main-wrapper -->
   <footer><?php require_once "../common/footer.php"; ?></footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
 </body>

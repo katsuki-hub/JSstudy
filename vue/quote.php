@@ -6,16 +6,14 @@
   <?php require_once "../common/head.php"; ?>
   <link href="../css/bootsrtap.css" rel="stylesheet" type="text/css">
   <style>
-    [v-cloak] {
-      opacity: 0;
-    }
+  [v-cloak] {
+    opacity: 0;
+  }
   </style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "自動見積もりフォーム" ?>
@@ -42,25 +40,29 @@
               <div class="row">
                 <div class="col-md-5">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="movie_type" id="type1" value="余興ムービー" v-model="movieType">
+                    <input class="form-check-input" type="radio" name="movie_type" id="type1" value="余興ムービー"
+                      v-model="movieType">
                     <label class="form-check-label" for="type1">余興ムービー</label>
                   </div>
                 </div><!-- col-md-5 -->
                 <div class="col-md-5">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="movie_type" id="type2" value="広告用ムービー" v-model="movieType">
+                    <input class="form-check-input" type="radio" name="movie_type" id="type2" value="広告用ムービー"
+                      v-model="movieType">
                     <label class="form-check-label" for="type2">広告用ムービー</label>
                   </div>
                 </div><!-- col-md-5 -->
                 <div class="col-md-5">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="movie_type" id="type3" value="プレゼン動画" v-model="movieType">
+                    <input class="form-check-input" type="radio" name="movie_type" id="type3" value="プレゼン動画"
+                      v-model="movieType">
                     <label class="form-check-label" for="type3">プレゼン動画</label>
                   </div>
                 </div><!-- col-md-5 -->
                 <div class="col-md-5">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="movie_type" id="type4" value="会社紹介動画" v-model="movieType">
+                    <input class="form-check-input" type="radio" name="movie_type" id="type4" value="会社紹介動画"
+                      v-model="movieType">
                     <label class="form-check-label" for="type4">会社紹介動画</label>
                   </div>
                 </div><!-- col-md-5 -->
@@ -73,7 +75,8 @@
               <span class="badge badge-danger">必須</span>
             </label>
             <div class="col-md-9">
-              <input class="form-control" type="date" id="announcement_date" placeholder="日付を選びください" v-model="announcement_date">
+              <input class="form-control" type="date" id="announcement_date" placeholder="日付を選びください"
+                v-model="announcement_date">
               <small class="form-text">動画発表の日にちを選択してください</small>
             </div>
           </div>
@@ -83,7 +86,8 @@
               <span class="badge badge-danger">必須</span>
             </label>
             <div class="col-md-9">
-              <input class="form-control" type="date" id="delivery_date" v-bind:min="tommorow" placeholder="日付を選びください" v-model="delivery_date">
+              <input class="form-control" type="date" id="delivery_date" v-bind:min="tommorow" placeholder="日付を選びください"
+                v-model="delivery_date">
               <small class="form-text">仕上がり予定日を発表日の1週間前に設定しております</small>
             </div>
           </div>
@@ -92,7 +96,8 @@
             <label class="col-md-3 col-form-label pt-0">基本料金(税込)</label>
             <div class="col-md-9">
               <div class="input-group">
-                <input type="text" class="form-control text-right" id="sum_base" v-bind:value="taxedBasePrice | number_format" readonly>
+                <input type="text" class="form-control text-right" id="sum_base"
+                  v-bind:value="taxedBasePrice | number_format" readonly>
                 <div class="input-group-append">
                   <label class="input-group-text">円</label>
                 </div>
@@ -141,7 +146,8 @@
             <label class="col-md-3 col-form-label pt-0">オプション料金(税込)</label>
             <div class="col-md-9">
               <div class="input-group">
-                <input type="text" class="form-control text-right" id="sum_opt" v-bind:value="taxedOptPrice | number_format" readonly>
+                <input type="text" class="form-control text-right" id="sum_opt"
+                  v-bind:value="taxedOptPrice | number_format" readonly>
                 <div class="input-group-append">
                   <label class="input-group-text">円</label>
                 </div>
@@ -153,7 +159,8 @@
             <label class="col-md-3 col-form-label pt-0">合計(税込)</label>
             <div class="col-md-9">
               <div class="input-group">
-                <input type="text" class="fo-m-control text-right" id="sum_total" v-bind:value="taxedTotalPrice | number_format" readonly>
+                <input type="text" class="fo-m-control text-right" id="sum_total"
+                  v-bind:value="taxedTotalPrice | number_format" readonly>
                 <div class="input-group-append">
                   <label class="input-group-text">円</label>
                 </div>
@@ -324,7 +331,8 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
   <script src="../scripts/vue2.6.14.js"></script>

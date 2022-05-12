@@ -7,9 +7,7 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2ZWXCZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <?php require_once("../common/tag_body.php"); ?>
 
   <header>
     <?php $headerTitle = "イベントハンドリング" ?>
@@ -178,71 +176,72 @@
   <footer>
     <?php require_once "../common/footer.php"; ?>
   </footer>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   <script src="../scripts/move.js"></script>
   <script src="../scripts/vue2.6.14.js"></script>
   <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        stock: 7
-      },
-      methods: {
-        onDeleteItem: function() {
-          this.stock--;
-        }
+  var app = new Vue({
+    el: '#app',
+    data: {
+      stock: 7
+    },
+    methods: {
+      onDeleteItem: function() {
+        this.stock--;
       }
-    });
+    }
+  });
   </script>
   <script>
-    var app2 = new Vue({
-      el: '#app2',
-      data: {
-        width: window.innerWidth,
-        height: window.innerHeight
-      },
-      created: function() {
-        //イベントハンドラを登録
-        addEventListener('resize', this.resizeHandler);
-      },
-      beforeDestroy: function() {
-        //イベントハンドラを解除
-        removeEventListener('resize', this.resizeHandler);
-      },
-      methods: {
-        //イベントハンドラ
-        resizeHandler: function($event) {
-          this.width = $event.target.innerWidth;
-          this.height = $event.target.innerHeight;
-        }
+  var app2 = new Vue({
+    el: '#app2',
+    data: {
+      width: window.innerWidth,
+      height: window.innerHeight
+    },
+    created: function() {
+      //イベントハンドラを登録
+      addEventListener('resize', this.resizeHandler);
+    },
+    beforeDestroy: function() {
+      //イベントハンドラを解除
+      removeEventListener('resize', this.resizeHandler);
+    },
+    methods: {
+      //イベントハンドラ
+      resizeHandler: function($event) {
+        this.width = $event.target.innerWidth;
+        this.height = $event.target.innerHeight;
       }
-    });
+    }
+  });
   </script>
   <script>
-    var app3 = new Vue({
-      el: '#app3',
-      data: {
-        point: {
-          x: 0,
-          y: 0
-        }
-      },
-      created: function() {
-        //イベントハンドラを登録
-        addEventListener('mousemove', this.mousemoveHandler);
-      },
-      beforeDestroy: function() {
-        //イベントハンドラを解除
-        removeEventListener('mousemove', this.mousemoveHandler);
-      },
-      methods: {
-        mousemoveHandler: function($event) {
-          this.point.x = $event.clientX;
-          this.point.y = $event.clientY;
-        }
+  var app3 = new Vue({
+    el: '#app3',
+    data: {
+      point: {
+        x: 0,
+        y: 0
       }
-    });
+    },
+    created: function() {
+      //イベントハンドラを登録
+      addEventListener('mousemove', this.mousemoveHandler);
+    },
+    beforeDestroy: function() {
+      //イベントハンドラを解除
+      removeEventListener('mousemove', this.mousemoveHandler);
+    },
+    methods: {
+      mousemoveHandler: function($event) {
+        this.point.x = $event.clientX;
+        this.point.y = $event.clientY;
+      }
+    }
+  });
   </script>
 </body>
 
