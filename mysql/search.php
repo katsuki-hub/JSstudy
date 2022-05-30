@@ -16,10 +16,10 @@ if (empty($_POST)) { //空の時エラー
 }
 
 //接続パラメーター
-$user = 'katsuki';
-$passwoed = 'katsu4426';
-$dbName = 'kyotei';
-$host = 'localhost:3306';
+$user = 'LAA1192529';
+$passwoed = 'katsu0901';
+$dbName = 'LAA1192529-boatrace';
+$host = 'mysql201.phy.lolipop.lan';
 $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
 ?>
 
